@@ -1,0 +1,274 @@
+﻿@model BhartiNetwork.Models.Home
+@{
+    ViewBag.Title = "Career";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*@using (Html.BeginForm("Career", "Home", FormMethod.Post))
+{*@
+        <!-- ======= Hero Section ======= -->
+    <section id="hero-new" class="d-flex justify-cntent-center align-items-center herocareer">
+        <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="carousel-container">
+                    <h2 class="animate__animated animate__fadeInDown text-uppercase text-white text-center mb-0 fs-md-4 fs-2 ">Career</h2>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Hero -->
+
+  <!-- ============================================-->
+      <!-- <section> begin ============================-->
+    <section class="py-4 "></section><!-- <section> close ============================-->
+      <!-- ============================================-->
+
+    <main id="main">
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="bg-white pt-7">
+            <!-- ======= Contact Section ======= -->
+            <section id="contact" class="contact">
+                <div class="container" data-aos="fade-up">
+
+                    <div class="section-title">
+                        <h2>Job Application Form</h2>
+                    </div>
+                    <div class="row mt-1 d-flex justify-content-end" data-aos="fade-right" data-aos-delay="100">
+
+                        <div class="col-lg-4 pt-5">
+                            <img src="~/assets/img/career-form-1.png" width="400px">
+
+                        </div>
+
+                        <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
+
+                            @*<form action="forms/contact.php" method="post" role="form" class="php-email-form">*@
+                            
+                                    @using (Html.BeginForm("Career", "Home", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+                                    {
+                                <div class="row">
+                                    <p style="color:red;">
+                                        @TempData["Career"]
+                                    </p>
+                                    <div class="col-md-12 form-group">
+                                        <label>Full Name<span style="color: red">*</span></label>
+                                        @*Vehicle Number<span style="color: red">*</span>*@
+                                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Enter Your Name", @onkeypress= "return onlyAlphabets();" })
+
+
+                                        @*<input type="text" name="name" class="form-control" id="name" placeholder="Enter Your Name" required>*@
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6 form-group">
+                                        @*<label>Mobile Number</label>
+                                        <input type="text" name="phone" class="form-control" id="phone" placeholder="Mobile Number" required>*@
+
+                                        <label>Mobile Number<span style="color: red">*</span></label>
+                                        @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @placeholder = "Mobile Number", @onkeypress = "return isNumberKey(event)", @maxlength = "10" })
+                                    </div>
+                                    <div class="col-md-6 form-group mt-3 mt-md-0">
+
+                                        <label>Your Email<span style="color: red">*</span></label>
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Your Email" })
+
+                                        @*<label>Your Email</label>
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>*@
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6 form-group">
+                                        <!-- <input type="text" name="position" class="form-control" id="position" placeholder="Select Your Position" required> -->
+                                        <label>Your Position</label>
+                                        <select class="form-control" id="Designation" value="0" name="Designation" required>
+                                            <option value="0">Select Your Position</option>
+                                            <option>Site Engineers</option>
+                                            <option>Survey Engineers</option>
+                                            <option>Trainee Engineers</option>
+                                            <option>Technicians</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                                        <!-- <input type="email" class="form-control" name="qualification" id="qualification" placeholder="Select Your Qualification" required> -->
+                                        <label>Your Qualification</label>
+                                        <select class="form-control" name="Qualification" id="Qualification">
+                                            <option value="0">Select Your Qualification</option>
+                                            <option>B. Tech</option>
+                                            <option>Diploma</option>
+                                            <option>I.T.I. – Electronics & Communications</option>
+                                            <option>Electrical only</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6 form-group">
+                                        <label>Preferred Location<span style="color: red">*</span></label>
+                                        @Html.TextBoxFor(m => m.Location, new { @class = "form-control", @placeholder = "Preferred Location" })
+
+
+                                        @*<label>Preferred Location</label>
+                                        <input type="text" class="form-control" name="preferred_location" id="preferred_location" placeholder="Preferred Location" required>*@
+                                    </div>
+                                    <div class="col-md-6 form-group mt-3 mt-md-0">
+
+                                        <label>Year Of Experience<span style="color: red">*</span></label>
+                                        @Html.TextBoxFor(m => m.Experience, new { @class = "form-control", @placeholder = "Year Of Experience", @onkeypress = "return isNumberKey(event)" })
+
+                                        @*<label>Year Of Experience</label>
+                                        <input class="form-control" name="experience" id="experience" placeholder="Year Of Experience" required>*@
+                                    </div>
+                                </div>
+                                <div class="form-group mt-3">
+
+                                    <label>Submit Your Cover Letter or Resume</label>
+                                    <input type="file" class="form-control" style="line-height: 2.2;" accept = "image/*" name="postedFile" id="postedFile" placeholder="Submit Your Cover Letter or Resume">
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label>Address<span style="color: red">*</span></label>
+                                    @Html.TextAreaFor(m => m.Address, new { @class = "form-control", @placeholder = "Address" })
+
+                                    @*<label>Address</label>
+                                    <textarea class="form-control" name="address" rows="5" placeholder="Enter Your Address" required></textarea>*@
+                                </div>
+                                <div class="my-3">
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                                </div>
+                                <div class="container">
+                                    <div class="text-center "><button type="submit" onclick="return validateform();">Submit Form</button></div>
+                                </div>
+                            @*</form>*@
+                                   }
+                        </div>
+
+                    </div>
+
+                </div>
+            </section><!-- End Contact Section -->
+        </section><!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+    </main><!-- ===============================================-->
+
+
+  <!-------==========Whatsapp==================---------->
+    <a href="https://api.whatsapp.com/send?phone=919839418222" class="float" target="_blank">
+        <i class="bi bi-whatsapp my-float"></i>
+    </a>
+    <!-------==========Whatsapp==================---------->
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+      function validateform() {
+       
+        $(".errortext").removeClass("errortext");
+        if ($('#Name').val() == '') {
+            $("#Name").addClass('errortext');
+            $('#Name').focus();
+            return false;
+        }
+        
+        if ($('#Mobile').val() == '') {
+            $("#Mobile").addClass('errortext');
+            $('#Mobile').focus();
+                return false;
+            }
+        if ($('#Email').val() == '') {
+            $("#Email").addClass('errortext');
+            $('#Email').focus();
+                return false;
+            }
+        if ($('#Designation').val() == '0') {
+            $("#Designation").addClass('errortext');
+            $('#Designation').focus();
+                return false;
+        }
+        if ($('#Qualification').val() == '0') {
+            $("#Qualification").addClass('errortext');
+            $('#Qualification').focus();
+            return false;
+        }
+        if ($('#Location').val() == '') {
+            $("#Location").addClass('errortext');
+            $('#Location').focus();
+            return false;
+        }
+        if ($('#Location').val() == '') {
+            $("#Location").addClass('errortext');
+            $('#Location').focus();
+            return false;
+        }
+        if ($('#Experience').val() == '') {
+            $("#Experience").addClass('errortext');
+            $('#Experience').focus();
+            return false;
+        }
+        if ($('#postedFile').val() == '') {
+            $("#postedFile").addClass('errortext');
+            $('#postedFile').focus();
+            return false;
+        }
+        if ($('#Address').val() == '') {
+            $("#Address").addClass('errortext');
+            $('#Address').focus();
+            return false;
+        }
+    }
+      function isNumberKey(evt) {
+          var charCode = (evt.which) ? evt.which : event.keyCode;
+          if (charCode != 46 && charCode > 31
+            && (charCode < 48 || charCode > 57))
+              return false;
+          return true;
+      }
+      function onlyAlphabets(e, t) {
+          try {
+              if (window.event) {
+                  var charCode = window.event.keyCode;
+              }
+              else if (e) {
+                  var charCode = e.which;
+              }
+              else { return true; }
+              if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode == 32))
+                  return true;
+              else
+                  return false;
+          }
+          catch (err) {
+              alert(err.Description);
+          }
+      }
+      
+</script>
+
+<style>
+    .errortext {
+        border: 1px solid red !important;
+        background-color: #fff0f0 !important;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

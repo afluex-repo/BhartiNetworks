@@ -1,0 +1,179 @@
+﻿@model BhartiNetwork.Models.Home
+@{
+    ViewBag.Title = "newuser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("newuser", "Home", FormMethod.Post))
+{
+     <!-- ======= Hero Section ======= -->
+    <section id="hero-new" class="d-flex justify-cntent-center align-items-center herocareer">
+        <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="carousel-container">
+                    <h2 class="animate__animated animate__fadeInDown text-uppercase text-white text-center mb-0 fs-md-4 fs-2 ">Vendor</h2>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Hero -->
+
+  <!-- ============================================-->
+      <!-- <section> begin ============================-->
+    <section class="py-4 "></section><!-- <section> close ============================-->
+      <!-- ============================================-->
+    <main id="main">
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <!-- ======= Contact Section ======= -->
+        <section id="contact bg-white pt-7" class="contact">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Vendor Registration Form</h2>
+                </div>
+
+                <div class="row mt-1 d-flex justify-content-center" data-aos="fade-right" data-aos-delay="100">
+                    <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100" style="border: 2px solid #f58634; border-radius: 25px; padding: 40px;">
+
+                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label>Circle</label>
+                                    <input type="text" name="circle" class="form-control" id="circle" placeholder="Enter Your Circle" required>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6 form-group">
+                                    <label>Name of Organization</label>
+                                    <input type="text" name="organization-name" class="form-control" id="organization-name" placeholder="Please Enter Your Organization Name" required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label>Starting of Organization</label>
+                                    <input type="text" class="form-control" name="starting-organization" id="starting-organization" placeholder="Please Enter Your Starting of Organization" required>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6 form-group">
+                                    <label>Mobile Number</label>
+                                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Mobile Number" required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label>Address & Co No</label>
+                                <textarea class="form-control" name="address" rows="3" placeholder="Enter Your Address" required></textarea>
+                            </div>
+
+                            <hr class="mt-4 text-orange" />
+
+                            <label class="fs-md-4 text-orange mb-2"><strong>BANK DETAILS</strong></label>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label>Name As Per Bank Record</label>
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Name As Per Bank Record" required>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6 form-group">
+                                    <label>Account Number</label>
+                                    <input type="text" name="account-number" class="form-control" id="account-number" placeholder="Please Type Your Account Number" required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label>Branch Address</label>
+                                    <input type="text" class="form-control" name="branch-address" id="branch-address" placeholder="Please Type Your Branch Address" required>
+                                </div>
+                            </div>
+
+                            <hr class="mt-4 text-orange" />
+
+                            <label class="fs-md-4 text-orange mb-2"><strong>MODE OF PAYMENT</strong></label>
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <label>Deposit in the Bank</label>
+                                    <input type="text" name="deposit" class="form-control" id="deposit" placeholder="Deposit in the Bank" required>
+                                </div>
+                            </div>
+
+                            <hr class="mt-4 text-orange" />
+
+                            <div class="row mt-3">
+                                <div class="col-md-12 form-group">
+                                    <!-- <input type="text" name="position" class="form-control" id="position" placeholder="Select Your Position" required> -->
+                                    <label>Type of Organization</label>
+                                    <select class="form-control" id="position" name="position" required>
+                                        <option>Select</option>
+                                        <option>Partnership</option>
+                                        <option>Propreitory</option>
+                                        <option>Public Ltd</option>
+                                        <option>Pvt Ltd</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6 form-group">
+                                    <label>Pan No. </label>
+                                    <input type="text" name="panno" class="form-control" id="panno" placeholder="Type Your PAN No." required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label>GST No.</label>
+                                    <input type="text" class="form-control" name="gstno" id="gstno" placeholder="Type Your GST No." required>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12 form-group">
+                                    <!-- <input type="text" name="position" class="form-control" id="position" placeholder="Select Your Position" required> -->
+                                    <label>Range of Product/Services Offered</label>
+                                    <select class="form-control" id="position" name="position" required>
+                                        <option>Select</option>
+                                        <option>BTS,Node-B,MR,LTE,Installation & Commissioning,CAB-EX & All the Extra Activity</option>
+                                        <option>Link Installation And Commissioning</option>
+                                        <option>Site Survey</option>
+                                        <option>Man Power Supply</option>
+                                        <option>Civil Work</option>
+                                        <option>Electrical Work</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <label>Password</label>
+                                <input type="text" class="form-control" name="password" id="password" placeholder="Please Type Your Password" required>
+                            </div>
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="container">
+                                <div class="text-center "><button type="submit">Submit Form</button></div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Contact Section -->
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+    </main><!-- ===============================================-->
+
+
+  <!-------==========Whatsapp==================---------->
+    <a href="https://api.whatsapp.com/send?phone=919839418222" class="float" target="_blank">
+        <i class="bi bi-whatsapp my-float"></i>
+    </a>
+    <!-------==========Whatsapp==================---------->
+}
+

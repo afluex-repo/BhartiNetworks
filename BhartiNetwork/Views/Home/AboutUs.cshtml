@@ -1,0 +1,104 @@
+﻿@model BhartiNetwork.Models.Home
+@{
+    ViewBag.Title = "AboutUs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("AboutUs", "Home", FormMethod.Post))
+{
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero-new" class="d-flex justify-cntent-center align-items-center heroabout">
+        <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="carousel-container">
+                    <h2 class="animate__animated animate__fadeInDown text-uppercase text-white text-center mb-0 fs-md-4 fs-2 ">About Us</h2>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+  <!-- ============================================-->
+      <!-- <section> begin ============================-->
+    <section class="py-4 "></section><!-- <section> close ============================-->
+      <!-- ============================================-->
+
+    <main id="main">
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="bg-white pt-7">
+            <div class="container-fluid">
+
+                <div class="row justify-content-center">
+                    <!-- <div class="col-lg-3 text-sans-serif"> -->
+                    <div class="col-lg-4 align-items-stretch position-relative video-box" style='background-image: url("../assets/img/why-us.jpg"); background-repeat: no-repeat;' data-aos="fade-right">
+                    </div>
+
+                    <!-- </div> -->
+                    <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch" data-aos="fade-left">
+                        <p class="mb-4"></p>
+                        <p class="fs-5">“To provide Cost efficient Services for emerging Telecom Networks, carrying innovative products to enable our customers to achieve excellence in their performance”</p>
+                        <div class="section-title">
+                            <h2 class="mt-6 mb-3">BHARTI NETWORKS</h2>
+
+                            <p>The Wireless telecommunications industry has undergone explosive growth and has become global in its scope and ambitions. Spectrum is becoming severely congested. Quality network design is no longer a “nicety”, but rather a necessity. With the New technologies like LTE , 3G, WiMax being introduced, competition is getting severe and the Telecommunications Industry is looking for simpler, cost effective and innovative ways to maintain the Networks. Bharti Networks was formed in 2016 and is primarily engaged in providing RF services &In building solutions to OEM’s, NEM’s and Telecom Operators. With established foot prints across the Globe, Bharti Networks has already started implementing Automation in its services resulting into Cost Efficient and improved delivery to its Customers. Bharti Networks has expanded itself to cover Turnkey solutions, RF Planning and Optimization, Network Performance Services, Switch Planning, IP Planning, Project management and End to End Services as a Solution, in its ambit of Services. It also undertakes task based projects requiring delivery of tangible results in the form of either cell site production or network quality improvement and has consistently met or exceeded Key Performance Indicators (KPI).</p>
+                        </div>
+                        <div class="section-title">
+                            <h2 class="mt-5">What we've achieved</h2>
+                            <div class="row mt-4 lh-3">
+                                <div class="col-lg-12">
+                                    <ul class="px-lg-0">
+                                        <li class="mb-3">The Wireless industry still needs creative problem solvers, grounded in experience but aspiring to develop new solutions, well versed in all of the essential details of infrastructure equipment from manufactures the world over. We have ability to build team in minimum lead-time. Our presence in India &amp; Dubai enables us to access quicker and skilled resources.</li>
+                                        <li class="mb-3">Effective project management begins with a complete understanding of the Wireless communications industry</li>
+                                        <li class="mb-3">Project management is a methodology used to manage the effort of people, equipment and material to achieve a specific set of goals and objectives. Project management methodology is becoming one of the most popular management techniques used in the world today.We excell in it.</li>
+                                        <li class="mb-3">Radio network planning comprises of radio network dimensioning, planning of the coverage, capacity, frequency allocation and interference analysis. Moreover it includes detailed planning, which concentrate on parameter planning with necessary field measurement.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end of .container-->
+        </section><!-- <section> close ============================-->
+        <!-- ============================================-->
+        <!-- ======= Clients Section ======= -->
+        <section id="clients" class="clients" style="background-color: #0000000d;">
+            <div class="container" data-aos="zoom-in">
+                <div class="section-title">
+                    <h2>Our Clients</h2>
+                </div>
+                <div class="clients-slider swiper">
+                    <div class="swiper-wrapper align-items-center">
+                        <div class="swiper-slide"><img src="~/assets/img/clients/ncr.png" class="img-fluid" alt="ncr"></div>
+                        <div class="swiper-slide"><img src="~/assets/img/clients/nt-name.png" class="img-fluid" alt="ntc"></div>
+                        <div class="swiper-slide"><img src="~/assets/img/clients/Airtel-Logo.png" class="img-fluid" alt="Airtel-Logo"></div>
+                        <div class="swiper-slide"><img src="~/assets/img/clients/ceragon-1.png" class="img-fluid" alt="ceragon"></div>
+                        <div class="swiper-slide"><img src="~/assets/img/clients/jio.png" class="img-fluid" alt="jio"></div>
+                        <div class="swiper-slide"><img src="~/assets/img/clients/myvi.png" class="img-fluid" alt="myvi"></div>
+                        <div class="swiper-slide"><img src="~/assets/img/clients/nec.png" class="img-fluid" alt="nec"></div>
+                        <div class="swiper-slide"><img src="~/assets/img/clients/nokia.png" class="img-fluid" alt=""></div>
+                        <div class="swiper-slide"><img src="~/assets/img/clients/chinaccs-1.png" class="img-fluid" alt="chinaccs"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+        </section><!-- End Clients Section -->
+
+
+    </main><!-- ===============================================-->
+
+
+  <!-------==========Whatsapp==================---------->
+    <a href="https://api.whatsapp.com/send?phone=919839418222" class="float" target="_blank">
+        <i class="bi bi-whatsapp my-float"></i>
+    </a>
+    <!-------==========Whatsapp==================---------->
+
+
+}
