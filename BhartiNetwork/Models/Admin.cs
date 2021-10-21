@@ -21,7 +21,19 @@ namespace BhartiNetwork.Models
         public string Email { get; set; }
         public string Subject { get; set; }
         public string Address { get; set; }
+        
+        
+        public string CareerId { get; set; }
+        public string Mobile { get; set; }
+        public string Designation { get; set; }
+        public string Qualification { get; set; }
 
+        public string Location { get; set; }
+        public string Experience { get; set; }
+        public string Resume { get; set; }
+        
+
+        public List<Admin> lstCareer { get; set; }
         public List<Admin> lstProject { get; set; }
         public List<Admin> lstContact { get; set; }
         
@@ -127,16 +139,42 @@ namespace BhartiNetwork.Models
 
         public DataSet GetCareerDetails()
         {
-            SqlParameter[] para ={new SqlParameter ("@ContactId",ContactId),
+            SqlParameter[] para ={new SqlParameter ("@CareerId",CareerId),
                                  new SqlParameter ("@Name",Name),
+                                  new SqlParameter("@Mobile",Mobile),
                                 new SqlParameter("@Email",Email),
-                                new SqlParameter("@Subject",Subject),
-                                new SqlParameter("@Address",Address)
+                                new SqlParameter("@Designation",Designation),
+                                new SqlParameter("@Qualification",Qualification),
+                                new SqlParameter ("@Location",Location),
+                                 new SqlParameter ("@Experience",Experience),
+                                new SqlParameter("@Resume",Image)
                                  };
-            DataSet ds = Connection.ExecuteQuery("GetContactDetails", para);
+            DataSet ds = Connection.ExecuteQuery("GetCareerDetails", para);
             return ds;
 
         }
+
+
+        public DataSet DeleteCareer()
+        {
+            SqlParameter[] para ={new SqlParameter ("@CareerId",CareerId),
+                                 new SqlParameter("@AddedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("DeleteCareer", para);
+            return ds;
+        }
+
+        public DataSet SaveClient()
+        {
+            SqlParameter[] para ={new SqlParameter ("@PostedFile",Image),
+                                new SqlParameter("@Date",Date),
+                                 new SqlParameter("@AddedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("SaveClient", para);
+            return ds;
+        }
+
+
 
     }
 }

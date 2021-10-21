@@ -1,25 +1,24 @@
 ﻿@model BhartiNetwork.Models.Admin
 
 @{
-    ViewBag.Title = "GetProjectList";
+    ViewBag.Title = "GetCareerList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
-@using (Html.BeginForm("GetProjectList", "Admin", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+@using (Html.BeginForm("GetCareerList", "Admin", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
 {   <div class="row">
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Project List</h4>
+                    <h4 class="card-title">Career List</h4>
                     <p style="color:red;">
-                        @TempData["Record"]
+                        @TempData["Career"]
                     </p>
                     <div class="row" style="padding-bottom:20px;">
                         <div class="col-sm-10">
                         </div>
                         <div class="col-sm-2">
-                            <a href="/Admin/Project" class="btn btn-primary" style="border-radius:100px;">Add New</a>
+                            @*<a href="/Admin/Project" class="btn btn-primary" style="border-radius:100px;">Add New</a>*@
                         </div>
                     </div>
 
@@ -31,30 +30,37 @@
                                     <thead>
                                         <tr>
                                             <th>S No.</th>
-                                            <th>Project Name</th>
-                                            <th>Date</th>
-                                            <th>Details</th>
-                                            <th>File</th>
-                                            <th>Action</th>
+                                            <th>Name</th>
+                                            <th>Mobile</th>
+                                            <th>Email</th>
+                                            <th>Designation</th>
+                                            <th>Qualification</th>
+                                            <th>Location</th>
+                                            <th>Experience</th>
+                                            <th>Resume</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @if (Model != null)
                                         {
-                                            if (Model.lstProject != null)
+                                            if (Model.lstCareer != null)
                                             {
                                                 int i = 1;
-                                                foreach (var item in Model.lstProject)
+                                                foreach (var item in Model.lstCareer)
                                                 {
                                                     <tr>
                                                         <td>@i</td>
                                                         <td>@item.Name</td>
-                                                        <td>@item.Date</td>
-                                                        <td>@item.Details</td>
+                                                        <td>@item.Mobile</td>
+                                                        <td>@item.Email</td>
+                                                        <td>@item.Designation</td>
+                                                        <td>@item.Qualification</td>
+                                                        <td>@item.Location</td>
+                                                        <td>@item.Experience</td>
                                                         <td><img src="@item.Image" style="height:50px;width:50px;" /></td>
                                                         <td>
-                                                            <a href="/Admin/Project?Id=@item.ProjectId" class="btn btn-info btn-sm">Edit</a>
-                                                            <a href="/Admin/ProjectDelete?Id=@item.ProjectId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want delete this record ?')">Delete</a>
+                                                            @*<a href="/Admin/Project?Id=@item.ProjectId" class="btn btn-info btn-sm">Edit</a>*@
+                                                            <a href="/Admin/DeleteCareer?Id=@item.CareerId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want delete this record ?')">Delete</a>
                                                         </td>
                                                     </tr>
                                                     i++;
