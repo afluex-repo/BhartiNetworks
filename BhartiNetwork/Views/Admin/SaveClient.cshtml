@@ -1,0 +1,95 @@
+﻿@model BhartiNetwork.Models.Admin
+
+@{
+    ViewBag.Title = "SaveClient";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("SaveClient", "Admin", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{   <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Client</h4>
+                    <p style="color:red;">
+                        @TempData["Client"]
+                    </p>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Upload File <span style="color: red">*</span></label>
+                        <input type="file" name="PostedFile" id="PostedFile" class="form-control" />
+
+                    </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail3">Date <span style="color: red">*</span></label>
+                            @Html.TextBoxFor(m => m.Date, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @readonly = true })
+                        </div>
+                     
+
+                    <input type="submit" value="Submit" class="btn btn-info" id="btnsave" name="btnsave" onclick="return validateform();" />
+
+
+                        @*<button type="submit" class="btn btn-info" id="btnsave" name="btnsave" onclick="return validateform();">Submit</button>*@
+                        @*<a href="/Admin/GetProjectList" class="btn btn-primary">Back To List</a>*@
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+
+
+<script>
+    function validateform() {
+        $(".errortext").removeClass("errortext");
+        if ($('#Date').val() == '') {
+            $("#Date").addClass('errortext');
+            $('#Date').focus();
+            return false;
+        }
+        if ($('#PostedFile').val() == '') {
+            $("#PostedFile").addClass('errortext');
+            $('#PostedFile').focus();
+            return false;
+        }
+    }
+</script>
+
+<style>
+    .errortext {
+        border: 1px solid red !important;
+        background-color: #fff0f0 !important;
+    }
+</style>
+
+
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+<script>
+
+    //var ProjectId = $("#ProjectId").val();
+    //if (ProjectId != 0) {
+    //    $("#btnsave").val("Update");
+    //}
+
+
+</script>
+
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+<script>
+
+    $('#Date').datepicker({
+        format: 'dd/mm/yyyy',
+        changeYear: true,
+        changeMonth: true,
+
+    });
+
+
+
+</script>

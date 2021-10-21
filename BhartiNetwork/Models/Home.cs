@@ -27,8 +27,9 @@ namespace BhartiNetwork.Models
         public string LoginId { get; set; }
         public string Password { get; set; }
         public string ProjectId { get; set; }
-        
+        public string ClientId { get; set; }
 
+        public List<Home> lstClient { get; set; }
         public List<Home> lstProject { get; set; }
         
 
@@ -75,5 +76,21 @@ namespace BhartiNetwork.Models
             return ds;
 
         }
+
+        public DataSet GetClientDetails()
+        {
+            SqlParameter[] para ={new SqlParameter ("@ClientId",ClientId),
+                                new SqlParameter("@Date",Date),
+                                new SqlParameter("@PostedFile",Image)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("GetClientDetails", para);
+            return ds;
+
+        }
+
+
+
+
+        
     }
 }

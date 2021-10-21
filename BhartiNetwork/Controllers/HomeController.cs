@@ -14,7 +14,22 @@ namespace BhartiNetwork.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            Home model = new Home();
+            List<Home> lstClient = new List<Home>();
+            DataSet ds = model.GetClientDetails();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Home obj = new Home();
+                    obj.ClientId = dr["PK_ClientId"].ToString();
+                    obj.Date = dr["Date"].ToString();
+                    obj.Image = dr["ImageFile"].ToString();
+                    lstClient.Add(obj);
+                }
+                model.lstClient = lstClient;
+            }
+            return View(model);
         }
         public ActionResult AboutUs()
         {
@@ -141,6 +156,28 @@ namespace BhartiNetwork.Controllers
             }
             return View(model);
         }
+
+
+        //public ActionResult ClientList()
+        //{
+        //    Home model = new Home();
+        //    List<Home> lstClient = new List<Home>();
+        //    DataSet ds = model.GetClientDetails();
+        //    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        //    {
+        //        foreach (DataRow dr in ds.Tables[0].Rows)
+        //        {
+        //            Home obj = new Home();
+        //            obj.ClientId = dr["PK_ClientId"].ToString();
+        //            obj.Date = dr["Date"].ToString();
+        //            obj.Image = dr["ImageFile"].ToString();
+        //            lstClient.Add(obj);
+        //        }
+        //        model.lstClient = lstClient;
+        //    }
+        //    return View(model);
+        //}
+
 
     }
 }

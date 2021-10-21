@@ -1221,9 +1221,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Controllers\AdminController.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1262,6 +1260,9 @@
     <Content Include="Views\Admin\GetProjectList.cshtml" />
     <Content Include="Views\Admin\GetContactList.cshtml" />
     <Content Include="Views\Admin\ContactUs.cshtml" />
+    <Content Include="Views\Admin\GetCareerList.cshtml" />
+    <Content Include="Views\Admin\SaveClient.cshtml" />
+    <Content Include="Views\Home\ClientList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
