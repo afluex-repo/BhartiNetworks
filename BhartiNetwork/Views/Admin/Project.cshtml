@@ -1,0 +1,131 @@
+﻿@model BhartiNetwork.Models.Admin
+
+@{
+    ViewBag.Title = "Project";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm("Project", "Admin", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{   <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Project</h4>
+                    <p style="color:red;">
+                        @TempData["Project"]
+                    </p>
+                    <form class="forms-sample">
+                        <div class="form-group">
+                            <input type="hidden" name="ProjectId" id="ProjectId" value="@Model.ProjectId" />
+                            <label for="exampleInputName1">Name <span style="color: red">*</span></label>
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Enter Your Name", @onkeypress = "return onlyAlphabets();" })
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail3">Date <span style="color: red">*</span></label>
+                            @Html.TextBoxFor(m => m.Date, new { @class = "form-control", @placeholder = "DD/MM/YYYY",@readonly=true,@autocompalet="off"})
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword4">Details <span style="color: red">*</span></label>
+                            @Html.TextAreaFor(m => m.Details, new { @class = "form-control", @placeholder = "Details" })
+                        </div>
+                        <div class="form-group">
+                            <label>File upload <span style="color: red">*</span></label>
+                            <input type="file" name="img[]" class="file-upload-default">
+                            <div class="input-group col-xs-12">
+                                <input type="file" class="form-control" accept="image/*" name="postedFile" id="postedFile" placeholder="Image">
+
+                            </div>
+                        </div>
+                        @*<input type="submit" value="Submit" id="btnsave"*@
+
+                        <button type="submit" class="btn btn-info" id="btnsave" name="btnsave" onclick="return validateform();">Submit</button>
+                        <a href="/Admin/GetProjectList" class="btn btn-primary">Back To List</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+
+
+        <script>
+            function validateform() {
+
+                $(".errortext").removeClass("errortext");
+                if ($('#Name').val() == '') {
+                    $("#Name").addClass('errortext');
+                    $('#Name').focus();
+                    return false;
+                }
+
+                if ($('#Date').val() == '') {
+                    $("#Date").addClass('errortext');
+                    $('#Date').focus();
+                    return false;
+                }
+                if ($('#Details').val() == '') {
+                    $("#Details").addClass('errortext');
+                    $('#Details').focus();
+                    return false;
+                }
+                if ($('#postedFile').val() == '') {
+                    $("#postedFile").addClass('errortext');
+                    $('#postedFile').focus();
+                    return false;
+                }
+            }
+            function isNumberKey(evt) {
+                var charCode = (evt.which) ? evt.which : event.keyCode;
+                if (charCode != 46 && charCode > 31
+                  && (charCode < 48 || charCode > 57))
+                    return false;
+                return true;
+            }
+            function onlyAlphabets(e, t) {
+                try {
+                    if (window.event) {
+                        var charCode = window.event.keyCode;
+                    }
+                    else if (e) {
+                        var charCode = e.which;
+                    }
+                    else { return true; }
+                    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode == 32))
+                        return true;
+                    else
+                        return false;
+                }
+                catch (err) {
+                    alert(err.Description);
+                }
+            }
+        </script>
+
+        <style>
+            .errortext {
+                border: 1px solid red !important;
+                background-color: #fff0f0 !important;
+            }
+        </style>
+
+
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+<script>
+
+    var ProjectId = $("#ProjectId").val();
+    if (ProjectId != 0 && ProjectId !=null) {
+        $("#btnsave").val("Update");
+    }
+
+
+                    $('#Date').datepicker({
+                        format: 'dd/mm/yyyy',
+                        changeYear: true,
+                        changeMonth: true,
+                    });
+</script>
+
+
