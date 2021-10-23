@@ -21132,4 +21132,10 @@ div.tagsinput {
   -webkit-flex-grow: 1;
   flex-grow: 1; }
 
+
+
+table.project-list .project-detailst {
+    white-space: pre-line;
+}
+
 /*# sourceMappingURL=maps/style.css.map */
