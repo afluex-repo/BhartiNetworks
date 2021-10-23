@@ -267,6 +267,58 @@ namespace BhartiNetwork.Controllers
         //    return View(model);
         //}
 
+        public ActionResult Login()
+        {
+            Session.Abandon();
+            return View();
+        }
 
+        [HttpPost]
+        [ActionName("Login")]
+        public ActionResult Login(Admin model)
+        {
+            string FormName = "";
+            string Controller = "";
+            try
+            {
+                Admin Modal = new Admin();
+                DataSet ds = model.Login();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1")
+                    {
+                        Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
+                        Session["Pk_AdminId"] = ds.Tables[0].Rows[0]["PK_AdminId"].ToString();
+                        Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
+
+                        FormName = "AdminDashBoard";
+                        Controller = "Admin";
+                    }
+                    else
+                    {
+                        TempData["Login"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                        FormName = "Login";
+                        Controller = "Home";
+                    }
+
+                }
+                else
+                {
+                    TempData["Login"] = "Incorrect LoginId Or Password";
+                    FormName = "Login";
+                    Controller = "Home";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Login"] = ex.Message;
+                FormName = "Login";
+                Controller = "Home";
+            }
+
+            return RedirectToAction(FormName, Controller);
+
+        }
     }
 }

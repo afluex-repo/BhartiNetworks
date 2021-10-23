@@ -1,0 +1,270 @@
+﻿@model BhartiNetwork.Models.Home
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+
+  <!--Carousel Wrapper-->
+    <div id="video-carousel-example2" class="carousel slide carousel-fade" data-ride="carousel">
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+            <!-- First slide -->
+            <div class="carousel-item active">
+                <!--Mask color-->`
+                <div class="view">
+                    <!--Video source-->
+                    <video class="video-fluid" autoplay loop muted width="100%" height="600" style="margin-top: -25px;  object-fit: cover;">
+                        <source src="../assets/img/5g.mp4" type="video/mp4" width="100%" />
+                    </video>
+                    <div class="mask rgba-indigo-light"></div>
+                </div>
+
+                <!--Caption-->
+                <div class="carousel-caption" style="bottom: 22.25rem">
+                    <div class="animated fadeInDown">
+                        <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Bharti Networks</span></h2>
+                    </div>
+                </div>
+                <!--Caption-->
+            </div>
+            <!-- /.First slide -->
+            <!-- /.Third slide -->
+        </div>
+        <!--/.Slides-->
+
+    </div>
+    <!--Carousel Wrapper-->
+
+    <main id="main">
+
+        <!-- ======= Icon Boxes Section ======= -->
+        <!-- <section id="icon-boxes" class="icon-boxes">
+          <div class="container">
+
+            <div class="row">
+              <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
+                <div class="icon-box">
+                  <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                  <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+                  <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon-box">
+                  <div class="icon"><i class="bx bx-file"></i></div>
+                  <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+                  <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon-box">
+                  <div class="icon"><i class="bx bx-tachometer"></i></div>
+                  <h4 class="title"><a href="">Magni Dolores</a></h4>
+                  <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box">
+                  <div class="icon"><i class="bx bx-layer"></i></div>
+                  <h4 class="title"><a href="">Nemo Enim</a></h4>
+                  <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section> -->
+        <!-- End Icon Boxes Section -->
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="py-4 "></section><!-- <section> close ============================-->
+        <!-- ============================================-->
+        <!-- ======= About Us Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>About Us</h2>
+                    <p>We offer end to end wireless telecom network planning, optimization, and performance management solutions to 30+ Tier 1 &amp; 2 telecom operators and OEMs across the globe.</p>
+                    <p>We excel in 5G NR, LTE-A, and legacy technologies RF Planning, Optimization, QoSBenchmarking, In-building Solutions, and Manpower Deployment. We  have expanded our service portfolio for active and passive telecom infra Managed services, performance management through our In-house network analytics platform-Gladiator. We also offer services for Site Acquisition, Installation of Telecom Equipment, and Construction of BTS sites. </p>
+                    <p>We aim to provide our customers with the most efficient and cost-effective services.Due to our liaison with operators, equipment suppliers, and contractors,we understand the intricacies of the Telecom business better.</p>
+                </div>
+
+            </div>
+        </section><!-- End About Us Section -->
+        <!-- ======= Clients Section ======= -->
+        <section id="clients" class="clients" style="background-color: #0000000d;">
+            <div class="container" data-aos="zoom-in">
+                <div class="section-title">
+                    <h2>Our Clients</h2>
+                </div>
+                <div class="clients-slider swiper">
+                    <div class="swiper-wrapper align-items-center">
+                        @if (Model != null)
+                       {
+                    if (Model.lstClient != null)
+                    {
+                        int i = 1;
+                        foreach (var item in Model.lstClient)
+                        {
+                                    <div class="swiper-slide"><img src="@item.Image" class="img-fluid" alt="ncr"></div>
+                                    i++;
+                                }
+                            }
+                        }
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+        </section><!-- End Clients Section -->
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Services</h2>
+                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon-box">
+                            <i class="bi bi-card-checklist"></i>
+                            <h4><a href="telecom.html">Telecom</a></h4>
+                            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon-box">
+                            <i class="bi bi-bar-chart"></i>
+                            <h4><a href="#">Manpower Outsourcing</a></h4>
+                            <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section><!-- End Services Section -->
+        <!-- ======= Cta Section ======= -->
+        <section id="cta" class="cta">
+            <div class="container">
+
+                <div class="row" data-aos="zoom-in">
+                    <div class="col-lg-9 text-center text-lg-start">
+                        <h3>Call To Action</h3>
+                        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="col-lg-3 cta-btn-container text-center">
+                        <a class="cta-btn align-middle" href="tel: +91 9839 4182 22">Call To Action</a>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Cta Section -->
+        <!-- ======= Map Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="box-im text-center" data-dsn-grid=" ">
+                            <img src="../assets/img/bharti-map.png" width="100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======= Map Section ======= -->
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                </div>
+
+                <div class="row mt-1 d-flex justify-content-end" data-aos="fade-right" data-aos-delay="100">
+
+                    <div class="col-lg-5">
+                        <div class="info">
+                            <div class="address">
+                                <i class="bi bi-geo-alt"></i>
+                                <h4>Location:</h4>
+                                <p>Bharti Networks, Building no-6757 ,gvh ,xyz</p>
+                            </div>
+
+                            <div class="email">
+                                <a href="mailto: projects@bhartinetworks.com">
+                                    <i class="bi bi-envelope"></i>
+                                    <h4>Email:</h4>
+                                    <p>projects@bhartinetworks.com</p>
+                                </a>
+                            </div>
+
+                            <div class="phone">
+                                <a href="tel: +91 9839 4182 22">
+                                    <i class="bi bi-phone"></i>
+                                    <h4>Call:</h4>
+                                    <p>call us</p>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
+
+                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                            </div>
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center"><button type="submit">Send Message</button></div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Contact Section -->
+
+    </main><!-- End #main -->
+
+
+  <!-------==========Whatsapp==================---------->
+    <a href="https://api.whatsapp.com/send?phone=919839418222" title="Bharti" class="float" target="_blank">
+        <i class="bi bi-whatsapp my-float"></i>
+    </a>
+
+
+    <!-------==========Whatsapp==================---------->
+
+}
+
