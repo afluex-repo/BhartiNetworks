@@ -19,7 +19,7 @@ namespace BhartiNetwork.Controllers
             {
 
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(
-                     new { action = "Login", Controller = "Admin" }));
+                     new { action = "Login", Controller = "Home" }));
             }
             else
             {

@@ -10,63 +10,9 @@ using System.Web.Mvc;
 
 namespace BhartiNetwork.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : AdminBaseController
     {
         // GET: Admin
-        public ActionResult Login()
-        {
-            Session.Abandon();
-            return View();
-        }
-
-        [HttpPost]
-        [ActionName("Login")]
-        public ActionResult Login(Admin model)
-        {
-            string FormName = "";
-            string Controller = "";
-            try
-            {
-                Admin Modal = new Admin();
-                DataSet ds = model.Login();
-                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
-                {
-                    if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1")
-                    {
-                            Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
-                            Session["Pk_AdminId"] = ds.Tables[0].Rows[0]["PK_AdminId"].ToString();
-                            Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
-
-                            FormName = "AdminDashBoard";
-                            Controller = "Admin";
-                    }
-                    else
-                    {
-                        TempData["Login"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-                        FormName = "Login";
-                        Controller = "Admin";
-                    }
-
-                }
-                else
-                {
-                    TempData["Login"] = "Incorrect LoginId Or Password";
-                    FormName = "Login";
-                    Controller = "Admin";
-
-                }
-            }
-            catch (Exception ex)
-            {
-                TempData["Login"] = ex.Message;
-                FormName = "Login";
-                Controller = "Admin";
-            }
-
-            return RedirectToAction(FormName, Controller);
-
-        }
-
         public ActionResult AdminDashBoard()
         {
             Admin model = new Admin();
@@ -358,7 +304,7 @@ namespace BhartiNetwork.Controllers
                     obj.Qualification = dr["Qualification"].ToString();
                     obj.Location = dr["Location"].ToString();
                     obj.Experience = dr["Experience"].ToString();
-                    obj.Image = "/FileUpload/" + dr["Resume"].ToString();
+                    obj.Image =   dr["Resume"].ToString();
                     lstCareer.Add(obj);
                 }
                 model.lstCareer = lstCareer;

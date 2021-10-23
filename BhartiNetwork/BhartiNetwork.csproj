@@ -229,6 +229,7 @@
     <Content Include="AdminCss\assets\images\lightbox\thumb-v-y-1.jpg" />
     <Content Include="AdminCss\assets\images\lightbox\thumb-v-y-2.jpg" />
     <Content Include="AdminCss\assets\images\logo-mini.svg" />
+    <Content Include="AdminCss\assets\images\logo.png" />
     <Content Include="AdminCss\assets\images\logo.svg" />
     <Content Include="AdminCss\assets\images\samples\1280x768\1.jpg" />
     <Content Include="AdminCss\assets\images\samples\1280x768\10.jpg" />
@@ -290,6 +291,7 @@
     <Content Include="AdminCss\assets\images\sprites\logo-mini.svg" />
     <Content Include="AdminCss\assets\images\sprites\red.png" />
     <Content Include="AdminCss\assets\images\sprites\yellow.png" />
+    <Content Include="AdminCss\assets\images\user.png" />
     <Content Include="AdminCss\assets\js\ace.js" />
     <Content Include="AdminCss\assets\js\alerts.js" />
     <Content Include="AdminCss\assets\js\avgrund.js" />
@@ -1212,6 +1214,7 @@
     <Content Include="assets\vendor\remixicon\remixicon.ttf" />
     <Content Include="assets\vendor\remixicon\remixicon.woff" />
     <Content Include="assets\vendor\remixicon\remixicon.woff2" />
+    <None Include="Properties\PublishProfiles\BhartiNetwork.pubxml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -1254,7 +1257,7 @@
     <Content Include="Views\Home\newuser.cshtml" />
     <Content Include="Views\Home\vendor.cshtml" />
     <Content Include="Views\Home\Project.cshtml" />
-    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Admin\AdminDashBoard.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\Project.cshtml" />
