@@ -35,127 +35,195 @@
 
                 <div class="section-title">
                     <h2>Vendor Registration Form</h2>
+                    <p style="color:red;">
+                        @TempData["Registration"]
+                    </p>
                 </div>
 
                 <div class="row mt-1 d-flex justify-content-center" data-aos="fade-right" data-aos-delay="100">
                     <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100" style="border: 2px solid #f58634; border-radius: 25px; padding: 40px;">
 
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                            <div class="row">
-                                <div class="col-md-12 form-group">
-                                    <label>Circle</label>
-                                    <input type="text" name="circle" class="form-control" id="circle" placeholder="Enter Your Circle" required>
-                                </div>
+                        @*<form action="forms/contact.php" method="post" role="form" class="php-email-form">*@
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label>Circle<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.Circle, new { @class = "form-control", @placeholder = "Circle" })
+                                @*<label>Circle</label>
+                                    <input type="text" name="circle" class="form-control" id="circle" placeholder="Enter Your Circle" required>*@
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 form-group">
-                                    <label>Name of Organization</label>
-                                    <input type="text" name="organization-name" class="form-control" id="organization-name" placeholder="Please Enter Your Organization Name" required>
-                                </div>
-                                <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <label>Starting of Organization</label>
-                                    <input type="text" class="form-control" name="starting-organization" id="starting-organization" placeholder="Please Enter Your Starting of Organization" required>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 form-group">
-                                    <label>Mobile Number</label>
-                                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Mobile Number" required>
-                                </div>
-                                <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                                </div>
-                            </div>
-                            <div class="form-group mt-3">
-                                <label>Address & Co No</label>
-                                <textarea class="form-control" name="address" rows="3" placeholder="Enter Your Address" required></textarea>
-                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6 form-group">
+                                <label>Name of Organization<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.OrganizationName, new { @class = "form-control", @placeholder = "Name of Organization", @onkeypress = "return onlyAlphabets();" })
 
-                            <hr class="mt-4 text-orange" />
+                                @*<label>Name of Organization</label>
+                                    <input type="text" name="organization-name" class="form-control" id="organization-name" placeholder="Please Enter Your Organization Name" required>*@
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
 
-                            <label class="fs-md-4 text-orange mb-2"><strong>BANK DETAILS</strong></label>
-                            <div class="row">
-                                <div class="col-md-12 form-group">
+                                <label>Starting of Organization<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.StartingofOrganization, new { @class = "form-control", @placeholder = "Starting of Organization" })
+                                @*<label>Starting of Organization</label>
+                                    <input type="text" class="form-control" name="starting-organization" id="starting-organization" placeholder="Please Enter Your Starting of Organization" required>*@
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6 form-group">
+
+                                <label>Mobile Number<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @placeholder = "Mobile Number", @onkeypress = "return isNumberKey(event)", @maxlength = "10" })
+
+                                @*<label>Mobile Number</label>
+                                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Mobile Number" required>*@
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+
+                                <label>Email<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+
+                                @*<label>Email</label>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>*@
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+
+                            <label>Address & Co No<span style="color: red">*</span></label>
+                            @Html.TextAreaFor(m => m.Address, new { @class = "form-control", @placeholder = "Address & Co No" })
+
+                            @*<label>Address & Co No</label>
+                                <textarea class="form-control" name="address" rows="3" placeholder="Enter Your Address" required></textarea>*@
+                        </div>
+
+                        <hr class="mt-4 text-orange" />
+
+                        <label class="fs-md-4 text-orange mb-2"><strong>BANK DETAILS</strong></label>
+                        <div class="row">
+
+                            <div class="col-md-12 form-group">
+                                <label> Name As Per Bank Record<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Name As Per Bank Record", @onkeypress = "return onlyAlphabets();" })
+                                @*<label>Circle</label>
+                                    <input type="text" name="circle" class="form-control" id="circle" placeholder="Enter Your Circle" required>*@
+                            </div>
+                            @*<div class="col-md-6 form-group">*@
+                                @*<label>Last Name As Per Bank Record<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Last Name As Per Bank Record", @onkeypress = "return onlyAlphabets();" })*@
+                                @*<label>Circle</label>
+                                    <input type="text" name="circle" class="form-control" id="circle" placeholder="Enter Your Circle" required>*@
+                            @*</div>*@
+
+                            @*<div class="col-md-12 form-group">
                                     <label>Name As Per Bank Record</label>
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Name As Per Bank Record" required>
-                                </div>
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Name As Per Bank Record" required>
+                                </div>*@
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6 form-group">
+                                <label>Account Number<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.AccountNo, new { @class = "form-control", @placeholder = "Account Number", @onkeypress = "return isNumberKey(event)" })
+
+                                @*<label>Account Number</label>
+                                    <input type="text" name="account-number" class="form-control" id="account-number" placeholder="Please Type Your Account Number" required>*@
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 form-group">
-                                    <label>Account Number</label>
-                                    <input type="text" name="account-number" class="form-control" id="account-number" placeholder="Please Type Your Account Number" required>
-                                </div>
-                                <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <label>Branch Address</label>
-                                    <input type="text" class="form-control" name="branch-address" id="branch-address" placeholder="Please Type Your Branch Address" required>
-                                </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+
+                                <label>Branch Address<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.Branch, new { @class = "form-control", @placeholder = "Branch Address", @onkeypress = "return onlyAlphabets();" })
+
+
+                                @*<label>Branch Address</label>
+                                    <input type="text" class="form-control" name="branch-address" id="branch-address" placeholder="Please Type Your Branch Address" required>*@
                             </div>
+                        </div>
 
-                            <hr class="mt-4 text-orange" />
+                        <hr class="mt-4 text-orange" />
 
-                            <label class="fs-md-4 text-orange mb-2"><strong>MODE OF PAYMENT</strong></label>
-                            <div class="row">
-                                <div class="col-md-12 form-group">
-                                    <label>Deposit in the Bank</label>
-                                    <input type="text" name="deposit" class="form-control" id="deposit" placeholder="Deposit in the Bank" required>
-                                </div>
+                        <label class="fs-md-4 text-orange mb-2"><strong>MODE OF PAYMENT</strong></label>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+
+                                <label>Deposit in the Bank<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.Deposit, new { @class = "form-control", @placeholder = "Deposit in the Bank" })
+
+                                @*<label>Deposit in the Bank</label>
+                                    <input type="text" name="deposit" class="form-control" id="deposit" placeholder="Deposit in the Bank" required>*@
                             </div>
+                        </div>
 
-                            <hr class="mt-4 text-orange" />
+                        <hr class="mt-4 text-orange" />
 
-                            <div class="row mt-3">
-                                <div class="col-md-12 form-group">
-                                    <!-- <input type="text" name="position" class="form-control" id="position" placeholder="Select Your Position" required> -->
-                                    <label>Type of Organization</label>
-                                    <select class="form-control" id="position" name="position" required>
-                                        <option>Select</option>
+                        <div class="row mt-3">
+                            <div class="col-md-12 form-group">
+                                <!-- <input type="text" name="position" class="form-control" id="position" placeholder="Select Your Position" required> -->
+                                <label>Type of Organization</label>
+
+                                @Html.DropDownListFor(m => m.PK_OrganisationTypeId, new SelectList(ViewBag.ddlOrganizationType, "Value", "Text"), new { @class = "form-control" })
+                                @*<select class="form-control" id="OrganizationType" name="TypeOfOrganization" required>
+                                        <option value="0">Select</option>
                                         <option>Partnership</option>
                                         <option>Propreitory</option>
                                         <option>Public Ltd</option>
                                         <option>Pvt Ltd</option>
-                                    </select>
-                                </div>
+                                    </select>*@
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6 form-group">
-                                    <label>Pan No. </label>
-                                    <input type="text" name="panno" class="form-control" id="panno" placeholder="Type Your PAN No." required>
-                                </div>
-                                <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <label>GST No.</label>
-                                    <input type="text" class="form-control" name="gstno" id="gstno" placeholder="Type Your GST No." required>
-                                </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6 form-group">
+
+
+                                <label>Pan Number.<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.PanNo, new { @class = "form-control", @placeholder = "Pan Number.", @onkeypress = "return validatePan();"})
+
+
+                                @*<label>Pan No. </label>
+                                    <input type="text" name="panno" class="form-control" id="panno" placeholder="Type Your PAN No." required>*@
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-12 form-group">
-                                    <!-- <input type="text" name="position" class="form-control" id="position" placeholder="Select Your Position" required> -->
-                                    <label>Range of Product/Services Offered</label>
-                                    <select class="form-control" id="position" name="position" required>
-                                        <option>Select</option>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+
+                                <label>GST Number.<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.GSTNo, new { @class = "form-control", @placeholder = "GST Number.", @onkeypress = "return isNumberKey(event)" })
+
+                                @*<label>GST No.</label>
+                                    <input type="text" class="form-control" name="gstno" id="gstno" placeholder="Type Your GST No." required>*@
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12 form-group">
+                                <!-- <input type="text" name="position" class="form-control" id="position" placeholder="Select Your Position" required> -->
+                                <label>Designation</label>
+                                @Html.DropDownListFor(m => m.PK_DesignationId, new SelectList(ViewBag.ddlDesignation, "Value", "Text"), new { @class = "form-control" })
+
+
+                                @*<select class="form-control" id="Designation" name="Designation" required>
+                                        <option value="0">Select</option>
                                         <option>BTS,Node-B,MR,LTE,Installation & Commissioning,CAB-EX & All the Extra Activity</option>
                                         <option>Link Installation And Commissioning</option>
                                         <option>Site Survey</option>
                                         <option>Man Power Supply</option>
                                         <option>Civil Work</option>
                                         <option>Electrical Work</option>
-                                    </select>
-                                </div>
+                                    </select>*@
                             </div>
+                        </div>
 
-                            <div class="form-group mt-3">
-                                <label>Password</label>
-                                <input type="text" class="form-control" name="password" id="password" placeholder="Please Type Your Password" required>
-                            </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="container">
-                                <div class="text-center "><button type="submit">Submit Form</button></div>
-                            </div>
-                        </form>
+                        <div class="form-group mt-3">
+
+                            @*<label>Password<span style="color: red">*</span></label>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })*@
+
+                            @*<label>Password</label>
+                                <input type="text" class="form-control" name="password" id="password" placeholder="Please Type Your Password" required>*@
+                        </div>
+                        <div class="my-3">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. Thank you!</div>
+                        </div>
+                        <div class="container">
+                            <div class="text-center "><button type="submit" onclick="return validateform();">Submit Form</button></div>
+                        </div>
+                        @*</form>*@
 
                     </div>
 
@@ -177,3 +245,146 @@
     <!-------==========Whatsapp==================---------->
 }
 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    function validateform() {
+
+        $(".errortext").removeClass("errortext");
+        if ($('#Circle').val() == '') {
+            $("#Circle").addClass('errortext');
+            $('#Circle').focus();
+            return false;
+        }
+        if ($('#OrganizationName').val() == '') {
+            $("#OrganizationName").addClass('errortext');
+            $('#OrganizationName').focus();
+            return false;
+        }
+        if ($('#StartingofOrganization').val() == '') {
+            $("#StartingofOrganization").addClass('errortext');
+            $('#StartingofOrganization').focus();
+            return false;
+        }
+        if ($('#Mobile').val() == '') {
+            $("#Mobile").addClass('errortext');
+            $('#Mobile').focus();
+            return false;
+        }
+        if ($('#Email').val() == '') {
+            $("#Email").addClass('errortext');
+            $('#Email').focus();
+            return false;
+        }
+        if ($('#Address').val() == '') {
+            $("#Address").addClass('errortext');
+            $('#Address').focus();
+            return false;
+        }
+        if ($('#Name').val() == '') {
+            $("#Name").addClass('errortext');
+            $('#Name').focus();
+            return false;
+        }
+
+        //if ($('#LastName').val() == '') {
+        //    $("#LastName").addClass('errortext');
+        //    $('#LastName').focus();
+        //    return false;
+        //}
+
+        if ($('#AccountNo').val() == '') {
+            $("#AccountNo").addClass('errortext');
+            $('#AccountNo').focus();
+            return false;
+        }
+        if ($('#Branch').val() == '') {
+            $("#Branch").addClass('errortext');
+            $('#Branch').focus();
+            return false;
+        }
+        if ($('#Deposit').val() == '') {
+            $("#Deposit").addClass('errortext');
+            $('#Deposit').focus();
+            return false;
+        }
+        if ($('#OrganizationType').val() == '0') {
+            $("#OrganizationType").addClass('errortext');
+            $('#OrganizationType').focus();
+            return false;
+        }
+        if ($('#PanNo').val() == '') {
+            $("#PanNo").addClass('errortext');
+            $('#PanNo').focus();
+            return false;
+        }
+        if ($('#GSTNo').val() == '') {
+            $("#GSTNo").addClass('errortext');
+            $('#GSTNo').focus();
+            return false;
+        }
+        if ($('#Designation').val() == '0') {
+            $("#Designation").addClass('errortext');
+            $('#Designation').focus();
+            return false;
+        }
+        if ($('#Password').val() == '') {
+            $("#Password").addClass('errortext');
+            $('#Password').focus();
+            return false;
+        }
+
+
+
+    }
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode != 46 && charCode > 31
+          && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+    function onlyAlphabets(e, t) {
+        try {
+            if (window.event) {
+                var charCode = window.event.keyCode;
+            }
+            else if (e) {
+                var charCode = e.which;
+            }
+            else { return true; }
+            if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode == 32))
+                return true;
+            else
+                return false;
+        }
+        catch (err) {
+            alert(err.Description);
+        }
+    }
+
+
+    function validatePan() {
+        var panVal = $('#PanNo').val();
+        var regpan = /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
+
+        if (regpan.test(panVal)) {
+            $("#PanNo").removeClass('errortext');
+        } else {
+            alert("Invalid PAN Number");
+            $("#PanNo").val('');
+            $("#PanNo").addClass('errortext');
+        }
+    }
+
+
+</script>
+
+<style>
+    .errortext {
+        border: 1px solid red !important;
+        background-color: #fff0f0 !important;
+    }
+</style>

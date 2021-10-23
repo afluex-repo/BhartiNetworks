@@ -56,14 +56,13 @@
 
                         @*<form action="forms/contact.php" method="post" role="form" class="php-email-form">*@
 
-                            @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
-                            {
+                        @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+                        {
 
                             <div class="row">
                                 <p style="color:red;">
                                     @TempData["Login"]
                                 </p>
-
                                 <div class="col-md-12 form-group">
                                     <label>User Id<span style="color: red">*</span></label>
                                     @Html.TextBoxFor(m => m.LoginId, new { @class = "form-control", @placeholder = "User Id" })
@@ -74,7 +73,7 @@
 
                             <div class="form-group mt-3">
                                 @*<label>Password</label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="********" required>*@
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="********" required>*@
 
                                 <label>Password<span style="color: red">*</span></label>
                                 @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "password" })
@@ -92,7 +91,7 @@
                                 @*<a href="/Home/newuser" class="btn btn-info">New User</a>*@
 
                             </div>
-                            }
+                        }
                         @*</form>*@
                     </div>
 

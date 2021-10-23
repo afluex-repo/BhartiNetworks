@@ -74,15 +74,18 @@
                 </div>
                 <div class="clients-slider swiper">
                     <div class="swiper-wrapper align-items-center">
-                        <div class="swiper-slide"><img src="~/assets/img/clients/ncr.png" class="img-fluid" alt="ncr"></div>
-                        <div class="swiper-slide"><img src="~/assets/img/clients/nt-name.png" class="img-fluid" alt="ntc"></div>
-                        <div class="swiper-slide"><img src="~/assets/img/clients/Airtel-Logo.png" class="img-fluid" alt="Airtel-Logo"></div>
-                        <div class="swiper-slide"><img src="~/assets/img/clients/ceragon-1.png" class="img-fluid" alt="ceragon"></div>
-                        <div class="swiper-slide"><img src="~/assets/img/clients/jio.png" class="img-fluid" alt="jio"></div>
-                        <div class="swiper-slide"><img src="~/assets/img/clients/myvi.png" class="img-fluid" alt="myvi"></div>
-                        <div class="swiper-slide"><img src="~/assets/img/clients/nec.png" class="img-fluid" alt="nec"></div>
-                        <div class="swiper-slide"><img src="~/assets/img/clients/nokia.png" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="~/assets/img/clients/chinaccs-1.png" class="img-fluid" alt="chinaccs"></div>
+                        @if (Model != null)
+                        {
+                            if (Model.lstClient != null)
+                            {
+                                int i = 1;
+                                foreach (var item in Model.lstClient)
+                                {
+                                    <div class="swiper-slide"><img src="@item.Image" class="img-fluid" alt="ncr"></div>
+                                    i++;
+                                }
+                            }
+                        }
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>

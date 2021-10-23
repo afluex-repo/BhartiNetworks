@@ -5,6 +5,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace BhartiNetwork.Controllers
@@ -12,14 +13,129 @@ namespace BhartiNetwork.Controllers
     public class AdminController : Controller
     {
         // GET: Admin
-        public ActionResult Index()
+        public ActionResult Login()
         {
+            Session.Abandon();
             return View();
         }
-        
+
+        [HttpPost]
+        [ActionName("Login")]
+        public ActionResult Login(Admin model)
+        {
+            string FormName = "";
+            string Controller = "";
+            try
+            {
+                Admin Modal = new Admin();
+                DataSet ds = model.Login();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1")
+                    {
+                            Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
+                            Session["Pk_AdminId"] = ds.Tables[0].Rows[0]["PK_AdminId"].ToString();
+                            Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
+
+                            FormName = "AdminDashBoard";
+                            Controller = "Admin";
+                    }
+                    else
+                    {
+                        TempData["Login"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                        FormName = "Login";
+                        Controller = "Admin";
+                    }
+
+                }
+                else
+                {
+                    TempData["Login"] = "Incorrect LoginId Or Password";
+                    FormName = "Login";
+                    Controller = "Admin";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Login"] = ex.Message;
+                FormName = "Login";
+                Controller = "Admin";
+            }
+
+            return RedirectToAction(FormName, Controller);
+
+        }
+
         public ActionResult AdminDashBoard()
         {
-            return View();
+            Admin model = new Admin();
+            List<Admin> lstVendor = new List<Admin>();
+            DataSet ds = model.GetVendorDetails();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Admin obj = new Admin();
+                    obj.VendorId = dr["PK_VendorId"].ToString();
+                    obj.LoginId = dr["LoginId"].ToString();
+                    obj.Password = dr["Password"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    obj.Mobile = dr["Mobile"].ToString();
+                    obj.Email = dr["Email"].ToString();
+                    obj.Address = dr["Address"].ToString();
+                    obj.Circle = dr["Circle"].ToString();
+                    obj.OrganizationName = dr["OrganizationName"].ToString();
+                    obj.StartingofOrganization = dr["OrganizationStarting"].ToString();
+                    obj.AccountNo = dr["AccountNo"].ToString();
+                    obj.Branch = dr["Branch"].ToString();
+                    obj.Deposit = dr["Deposit"].ToString();
+                    obj.OrganizationType = dr["OrganisationType"].ToString();
+                    obj.PanNo = dr["PanNumber"].ToString();
+                    obj.GSTNo = dr["GSTNo"].ToString();
+                    obj.Designation = dr["Designation"].ToString();
+                    lstVendor.Add(obj);
+                }
+                model.lstVendor = lstVendor;
+
+                ViewBag.TotalVendor = double.Parse(ds.Tables[0].Compute("sum(PK_VendorId)", "").ToString()).ToString();
+            }
+            
+            //return View(model);
+
+            //Admin model = new Admin();
+            List<Admin> lstContact = new List<Admin>();
+            DataSet ds1 = model.GetContactDetails();
+            if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds1.Tables[0].Rows)
+                {
+                    Admin obj = new Admin();
+                    obj.ContactId = dr["PK_ContactId"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    obj.Email = dr["Email"].ToString();
+                    obj.Subject = dr["Subject"].ToString();
+                    obj.Address = dr["Address"].ToString();
+                    lstContact.Add(obj);
+                }
+                model.lstContact = lstContact;
+            }
+            
+            List<Admin> lstDashBoard = new List<Admin>();
+            DataSet ds2 = model.GetDetailsOfDashBoard();
+            if (ds2 != null && ds2.Tables.Count > 0 && ds2.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds2.Tables[0].Rows)
+                {
+                    Admin obj = new Admin();
+                    ViewBag.TotalProjects = dr["TotalProjects"].ToString();
+                    ViewBag.TotalVendors = dr["TotalVendors"].ToString();
+                    ViewBag.TotalEnquiry = dr["TotalEnquiry"].ToString();
+                    lstDashBoard.Add(obj);
+                }
+                model.lstDashBoard = lstDashBoard;
+            }
+            return View(model);
         }
 
         
@@ -37,9 +153,9 @@ namespace BhartiNetwork.Controllers
                     model.Date = ds.Tables[0].Rows[0]["Date"].ToString();
                     model.Details = ds.Tables[0].Rows[0]["Details"].ToString();
                     model.Image = "/FileUpload/"+ds.Tables[0].Rows[0]["ImageFile"].ToString();
-                 
                 }
             }
+
             return View(model);
         }
 
@@ -57,7 +173,7 @@ namespace BhartiNetwork.Controllers
                         postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
                     }
                     //obj.DDChequeDate = string.IsNullOrEmpty(obj.DDChequeDate) ? null : Common.ConvertToSystemDate(obj.DDChequeDate, "dd/MM/yyyy");
-                    model.AddedBy = "1";
+                    model.AddedBy = Session["Pk_AdminId"].ToString();
                     DataSet ds = model.SaveProject();
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
@@ -301,7 +417,7 @@ namespace BhartiNetwork.Controllers
                     model.Image = "../FileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
                     postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
                 }
-                model.AddedBy = "1";
+                model.AddedBy = Session["Pk_AdminId"].ToString();
                 DataSet ds = model.SaveClient();
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
@@ -327,6 +443,113 @@ namespace BhartiNetwork.Controllers
             return RedirectToAction("SaveClient", "Admin");
 
         }
+
+        
+        public ActionResult GetVendorDetails()
+        {
+            Admin model = new Admin();
+            List<Admin> lstVendor = new List<Admin>();
+            DataSet ds = model.GetVendorDetails();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Admin obj = new Admin();
+                    obj.VendorId = dr["PK_VendorId"].ToString();
+                    obj.LoginId = dr["LoginId"].ToString();
+                    obj.Password = dr["Password"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    obj.Mobile = dr["Mobile"].ToString();
+                    obj.Email = dr["Email"].ToString();
+                    obj.Address = dr["Address"].ToString();
+                    obj.Circle = dr["Circle"].ToString();
+                    obj.OrganizationName = dr["OrganizationName"].ToString();
+                    obj.StartingofOrganization = dr["OrganizationStarting"].ToString();
+                    obj.AccountNo = dr["AccountNo"].ToString();
+                    obj.Branch = dr["Branch"].ToString();
+                    obj.Deposit = dr["Deposit"].ToString();
+                    obj.OrganizationType = dr["OrganisationType"].ToString(); 
+                    obj.PanNo = dr["PanNumber"].ToString();
+                    obj.GSTNo = dr["GSTNo"].ToString();
+                    obj.Designation = dr["Designation"].ToString();
+                    lstVendor.Add(obj);
+            }
+            model.lstVendor = lstVendor;
+            }
+            return View(model);
+        }
+
+
+        public ActionResult DeleteVendor(string Id)
+        {
+            Admin model = new Admin();
+            try
+            {
+                model.VendorId = Id;
+                model.AddedBy = "1";
+                DataSet ds = model.DeleteVendor();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Vendor"] = "Record deleted successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Vendor"] = ex.Message;
+            }
+            return RedirectToAction("GetVendorDetails", "Admin");
+        }
+
+
+
+
+
+
+
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ActionName("ChangePassword")]
+        public ActionResult ChangePassword(Admin model)
+        {
+            try
+            {
+                model.AddedBy = Session["Pk_AdminId"].ToString();
+                DataSet ds = model.ChangePassword();
+                if (ds != null && ds.Tables.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Error"] = "Password changed  successfully";
+                    }
+                    else
+                    {
+                        TempData["Error"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = ex.Message;
+            }
+            return RedirectToAction("ChangePassword", "Admin");
+        }
+
+
 
 
     }

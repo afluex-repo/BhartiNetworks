@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace BhartiNetwork.Models
 {
@@ -29,9 +30,31 @@ namespace BhartiNetwork.Models
         public string ProjectId { get; set; }
         public string ClientId { get; set; }
 
+        public string OrganizationName { get; set; }
+        public string ServicesOffered { get; set; }
+        public string OrganizationType { get; set; }
+        public string StartingofOrganization { get; set; }
+        public string Circle { get; set; }
+        public string AccountNo { get; set; }
+        public string Branch { get; set; }
+        public string Deposit { get; set; }
+        public string PanNo { get; set; }
+        public string GSTNo { get; set; }
+
+        public string PK_OrganisationTypeId { get; set; }
+        public string PK_DesignationId { get; set; }
+        public string FK_OrganisationTypeId { get; set; }
+        public string FK_DesignationId { get; set; }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
         public List<Home> lstClient { get; set; }
         public List<Home> lstProject { get; set; }
-        
+        public List<SelectListItem> ddlOrganizationType { get; set; }
+        public List<SelectListItem> ddlDesignation { get; set; }
+
+
 
         public DataSet SaveCareer()
         {
@@ -88,9 +111,41 @@ namespace BhartiNetwork.Models
 
         }
 
+        public DataSet GetOrganizationType()
+        {
+            DataSet ds = Connection.ExecuteQuery("GetOrganizationType");
+            return ds;
 
+        }
+        public DataSet GetDesignation()
+        {
+            DataSet ds = Connection.ExecuteQuery("GetDesignation");
+            return ds;
 
+        }
+        public DataSet SaveVendor()
+        {
+            SqlParameter[] para ={
+                new SqlParameter ("@Password",Password),
+                new SqlParameter ("@Name",Name),
+                                new SqlParameter("@Mobile",Mobile),
+                                  new SqlParameter("@Email",Email),
+                                     new SqlParameter ("@Address",Address),
+                                new SqlParameter("@Circle",Circle),
+                                  new SqlParameter("@OrganizationName",OrganizationName),
+                                new SqlParameter("@OrganizationStarting",StartingofOrganization),
+                                new SqlParameter("@AccountNo",AccountNo),
+                                new SqlParameter("@Branch",Branch),
+                                   new SqlParameter("@Deposit",Deposit),
+                                new SqlParameter("@FK_OrganisationTypeId",PK_OrganisationTypeId),
+                                new SqlParameter("@PanNumber",PanNo),
+                                 new SqlParameter("@GSTNo",GSTNo),
+                                 new SqlParameter("@FK_DesignationId",PK_DesignationId),
+                                 new SqlParameter("@AddedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("SaveVendor", para);
+            return ds;
+        }
 
-        
     }
 }

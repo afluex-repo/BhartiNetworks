@@ -33,7 +33,22 @@ namespace BhartiNetwork.Controllers
         }
         public ActionResult AboutUs()
         {
-            return View();
+            Home model = new Home();
+            List<Home> lstClient = new List<Home>();
+            DataSet ds = model.GetClientDetails();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Home obj = new Home();
+                    obj.ClientId = dr["PK_ClientId"].ToString();
+                    obj.Date = dr["Date"].ToString();
+                    obj.Image = dr["ImageFile"].ToString();
+                    lstClient.Add(obj);
+                }
+                model.lstClient = lstClient;
+            }
+            return View(model);
         }
         public ActionResult Telecom()
         {
@@ -129,11 +144,85 @@ namespace BhartiNetwork.Controllers
         {
             return View();
         }
+        
 
         public ActionResult newuser()
         {
+            Home model = new Home();
+            int count1 = 0;
+            List<SelectListItem> ddlOrganizationType = new List<SelectListItem>();
+            DataSet ds2 = model.GetOrganizationType();
+            if (ds2 != null && ds2.Tables.Count > 0 && ds2.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow r in ds2.Tables[0].Rows)
+                {
+                    if (count1 == 0)
+                    {
+                        ddlOrganizationType.Add(new SelectListItem { Text = "--Select--", Value = "0" });
+                    }
+                    ddlOrganizationType.Add(new SelectListItem { Text = r["OrganisationType"].ToString(), Value = r["PK_OrganisationTypeId"].ToString() });
+                    count1 = count1 + 1;
+                }
+            }
+            ViewBag.ddlOrganizationType = ddlOrganizationType;
+
+
+            int count2 = 0;
+            List<SelectListItem> ddlDesignation = new List<SelectListItem>();
+            DataSet ds3 = model.GetDesignation();
+            if (ds3 != null && ds3.Tables.Count > 0 && ds3.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow r in ds3.Tables[0].Rows)
+                {
+                    if (count2 == 0)
+                    {
+                        ddlDesignation.Add(new SelectListItem { Text = "--Select--", Value = "0" });
+                    }
+                    ddlDesignation.Add(new SelectListItem { Text = r["Designation"].ToString(), Value = r["PK_DesignationId"].ToString() });
+                    count2 = count2 + 1;
+                }
+            }
+            ViewBag.ddlDesignation = ddlDesignation;
+
+
+
             return View();
         }
+
+        [HttpPost]
+        [ActionName("newuser")]
+        public ActionResult newuser(Home model)
+        {
+            try
+            {
+                model.AddedBy = "1";
+                Random rnd = new Random();
+                string Pass = rnd.Next(111111, 999999).ToString();
+                model.Password = Pass;
+                DataSet ds = model.SaveVendor();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Registration"] = "Registration save successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Registration"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Registration"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Registration"] = ex.Message;
+            }
+            return RedirectToAction("newuser", "Home");
+        }
+
 
         public ActionResult Project()
         {

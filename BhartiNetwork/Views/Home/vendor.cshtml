@@ -7,7 +7,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+
+  <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>Bharti Networks</title>
@@ -30,7 +31,17 @@
     <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+    <style>
+        .vndrbtn {
+            border: 0;
+            padding: 10px 32px;
+            color: #0880e8;
+            transition: 0.4s;
+            border-radius: 50px;
+            border: 2px solid #0880e8;
+            background: #fff;
+        }
+    </style>
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
 
@@ -54,17 +65,29 @@
                             <img src="../assets/img/logo-dark.png" width="250px">
                         </div>
 
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        @*<form action="forms/contact.php" method="post" role="form" class="php-email-form">*@
+
+                        @using (Html.BeginForm("vendor", "Home", FormMethod.Post))
+                        {
                             <div class="row">
+                                <p style="color:red;">
+                                   @TempData["login"]
+                                </p>
                                 <div class="col-md-12 form-group">
-                                    <label>Username</label>
-                                    <input type="text" name="username" class="form-control" id="username" placeholder="Enter Your Username" required>
+                                    <label>User Id <span style="color: red">*</span></label>
+                                    @Html.TextBoxFor(m => m.LoginId, new { @class = "form-control", @placeholder = "User Id" })
+                                    @*<input type="text" name="username" class="form-control" id="username" placeholder="Enter Your Username">*@
+
                                 </div>
                             </div>
 
                             <div class="form-group mt-3">
-                                <label>Password</label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="********" required>
+
+                                <label>Password <span style="color: red">*</span></label>
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+
+                                @*<label>Password</label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="********">*@
                             </div>
                             <div class="my-3">
                                 <div class="loading">Loading</div>
@@ -72,11 +95,15 @@
                                 <div class="sent-message">Your message has been sent. Thank you!</div>
                             </div>
                             <div class="container d-flex justify-content-end">
-                                <div class="text-center "><button type="submit">Login</button></div>
-                                <div class="text-center "><button type="submit" href="new-user.html">New User</button></div>
-                               
+                                <div class="text-center "><button type="submit" onclick="return validateform();">Login</button></div>
+                                <div class="text-center" style="margin-top: 11px;">
+                                   <a class="vndrbtn" href="/Home/newuser">New User</a></div>
+
+                                @*<a href="/Home/newuser">New User</a>*@
+                                @*</div>*@
                             </div>
-                        </form>
+                            @*</form>*@
+                        }
                     </div>
 
                 </div>
@@ -105,71 +132,120 @@
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>
     <script type="text/javascript">
-    $(function()
-{
-    function after_form_submitted(data)
-    {
-        if(data.result == 'success')
-        {
-            $('form#reused_form').hide();
-            $('#success_message').show();
-            $('#error_message').hide();
-        }
-        else
-        {
-            $('#error_message').append('<ul></ul>');
-
-            jQuery.each(data.errors,function(key,val)
-            {
-                $('#error_message ul').append('<li>'+key+':'+val+'</li>');
-            });
-            $('#success_message').hide();
-            $('#error_message').show();
-
-            //reverse the response on the button
-            $('button[type="button"]', $form).each(function()
-            {
-                $btn = $(this);
-                label = $btn.prop('orig_label');
-                if(label)
-                {
-                    $btn.prop('type','submit' );
-                    $btn.text(label);
-                    $btn.prop('orig_label','');
+        $(function () {
+            function after_form_submitted(data) {
+                if (data.result == 'success') {
+                    $('form#reused_form').hide();
+                    $('#success_message').show();
+                    $('#error_message').hide();
                 }
+                else {
+                    $('#error_message').append('<ul></ul>');
+
+                    jQuery.each(data.errors, function (key, val) {
+                        $('#error_message ul').append('<li>' + key + ':' + val + '</li>');
+                    });
+                    $('#success_message').hide();
+                    $('#error_message').show();
+
+                    //reverse the response on the button
+                    $('button[type="button"]', $form).each(function () {
+                        $btn = $(this);
+                        label = $btn.prop('orig_label');
+                        if (label) {
+                            $btn.prop('type', 'submit');
+                            $btn.text(label);
+                            $btn.prop('orig_label', '');
+                        }
+                    });
+
+                }//else
+            }
+
+            $('#reused_form').submit(function (e) {
+                e.preventDefault();
+
+                $form = $(this);
+                //show some response on the button
+                $('button[type="submit"]', $form).each(function () {
+                    $btn = $(this);
+                    $btn.prop('type', 'button');
+                    $btn.prop('orig_label', $btn.text());
+                    $btn.text('Sending ...');
+                });
+
+
+                $.ajax({
+                    type: "POST",
+                    url: 'handler.php',
+                    data: $form.serialize(),
+                    success: after_form_submitted,
+                    dataType: 'json'
+                });
+
             });
-
-        }//else
-    }
-
-  $('#reused_form').submit(function(e)
-      {
-        e.preventDefault();
-
-        $form = $(this);
-        //show some response on the button
-        $('button[type="submit"]', $form).each(function()
-        {
-            $btn = $(this);
-            $btn.prop('type','button' );
-            $btn.prop('orig_label',$btn.text());
-            $btn.text('Sending ...');
         });
-
-
-                    $.ajax({
-                type: "POST",
-                url: 'handler.php',
-                data: $form.serialize(),
-                success: after_form_submitted,
-                dataType: 'json'
-            });
-
-      });
-});
 
     </script>
 
-</body>
 
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+      function validateform() {
+
+        $(".errortext").removeClass("errortext");
+        if ($('#LoginId').val() == '') {
+            $("#LoginId").addClass('errortext');
+            $('#LoginId').focus();
+            return false;
+        }
+        if ($('#Password').val() == '') {
+            $("#Password").addClass('errortext');
+            $('#Password').focus();
+                return false;
+            }
+    }
+      function isNumberKey(evt) {
+          var charCode = (evt.which) ? evt.which : event.keyCode;
+          if (charCode != 46 && charCode > 31
+            && (charCode < 48 || charCode > 57))
+              return false;
+          return true;
+      }
+      function onlyAlphabets(e, t) {
+          try {
+              if (window.event) {
+                  var charCode = window.event.keyCode;
+              }
+              else if (e) {
+                  var charCode = e.which;
+              }
+              else { return true; }
+              if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode == 32))
+                  return true;
+              else
+                  return false;
+          }
+          catch (err) {
+              alert(err.Description);
+          }
+      }
+
+    </script>
+
+    <style>
+        .errortext {
+            border: 1px solid red !important;
+            background-color: #fff0f0 !important;
+        }
+    </style>
+
+
+
+
+
+</body>
 </html>

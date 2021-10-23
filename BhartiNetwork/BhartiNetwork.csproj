@@ -1221,6 +1221,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminBaseController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1263,6 +1264,8 @@
     <Content Include="Views\Admin\GetCareerList.cshtml" />
     <Content Include="Views\Admin\SaveClient.cshtml" />
     <Content Include="Views\Home\ClientList.cshtml" />
+    <Content Include="Views\Admin\GetVendorDetails.cshtml" />
+    <Content Include="Views\Admin\ChangePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1274,6 +1277,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="FileUpload\" />
     <Folder Include="ProjectImage\" />
+    <Folder Include="Views\AdminBase\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
