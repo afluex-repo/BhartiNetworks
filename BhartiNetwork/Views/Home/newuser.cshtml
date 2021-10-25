@@ -173,7 +173,7 @@
 
 
                                 <label>Pan Number.<span style="color: red">*</span></label>
-                                @Html.TextBoxFor(m => m.PanNo, new { @class = "form-control", @placeholder = "Pan Number.", @onkeypress = "return validatePan();"})
+                                @Html.TextBoxFor(m => m.PanNo, new { @class = "form-control", @placeholder = "Pan Number.", @onchange = "return validatepan(event);"})
 
 
                                 @*<label>Pan No. </label>
@@ -182,7 +182,7 @@
                             <div class="col-md-6 form-group mt-3 mt-md-0">
 
                                 <label>GST Number.<span style="color: red">*</span></label>
-                                @Html.TextBoxFor(m => m.GSTNo, new { @class = "form-control", @placeholder = "GST Number.", @onkeypress = "return isNumberKey(event)" })
+                                @Html.TextBoxFor(m => m.GSTNo, new { @class = "form-control", @placeholder = "GST Number." })
 
                                 @*<label>GST No.</label>
                                     <input type="text" class="form-control" name="gstno" id="gstno" placeholder="Type Your GST No." required>*@
@@ -310,9 +310,9 @@
             $('#Deposit').focus();
             return false;
         }
-        if ($('#OrganizationType').val() == '0') {
-            $("#OrganizationType").addClass('errortext');
-            $('#OrganizationType').focus();
+        if ($('#PK_OrganisationTypeId').val() == '0') {
+            $("#PK_OrganisationTypeId").addClass('errortext');
+            $('#PK_OrganisationTypeId').focus();
             return false;
         }
         if ($('#PanNo').val() == '') {
@@ -325,9 +325,9 @@
             $('#GSTNo').focus();
             return false;
         }
-        if ($('#Designation').val() == '0') {
-            $("#Designation").addClass('errortext');
-            $('#Designation').focus();
+        if ($('#PK_DesignationId').val() == '0') {
+            $("#PK_DesignationId").addClass('errortext');
+            $('#PK_DesignationId').focus();
             return false;
         }
         if ($('#Password').val() == '') {
@@ -355,7 +355,7 @@
                 var charCode = e.which;
             }
             else { return true; }
-            if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode == 32))
+            if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
                 return true;
             else
                 return false;
@@ -366,18 +366,47 @@
     }
 
 
-    function validatePan() {
-        var panVal = $('#PanNo').val();
-        var regpan = /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
 
-        if (regpan.test(panVal)) {
-            $("#PanNo").removeClass('errortext');
-        } else {
-            alert("Invalid PAN Number");
-            $("#PanNo").val('');
+    function validatepan(event) {
+        $(".errortext").removeClass("errortext");
+        var regExp = /[a-zA-z]{5}\d{4}[a-zA-Z]{1}/;
+        var txtpan = $('#PanNo').val();
+        if (txtpan.length == 10) {
+            if (txtpan.match(regExp)) {
+
+            }
+            else {
+                $("#PanNo").addClass('errortext');
+                $('#PanNo').focus();
+                $('#PanNo').val('');
+                alert('Please enter valid PanNo');
+
+            }
+        }
+        else {
             $("#PanNo").addClass('errortext');
+            $('#PanNo').focus();
+            $('#PanNo').val('');
+            alert('Please enter 10 digits for a valid PAN number');
+
         }
     }
+
+
+
+
+    //function validatePan(event) {
+    //    var panVal = $('#PanNo').val();
+    //    var regpan = /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
+
+    //    if (regpan.test(panVal)) {
+    //        $("#PanNo").removeClass('errortext');
+    //    } else {
+    //        alert("Invalid PAN Number");
+    //        $("#PanNo").val('');
+    //        $("#PanNo").addClass('errortext');
+    //    }
+    //}
 
 
 </script>

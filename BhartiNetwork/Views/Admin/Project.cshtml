@@ -10,7 +10,7 @@
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Contact</h4>
+                    <h4 class="card-title">Project</h4>
                     <p style="color:red;">
                         @TempData["Project"]
                     </p>
@@ -20,10 +20,10 @@
                             <label for="exampleInputName1">Name <span style="color: red">*</span></label>
                             @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Your Name", @onkeypress = "return onlyAlphabets();" })
                         </div>
-                        <div class="form-group">
+                        @*<div class="form-group">
                             <label for="exampleInputEmail3">Date <span style="color: red">*</span></label>
                             @Html.TextBoxFor(m => m.Date, new { @class = "form-control", @placeholder = "dd/mm/yyyy", autocomplete="off" })
-                        </div>
+                        </div>*@
                         <div class="form-group">
                             <label for="exampleInputPassword4">Details <span style="color: red">*</span></label>
                                 @Html.TextAreaFor(m => m.Details, new { @class = "form-control", @placeholder = " Details" })
@@ -58,7 +58,7 @@
             return false;
         }
 
-        if ($('#Date').val() == '') {
+        if ($('#Date').val() == '0') {
             $("#Date").addClass('errortext');
             $('#Date').focus();
             return false;
