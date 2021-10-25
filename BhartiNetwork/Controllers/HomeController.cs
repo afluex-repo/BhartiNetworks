@@ -236,7 +236,7 @@ namespace BhartiNetwork.Controllers
                     Home obj = new Home();
                     obj.ProjectId = dr["PK_ProjectId"].ToString();
                     obj.Name = dr["Name"].ToString();
-                    obj.Date = dr["Date"].ToString();
+                    //obj.Date = dr["Date"].ToString();
                     obj.Details = dr["Details"].ToString();
                     obj.Image = dr["ImageFile"].ToString();
                     lstProject.Add(obj);

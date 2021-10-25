@@ -1269,6 +1269,7 @@
     <Content Include="Views\Home\ClientList.cshtml" />
     <Content Include="Views\Admin\GetVendorDetails.cshtml" />
     <Content Include="Views\Admin\ChangePassword.cshtml" />
+    <Content Include="Views\Admin\GetClientDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

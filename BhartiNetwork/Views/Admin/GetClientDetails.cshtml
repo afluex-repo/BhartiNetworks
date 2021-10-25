@@ -1,25 +1,24 @@
 ﻿@model BhartiNetwork.Models.Admin
 
 @{
-    ViewBag.Title = "GetProjectList";
+    ViewBag.Title = "GetClientDetails";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-
-@using (Html.BeginForm("GetProjectList", "Admin", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+@using (Html.BeginForm("GetClientDetails", "Admin", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
 {   <div class="row">
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Project List</h4>
+                    <h4 class="card-title">Client List</h4>
                     <p style="color:red;">
-                        @TempData["Record"]
+                        @TempData["Career"]
                     </p>
                     <div class="row" style="padding-bottom:20px;">
                         <div class="col-sm-10">
                         </div>
                         <div class="col-sm-2">
-                            <a href="/Admin/Project" class="btn btn-primary" style="border-radius:100px;">Add New</a>
+                            <a href="/Admin/SaveClient" class="btn btn-primary" style="border-radius:100px;">Add New</a>
                         </div>
                     </div>
 
@@ -31,30 +30,27 @@
                                     <thead>
                                         <tr>
                                             <th>S No.</th>
-                                            <th>Project Name</th>
-                                            @*<th>Date</th>*@
-                                            <th>Details</th>
+                                            <th>Name</th>
                                             <th>File</th>
+                                            <th>Date</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @if (Model != null)
                                         {
-                                            if (Model.lstProject != null)
+                                            if (Model.lstClient != null)
                                             {
                                                 int i = 1;
-                                                foreach (var item in Model.lstProject)
+                                                foreach (var item in Model.lstClient)
                                                 {
                                                     <tr>
                                                         <td>@i</td>
                                                         <td>@item.Name</td>
-                                                        @*<td>@item.Date</td>*@
-                                                        <td style="white-space:pre-line;">@item.Details</td>
                                                         <td><img src="@item.Image" style="height:50px;width:50px;" /></td>
-                                                        <td>
-                                                            <a href="/Admin/Project?Id=@item.ProjectId" class="btn btn-info btn-sm">Edit</a>
-                                                            <a href="/Admin/ProjectDelete?Id=@item.ProjectId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want delete this record ?')">Delete</a>
+                                                        <td>@item.Date</td>                                                        <td>
+                                                            @*<a href="/Admin/Project?Id=@item.ProjectId" class="btn btn-info btn-sm">Edit</a>*@
+                                                            <a href="/Admin/ClientDelete?Id=@item.ClientId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want delete this record ?')">Delete</a>
                                                         </td>
                                                     </tr>
                                                     i++;
@@ -72,4 +68,5 @@
         </div>
     </div>
 }
+
 

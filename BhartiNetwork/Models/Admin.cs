@@ -40,6 +40,10 @@ namespace BhartiNetwork.Models
         public string OrganizationType { get; set; }
         public string PanNo { get; set; }
         public string GSTNo { get; set; }
+
+        public string ClientId { get; set; }
+
+        public List<Admin> lstClient { get; set; }
         public List<Admin> lstCareer { get; set; }
         public List<Admin> lstProject { get; set; }
         public List<Admin> lstVendor { get; set; }
@@ -50,7 +54,7 @@ namespace BhartiNetwork.Models
         public DataSet SaveProject()
         {
             SqlParameter[] para ={new SqlParameter ("@Name",Name),
-                                new SqlParameter("@Date",Date),
+                                //new SqlParameter("@Date",Date),
                                 new SqlParameter("@Details",Details),
                                 new SqlParameter("@PostedFile",Image),
                                  new SqlParameter("@AddedBy",AddedBy)
@@ -64,7 +68,7 @@ namespace BhartiNetwork.Models
         {
             SqlParameter[] para ={new SqlParameter ("@ProjectId",ProjectId),
                                  new SqlParameter ("@Name",Name),
-                                new SqlParameter("@Date",Date),
+                                //new SqlParameter("@Date",Date),
                                 new SqlParameter("@Details",Details),
                                 new SqlParameter("@PostedFile",Image)
                                  };
@@ -87,7 +91,7 @@ namespace BhartiNetwork.Models
             SqlParameter[] para ={
                  new SqlParameter ("@ProjectId",ProjectId),
                              new SqlParameter ("@Name",Name),
-                                new SqlParameter("@Date",Date),
+                                //new SqlParameter("@Date",Date),
                                 new SqlParameter("@Details",Details),
                                 new SqlParameter("@PostedFile",Image),
                                  new SqlParameter("@AddedBy",AddedBy)
@@ -176,7 +180,9 @@ namespace BhartiNetwork.Models
 
         public DataSet SaveClient()
         {
-            SqlParameter[] para ={new SqlParameter ("@PostedFile",Image),
+            SqlParameter[] para ={
+                new SqlParameter ("@Name",Name),
+                new SqlParameter ("@PostedFile",Image),
                                 new SqlParameter("@Date",Date),
                                  new SqlParameter("@AddedBy",AddedBy)
                                  };
@@ -231,5 +237,37 @@ namespace BhartiNetwork.Models
         }
 
 
+        public DataSet GetClientDetails()
+        {
+            SqlParameter[] para = {new SqlParameter("@Name",Name),
+                                   new SqlParameter("@ClientId",ClientId),
+                                    new SqlParameter("@PostedFile",Image),
+                                     new SqlParameter("@Date",Date)
+            };
+            DataSet ds = Connection.ExecuteQuery("GetClientDetails", para);
+            return ds;
+
+        }
+
+
+        public DataSet ClientDelete()
+        {
+            SqlParameter[] para ={new SqlParameter ("@ClientId",ClientId),
+                                 new SqlParameter("@AddedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("ClientDelete", para);
+            return ds;
+        }
+
+
+        public DataSet AproveVendor()
+        {
+            SqlParameter[] para ={new SqlParameter ("@VendorId",VendorId),
+                                 new SqlParameter("@AddedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("DeleteVendor", para);
+            return ds;
+        }
+        
     }
 }

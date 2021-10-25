@@ -46,7 +46,7 @@ namespace BhartiNetwork.Controllers
 
                 ViewBag.TotalVendor = double.Parse(ds.Tables[0].Compute("sum(PK_VendorId)", "").ToString()).ToString();
             }
-            
+
             //return View(model);
 
             //Admin model = new Admin();
@@ -66,7 +66,7 @@ namespace BhartiNetwork.Controllers
                 }
                 model.lstContact = lstContact;
             }
-            
+
             List<Admin> lstDashBoard = new List<Admin>();
             DataSet ds2 = model.GetDetailsOfDashBoard();
             if (ds2 != null && ds2.Tables.Count > 0 && ds2.Tables[0].Rows.Count > 0)
@@ -84,12 +84,12 @@ namespace BhartiNetwork.Controllers
             return View(model);
         }
 
-        
+
 
         public ActionResult Project(string Id)
         {
             Admin model = new Admin();
-            if(Id!=null)
+            if (Id != null)
             {
                 model.ProjectId = Id;
                 DataSet ds = model.GetProjectDetails();
@@ -98,7 +98,7 @@ namespace BhartiNetwork.Controllers
                     model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
                     model.Date = ds.Tables[0].Rows[0]["Date"].ToString();
                     model.Details = ds.Tables[0].Rows[0]["Details"].ToString();
-                    model.Image = "/FileUpload/"+ds.Tables[0].Rows[0]["ImageFile"].ToString();
+                    model.Image = "/FileUpload/" + ds.Tables[0].Rows[0]["ImageFile"].ToString();
                 }
             }
 
@@ -111,7 +111,7 @@ namespace BhartiNetwork.Controllers
         {
             try
             {
-                if(model.ProjectId==null)
+                if (model.ProjectId == null)
                 {
                     if (postedFile != null)
                     {
@@ -184,7 +184,7 @@ namespace BhartiNetwork.Controllers
                     Admin obj = new Admin();
                     obj.ProjectId = dr["PK_ProjectId"].ToString();
                     obj.Name = dr["Name"].ToString();
-                    obj.Date = dr["Date"].ToString();
+                    //obj.Date = dr["Date"].ToString();
                     obj.Details = dr["Details"].ToString();
                     obj.Image = dr["ImageFile"].ToString();
                     lstProject.Add(obj);
@@ -304,7 +304,7 @@ namespace BhartiNetwork.Controllers
                     obj.Qualification = dr["Qualification"].ToString();
                     obj.Location = dr["Location"].ToString();
                     obj.Experience = dr["Experience"].ToString();
-                    obj.Image =   dr["Resume"].ToString();
+                    obj.Image = dr["Resume"].ToString();
                     lstCareer.Add(obj);
                 }
                 model.lstCareer = lstCareer;
@@ -390,7 +390,28 @@ namespace BhartiNetwork.Controllers
 
         }
 
-        
+        public ActionResult GetClientDetails()
+        {
+            Admin model = new Admin();
+            List<Admin> lst = new List<Admin>();
+            DataSet ds = model.GetClientDetails();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Admin obj = new Admin();
+                    obj.ClientId = dr["PK_ClientId"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    obj.Image = dr["ImageFile"].ToString();
+                    obj.Date = dr["Date"].ToString();
+                    lst.Add(obj);
+                }
+                model.lstClient = lst;
+            }
+            return View(model);
+        }
+
+
         public ActionResult GetVendorDetails()
         {
             Admin model = new Admin();
@@ -414,13 +435,13 @@ namespace BhartiNetwork.Controllers
                     obj.AccountNo = dr["AccountNo"].ToString();
                     obj.Branch = dr["Branch"].ToString();
                     obj.Deposit = dr["Deposit"].ToString();
-                    obj.OrganizationType = dr["OrganisationType"].ToString(); 
+                    obj.OrganizationType = dr["OrganisationType"].ToString();
                     obj.PanNo = dr["PanNumber"].ToString();
                     obj.GSTNo = dr["GSTNo"].ToString();
                     obj.Designation = dr["Designation"].ToString();
                     lstVendor.Add(obj);
-            }
-            model.lstVendor = lstVendor;
+                }
+                model.lstVendor = lstVendor;
             }
             return View(model);
         }
@@ -494,6 +515,74 @@ namespace BhartiNetwork.Controllers
             }
             return RedirectToAction("ChangePassword", "Admin");
         }
+
+
+
+
+        public ActionResult ClientDelete(string Id)
+        {
+            Admin model = new Admin();
+            try
+            {
+                model.ClientId = Id;
+                model.AddedBy = "1";
+                DataSet ds = model.ClientDelete();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Career"] = "Record deleted successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Career"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Career"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Career"] = ex.Message;
+            }
+            return RedirectToAction("GetClientDetails", "Admin");
+        }
+
+        public ActionResult AproveVendor(string Id)
+        {
+            Admin model = new Admin();
+            try
+            {
+                model.VendorId = Id;
+                model.AddedBy = "1";
+                DataSet ds = model.AproveVendor();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Vendor"] = "Record aprove successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Vendor"] = ex.Message;
+            }
+            return RedirectToAction("GetVendorDetails", "Admin");
+        }
+
 
 
 

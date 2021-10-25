@@ -91,7 +91,7 @@ namespace BhartiNetwork.Models
         {
             SqlParameter[] para ={new SqlParameter ("@ProjectId",ProjectId),
                                  new SqlParameter ("@Name",Name),
-                                new SqlParameter("@Date",Date),
+                                //new SqlParameter("@Date",Date),
                                 new SqlParameter("@Details",Details),
                                 new SqlParameter("@PostedFile",Image)
                                  };
