@@ -98,7 +98,7 @@ namespace BhartiNetwork.Controllers
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
-                    model.Date = ds.Tables[0].Rows[0]["Date"].ToString();
+                    //model.Date = ds.Tables[0].Rows[0]["Date"].ToString();
                     model.Details = ds.Tables[0].Rows[0]["Details"].ToString();
                     model.Image = "/FileUpload/" + ds.Tables[0].Rows[0]["ImageFile"].ToString();
                 }
@@ -374,14 +374,14 @@ namespace BhartiNetwork.Controllers
             try
             {
 
-                if(model.ClientId==null)
+                if (model.ClientId == null)
                 {
                     if (postedFile != null)
                     {
                         model.Image = "../FileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
                         postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
                     }
-                   // model.Date = string.IsNullOrEmpty(model.Date) ? null : Comman.ConvertToSystemDate(model.Date, "dd/MM/yyyy");
+                    // model.Date = string.IsNullOrEmpty(model.Date) ? null : Comman.ConvertToSystemDate(model.Date, "dd/MM/yyyy");
                     model.AddedBy = Session["Pk_AdminId"].ToString();
                     DataSet ds = model.SaveClient();
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -427,7 +427,7 @@ namespace BhartiNetwork.Controllers
                     }
                 }
 
-            
+
 
             }
 
@@ -494,6 +494,8 @@ namespace BhartiNetwork.Controllers
             }
             return View(model);
         }
+
+
 
 
         public ActionResult DeleteVendor(string Id)
@@ -731,6 +733,65 @@ namespace BhartiNetwork.Controllers
             }
             return RedirectToAction("GetVendorDetails", "Admin");
         }
+
+
+        public ActionResult PurcheseOrder()
+        {
+            Admin model = new Admin();
+            List<Admin> lstVendor = new List<Admin>();
+            DataSet ds = model.PurcheseOrderList();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Admin obj = new Admin();
+                    obj.VendorId = dr["PK_VendorId"].ToString();
+                    obj.LoginId = dr["LoginId"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    lstVendor.Add(obj);
+                }
+                model.lstVendor = lstVendor;
+            }
+            return View(model);
+        }
+
+
+        //[HttpPost]
+        //[ActionName("PurcheseOrder")]
+        //public ActionResult PurcheseOrder(Admin model,HttpPostedFileBase imgupload)
+        //{
+        //    try
+        //    {
+        //            if (postedFile != null)
+        //            {
+        //                model.Image = "../VendorFileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
+        //                postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
+        //            }
+        //            model.AddedBy = Session["Pk_AdminId"].ToString();
+        //            DataSet ds = model.UploadVendorFile();
+        //            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        //            {
+        //                if (ds.Tables[0].Rows[0][0].ToString() == "1")
+        //                {
+        //                    TempData["Vendor"] = "File upload successfully";
+        //                }
+        //                else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+        //                {
+        //                    TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+        //                }
+        //            }
+        //            else
+        //            {
+        //                TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+        //            }
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        TempData["Vendor"] = ex.Message;
+        //    }
+        //    return RedirectToAction("PurcheseOrder", "Admin");
+        //}
 
 
 

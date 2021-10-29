@@ -1,0 +1,80 @@
+﻿@model BhartiNetwork.Models.Vendor
+
+@{
+    ViewBag.Title = "VendorDashBoard";
+    Layout = "~/Views/Shared/_VendorLayout.cshtml";
+}
+
+@using (Html.BeginForm("VendorDashBoard", "Vendor", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-xl-4 col-sm-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-9">
+                            <div class="d-flex align-items-center align-self-start">
+                                <h5 class="mb-0">@ViewBag.Name</h5>
+                                <p class="text-success ml-2 mb-0 font-weight-medium"></p>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="icon icon-box-success ">
+                                <span class="mdi mdi-arrow-top-right icon-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="text-muted font-weight-normal">Name</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-sm-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-9">
+                            <div class="d-flex align-items-center align-self-start">
+                                <h5 class="mb-0">@ViewBag.LoginId</h5>
+                                <p class="text-success ml-2 mb-0 font-weight-medium"></p>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="icon icon-box-success">
+                                <span class="mdi mdi-arrow-top-right icon-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="text-muted font-weight-normal">Login Id</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-sm-6 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-9">
+                            <div class="d-flex align-items-center align-self-start">
+                                <h5 class="mb-0">@ViewBag.Password</h5>
+                                <p class="text-success ml-2 mb-0 font-weight-medium"></p>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="icon icon-box-success">
+                                <span class="mdi mdi-arrow-top-right icon-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="text-muted font-weight-normal">Password</h5>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+}
+
+
+
+

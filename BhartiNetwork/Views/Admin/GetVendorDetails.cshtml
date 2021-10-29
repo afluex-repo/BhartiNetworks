@@ -76,6 +76,7 @@
                                                         <td>@item.PanNo</td>
                                                         <td>@item.GSTNo</td>
                                                         <td>@item.Designation</td>
+                                                       
                                                         <td>
                                                             <a href="/Admin/DeleteVendor?Id=@item.VendorId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want delete this record ?')">Delete</a>
                                                             <a href="/Admin/AproveVendor?Id=@item.VendorId" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want approve this record ?')">Approve</a>
@@ -96,5 +97,9 @@
             </div>
         </div>
     </div>
+    
 }
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    var VendorId = $("#VendorId").val();
+</script>
