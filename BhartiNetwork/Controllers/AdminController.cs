@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -346,42 +348,89 @@ namespace BhartiNetwork.Controllers
         }
 
 
-        public ActionResult SaveClient()
+        public ActionResult SaveClient(string Id)
         {
+            Admin model = new Admin();
+            if (Id != null)
+            {
+                model.ClientId = Id;
+                DataSet ds = model.GetClientDetails();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
+                    model.Image = "/FileUpload/" + ds.Tables[0].Rows[0]["ImageFile"].ToString();
+                    model.Date = ds.Tables[0].Rows[0]["Date"].ToString();
+                }
+            }
 
-            return View();
+            return View(model);
         }
 
         [HttpPost]
         [ActionName("SaveClient")]
         public ActionResult SaveClient(Admin model, HttpPostedFileBase postedFile)
         {
+
             try
             {
-                if (postedFile != null)
+
+                if(model.ClientId==null)
                 {
-                    model.Image = "../FileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
-                    postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
-                }
-                model.AddedBy = Session["Pk_AdminId"].ToString();
-                DataSet ds = model.SaveClient();
-                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
-                {
-                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    if (postedFile != null)
                     {
-                        TempData["Client"] = "Client save successfully";
+                        model.Image = "../FileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
+                        postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
                     }
-                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                   // model.Date = string.IsNullOrEmpty(model.Date) ? null : Comman.ConvertToSystemDate(model.Date, "dd/MM/yyyy");
+                    model.AddedBy = Session["Pk_AdminId"].ToString();
+                    DataSet ds = model.SaveClient();
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                        {
+                            TempData["Client"] = "Client save successfully";
+                        }
+                        else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                        {
+                            TempData["Client"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                        }
+                    }
+                    else
                     {
                         TempData["Client"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
                     }
                 }
                 else
                 {
-                    TempData["Client"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    if (postedFile != null)
+                    {
+                        model.Image = "../FileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
+                        postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
+                    }
+                    model.Date = string.IsNullOrEmpty(model.Date) ? null : Comman.ConvertToSystemDate(model.Date, "dd/MM/yyyy");
+                    model.AddedBy = Session["Pk_AdminId"].ToString();
+                    DataSet ds = model.UpdateClient();
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                        {
+                            TempData["Client"] = "Client update successfully";
+                        }
+                        else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                        {
+                            TempData["Client"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                        }
+                    }
+                    else
+                    {
+                        TempData["Client"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
                 }
 
+            
+
             }
+
             catch (Exception ex)
             {
                 TempData["Client"] = ex.Message;
@@ -525,7 +574,7 @@ namespace BhartiNetwork.Controllers
             try
             {
                 model.ClientId = Id;
-                model.AddedBy = "1";
+                model.AddedBy = Session["Pk_AdminId"].ToString();
                 DataSet ds = model.ClientDelete();
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
@@ -557,13 +606,47 @@ namespace BhartiNetwork.Controllers
             try
             {
                 model.VendorId = Id;
-                model.AddedBy = "1";
+                model.AddedBy = Session["Pk_AdminId"].ToString();
                 DataSet ds = model.AproveVendor();
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     if (ds.Tables[0].Rows[0][0].ToString() == "1")
                     {
-                        TempData["Vendor"] = "Record aprove successfully";
+                        TempData["Vendor"] = "Record aproved successfully";
+                        model.Email = ds.Tables[0].Rows[0]["Email"].ToString();
+
+                        if (model.Email != null)
+                        {
+                            string mailbody = "";
+                            try
+                            {
+                                model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
+                                mailbody = "Dear,  <br/>" + model.Name + " <br/> Your record has been  approved";
+
+                                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
+                                {
+                                    Host = "smtp.gmail.com",
+                                    Port = 587,
+                                    EnableSsl = true,
+                                    DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
+                                    UseDefaultCredentials = true,
+                                    Credentials = new NetworkCredential("developer2.afluex@gmail.com", "devel@486")
+
+                                };
+                                using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
+                                {
+                                    IsBodyHtml = true,
+                                    Subject = "Successfull Message",
+                                    Body = mailbody
+                                })
+                                    smtp.Send(message);
+
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+                        }
                     }
                     else if (ds.Tables[0].Rows[0][0].ToString() == "0")
                     {
@@ -584,6 +667,70 @@ namespace BhartiNetwork.Controllers
         }
 
 
+        public ActionResult DeclineVendor(string Id)
+        {
+            Admin model = new Admin();
+            try
+            {
+                model.VendorId = Id;
+                model.AddedBy = Session["Pk_AdminId"].ToString();
+                DataSet ds = model.DeclineVendor();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Vendor"] = "Record declined successfully";
+                        model.Email = ds.Tables[0].Rows[0]["Email"].ToString();
+
+                        if (model.Email != null)
+                        {
+                            string mailbody = "";
+                            try
+                            {
+                                model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
+                                mailbody = "Dear,  <br/>" + model.Name + " <br/> Your record has been  Declined";
+
+                                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
+                                {
+                                    Host = "smtp.gmail.com",
+                                    Port = 587,
+                                    EnableSsl = true,
+                                    DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
+                                    UseDefaultCredentials = true,
+                                    Credentials = new NetworkCredential("developer2.afluex@gmail.com", "devel@486")
+                                };
+                                using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
+                                {
+                                    IsBodyHtml = true,
+                                    Subject = "Successfull Message",
+                                    Body = mailbody
+                                })
+                                    smtp.Send(message);
+
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+                        }
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Vendor"] = ex.Message;
+            }
+            return RedirectToAction("GetVendorDetails", "Admin");
+        }
 
 
 
