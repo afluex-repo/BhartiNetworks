@@ -49,7 +49,7 @@ namespace BhartiNetwork.Models
         public List<Admin> lstVendor { get; set; }
         public List<Admin> lstContact { get; set; }
         public List<Admin> lstDashBoard { get; set; }
-        
+
 
         public DataSet SaveProject()
         {
@@ -72,9 +72,9 @@ namespace BhartiNetwork.Models
                                 new SqlParameter("@Details",Details),
                                 new SqlParameter("@PostedFile",Image)
                                  };
-            DataSet ds = Connection.ExecuteQuery("GetProjectDetails",para);
+            DataSet ds = Connection.ExecuteQuery("GetProjectDetails", para);
             return ds;
-            
+
         }
 
         public DataSet DeleteProject()
@@ -190,11 +190,25 @@ namespace BhartiNetwork.Models
             return ds;
         }
 
-
-
+        public DataSet UpdateClient()
+        {
+            SqlParameter[] para ={
+                new SqlParameter ("@ClientId",ClientId),
+                new SqlParameter ("@Name",Name),
+                new SqlParameter ("@PostedFile",Image),
+                                new SqlParameter("@Date",Date),
+                                 new SqlParameter("@AddedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("UpdateClient", para);
+            return ds;
+        }
+        
         public DataSet GetVendorDetails()
-        { 
-            DataSet ds = Connection.ExecuteQuery("GetVendorDetails");
+        {
+            SqlParameter[] para ={
+                new SqlParameter("@VendorId",VendorId)
+            };
+            DataSet ds = Connection.ExecuteQuery("GetVendorDetails", para);
             return ds;
         }
 
@@ -213,7 +227,7 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("GetDetailsOfDashBoard");
             return ds;
         }
-        
+
         public DataSet Login()
         {
             SqlParameter[] para = { new SqlParameter("@LoginID",LoginId),
@@ -262,12 +276,28 @@ namespace BhartiNetwork.Models
 
         public DataSet AproveVendor()
         {
-            SqlParameter[] para ={new SqlParameter ("@VendorId",VendorId),
-                                 new SqlParameter("@AddedBy",AddedBy)
+            SqlParameter[] para ={new SqlParameter ("@FK_VendorId",VendorId),
+                                 new SqlParameter("@UpdatedBy",AddedBy)
                                  };
-            DataSet ds = Connection.ExecuteQuery("DeleteVendor", para);
+            DataSet ds = Connection.ExecuteQuery("ApproveVendor", para);
             return ds;
         }
-        
+
+        public DataSet DeclineVendor()
+        {
+            SqlParameter[] para ={new SqlParameter ("@FK_VendorId",VendorId),
+                                 new SqlParameter("@UpdatedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("DeclinedVendor", para);
+            return ds;
+        }
+
+
+        public DataSet PurcheseOrderList()
+        { 
+            DataSet ds = Connection.ExecuteQuery("PurcheseOrderList");
+            return ds;
+        }
+
     }
 }

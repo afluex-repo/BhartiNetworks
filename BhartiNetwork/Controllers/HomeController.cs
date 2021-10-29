@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using BhartiNetwork.Models;
 using System.Data;
 using System.IO;
+using System.Net;
+using System.Net.Mail;
 
 namespace BhartiNetwork.Controllers
 {
@@ -142,9 +144,64 @@ namespace BhartiNetwork.Controllers
 
         public ActionResult vendor()
         {
+            Session.Abandon();
             return View();
         }
-        
+        [HttpPost]
+        [ActionName("vendor")]
+        public ActionResult VendorLogin(Admin model)
+        {
+            string FormName = "";
+            string Controller = "";
+            try
+            {
+                Admin Modal = new Admin();
+                DataSet ds = model.Login();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1" && ds.Tables[0].Rows[0]["UserType"].ToString() == "Admin")
+                    {
+                        Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
+                        Session["Pk_AdminId"] = ds.Tables[0].Rows[0]["PK_AdminId"].ToString();
+                        Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
+
+                        FormName = "AdminDashBoard";
+                        Controller = "Admin";
+                    }
+                    else if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1" && ds.Tables[0].Rows[0]["UserType"].ToString() == "Vendor")
+                    {
+                        Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
+                        Session["PK_VendorId"] = ds.Tables[0].Rows[0]["PK_VendorId"].ToString();
+                        Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
+
+                        FormName = "VendorDashBoard";
+                        Controller = "Vendor";
+                    }
+                    else
+                    {
+                        TempData["Login"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                        FormName = "Vendor";
+                        Controller = "Home";
+                    }
+
+                }
+                else
+                {
+                    TempData["Login"] = "Incorrect LoginId Or Password";
+                    FormName = "Vendor";
+                    Controller = "Home";
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Login"] = ex.Message;
+                FormName = "Vendor";
+                Controller = "Home";
+            }
+
+            return RedirectToAction(FormName, Controller);
+
+        }
 
         public ActionResult newuser()
         {
@@ -205,6 +262,38 @@ namespace BhartiNetwork.Controllers
                     if (ds.Tables[0].Rows[0][0].ToString() == "1")
                     {
                         TempData["Registration"] = "Registration save successfully";
+                        
+                        if (model.Email != null)
+                        {
+                            string mailbody = "";
+                            try
+                            {
+                                model.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
+                                mailbody = "Dear,  <br/>" + model.Name + " <br/> Your Registration successfully completed<br/> Your LoginId is :" +model.LoginId+"<br/> Password is :"+model.Password;
+
+                                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
+                                {
+                                    Host = "smtp.gmail.com",
+                                    Port = 587,
+                                    EnableSsl = true,
+                                    DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
+                                    UseDefaultCredentials = true,
+                                    Credentials = new NetworkCredential("developer2.afluex@gmail.com", "devel@486")
+                                };
+                                using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
+                                {
+                                    IsBodyHtml = true,
+                                    Subject = "Successfull Message",
+                                    Body = mailbody
+                                })
+                                    smtp.Send(message);
+
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+                        }
                     }
                     else if (ds.Tables[0].Rows[0][0].ToString() == "0")
                     {
@@ -267,58 +356,66 @@ namespace BhartiNetwork.Controllers
         //    return View(model);
         //}
 
-        public ActionResult Login()
-        {
-            Session.Abandon();
-            return View();
-        }
+        //public ActionResult Login()
+        //{
+        //    Session.Abandon();
+        //    return View();
+        //}
 
-        [HttpPost]
-        [ActionName("Login")]
-        public ActionResult Login(Admin model)
-        {
-            string FormName = "";
-            string Controller = "";
-            try
-            {
-                Admin Modal = new Admin();
-                DataSet ds = model.Login();
-                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
-                {
-                    if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1")
-                    {
-                        Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
-                        Session["Pk_AdminId"] = ds.Tables[0].Rows[0]["PK_AdminId"].ToString();
-                        Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
+        //[HttpPost]
+        //[ActionName("Login")]
+        //public ActionResult Login(Admin model)
+        //{
+        //    string FormName = "";
+        //    string Controller = "";
+        //    try
+        //    {
+        //        Admin Modal = new Admin();
+        //        DataSet ds = model.Login();
+        //        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        //        {
+        //            if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1" && ds.Tables[0].Rows[0]["UserType"].ToString() == "Admin")
+        //            {
+        //                Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
+        //                Session["Pk_AdminId"] = ds.Tables[0].Rows[0]["PK_AdminId"].ToString();
+        //                Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
 
-                        FormName = "AdminDashBoard";
-                        Controller = "Admin";
-                    }
-                    else
-                    {
-                        TempData["Login"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-                        FormName = "Login";
-                        Controller = "Home";
-                    }
+        //                FormName = "AdminDashBoard";
+        //                Controller = "Admin";
+        //            }
+        //            else if(ds.Tables[0].Rows[0]["Msg"].ToString() == "1" && ds.Tables[0].Rows[0]["UserType"].ToString() == "Vendor")
+        //            {
+        //                Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
+        //                Session["PK_VendorId"] = ds.Tables[0].Rows[0]["PK_VendorId"].ToString();
+        //                Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
 
-                }
-                else
-                {
-                    TempData["Login"] = "Incorrect LoginId Or Password";
-                    FormName = "Login";
-                    Controller = "Home";
+        //                FormName = "VendorDashBoard";
+        //                Controller = "Vendor";
+        //            }
+        //            else
+        //            {
+        //                TempData["Login"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+        //                FormName = "Login";
+        //                Controller = "Home";
+        //            }
+                    
+        //        }
+        //        else
+        //        {
+        //            TempData["Login"] = "Incorrect LoginId Or Password";
+        //            FormName = "Login";
+        //            Controller = "Home";
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        TempData["Login"] = ex.Message;
+        //        FormName = "Login";
+        //        Controller = "Home";
+        //    }
 
-                }
-            }
-            catch (Exception ex)
-            {
-                TempData["Login"] = ex.Message;
-                FormName = "Login";
-                Controller = "Home";
-            }
+        //    return RedirectToAction(FormName, Controller);
 
-            return RedirectToAction(FormName, Controller);
-
-        }
+        //}
     }
 }

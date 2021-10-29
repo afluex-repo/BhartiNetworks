@@ -50,7 +50,7 @@
                                                         <td>@item.Name</td>
                                                         <td>@item.Email</td>
                                                         <td>@item.Subject</td>
-                                                        <td>@item.Address</td>
+                                                        <td style="white-space:pre-line">@item.Address</td>
                                                         <td>
                                                             @*<a href="/Admin/ContactUs?Id=@item.ContactId" class="btn btn-info btn-sm">Edit</a>*@
                                                             <a href="/Admin/ContactDelete?Id=@item.ContactId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want delete this record ?')">Delete</a>

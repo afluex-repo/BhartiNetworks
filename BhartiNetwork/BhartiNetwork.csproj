@@ -1227,6 +1227,8 @@
     <Compile Include="Controllers\AdminBaseController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VendorBaseController.cs" />
+    <Compile Include="Controllers\VendorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1234,6 +1236,7 @@
     <Compile Include="Models\Comman.cs" />
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\Home.cs" />
+    <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1270,6 +1273,10 @@
     <Content Include="Views\Admin\GetVendorDetails.cshtml" />
     <Content Include="Views\Admin\ChangePassword.cshtml" />
     <Content Include="Views\Admin\GetClientDetails.cshtml" />
+    <Content Include="Views\Shared\_VendorLayout.cshtml" />
+    <Content Include="Views\Vendor\VendorDashBoard.cshtml" />
+    <Content Include="Views\Vendor\Profile.cshtml" />
+    <Content Include="Views\Admin\PurcheseOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1281,7 +1288,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="FileUpload\" />
     <Folder Include="ProjectImage\" />
+    <Folder Include="VendorFileUpload\" />
     <Folder Include="Views\AdminBase\" />
+    <Folder Include="Views\VendorBase\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

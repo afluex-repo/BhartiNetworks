@@ -7,15 +7,15 @@ using System.Web.Routing;
 
 namespace BhartiNetwork.Controllers
 {
-    public class AdminBaseController : Controller
+    public class VendorBaseController : Controller
     {
-        // GET: AdminBase
+        // GET: VendorBase
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             // code involving this.Session // edited to simplify
             HttpSessionStateBase session = filterContext.HttpContext.Session;
             // If the browser session or authentication session has expired...
-            if (session.IsNewSession || Session["Pk_AdminId"] == null)
+            if (session.IsNewSession || Session["PK_VendorId"] == null)
             {
 
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(
