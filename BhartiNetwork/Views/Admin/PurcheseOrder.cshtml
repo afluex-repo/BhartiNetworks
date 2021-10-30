@@ -53,11 +53,14 @@
 
                                                             <input type="hidden" id="fileName" />
                                                             <div class="kv-avatar center-block">
-                                                                <input id="imgupload" name="imgupload" type="file" class="file-loading" required accept="image/jpg,image/png,image/jpeg" />
+                                                                <input name="imgupload" type="file" accept=".pdf,.doc" class="file-loading" />
+
+                                                                <button type="submit" class="btn btn-info btn-sm" onclick="UploadImage(@item.VendorId)">Submit</button>
+
+                                                                @*<a href="/Admin/AddProfile?Id=@item.VendorId"class="btn btn-danger btn-sm">Upload</a>*@
+
                                                             </div>
 
-
-                                                            <button type="submit" class="btn btn-primary" id="addprofile" value="">Submit</button>
                                                         </td>
                                                     </tr>
                                                     i++;
@@ -76,35 +79,34 @@
     </div>
 
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    $(document).ready(function () {
-
-        $('#addprofile').click(function () {
-
-            var formData = new FormData();
-            var files = $("#imgupload").get(0).files;
-
-
-            formData.append("file", files[0]);
-            formData.append("Profile", files[0].name);
-
-            $.ajax({
-                type: 'POST',
-                url: "/Home/AddProfile",
-                data: formData,
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (response) {
-                    if (response == 1) {
-                        alert("successfully Profile Updated");
-                    }
-                    else {
-                        alert("Something Went Wrong..");
-                    }
+    var files = "";
+    $('#file_export').on('change', '.file-loading', function () {
+        debugger;
+        files = $(this).get(0).files;
+    });
+    function UploadImage(Id) {
+        debugger;
+        var formData = new FormData();
+        formData.append("file", files[0]);
+        formData.append("Id", Id);
+        $.ajax({
+            type: 'POST',
+            url: "/Admin/AddProfile",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                if (response == 1) {
+                    alert("successfully Profile Updated");
                 }
-            })
+                else {
+                    //alert("Something Went Wrong..");
+                }
+            }
         })
-    })
+    }
 </script>
 

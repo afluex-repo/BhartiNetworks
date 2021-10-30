@@ -18,6 +18,7 @@ namespace BhartiNetwork.Models
         public string NewPassword { get; set; }
         public string Image { get; set; }
         public List<Vendor> lstVendor { get; set; }
+        public List<Vendor> lstVendorPOList { get; set; }
         public string ContactId { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
@@ -36,6 +37,8 @@ namespace BhartiNetwork.Models
         public string OrganizationType { get; set; }
         public string PanNo { get; set; }
         public string GSTNo { get; set; }
+        public string file { get; set; }
+        
 
         public DataSet GetVendorDetails()
         {
@@ -45,6 +48,17 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("GetVendorDetails",para);
             return ds;
         }
+
+        public DataSet GetVendorPODetails()
+        {
+            SqlParameter[] para ={
+                new SqlParameter("@LoginId",LoginId)
+            };
+            DataSet ds = Connection.ExecuteQuery("GetVendorPODetails",para);
+            return ds;
+        }
+
+
     }
 
 }

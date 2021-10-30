@@ -55,5 +55,27 @@ namespace BhartiNetwork.Controllers
         }
 
 
+        public ActionResult PurcheseOrder()
+        {
+            Vendor model = new Vendor();
+            List<Vendor> lstVendorPOList = new List<Vendor>();
+            model.LoginId = Session["LoginId"].ToString();
+            DataSet ds = model.GetVendorPODetails();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Vendor obj = new Vendor();
+                    obj.LoginId = dr["LoginId"].ToString();
+                    obj.file = dr["UploadFile"].ToString();
+                    obj.Date = dr["PODate"].ToString();
+                    lstVendorPOList.Add(obj);
+                }
+                model.lstVendorPOList = lstVendorPOList;
+            }
+            return View(model);
+        }
+
+
     }
 }
