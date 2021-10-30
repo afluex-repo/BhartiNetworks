@@ -14,13 +14,45 @@
                     <p style="color:red;">
                         @TempData["Vendor"]
                     </p>
-                    <div class="row" style="padding-bottom:20px;">
+                    @*<div class="row" style="padding-bottom:20px;">
                         <div class="col-sm-10">
                         </div>
                         <div class="col-sm-2">
-                            @*<a href="/Admin/Project" class="btn btn-primary" style="border-radius:100px;">Add New</a>*@
+                            <a href="/Admin/Project" class="btn btn-primary" style="border-radius:100px;">Add New</a>
+                        </div>
+                    </div>*@
+                    <div class="row">
+                        <div class="col-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p style="color:red;">
+                                        @TempData["Contact"]
+                                    </p>
+                                    <form class="forms-sample">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label for="exampleInputName1">Vendor Code</label>
+                                                    @Html.TextBoxFor(m => m.LoginId, new { @class = "form-control", @placeholder = "Vendor Code" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail3">Vendor Name</label>
+                                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Vendor Name" })
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <input type="submit" value="Search" class="btn btn-success" style="margin-top:25px;" />
+                                            </div>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
 
                     <div class="row">
                         <div class="col-12">
@@ -30,9 +62,10 @@
                                     <thead>
                                         <tr>
                                             <th>S No.</th>
-                                            <th>LoginId</th>
-                                            <th>Name</th>
-                                            <th>Upload File</th>
+                                            <th>Vendor Code</th>
+                                            <th>Vendor Name</th>
+                                            <th>Organization Name</th>
+                                            <th>PO</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -47,6 +80,7 @@
                                                         <td>@i</td>
                                                         <td>@item.LoginId</td>
                                                         <td>@item.Name</td>
+                                                        <td>@item.OrganizationName</td>
                                                         <td>
                                                             <input type="hidden" id="VendorId" name="VendorId" value="@item.VendorId" />
                                                             @*<input type="file" name="postedFile" id="postedFile" />*@

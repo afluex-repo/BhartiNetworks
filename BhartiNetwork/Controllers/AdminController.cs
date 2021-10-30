@@ -737,8 +737,33 @@ namespace BhartiNetwork.Controllers
 
         public ActionResult PurcheseOrder()
         {
-            Admin model = new Admin();
+            //Admin model = new Admin();
+            //List<Admin> lstVendor = new List<Admin>();
+            //DataSet ds = model.PurcheseOrderList();
+            //if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            //{
+            //    foreach (DataRow dr in ds.Tables[0].Rows)
+            //    {
+            //        Admin obj = new Admin();
+            //        obj.VendorId = dr["PK_VendorId"].ToString();
+            //        obj.LoginId = dr["LoginId"].ToString();
+            //        obj.Name = dr["Name"].ToString();
+            //        obj.OrganizationName = dr["OrganizationName"].ToString();
+            //        lstVendor.Add(obj);
+            //    }
+            //    model.lstVendor = lstVendor;
+            //}
+            return View();
+        }
+
+
+        [HttpPost]
+        [ActionName("PurcheseOrder")]
+        public ActionResult PurcheseOrder(Admin model)
+        {
             List<Admin> lstVendor = new List<Admin>();
+            model.LoginId = model.LoginId == "0" ? null : model.LoginId;
+            model.Name = model.Name == "0" ? null : model.Name;
             DataSet ds = model.PurcheseOrderList();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
@@ -748,12 +773,16 @@ namespace BhartiNetwork.Controllers
                     obj.VendorId = dr["PK_VendorId"].ToString();
                     obj.LoginId = dr["LoginId"].ToString();
                     obj.Name = dr["Name"].ToString();
+                    obj.OrganizationName = dr["OrganizationName"].ToString();
                     lstVendor.Add(obj);
                 }
                 model.lstVendor = lstVendor;
             }
             return View(model);
         }
+
+
+
 
 
         //[HttpPost]
@@ -775,7 +804,7 @@ namespace BhartiNetwork.Controllers
                 {
                     if (ds.Tables[0].Rows[0][0].ToString() == "1")
                     {
-                        TempData["Vendor"] = "File upload successfully";
+                        TempData["Vendor"] = "PO upload successfully";
                     }
                     else if (ds.Tables[0].Rows[0][0].ToString() == "0")
                     {
