@@ -1277,6 +1277,7 @@
     <Content Include="Views\Vendor\VendorDashBoard.cshtml" />
     <Content Include="Views\Vendor\Profile.cshtml" />
     <Content Include="Views\Admin\PurcheseOrder.cshtml" />
+    <Content Include="Views\Vendor\PurcheseOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -757,41 +757,43 @@ namespace BhartiNetwork.Controllers
 
 
         //[HttpPost]
-        //[ActionName("PurcheseOrder")]
-        //public ActionResult PurcheseOrder(Admin model,HttpPostedFileBase imgupload)
-        //{
-        //    try
-        //    {
-        //            if (postedFile != null)
-        //            {
-        //                model.Image = "../VendorFileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
-        //                postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
-        //            }
-        //            model.AddedBy = Session["Pk_AdminId"].ToString();
-        //            DataSet ds = model.UploadVendorFile();
-        //            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
-        //            {
-        //                if (ds.Tables[0].Rows[0][0].ToString() == "1")
-        //                {
-        //                    TempData["Vendor"] = "File upload successfully";
-        //                }
-        //                else if (ds.Tables[0].Rows[0][0].ToString() == "0")
-        //                {
-        //                    TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-        //                }
-        //            }
-        //            else
-        //            {
-        //                TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-        //            }
-        //    }
+        public ActionResult AddProfile( HttpPostedFileBase file,string Id)
+        {
+            Admin userDetail = new Admin();
+            try
+            {
+                
+                userDetail.VendorId = Id;
+                if (file != null)
+                {
+                    userDetail.file = "../VendorFileUpload/" + Guid.NewGuid() + Path.GetExtension(file.FileName);
+                    file.SaveAs(Path.Combine(Server.MapPath(userDetail.file)));
+                }
+                userDetail.AddedBy = Session["Pk_AdminId"].ToString();
+                DataSet ds = userDetail.UploadVendorFile();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Vendor"] = "File upload successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+            }
 
-        //    catch (Exception ex)
-        //    {
-        //        TempData["Vendor"] = ex.Message;
-        //    }
-        //    return RedirectToAction("PurcheseOrder", "Admin");
-        //}
+            catch (Exception ex)
+            {
+                TempData["Vendor"] = ex.Message;
+            }
+            return Json(userDetail,JsonRequestBehavior.AllowGet);
+        }
 
 
 
