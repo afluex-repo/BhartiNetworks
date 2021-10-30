@@ -298,7 +298,10 @@ namespace BhartiNetwork.Models
 
         public DataSet PurcheseOrderList()
         {
-            DataSet ds = Connection.ExecuteQuery("PurcheseOrderList");
+            SqlParameter[] para ={new SqlParameter ("@LoginId",LoginId),
+                                 new SqlParameter("@Name",Name)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("PurcheseOrderList",para);
             return ds;
         }
 
