@@ -179,7 +179,8 @@ namespace BhartiNetwork.Controllers
                     }
                     else
                     {
-                        TempData["Login"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                        //TempData["Login"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                        TempData["Login"] = "Incorrect LoginId Or Password";
                         FormName = "Vendor";
                         Controller = "Home";
                     }

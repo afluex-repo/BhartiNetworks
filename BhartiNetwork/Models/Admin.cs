@@ -18,8 +18,9 @@ namespace BhartiNetwork.Models
         public string ProjectId { get; set; }
         public string Image { get; set; }
         public string file { get; set; }
-
+        public string PONumber { get; set; }
         
+
         public string AddedBy { get; set; }
 
         public string ContactId { get; set; }
@@ -311,6 +312,7 @@ namespace BhartiNetwork.Models
         {
             SqlParameter[] para ={
                 new SqlParameter ("@VendorId",VendorId),
+                 new SqlParameter ("@PoNumber",PONumber),
                 new SqlParameter ("@PostedFile",file),
                                  new SqlParameter("@AddedBy",AddedBy)
                                  };

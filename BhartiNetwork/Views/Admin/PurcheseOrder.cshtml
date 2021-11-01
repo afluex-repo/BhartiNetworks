@@ -65,6 +65,7 @@
                                             <th>Vendor Code</th>
                                             <th>Vendor Name</th>
                                             <th>Organization Name</th>
+                                            <th>PO Number</th>
                                             <th>PO</th>
                                         </tr>
                                     </thead>
@@ -81,13 +82,14 @@
                                                         <td>@item.LoginId</td>
                                                         <td>@item.Name</td>
                                                         <td>@item.OrganizationName</td>
+
+                                                        <td>@Html.TextBoxFor(m => m.PONumber, new { @class = "po_"+item.VendorId+"", @placeholder = "PO Number" })</td>
                                                         <td>
                                                             <input type="hidden" id="VendorId" name="VendorId" value="@item.VendorId" />
                                                             @*<input type="file" name="postedFile" id="postedFile" />*@
-
                                                             <input type="hidden" id="fileName" />
                                                             <div class="kv-avatar center-block">
-                                                                <input name="imgupload" type="file" accept=".pdf,.doc" class="file-loading" />
+                                                                <input  name="imgupload" type="file" accept=".pdf,.doc" class="file-loading" />
 
                                                                 <button type="submit" class="btn btn-info btn-sm" onclick="UploadImage(@item.VendorId)">Submit</button>
 
@@ -114,6 +116,7 @@
 
 }
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
 <script>
     var files = "";
     $('#file_export').on('change', '.file-loading', function () {
@@ -122,8 +125,17 @@
     });
     function UploadImage(Id) {
         debugger;
+        var po = $(".po_"+Id+"").val();
+        //if (po == "")
+        //{
+        //    return false;
+        //    $(".po_" +Id+"").addClass('errortext');
+        //    $(".po_"+Id+"").focus();
+        //}
         var formData = new FormData();
         formData.append("file", files[0]);
+        formData.append("po", po);
+        //formData.append("PONumber",$('#PONumber').val());
         formData.append("Id", Id);
         $.ajax({
             type: 'POST',
@@ -142,5 +154,24 @@
             }
         })
     }
+
+    //function UploadImage() {
+    //    if ($('#PONumber').val() == '') {
+    //        $("#PONumber").addClass('errortext');
+    //        $('#PONumber').focus();
+    //        return false;
+    //    }
+    //    //if ($('#imgupload').val() == '') {
+    //    //    $("#imgupload").addClass('errortext');
+    //    //    $('#imgupload').focus();
+    //    //    return false;
+    //    //}
+    //}
 </script>
+<style>
+    .errortext {
+        border: 1px solid red !important;
+        background-color: #fff0f0 !important;
+    }
+</style>
 
