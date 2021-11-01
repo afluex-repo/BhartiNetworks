@@ -786,9 +786,10 @@ namespace BhartiNetwork.Controllers
 
 
         //[HttpPost]
-        public ActionResult AddProfile( HttpPostedFileBase file,string Id)
+        public ActionResult AddProfile( HttpPostedFileBase file,string Id,string po)
         {
             Admin userDetail = new Admin();
+            
             try
             {
                 
@@ -798,6 +799,7 @@ namespace BhartiNetwork.Controllers
                     userDetail.file = "../VendorFileUpload/" + Guid.NewGuid() + Path.GetExtension(file.FileName);
                     file.SaveAs(Path.Combine(Server.MapPath(userDetail.file)));
                 }
+                userDetail.PONumber = po;
                 userDetail.AddedBy = Session["Pk_AdminId"].ToString();
                 DataSet ds = userDetail.UploadVendorFile();
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
