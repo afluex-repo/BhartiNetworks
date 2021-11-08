@@ -29,6 +29,10 @@ namespace BhartiNetwork.Models
         public string Password { get; set; }
         public string ProjectId { get; set; }
         public string ClientId { get; set; }
+        public string FatherName { get; set; }
+        public string Gender { get; set; }
+        public string DOB { get; set; }
+        public string BloodGroup { get; set; }
 
         public string OrganizationName { get; set; }
         public string ServicesOffered { get; set; }
@@ -146,6 +150,22 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("SaveVendor", para);
             return ds;
         }
-
+        public DataSet EmpRegistration()
+        {
+            SqlParameter[] para ={
+                new SqlParameter ("@Password",Password),
+                new SqlParameter ("@Name",Name),
+                new SqlParameter("@Mobile",Mobile),
+                new SqlParameter("@Email",Email),
+                new SqlParameter ("@Address",Address),
+                new SqlParameter("@FatherName",FatherName),
+                new SqlParameter("@Gender",Gender),
+                new SqlParameter("@DOB",DOB),
+                new SqlParameter("@BloodGroup",BloodGroup),
+                new SqlParameter("@Designation",Designation)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("EmployeeRegistration", para);
+            return ds;
+        }
     }
 }

@@ -825,7 +825,32 @@ namespace BhartiNetwork.Controllers
             }
             return Json(userDetail,JsonRequestBehavior.AllowGet);
         }
-
+        public ActionResult EmployeeList()
+        {
+            Admin model = new Admin();
+            List<Admin> lstVendor = new List<Admin>();
+            DataSet ds = model.GetEmployeeList();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Admin obj = new Admin();
+                    obj.Employeeid = dr["PK_EmployeeId"].ToString();
+                    obj.LoginId = dr["LoginId"].ToString();
+                    obj.Password = dr["Password"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    obj.Mobile = dr["Mobile"].ToString();
+                    obj.Email = dr["Email"].ToString();
+                    obj.Address = dr["Address"].ToString();
+                    obj.Date = dr["DOB"].ToString();
+                    obj.Designation = dr["Designation"].ToString();
+                    obj.Status = dr["Status"].ToString();
+                    lstVendor.Add(obj);
+                }
+                model.lstVendor = lstVendor;
+            }
+            return View(model);
+        }
 
 
     }

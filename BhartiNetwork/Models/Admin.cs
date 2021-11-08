@@ -19,8 +19,8 @@ namespace BhartiNetwork.Models
         public string Image { get; set; }
         public string file { get; set; }
         public string PONumber { get; set; }
-        
-
+        public string Employeeid { get; set; }
+        public string Status { get; set; }
         public string AddedBy { get; set; }
 
         public string ContactId { get; set; }
@@ -215,7 +215,11 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("GetVendorDetails", para);
             return ds;
         }
-
+        public DataSet GetEmployeeList()
+        {
+            DataSet ds = Connection.ExecuteQuery("GetEmployeeList");
+            return ds;
+        }
         public DataSet DeleteVendor()
         {
             SqlParameter[] para ={new SqlParameter ("@VendorId",VendorId),
