@@ -39,6 +39,8 @@ namespace BhartiNetwork.Models
         public string OrganizationType { get; set; }
         public string StartingofOrganization { get; set; }
         public string Circle { get; set; }
+        public string PK_InvoiceId { get; set; }
+        
         public string AccountNo { get; set; }
         public string Branch { get; set; }
         public string Deposit { get; set; }
@@ -145,6 +147,7 @@ namespace BhartiNetwork.Models
                                 new SqlParameter("@PanNumber",PanNo),
                                  new SqlParameter("@GSTNo",GSTNo),
                                  new SqlParameter("@FK_DesignationId",PK_DesignationId),
+                                 new SqlParameter("@FK_InvoiceId",PK_InvoiceId),
                                  new SqlParameter("@AddedBy",AddedBy)
                                  };
             DataSet ds = Connection.ExecuteQuery("SaveVendor", para);

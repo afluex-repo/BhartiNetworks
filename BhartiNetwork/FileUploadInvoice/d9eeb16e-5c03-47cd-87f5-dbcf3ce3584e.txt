@@ -1,0 +1,48 @@
+<!-- Start trusted-clients Area -->
+//<section class="partner-area">
+//    <div class="container">
+//        <div class="partner-title">
+//            <h2>Our Trusted Clients</h2>
+//        </div>
+
+//        <div class="partner-slides owl-carousel owl-theme">
+//            <div class="single-partner-item">
+//                <a href="javascript:void(0)">
+//                    <img src="assets/img/trusted-clients/1.png" alt="image">
+//                </a>
+//            </div>
+
+//            <div class="single-partner-item">
+//                <a href="javascript:void(0)">
+//                    <img src="assets/img/trusted-clients/2.png" alt="image">
+//                </a>
+//            </div>
+
+//            <div class="single-partner-item">
+//                <a href="javascript:void(0)">
+//                    <img src="assets/img/trusted-clients/3.png" alt="image">
+//                </a>
+//            </div>
+
+//            <div class="single-partner-item">
+//                <a href="javascript:void(0)">
+//                    <img src="assets/img/trusted-clients/4.png" alt="image">
+//                </a>
+//            </div>
+
+//            <div class="single-partner-item">
+//                <a href="javascript:void(0)">
+//                    <img src="assets/img/trusted-clients/5.jpg" alt="image">
+//                </a>
+//            </div>
+
+//            <div class="single-partner-item">
+//                <a href="javascript:void(0)">
+//                    <img src="assets/img/trusted-clients/6.png" alt="image">
+//                </a>
+//            </div>
+
+//        </div>
+//    </div>
+//</section>
+<!-- End trusted-clients Area -->

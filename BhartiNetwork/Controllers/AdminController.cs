@@ -786,13 +786,13 @@ namespace BhartiNetwork.Controllers
 
 
         //[HttpPost]
-        public ActionResult AddProfile( HttpPostedFileBase file,string Id,string po)
+        public ActionResult AddProfile(HttpPostedFileBase file, string Id, string po)
         {
             Admin userDetail = new Admin();
-            
+
             try
             {
-                
+
                 userDetail.VendorId = Id;
                 if (file != null)
                 {
@@ -823,7 +823,7 @@ namespace BhartiNetwork.Controllers
             {
                 TempData["Vendor"] = ex.Message;
             }
-            return Json(userDetail,JsonRequestBehavior.AllowGet);
+            return Json(userDetail, JsonRequestBehavior.AllowGet);
         }
         public ActionResult EmployeeList()
         {
@@ -851,7 +851,196 @@ namespace BhartiNetwork.Controllers
             }
             return View(model);
         }
+<<<<<<< HEAD
 
+        public ActionResult Invoice()
+        {
+            Admin model = new Admin();
+            List<Admin> lstInvoice = new List<Admin>();
+            DataSet ds = model.GetInvoiceDetails();
+=======
+        public ActionResult EmployeeList()
+        {
+            Admin model = new Admin();
+            List<Admin> lstVendor = new List<Admin>();
+            DataSet ds = model.GetEmployeeList();
+>>>>>>> 284052935c47c01c15d4959f9f415e20e796bf09
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Admin obj = new Admin();
+<<<<<<< HEAD
+                    obj.InvoiceId = dr["PK_InvoiceId"].ToString();
+                    obj.ExpectedPaymentDate = dr["ExpectedPaymentDate"].ToString();
+                    obj.ApproveDeclineDate = dr["ApproveDeclineDate"].ToString();
+                    obj.LoginId = dr["LoginId"].ToString();
+                    obj.Status = dr["Status"].ToString();
+                    obj.PaymentDate = dr["PaymentDate"].ToString();
+                    obj.PaymentStatus = dr["PaymentStatus"].ToString();
+                    obj.Remark = dr["Remarks"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    lstInvoice.Add(obj);
+                }
+                model.lstInvoice = lstInvoice;
+            }
+            
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [ActionName("Invoice")]
+        public ActionResult PaymentInvoice(Admin model)
+        {
+            try
+            {
+                model.AddedBy = Session["Pk_AdminId"].ToString();
+                DataSet ds = model.UpdatePaymentInvoice();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Invoice"] = "Payment Done successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Invoice"] = ex.Message;
+            }
+            return RedirectToAction("Invoice", "Admin");
+        }
+
+
+
+
+
+
+        public ActionResult AproveInvoice(string Id)
+        {
+            Admin model = new Admin();
+            try
+            {
+                model.InvoiceId = Id;
+                model.AddedBy = Session["Pk_AdminId"].ToString();
+                DataSet ds = model.ApproveInvoice();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Invoice"] = "Record aproved successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Invoice"] = ex.Message;
+            }
+            return RedirectToAction("Invoice", "Admin");
+        }
+
+
+        public ActionResult DeclineInvoice(string Id)
+        {
+            Admin model = new Admin();
+            try
+            {
+                model.InvoiceId = Id;
+                model.AddedBy = Session["Pk_AdminId"].ToString();
+                DataSet ds = model.DeclineInvoice();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Invoice"] = "Record Decline successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Invoice"] = ex.Message;
+            }
+            return RedirectToAction("Invoice", "Admin");
+        }
+
+
+        public ActionResult Update(Admin model)
+        {
+            try
+            {
+                model.AddedBy = Session["Pk_AdminId"].ToString();
+                DataSet ds = model.UpdatePaymentInvoice();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Invoice"] = "Payment Done successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Invoice"] = ex.Message;
+            }
+            return RedirectToAction("Invoice", "Admin");
+        }
+=======
+                    obj.Employeeid = dr["PK_EmployeeId"].ToString();
+                    obj.LoginId = dr["LoginId"].ToString();
+                    obj.Password = dr["Password"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    obj.Mobile = dr["Mobile"].ToString();
+                    obj.Email = dr["Email"].ToString();
+                    obj.Address = dr["Address"].ToString();
+                    obj.Date = dr["DOB"].ToString();
+                    obj.Designation = dr["Designation"].ToString();
+                    obj.Status = dr["Status"].ToString();
+                    lstVendor.Add(obj);
+                }
+                model.lstVendor = lstVendor;
+            }
+            return View(model);
+        }
+>>>>>>> 284052935c47c01c15d4959f9f415e20e796bf09
+
+        
 
     }
 }
