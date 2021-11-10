@@ -48,6 +48,8 @@
                             <div class="col-md-12 form-group">
                                 <label>Circle<span style="color: red">*</span></label>
                                 @Html.TextBoxFor(m => m.Circle, new { @class = "form-control", @placeholder = "Circle" })
+                                @Html.HiddenFor(m=>m.PK_InvoiceId)
+
                                 @*<label>Circle</label>
                                     <input type="text" name="circle" class="form-control" id="circle" placeholder="Enter Your Circle" required>*@
                             </div>
@@ -79,7 +81,7 @@
                             </div>
                             <div class="col-md-6 form-group mt-3 mt-md-0">
 
-                                <label>Email<span style="color: red">*</span></label>
+                                <label>Email@*<span style="color: red">*</span>*@</label>
                                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email", @onchange= "return ValidateEmail(event);" })
                                 <span id="lblError" style="color:red"></span>
 
@@ -103,7 +105,7 @@
 
                             <div class="col-md-12 form-group">
                                 <label> Name As Per Bank Record<span style="color: red">*</span></label>
-                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Name As Per Bank Record", @onkeypress = "return onlyAlphabets();" })
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Name As Per Bank Record"})
                                 @*<label>Circle</label>
                                     <input type="text" name="circle" class="form-control" id="circle" placeholder="Enter Your Circle" required>*@
                             </div>
@@ -129,8 +131,8 @@
                             </div>
                             <div class="col-md-6 form-group mt-3 mt-md-0">
 
-                                <label>Branch Address<span style="color: red">*</span></label>
-                                @Html.TextBoxFor(m => m.Branch, new { @class = "form-control", @placeholder = "Branch Address", @onkeypress = "return onlyAlphabets();" })
+                                <label>Branch Address@*<span style="color: red">*</span>*@</label>
+                                @Html.TextBoxFor(m => m.Branch, new { @class = "form-control", @placeholder = "Branch Address"})
 
 
                                 @*<label>Branch Address</label>
@@ -173,8 +175,8 @@
                             <div class="col-md-6 form-group">
 
 
-                                <label>Pan Number.<span style="color: red">*</span></label>
-                                @Html.TextBoxFor(m => m.PanNo, new { @class = "form-control", @placeholder = "Pan Number.", @onchange = "return validatepan(event);"})
+                                <label>Pan Number.@*<span style="color: red">*</span>*@</label>
+                                @Html.TextBoxFor(m => m.PanNo, new { @class = "form-control", @placeholder = "Pan Number."})
 
 
                                 @*<label>Pan No. </label>
@@ -182,7 +184,7 @@
                             </div>
                             <div class="col-md-6 form-group mt-3 mt-md-0">
 
-                                <label>GST Number.<span style="color: red">*</span></label>
+                                <label>GST Number.@*<span style="color: red">*</span>*@</label>
                                 @Html.TextBoxFor(m => m.GSTNo, new { @class = "form-control", @placeholder = "GST Number." })
 
                                 @*<label>GST No.</label>
@@ -316,16 +318,16 @@
             $('#PK_OrganisationTypeId').focus();
             return false;
         }
-        if ($('#PanNo').val() == '') {
-            $("#PanNo").addClass('errortext');
-            $('#PanNo').focus();
-            return false;
-        }
-        if ($('#GSTNo').val() == '') {
-            $("#GSTNo").addClass('errortext');
-            $('#GSTNo').focus();
-            return false;
-        }
+        //if ($('#PanNo').val() == '') {
+        //    $("#PanNo").addClass('errortext');
+        //    $('#PanNo').focus();
+        //    return false;
+        //}
+        //if ($('#GSTNo').val() == '') {
+        //    $("#GSTNo").addClass('errortext');
+        //    $('#GSTNo').focus();
+        //    return false;
+        //}
         if ($('#PK_DesignationId').val() == '0') {
             $("#PK_DesignationId").addClass('errortext');
             $('#PK_DesignationId').focus();

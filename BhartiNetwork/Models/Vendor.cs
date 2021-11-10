@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace BhartiNetwork.Models
 {
@@ -19,6 +20,7 @@ namespace BhartiNetwork.Models
         public string Image { get; set; }
         public List<Vendor> lstVendor { get; set; }
         public List<Vendor> lstVendorPOList { get; set; }
+        public List<Vendor> Invoicelst { get; set; }
         public string ContactId { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
@@ -38,7 +40,18 @@ namespace BhartiNetwork.Models
         public string PanNo { get; set; }
         public string GSTNo { get; set; }
         public string file { get; set; }
+
+        public string Status { get; set; }
+        public string PaymentStatus { get; set; }
+        public string ExpectedPaymentDate { get; set; }
+        public string AddedBy { get; set; }
+        public string InvoiceId { get; set; }
+        public string PaymentDate { get; set; }
         
+         public List<SelectListItem> ddlPONumber { get; set; }
+
+
+
 
         public DataSet GetVendorDetails()
         {
@@ -58,6 +71,35 @@ namespace BhartiNetwork.Models
             return ds;
         }
 
+        public DataSet SaveInvoice()
+        {
+            SqlParameter[] para ={
+                new SqlParameter ("@ImageFile",Image),
+                                 new SqlParameter("@AddedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("SaveInvoice", para);
+            return ds;
+        }
+
+        public DataSet SelectInvoce()
+        {
+            DataSet ds = Connection.ExecuteQuery("SelectInvoce");
+            return ds;
+        }
+        public DataSet SelectInvoiceDetails()
+        {
+            SqlParameter[] para ={
+                new SqlParameter ("@InvoiceId",InvoiceId)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("SelectInvoiceDetails",para);
+            return ds;
+        }
+
+        public DataSet GetPoNumber()
+        {
+            DataSet ds = Connection.ExecuteQuery("GetPoNumber");
+            return ds;
+        }
 
     }
 

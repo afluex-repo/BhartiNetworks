@@ -29,12 +29,18 @@ namespace BhartiNetwork.Models
         public string Password { get; set; }
         public string ProjectId { get; set; }
         public string ClientId { get; set; }
+        public string FatherName { get; set; }
+        public string Gender { get; set; }
+        public string DOB { get; set; }
+        public string BloodGroup { get; set; }
 
         public string OrganizationName { get; set; }
         public string ServicesOffered { get; set; }
         public string OrganizationType { get; set; }
         public string StartingofOrganization { get; set; }
         public string Circle { get; set; }
+        public string PK_InvoiceId { get; set; }
+        
         public string AccountNo { get; set; }
         public string Branch { get; set; }
         public string Deposit { get; set; }
@@ -141,11 +147,28 @@ namespace BhartiNetwork.Models
                                 new SqlParameter("@PanNumber",PanNo),
                                  new SqlParameter("@GSTNo",GSTNo),
                                  new SqlParameter("@FK_DesignationId",PK_DesignationId),
+                                 new SqlParameter("@FK_InvoiceId",PK_InvoiceId),
                                  new SqlParameter("@AddedBy",AddedBy)
                                  };
             DataSet ds = Connection.ExecuteQuery("SaveVendor", para);
             return ds;
         }
-
+        public DataSet EmpRegistration()
+        {
+            SqlParameter[] para ={
+                new SqlParameter ("@Password",Password),
+                new SqlParameter ("@Name",Name),
+                new SqlParameter("@Mobile",Mobile),
+                new SqlParameter("@Email",Email),
+                new SqlParameter ("@Address",Address),
+                new SqlParameter("@FatherName",FatherName),
+                new SqlParameter("@Gender",Gender),
+                new SqlParameter("@DOB",DOB),
+                new SqlParameter("@BloodGroup",BloodGroup),
+                new SqlParameter("@Designation",Designation)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("EmployeeRegistration", para);
+            return ds;
+        }
     }
 }

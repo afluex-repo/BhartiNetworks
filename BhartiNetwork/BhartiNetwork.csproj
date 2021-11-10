@@ -1278,6 +1278,10 @@
     <Content Include="Views\Vendor\Profile.cshtml" />
     <Content Include="Views\Admin\PurcheseOrder.cshtml" />
     <Content Include="Views\Vendor\PurcheseOrder.cshtml" />
+    <Content Include="Views\Home\EmployeeRegistration.cshtml" />
+    <Content Include="Views\Admin\EmployeeList.cshtml" />
+    <Content Include="Views\Vendor\Invoice.cshtml" />
+    <Content Include="Views\Admin\Invoice.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1287,6 +1291,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="FileUploadInvoice\" />
     <Folder Include="FileUpload\" />
     <Folder Include="ProjectImage\" />
     <Folder Include="VendorFileUpload\" />

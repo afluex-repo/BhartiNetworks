@@ -83,7 +83,7 @@
                                                         <td>@item.Name</td>
                                                         <td>@item.OrganizationName</td>
 
-                                                        <td>@Html.TextBoxFor(m => m.PONumber, new { @class = "po_"+item.VendorId+"", @placeholder = "PO Number" })</td>
+                                                        <td>@Html.TextBoxFor(m => m.PONumber, new { @class = "po_"+item.VendorId + "", @placeholder = "PO Number" })</td>
                                                         <td>
                                                             <input type="hidden" id="VendorId" name="VendorId" value="@item.VendorId" />
                                                             @*<input type="file" name="postedFile" id="postedFile" />*@

@@ -1,0 +1,224 @@
+﻿@model BhartiNetwork.Models.Home
+
+@{
+    ViewBag.Title = "EmployeeRegistration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("EmployeeRegistration", "Home", FormMethod.Post))
+{
+     <!-- ======= Hero Section ======= -->
+    <section id="hero-new" class="d-flex justify-cntent-center align-items-center herocareer">
+        <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="carousel-container">
+                    <h2 class="animate__animated animate__fadeInDown text-uppercase text-white text-center mb-0 fs-md-4 fs-2 ">Employee Registration</h2>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Hero -->
+
+  <!-- ============================================-->
+      <!-- <section> begin ============================-->
+    <section class="py-4 "></section><!-- <section> close ============================-->
+      <!-- ============================================-->
+    <main id="main">
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <!-- ======= Contact Section ======= -->
+        <section id="contact bg-white pt-7" class="contact">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Employee Registration Form</h2>
+                    <p style="color:red;">
+                        @TempData["EmpRegistration"]
+                    </p>
+                </div>
+
+                <div class="row mt-1 d-flex justify-content-center" data-aos="fade-right" data-aos-delay="100">
+                    <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100" style="border: 2px solid #f58634; border-radius: 25px; padding: 40px;">
+                        <div class="row mt-3">
+                            <div class="col-md-6 form-group">
+                                <label>Name<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Name" })
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Father Name</label>
+                                @Html.TextBoxFor(m => m.FatherName, new { @class = "form-control", @placeholder = "Father Name" })
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6 form-group">
+
+                                <label>Gender</label>
+                                <select class="form-control" id="Gender" name="Gender" tabindex="-98">
+                                    <option>Select One</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Others</option>
+                                </select>
+                             
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <label>DOB </label>
+                                @Html.TextBoxFor(m => m.DOB, new { @class = "form-control", @placeholder = "DOB" })
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6 form-group">
+                                <label>Designation<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.Designation, new { @class = "form-control", @placeholder = "Designation" })
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Blood Group<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.BloodGroup, new { @class = "form-control", @placeholder = "Blood Group" })
+                            </div>
+                            </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6 form-group">
+                                <label>Mobile<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @placeholder = "Mobile", @onkeypress = "return isNumberKey(event)" })
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+
+                                <label>Email<span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label>Address</label>
+                                @Html.TextAreaFor(m => m.Address, new { @class = "form-control", @placeholder = "Address" })
+                            </div>
+                        </div>
+                        <div class="my-3">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. Thank you!</div>
+                        </div>
+                        <div class="container">
+                            <div class="text-center "><button type="submit" onclick="return validateform();">Submit Form</button></div>
+                        </div>
+                        @*</form>*@
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Contact Section -->
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+    </main><!-- ===============================================-->
+
+
+  <!-------==========Whatsapp==================---------->
+    <a href="https://api.whatsapp.com/send?phone=919839418222" class="float" target="_blank">
+        <i class="bi bi-whatsapp my-float"></i>
+    </a>
+    <!-------==========Whatsapp==================---------->
+}
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+<script>
+    $('#DOB').datepicker({
+        dateFormat: 'dd/mm/yy',
+    });
+    function validateform() {
+
+        $(".errortext").removeClass("errortext");
+        if ($('#Name').val() == '') {
+            $("#Name").addClass('errortext');
+            $('#Name').focus();
+            return false;
+        }
+        if ($('#Designation').val() == '') {
+            $("#Designation").addClass('errortext');
+            $('#Designation').focus();
+            return false;
+        }
+        if ($('#Mobile').val() == '') {
+            $("#Mobile").addClass('errortext');
+            $('#Mobile').focus();
+            return false;
+        }
+    }
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode != 46 && charCode > 31
+          && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+
+    function validatepan(event) {
+        $(".errortext").removeClass("errortext");
+        var regExp = /[a-zA-z]{5}\d{4}[a-zA-Z]{1}/;
+        var txtpan = $('#PanNo').val();
+        if (txtpan.length == 10) {
+            if (txtpan.match(regExp)) {
+
+            }
+            else {
+                $("#PanNo").addClass('errortext');
+                $('#PanNo').focus();
+                $('#PanNo').val('');
+                alert('Please enter valid PanNo');
+
+            }
+        }
+        else {
+            $("#PanNo").addClass('errortext');
+            $('#PanNo').focus();
+            $('#PanNo').val('');
+            alert('Please enter 10 digits for a valid PAN number');
+
+        }
+    }
+
+
+    //    function ValidateEmail() {
+    //    var email = document.getElementById("Email").value;
+    //    var lblError = document.getElementById("lblError");
+    //    lblError.innerHTML = "";
+    //    var expr = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    //    if (!expr.test(email)) {
+    //        lblError.innerHTML = "Invalid email address.";
+    //    }
+    //}
+
+
+
+    function ValidateEmail(event) {
+        var panVal = $('#Email').val();
+        var regpan = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+
+        if (regpan.test(panVal)) {
+            $("#Email").removeClass('errortext');
+        } else {
+            alert("Invalid Email ID");
+            $("#Email").val('');
+            $("#Email").addClass('errortext');
+        }
+    }
+
+
+</script>
+
+<style>
+    .errortext {
+        border: 1px solid red !important;
+        background-color: #fff0f0 !important;
+    }
+</style>

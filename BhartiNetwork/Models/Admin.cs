@@ -19,8 +19,8 @@ namespace BhartiNetwork.Models
         public string Image { get; set; }
         public string file { get; set; }
         public string PONumber { get; set; }
-        
-
+        public string Employeeid { get; set; }
+        public string Status { get; set; }
         public string AddedBy { get; set; }
 
         public string ContactId { get; set; }
@@ -28,6 +28,7 @@ namespace BhartiNetwork.Models
         public string Subject { get; set; }
         public string Address { get; set; }
         public string VendorId { get; set; }
+        public string InvoiceId { get; set; }
         public string CareerId { get; set; }
         public string Mobile { get; set; }
         public string Designation { get; set; }
@@ -46,6 +47,11 @@ namespace BhartiNetwork.Models
         public string GSTNo { get; set; }
 
         public string ClientId { get; set; }
+        
+        public string PaymentStatus { get; set; }
+        public string ExpectedPaymentDate { get; set; }
+        public string ApproveDeclineDate { get; set; }
+        
 
         public List<Admin> lstClient { get; set; }
         public List<Admin> lstCareer { get; set; }
@@ -53,6 +59,9 @@ namespace BhartiNetwork.Models
         public List<Admin> lstVendor { get; set; }
         public List<Admin> lstContact { get; set; }
         public List<Admin> lstDashBoard { get; set; }
+        public List<Admin> lstInvoice { get; set; }
+        public string Remark { get; set; }
+        public string PaymentDate { get; set; }
 
 
         public DataSet SaveProject()
@@ -215,7 +224,11 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("GetVendorDetails", para);
             return ds;
         }
-
+        public DataSet GetEmployeeList()
+        {
+            DataSet ds = Connection.ExecuteQuery("GetEmployeeList");
+            return ds;
+        }
         public DataSet DeleteVendor()
         {
             SqlParameter[] para ={new SqlParameter ("@VendorId",VendorId),
@@ -318,8 +331,57 @@ namespace BhartiNetwork.Models
                                  };
             DataSet ds = Connection.ExecuteQuery("UploadVendorFile", para);
             return ds;
-
             
         }
+
+        public DataSet GetInvoiceDetails()
+        {
+            DataSet ds = Connection.ExecuteQuery("GetInvoiceDetails");
+            return ds;
+        }
+
+
+        public DataSet SelectInvoiceDetails()
+        {
+            SqlParameter[] para ={
+                new SqlParameter ("@InvoiceId",InvoiceId)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("SelectInvoiceDetails", para);
+            return ds;
+        }
+        
+
+        public DataSet ApproveInvoice()
+        {
+            SqlParameter[] para ={new SqlParameter ("@InvoiceId",InvoiceId),
+                                 new SqlParameter("@UpdatedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("ApproveInvoice", para);
+            return ds;
+        }
+
+        public DataSet DeclineInvoice()
+        {
+            SqlParameter[] para ={new SqlParameter ("@InvoiceId",InvoiceId),
+                                 new SqlParameter("@UpdatedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("DeclineInvoice", para);
+            return ds;
+        }
+
+        public DataSet UpdatePaymentInvoice()
+        {
+            SqlParameter[] para ={new SqlParameter ("@InvoiceId",InvoiceId),
+                 new SqlParameter("@PaymentDate",PaymentDate),
+                  new SqlParameter("@Remarks",Remark),
+                                 new SqlParameter("@AddedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("UpdatePaymentInvoice", para);
+            return ds;
+        }
+
+
+        
+
     }
 }
