@@ -996,28 +996,28 @@ namespace BhartiNetwork.Controllers
 
         public ActionResult Invoice()
         {
-            //Admin model = new Admin();
-            //List<Admin> lstInvoice = new List<Admin>();
-            //DataSet ds = model.GetInvoiceDetails();
-            //if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
-            //{
-            //    foreach (DataRow dr in ds.Tables[0].Rows)
-            //    {
-            //        Admin obj = new Admin();
-            //        obj.InvoiceId = dr["PK_InvoiceId"].ToString();
-            //        obj.ExpectedPaymentDate = dr["ExpectedPaymentDate"].ToString();
-            //        obj.ApproveDeclineDate = dr["ApproveDeclineDate"].ToString();
-            //        obj.LoginId = dr["LoginId"].ToString();
-            //        obj.Status = dr["Status"].ToString();
-            //        obj.PaymentDate = dr["PaymentDate"].ToString();
-            //        obj.PaymentStatus = dr["PaymentStatus"].ToString();
-            //        obj.Remark = dr["Remarks"].ToString();
-            //        obj.Name = dr["Name"].ToString();
-            //        lstInvoice.Add(obj);
-            //    }
-            //    model.lstInvoice = lstInvoice;
-            //}
-            return View();
+            Admin model = new Admin();
+            List<Admin> lstInvoice = new List<Admin>();
+            DataSet ds = model.GetInvoiceDetails();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Admin obj = new Admin();
+                    obj.InvoiceId = dr["PK_InvoiceId"].ToString();
+                    obj.ExpectedPaymentDate = dr["ExpectedPaymentDate"].ToString();
+                    obj.ApproveDeclineDate = dr["ApproveDeclineDate"].ToString();
+                    obj.LoginId = dr["LoginId"].ToString();
+                    obj.Status = dr["Status"].ToString();
+                    obj.PaymentDate = dr["PaymentDate"].ToString();
+                    obj.PaymentStatus = dr["PaymentStatus"].ToString();
+                    obj.Remark = dr["Remarks"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    lstInvoice.Add(obj);
+                }
+                model.lstInvoice = lstInvoice;
+            }
+            return View(model);
         }
 
 
