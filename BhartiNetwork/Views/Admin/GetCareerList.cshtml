@@ -23,6 +23,27 @@
                         </div>
                     </div>
 
+                    <div class="row" style="margin-bottom:20px;">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="exampleInputName1">Career Name</label>
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Client Name" })
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail3">Qualification</label>
+                                @Html.TextBoxFor(m => m.Qualification, new { @class = "form-control", @placeholder = "Qualification" })
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="submit" value="Search" class="btn btn-success" style="margin-top:25px;" />
+                        </div>
+                    </div>
+
+
+
+
                     <div class="row">
                         <div class="col-12">
 

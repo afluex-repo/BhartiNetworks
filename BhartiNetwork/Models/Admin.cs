@@ -51,7 +51,10 @@ namespace BhartiNetwork.Models
         public string PaymentStatus { get; set; }
         public string ExpectedPaymentDate { get; set; }
         public string ApproveDeclineDate { get; set; }
-        
+
+        public string FromDate { get; set; }
+        public string ToDate { get; set; }
+
 
         public List<Admin> lstClient { get; set; }
         public List<Admin> lstCareer { get; set; }
@@ -166,15 +169,16 @@ namespace BhartiNetwork.Models
 
         public DataSet GetCareerDetails()
         {
-            SqlParameter[] para ={new SqlParameter ("@CareerId",CareerId),
+            SqlParameter[] para ={
+                //new SqlParameter ("@CareerId",CareerId),
                                  new SqlParameter ("@Name",Name),
-                                  new SqlParameter("@Mobile",Mobile),
-                                new SqlParameter("@Email",Email),
-                                new SqlParameter("@Designation",Designation),
-                                new SqlParameter("@Qualification",Qualification),
-                                new SqlParameter ("@Location",Location),
-                                 new SqlParameter ("@Experience",Experience),
-                                new SqlParameter("@Resume",Image)
+                                //  new SqlParameter("@Mobile",Mobile),
+                                //new SqlParameter("@Email",Email),
+                                //new SqlParameter("@Designation",Designation),
+                                new SqlParameter("@Qualification",Qualification)
+                                //new SqlParameter ("@Location",Location),
+                                // new SqlParameter ("@Experience",Experience),
+                                //new SqlParameter("@Resume",Image)
                                  };
             DataSet ds = Connection.ExecuteQuery("GetCareerDetails", para);
             return ds;
@@ -219,14 +223,17 @@ namespace BhartiNetwork.Models
         public DataSet GetVendorDetails()
         {
             SqlParameter[] para ={
-                new SqlParameter("@VendorId",VendorId)
+                new SqlParameter("@LoginId",LoginId)
             };
             DataSet ds = Connection.ExecuteQuery("GetVendorDetails", para);
             return ds;
         }
         public DataSet GetEmployeeList()
         {
-            DataSet ds = Connection.ExecuteQuery("GetEmployeeList");
+            SqlParameter[] para ={
+                new SqlParameter("@LoginId",LoginId)
+            };
+            DataSet ds = Connection.ExecuteQuery("GetEmployeeList",para);
             return ds;
         }
         public DataSet DeleteVendor()
@@ -279,6 +286,20 @@ namespace BhartiNetwork.Models
             return ds;
 
         }
+
+        public DataSet GetClientDetailsForAdmin()
+        {
+            SqlParameter[] para = {new SqlParameter("@Name",Name),
+                                     new SqlParameter("@FromDate",FromDate),
+                                       new SqlParameter("@ToDate",ToDate)
+            };
+            DataSet ds = Connection.ExecuteQuery("GetClientDetailsForAdmin", para);
+            return ds;
+
+        }
+
+
+        
 
 
         public DataSet ClientDelete()
@@ -336,7 +357,12 @@ namespace BhartiNetwork.Models
 
         public DataSet GetInvoiceDetails()
         {
-            DataSet ds = Connection.ExecuteQuery("GetInvoiceDetails");
+            SqlParameter[] para = {new SqlParameter("@LoginId",LoginId),
+                                     new SqlParameter("@FromDate",FromDate),
+                                       new SqlParameter("@ToDate",ToDate),
+                                       new SqlParameter("@Status",Status)
+            };
+            DataSet ds = Connection.ExecuteQuery("GetInvoiceDetails",para);
             return ds;
         }
 
