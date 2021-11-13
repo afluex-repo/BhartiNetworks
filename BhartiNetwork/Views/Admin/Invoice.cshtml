@@ -20,6 +20,38 @@
                             @*<a href="/Admin/Project" class="btn btn-primary" style="border-radius:100px;">Add New</a>*@
                         </div>
                     </div>
+
+                    <div class="row" style="margin-bottom:20px;">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                @*<input type="hidden" id="InvoiceId" name="InvoiceId" value="@Model.InvoiceId" />*@
+                                <label for="exampleInputName1">LoginId</label>
+                                @Html.TextBoxFor(m => m.LoginId, new { @class = "form-control", @placeholder = "LoginId" })
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="exampleInputName1">Invoice Status</label>
+                                @Html.TextBoxFor(m => m.Status, new { @class = "form-control", @placeholder = "Invoice Status" })
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="exampleInputEmail3">From Appro/Decl Date</label>
+                                @Html.TextBoxFor(m => m.FromDate, new { @class = "form-control", @placeholder = "dd/mm/yyyy", autocomplete = "off" })
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="exampleInputEmail3">To Appro/Decl Date</label>
+                                @Html.TextBoxFor(m => m.ToDate, new { @class = "form-control", @placeholder = "dd/mm/yyyy", autocomplete = "off" })
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="submit" value="Search" class="btn btn-success" style="margin-top:25px;" />
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-12">
 
@@ -39,9 +71,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (Model != null)
+                                        @if(Model != null)
                                         {
-                                            if (Model.lstInvoice != null)
+                                            if(Model.lstInvoice != null)
                                             {
                                                 int i = 1;
                                                 foreach (var item in Model.lstInvoice)
@@ -51,12 +83,11 @@
                                                         <td>@item.LoginId</td>
                                                         <td>@item.Name</td>
                                                         <td>@item.ApproveDeclineDate</td>
-
                                                         <td>@item.Status</td>
                                                         <td>@item.PaymentStatus</td>
                                                         <td>@item.PaymentDate</td>
                                                         <td>@item.Remark</td>
-                                                        @if (item.Status == "Pending")
+                                                        @if(item.Status == "Pending")
                                                         {
                                                             <td>
                                                                 <a href="/Admin/DeclineInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want decline this record ?')">Decline</a>
@@ -67,8 +98,8 @@
                                                         else if (item.Status == "Approved")
                                                         {
                                                             <td>
-                                                                <a href="/Admin/DeclineInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want decline this record ?')">Decline</a>  
-                                                                <a href="#" onclick="return openmodal(@item.InvoiceId)" class="btn btn-info btn-sm payment" data-toggle="modal">Payment</a>    
+                                                                <a href="/Admin/DeclineInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want decline this record ?')">Decline</a>
+                                                                <a href="#" onclick="return openmodal(@item.InvoiceId)" class="btn btn-info btn-sm payment" data-toggle="modal">Payment</a>
                                                             </td>
                                                         }
                                                         else if (item.Status == "Declined")
@@ -78,15 +109,15 @@
                                                             </td>
 
                                                         }
-                                                      
-                                                            @*<a href="/Admin/AproveInvoice?Id=@item.InvoiceId" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want approve this record ?')">Approve</a>
+
+                                                        @*<a href="/Admin/AproveInvoice?Id=@item.InvoiceId" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want approve this record ?')">Approve</a>
                                                             <a href="/Admin/DeclineInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want decline this record ?')">Decline</a>
                                                             <a href="#" onclick="return openmodal(@item.InvoiceId)" class="btn btn-info btn-sm payment" data-toggle="modal">Payment</a>*@
 
-                                                            @*<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">
-                                                                    Payment
-                                                                </button>*@
-                                                       
+                                                        @*<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">
+                                                                Payment
+                                                            </button>*@
+
                                                     </tr>
                                                     i++;
                                                 }
@@ -162,41 +193,27 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
 
-@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>*@
-@*<script>
-    $(document).ready(function(){
-        $("#aapp").click(function () {
-            $("#aapp").hide();
-      });
-        $("#ddd").click(function () {
-            $("#ddd").hide();
-        });
-        $(".payment").click(function () {
-            $(".payment").val("All ready payment");
-        });
-    });
-    </script>*@
 <script>
     $('#PaymentDate').datepicker({
-        format: 'dd/mm/yyyy',
+        dateFormat: 'dd/mm/yy',
+        changeYear: true,
+        changeMonth: true,
+        
+    });
+    $('#FromDate').datepicker({
+        dateFormat: 'dd/mm/yy',
         changeYear: true,
         changeMonth: true,
     });
-
+    $('#ToDate').datepicker({
+        dateFormat: 'dd/mm/yy',
+        changeYear: true,
+        changeMonth: true,
+    });
+ 
     function Hide(evt) {
         $('#rrr').hide();
     }
-
-    //function appr(evt) {
-    //    $('#InvoiceId').val(evt)
-    //    $('#aapp').hide();
-    //}
-
-
-    //function hide(evt) {
-    //    $('#InvoiceId').val(evt)
-    //    $('#ddd').hide();
-    //}
 
     function openmodal(evt) {
         $('#InvoiceId').val(evt)
@@ -236,9 +253,6 @@
             });
         });
     });
-
-
-
     function validateform() {
 
         $(".errortext").removeClass("errortext");
@@ -255,8 +269,8 @@
         }
     }
 
-
 </script>
+
 <style>
     .errortext {
         border: 1px solid red !important;

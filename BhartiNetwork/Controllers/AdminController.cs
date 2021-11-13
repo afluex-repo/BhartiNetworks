@@ -233,7 +233,30 @@ namespace BhartiNetwork.Controllers
 
         public ActionResult GetContactList()
         {
-            Admin model = new Admin();
+            //Admin model = new Admin();
+            //List<Admin> lstContact = new List<Admin>();
+            //DataSet ds = model.GetContactDetails();
+            //if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            //{
+            //    foreach (DataRow dr in ds.Tables[0].Rows)
+            //    {
+            //        Admin obj = new Admin();
+            //        obj.ContactId = dr["PK_ContactId"].ToString();
+            //        obj.Name = dr["Name"].ToString();
+            //        obj.Email = dr["Email"].ToString();
+            //        obj.Subject = dr["Subject"].ToString();
+            //        obj.Address = dr["Address"].ToString();
+            //        lstContact.Add(obj);
+            //    }
+            //    model.lstContact = lstContact;
+            //}
+            return View();
+        }
+
+        [HttpPost]
+        [ActionName("GetContactList")]
+        public ActionResult GetContactList(Admin model)
+        {
             List<Admin> lstContact = new List<Admin>();
             DataSet ds = model.GetContactDetails();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -252,7 +275,6 @@ namespace BhartiNetwork.Controllers
             }
             return View(model);
         }
-
 
 
         public ActionResult ContactDelete(string Id)
@@ -290,7 +312,35 @@ namespace BhartiNetwork.Controllers
 
         public ActionResult GetCareerList()
         {
-            Admin model = new Admin();
+            //Admin model = new Admin();
+            //List<Admin> lstCareer = new List<Admin>();
+            //DataSet ds = model.GetCareerDetails();
+            //if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            //{
+            //    foreach (DataRow dr in ds.Tables[0].Rows)
+            //    {
+            //        Admin obj = new Admin();
+            //        obj.CareerId = dr["PK_CareerId"].ToString();
+            //        obj.Name = dr["Name"].ToString();
+            //        obj.Mobile = dr["Mobile"].ToString();
+            //        obj.Email = dr["Email"].ToString();
+            //        obj.Designation = dr["Designation"].ToString();
+            //        obj.Qualification = dr["Qualification"].ToString();
+            //        obj.Location = dr["Location"].ToString();
+            //        obj.Experience = dr["Experience"].ToString();
+            //        obj.Image = dr["Resume"].ToString();
+            //        lstCareer.Add(obj);
+            //    }
+            //    model.lstCareer = lstCareer;
+            //}
+            return View();
+        }
+
+        [HttpPost]
+        [ActionName("GetCareerList")]
+        public ActionResult GetCareerList(Admin model)
+        {
+            //Admin model = new Admin();
             List<Admin> lstCareer = new List<Admin>();
             DataSet ds = model.GetCareerDetails();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -365,6 +415,8 @@ namespace BhartiNetwork.Controllers
 
             return View(model);
         }
+
+        
 
         [HttpPost]
         [ActionName("SaveClient")]
@@ -441,9 +493,35 @@ namespace BhartiNetwork.Controllers
 
         public ActionResult GetClientDetails()
         {
-            Admin model = new Admin();
+            //Admin model = new Admin();
+            //List<Admin> lst = new List<Admin>();
+            //DataSet ds = model.GetClientDetails();
+            //if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            //{
+            //    foreach (DataRow dr in ds.Tables[0].Rows)
+            //    {
+            //        Admin obj = new Admin();
+            //        obj.ClientId = dr["PK_ClientId"].ToString();
+            //        obj.Name = dr["Name"].ToString();
+            //        obj.Image = dr["ImageFile"].ToString();
+            //        obj.Date = dr["Date"].ToString();
+            //        lst.Add(obj);
+            //    }
+            //    model.lstClient = lst;
+            //}
+            return View();
+        }
+
+
+        [HttpPost]
+        [ActionName("GetClientDetails")]
+        public ActionResult GetClientDetails(Admin model)
+        {
+            //Admin model = new Admin();
             List<Admin> lst = new List<Admin>();
-            DataSet ds = model.GetClientDetails();
+            model.FromDate = string.IsNullOrEmpty(model.FromDate) ? null : Comman.ConvertToSystemDate(model.FromDate, "dd/MM/yyyy");
+            model.ToDate = string.IsNullOrEmpty(model.ToDate) ? null : Comman.ConvertToSystemDate(model.ToDate, "dd/MM/yyyy");
+            DataSet ds = model.GetClientDetailsForAdmin();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
@@ -461,9 +539,46 @@ namespace BhartiNetwork.Controllers
         }
 
 
+
         public ActionResult GetVendorDetails()
         {
-            Admin model = new Admin();
+            //Admin model = new Admin();
+            //List<Admin> lstVendor = new List<Admin>();
+            //DataSet ds = model.GetVendorDetails();
+            //if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            //{
+            //    foreach (DataRow dr in ds.Tables[0].Rows)
+            //    {
+            //        Admin obj = new Admin();
+            //        obj.VendorId = dr["PK_VendorId"].ToString();
+            //        obj.LoginId = dr["LoginId"].ToString();
+            //        obj.Password = dr["Password"].ToString();
+            //        obj.Name = dr["Name"].ToString();
+            //        obj.Mobile = dr["Mobile"].ToString();
+            //        obj.Email = dr["Email"].ToString();
+            //        obj.Address = dr["Address"].ToString();
+            //        obj.Circle = dr["Circle"].ToString();
+            //        obj.OrganizationName = dr["OrganizationName"].ToString();
+            //        obj.StartingofOrganization = dr["OrganizationStarting"].ToString();
+            //        obj.AccountNo = dr["AccountNo"].ToString();
+            //        obj.Branch = dr["Branch"].ToString();
+            //        obj.Deposit = dr["Deposit"].ToString();
+            //        obj.OrganizationType = dr["OrganisationType"].ToString();
+            //        obj.PanNo = dr["PanNumber"].ToString();
+            //        obj.GSTNo = dr["GSTNo"].ToString();
+            //        obj.Designation = dr["Designation"].ToString();
+            //        lstVendor.Add(obj);
+            //    }
+            //    model.lstVendor = lstVendor;
+            //}
+            return View();
+        }
+
+
+        [HttpPost]
+        [ActionName("GetVendorDetails")]
+        public ActionResult GetVendorDetails(Admin model)
+        {
             List<Admin> lstVendor = new List<Admin>();
             DataSet ds = model.GetVendorDetails();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -494,8 +609,6 @@ namespace BhartiNetwork.Controllers
             }
             return View(model);
         }
-
-
 
 
         public ActionResult DeleteVendor(string Id)
@@ -825,7 +938,36 @@ namespace BhartiNetwork.Controllers
         }
         public ActionResult EmployeeList()
         {
-            Admin model = new Admin();
+            //Admin model = new Admin();
+            //List<Admin> lstVendor = new List<Admin>();
+            //DataSet ds = model.GetEmployeeList();
+            //if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            //{
+            //    foreach (DataRow dr in ds.Tables[0].Rows)
+            //    {
+            //        Admin obj = new Admin();
+            //        obj.Employeeid = dr["PK_EmployeeId"].ToString();
+            //        obj.LoginId = dr["LoginId"].ToString();
+            //        obj.Password = dr["Password"].ToString();
+            //        obj.Name = dr["Name"].ToString();
+            //        obj.Mobile = dr["Mobile"].ToString();
+            //        obj.Email = dr["Email"].ToString();
+            //        obj.Address = dr["Address"].ToString();
+            //        obj.Date = dr["DOB"].ToString();
+            //        obj.Designation = dr["Designation"].ToString();
+            //        obj.Status = dr["Status"].ToString();
+            //        lstVendor.Add(obj);
+            //    }
+            //    model.lstVendor = lstVendor;
+            //}
+            return View();
+        }
+
+
+        [HttpPost]
+        [ActionName("EmployeeList")]
+        public ActionResult EmployeeList(Admin model)
+        {
             List<Admin> lstVendor = new List<Admin>();
             DataSet ds = model.GetEmployeeList();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -849,32 +991,36 @@ namespace BhartiNetwork.Controllers
             }
             return View(model);
         }
+
+
+
         public ActionResult Invoice()
         {
-            Admin model = new Admin();
-            List<Admin> lstInvoice = new List<Admin>();
-            DataSet ds = model.GetInvoiceDetails();
-            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
-            {
-                foreach (DataRow dr in ds.Tables[0].Rows)
-                {
-                    Admin obj = new Admin();
-                    obj.InvoiceId = dr["PK_InvoiceId"].ToString();
-                    obj.ExpectedPaymentDate = dr["ExpectedPaymentDate"].ToString();
-                    obj.ApproveDeclineDate = dr["ApproveDeclineDate"].ToString();
-                    obj.LoginId = dr["LoginId"].ToString();
-                    obj.Status = dr["Status"].ToString();
-                    obj.PaymentDate = dr["PaymentDate"].ToString();
-                    obj.PaymentStatus = dr["PaymentStatus"].ToString();
-                    obj.Remark = dr["Remarks"].ToString();
-                    obj.Name = dr["Name"].ToString();
-                    lstInvoice.Add(obj);
-                }
-                model.lstInvoice = lstInvoice;
-            }
-            return View(model);
-
+            //Admin model = new Admin();
+            //List<Admin> lstInvoice = new List<Admin>();
+            //DataSet ds = model.GetInvoiceDetails();
+            //if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            //{
+            //    foreach (DataRow dr in ds.Tables[0].Rows)
+            //    {
+            //        Admin obj = new Admin();
+            //        obj.InvoiceId = dr["PK_InvoiceId"].ToString();
+            //        obj.ExpectedPaymentDate = dr["ExpectedPaymentDate"].ToString();
+            //        obj.ApproveDeclineDate = dr["ApproveDeclineDate"].ToString();
+            //        obj.LoginId = dr["LoginId"].ToString();
+            //        obj.Status = dr["Status"].ToString();
+            //        obj.PaymentDate = dr["PaymentDate"].ToString();
+            //        obj.PaymentStatus = dr["PaymentStatus"].ToString();
+            //        obj.Remark = dr["Remarks"].ToString();
+            //        obj.Name = dr["Name"].ToString();
+            //        lstInvoice.Add(obj);
+            //    }
+            //    model.lstInvoice = lstInvoice;
+            //}
+            return View();
         }
+
+
         //public ActionResult EmployeeList()
         //{
         //    Admin model = new Admin();
@@ -904,39 +1050,69 @@ namespace BhartiNetwork.Controllers
         //}
 
 
+        //[HttpPost]
+        //[ActionName("Invoice")]
+        //public ActionResult PaymentInvoice(Admin model)
+        //{
+        //    try
+        //    {
+        //        model.AddedBy = Session["Pk_AdminId"].ToString();
+        //        DataSet ds = model.UpdatePaymentInvoice();
+        //        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        //        {
+        //            if (ds.Tables[0].Rows[0][0].ToString() == "1")
+        //            {
+        //                TempData["Invoice"] = "Payment Done successfully";
+        //            }
+        //            else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+        //            {
+        //                TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        TempData["Invoice"] = ex.Message;
+        //    }
+        //    return RedirectToAction("Invoice", "Admin");
+        //}
+        
+
         [HttpPost]
         [ActionName("Invoice")]
-        public ActionResult PaymentInvoice(Admin model)
+        public ActionResult Invoice(Admin model)
         {
-            try
+            List<Admin> lstInvoice = new List<Admin>();
+            model.LoginId = model.LoginId == "0" ? null : model.LoginId;
+            model.Status = model.Status == "0" ? null : model.Status;
+            model.FromDate = string.IsNullOrEmpty(model.FromDate) ? null : Comman.ConvertToSystemDate(model.FromDate, "dd/MM/yyyy");
+            model.ToDate = string.IsNullOrEmpty(model.ToDate) ? null : Comman.ConvertToSystemDate(model.ToDate, "dd/MM/yyyy");
+            DataSet ds = model.GetInvoiceDetails();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                model.AddedBy = Session["Pk_AdminId"].ToString();
-                DataSet ds = model.UpdatePaymentInvoice();
-                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                foreach (DataRow dr in ds.Tables[0].Rows)
                 {
-                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
-                    {
-                        TempData["Invoice"] = "Payment Done successfully";
-                    }
-                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
-                    {
-                        TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-                    }
+                    Admin obj = new Admin();
+                    obj.InvoiceId = dr["PK_InvoiceId"].ToString();
+                    obj.ExpectedPaymentDate = dr["ExpectedPaymentDate"].ToString();
+                    obj.ApproveDeclineDate = dr["ApproveDeclineDate"].ToString();
+                    obj.LoginId = dr["LoginId"].ToString();
+                    obj.Status = dr["Status"].ToString();
+                    obj.PaymentDate = dr["PaymentDate"].ToString();
+                    obj.PaymentStatus = dr["PaymentStatus"].ToString();
+                    obj.Remark = dr["Remarks"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    lstInvoice.Add(obj);
                 }
-                else
-                {
-                    TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-                }
-
+                model.lstInvoice = lstInvoice;
             }
-            catch (Exception ex)
-            {
-                TempData["Invoice"] = ex.Message;
-            }
-            return RedirectToAction("Invoice", "Admin");
+            return View(model);
         }
-
-
 
 
 
@@ -1028,7 +1204,6 @@ namespace BhartiNetwork.Controllers
                 {
                     TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
                 }
-
             }
             catch (Exception ex)
             {

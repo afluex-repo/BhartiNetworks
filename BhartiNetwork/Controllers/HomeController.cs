@@ -176,10 +176,10 @@ namespace BhartiNetwork.Controllers
 
                         FormName = "VendorDashBoard";
                         Controller = "Vendor";
+
                     }
                     else
                     {
-                        //TempData["Login"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
                         TempData["Login"] = "Incorrect LoginId Or Password";
                         FormName = "Vendor";
                         Controller = "Home";
@@ -194,7 +194,7 @@ namespace BhartiNetwork.Controllers
                 }
             }
             catch (Exception ex)
-            {
+            { 
                 TempData["Login"] = ex.Message;
                 FormName = "Vendor";
                 Controller = "Home";

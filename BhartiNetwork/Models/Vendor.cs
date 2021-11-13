@@ -56,7 +56,7 @@ namespace BhartiNetwork.Models
         public DataSet GetVendorDetails()
         {
             SqlParameter[] para ={
-                new SqlParameter("@VendorId",VendorId)
+                new SqlParameter("@LoginId",LoginId)
             };
             DataSet ds = Connection.ExecuteQuery("GetVendorDetails",para);
             return ds;
