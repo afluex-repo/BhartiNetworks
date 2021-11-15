@@ -416,7 +416,7 @@ namespace BhartiNetwork.Controllers
             return View(model);
         }
 
-        
+
 
         [HttpPost]
         [ActionName("SaveClient")]
@@ -894,7 +894,7 @@ namespace BhartiNetwork.Controllers
             return View(model);
         }
 
-        
+
 
         //[HttpPost]
         public ActionResult AddProfile(HttpPostedFileBase file, string Id, string po)
@@ -984,6 +984,7 @@ namespace BhartiNetwork.Controllers
                     obj.Address = dr["Address"].ToString();
                     obj.Date = dr["DOB"].ToString();
                     obj.Designation = dr["Designation"].ToString();
+                    obj.BloodGroup = dr["BloodGroup"].ToString();
                     obj.Status = dr["Status"].ToString();
                     lstVendor.Add(obj);
                 }
@@ -1081,7 +1082,7 @@ namespace BhartiNetwork.Controllers
         //    }
         //    return RedirectToAction("Invoice", "Admin");
         //}
-        
+
 
         [HttpPost]
         [ActionName("Invoice")]
@@ -1211,9 +1212,96 @@ namespace BhartiNetwork.Controllers
             }
             return RedirectToAction("Invoice", "Admin");
         }
+
+
+
+        public ActionResult EmployeeIdCard(string Id)
+        {
+            Admin model = new Admin();
+            model.Employeeid = Id;
+            DataSet ds = model.GetEmployeeList();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                ViewBag.Name = ds.Tables[0].Rows[0]["Name"].ToString();
+                ViewBag.Designation = ds.Tables[0].Rows[0]["Designation"].ToString();
+                ViewBag.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
+                ViewBag.BloodGroup = ds.Tables[0].Rows[0]["BloodGroup"].ToString();
+                ViewBag.ApproveDeclineDate = ds.Tables[0].Rows[0]["ApproveDeclineDate"].ToString();
+                ViewBag.ExpiaryDate = ds.Tables[0].Rows[0]["ExpiaryDate"].ToString();
+                ViewBag.Mobile = ds.Tables[0].Rows[0]["Mobile"].ToString();
+                ViewBag.Email = ds.Tables[0].Rows[0]["Email"].ToString();
+            }
+            return View(model);
+        }
+
+
+
+        public ActionResult ApproveEmployee(string Id)
+        {
+            Admin model = new Admin();
+            try
+            {
+                model.Employeeid = Id;
+                model.AddedBy = Session["Pk_AdminId"].ToString();
+                DataSet ds = model.ApproveEmployee();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Employee"] = "Record aproved successfully";
+                        model.Email = ds.Tables[0].Rows[0]["Email"].ToString();
+
+                        if (model.Email != null)
+                        {
+                            string mailbody = "";
+                            try
+                            {
+                                model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
+                                mailbody = "Dear,  <br/>" + model.Name + " <br/> Your record has been  approved.<br/>Now you can download your id card";
+
+                                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
+                                {
+                                    Host = "smtp.gmail.com",
+                                    Port = 587,
+                                    EnableSsl = true,
+                                    DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
+                                    UseDefaultCredentials = true,
+                                    Credentials = new NetworkCredential("developer2.afluex@gmail.com", "devel@486")
+                                };
+                                using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
+                                {
+                                    IsBodyHtml = true,
+                                    Subject = "Successfull Message",
+                                    Body = mailbody
+                                })
+                                    smtp.Send(message);
+
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+                        }
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Employee"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Employee"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Employee"] = ex.Message;
+            }
+            return RedirectToAction("EmployeeList", "Admin");
+        }
+
     }
 }
-              
-        
 
-    
+
+

@@ -57,9 +57,12 @@
                                             <th>Mobile</th>
                                             <th>Email</th>
                                             <th>DOB</th>
+                                            <th>Blood Group</th>
+                                            <th>Designation</th>
                                             <th>Address</th>
+                                            <th>Upload Id Card</th>
                                             <th>Status</th>
-                                            <th style="display:none">Action</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -78,12 +81,16 @@
                                                         <td>@item.Mobile</td>
                                                         <td>@item.Email</td>
                                                         <td>@item.Date</td>
+                                                        <td>@item.BloodGroup</td>
+                                                        <td>@item.Designation</td>
                                                         <td>@item.Address</td>
+                                                        <td>
+                                                            <a href="/Admin/EmployeeIdCard?Id=@item.Employeeid" class="btn btn-danger btn-sm">View</a>
+                                                        </td>
                                                         <td>@item.Status</td>
-                                                        <td style="display:none">
-                                                            <a href="/Admin/DeleteEmp?Id=@item.Employeeid" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want delete this record ?')">Delete</a>
-                                                            <a href="/Admin/AproveEmp?Id=@item.Employeeid" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want approve this record ?')">Approve</a>
-                                                            <a href="/Admin/DeclineEmp?Id=@item.Employeeid" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want decline this record ?')">Decline</a>
+                                                        <td>
+                                                            <a href="/Admin/ApproveEmployee?Id=@item.Employeeid" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want approve this record ?')">Approve</a>
+                                                            @*<a href="/Admin/DeclineEmp?Id=@item.Employeeid" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want decline this record ?')">Decline</a>*@
                                                         </td>
                                                     </tr>
                                                     i++;
