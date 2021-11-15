@@ -65,6 +65,9 @@ namespace BhartiNetwork.Models
         public List<Admin> lstInvoice { get; set; }
         public string Remark { get; set; }
         public string PaymentDate { get; set; }
+        public string BloodGroup { get; set; }
+
+        
 
 
         public DataSet SaveProject()
@@ -231,7 +234,8 @@ namespace BhartiNetwork.Models
         public DataSet GetEmployeeList()
         {
             SqlParameter[] para ={
-                new SqlParameter("@LoginId",LoginId)
+                new SqlParameter("@EmployeeId",Employeeid),
+                 new SqlParameter("@LoginId",LoginId)
             };
             DataSet ds = Connection.ExecuteQuery("GetEmployeeList",para);
             return ds;
@@ -407,7 +411,14 @@ namespace BhartiNetwork.Models
         }
 
 
+        public DataSet ApproveEmployee()
+        {
+            SqlParameter[] para ={new SqlParameter ("@Employeeid",Employeeid),
+                                 new SqlParameter("@UpdatedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("ApproveEmployee", para);
+            return ds;
+        }
         
-
     }
 }
