@@ -1234,6 +1234,24 @@ namespace BhartiNetwork.Controllers
             return View(model);
         }
 
+        //public ActionResult EmployeeIdCards(string Id)
+        //{
+        //    Admin model = new Admin();
+        //    model.Employeeid = Id;
+        //    DataSet ds = model.GetEmployeeList();
+        //    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        //    {
+        //        ViewBag.Name = ds.Tables[0].Rows[0]["Name"].ToString();
+        //        ViewBag.Designation = ds.Tables[0].Rows[0]["Designation"].ToString();
+        //        ViewBag.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
+        //        ViewBag.BloodGroup = ds.Tables[0].Rows[0]["BloodGroup"].ToString();
+        //        ViewBag.ApproveDeclineDate = ds.Tables[0].Rows[0]["ApproveDeclineDate"].ToString();
+        //        ViewBag.ExpiaryDate = ds.Tables[0].Rows[0]["ExpiaryDate"].ToString();
+        //        ViewBag.Mobile = ds.Tables[0].Rows[0]["Mobile"].ToString();
+        //        ViewBag.Email = ds.Tables[0].Rows[0]["Email"].ToString();
+        //    }
+        //    return View(model);
+        //}
 
 
         public ActionResult ApproveEmployee(string Id)

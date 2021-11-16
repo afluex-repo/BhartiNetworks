@@ -168,6 +168,15 @@ namespace BhartiNetwork.Controllers
                         FormName = "AdminDashBoard";
                         Controller = "Admin";
                     }
+                    //else if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1" && ds.Tables[0].Rows[0]["UserType"].ToString() == "Employee")
+                    //{
+                    //    Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
+                    //    Session["PK_EmployeeId"] = ds.Tables[0].Rows[0]["PK_EmployeeId"].ToString();
+                    //    Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
+
+                    //    FormName = "EmployeeDashBoard";
+                    //    Controller = "Employee";
+                    //}
                     else if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1" && ds.Tables[0].Rows[0]["UserType"].ToString() == "Vendor")
                     {
                         Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
