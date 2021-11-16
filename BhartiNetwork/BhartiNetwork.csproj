@@ -1283,6 +1283,7 @@
     <Content Include="Views\Vendor\Invoice.cshtml" />
     <Content Include="Views\Admin\Invoice.cshtml" />
     <Content Include="Views\Admin\EmployeeIdCard.cshtml" />
+    <Content Include="Views\Admin\EmployeeIdCards.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
