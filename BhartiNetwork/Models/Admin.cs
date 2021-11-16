@@ -45,6 +45,7 @@ namespace BhartiNetwork.Models
         public string OrganizationType { get; set; }
         public string PanNo { get; set; }
         public string GSTNo { get; set; }
+        public string AdminName { get; set; }
 
         public string ClientId { get; set; }
         
@@ -246,6 +247,14 @@ namespace BhartiNetwork.Models
                                  new SqlParameter("@AddedBy",AddedBy)
                                  };
             DataSet ds = Connection.ExecuteQuery("DeleteVendor", para);
+            return ds;
+        }
+        public DataSet DeleteEmployee()
+        {
+            SqlParameter[] para ={new SqlParameter ("@Employeeid",Employeeid),
+                                 new SqlParameter("@AddedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("DeleteEmployee", para);
             return ds;
         }
 

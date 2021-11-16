@@ -85,13 +85,24 @@
                                                         <td>@item.Designation</td>
                                                         <td>@item.Address</td>
                                                         <td>
-                                                            <a href="/Admin/EmployeeIdCard?Id=@item.Employeeid" class="btn btn-danger btn-sm">View</a>
+                                                            <a href="/Admin/EmployeeIdCard?Id=@item.Employeeid" class="btn btn-info btn-sm">View</a>
                                                         </td>
                                                         <td>@item.Status</td>
-                                                        <td>
-                                                            <a href="/Admin/ApproveEmployee?Id=@item.Employeeid" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want approve this record ?')">Approve</a>
-                                                            @*<a href="/Admin/DeclineEmp?Id=@item.Employeeid" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want decline this record ?')">Decline</a>*@
-                                                        </td>
+                                                        
+                                                        @if (item.Status == "Pending")
+                                                        {
+                                                          <td>
+                                                              <a href="/Admin/ApproveEmployee?Id=@item.Employeeid" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want to approve this record ?')">Approve</a>
+                                                              <a href="/Admin/DeleteEmployee?Id=@item.Employeeid" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this record ?')">Delete</a>
+                                                          </td>
+                                                        }
+                                                        else if(item.Status == "Approved")
+                                                        {
+                                                            <td>
+                                                                <a>Approved</a>&nbsp;&nbsp;
+                                                                <a href="/Admin/DeleteEmployee?Id=@item.Employeeid" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this record ?')">Delete</a>
+                                                            </td>
+                                                        }
                                                     </tr>
                                                     i++;
                                                 }

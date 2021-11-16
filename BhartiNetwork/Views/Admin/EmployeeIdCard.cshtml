@@ -177,7 +177,6 @@
                                             <div class="mt-3 w-100 float-left text-center text-orange">
                                                 @*<a style="color:#ffffff;" id="printPageButton" onclick="window.print()">Print</a>*@
                                                 <img src="~/assets/img/logo.png" alt="" class="img-fluid" style="width: 150px">
-                                               
                                             </div>
 
                                             @*<button style="color:#ffffff; float:left; text-align:center; background:#a20e0e; padding: 5px; padding-right: 15px;padding-left:15px;" id="printPageButton" onclick="window.print()">Print</button>*@
@@ -283,20 +282,3 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
 
-<script>
-    function printDiv() {
-
-        var divToPrint = document.getElementById('DivIdToPrint');
-
-        var newWin = window.open('', 'Print-Window');
-
-        newWin.document.open();
-
-        newWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</body></html>');
-
-        newWin.document.close();
-
-        setTimeout(function () { newWin.close(); }, 10);
-
-    }
-</script>
