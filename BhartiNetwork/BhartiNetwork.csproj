@@ -1226,6 +1226,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminBaseController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\EmployeebaseController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VendorBaseController.cs" />
     <Compile Include="Controllers\VendorController.cs" />
@@ -1235,6 +1237,7 @@
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Comman.cs" />
     <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Home.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1284,6 +1287,9 @@
     <Content Include="Views\Admin\Invoice.cshtml" />
     <Content Include="Views\Admin\EmployeeIdCard.cshtml" />
     <Content Include="Views\Admin\EmployeeIdCards.cshtml" />
+    <Content Include="Views\Shared\_EmployeeLayout.cshtml" />
+    <Content Include="Views\Employee\EmployeeDashboard.cshtml" />
+    <Content Include="Views\Employee\EmployeeIdCards.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1293,11 +1299,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="EmployeeFileUpload\" />
     <Folder Include="FileUploadInvoice\" />
     <Folder Include="FileUpload\" />
     <Folder Include="ProjectImage\" />
     <Folder Include="VendorFileUpload\" />
     <Folder Include="Views\AdminBase\" />
+    <Folder Include="Views\Employeebase\" />
     <Folder Include="Views\VendorBase\" />
   </ItemGroup>
   <PropertyGroup>

@@ -104,8 +104,6 @@ namespace BhartiNetwork.Controllers
             return RedirectToAction("Career", "Home");
  
         }
-
-
         public ActionResult ContactUs()
         {
             return View();
@@ -168,15 +166,15 @@ namespace BhartiNetwork.Controllers
                         FormName = "AdminDashBoard";
                         Controller = "Admin";
                     }
-                    //else if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1" && ds.Tables[0].Rows[0]["UserType"].ToString() == "Employee")
-                    //{
-                    //    Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
-                    //    Session["PK_EmployeeId"] = ds.Tables[0].Rows[0]["PK_EmployeeId"].ToString();
-                    //    Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
+                    else if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1" && ds.Tables[0].Rows[0]["UserType"].ToString() == "Employee")
+                    {
+                        Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
+                        Session["PK_EmployeeId"] = ds.Tables[0].Rows[0]["PK_EmployeeId"].ToString();
+                        Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
 
-                    //    FormName = "EmployeeDashBoard";
-                    //    Controller = "Employee";
-                    //}
+                        FormName = "EmployeeDashBoard";
+                        Controller = "Employee";
+                    }
                     else if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1" && ds.Tables[0].Rows[0]["UserType"].ToString() == "Vendor")
                     {
                         Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
@@ -350,10 +348,15 @@ namespace BhartiNetwork.Controllers
         }
         [HttpPost]
         [ActionName("EmployeeRegistration")]
-        public ActionResult Registraion(Home model)
+        public ActionResult Registraion(Home model, HttpPostedFileBase postedFile)
         {
             try
             {
+                if (postedFile != null)
+                {
+                    model.Image = "../EmployeeFileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
+                    postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
+                }
                 Random rnd = new Random();
                 string Pass = rnd.Next(111111, 999999).ToString();
                 model.Password = Pass;

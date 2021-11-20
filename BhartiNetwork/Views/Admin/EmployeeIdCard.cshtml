@@ -184,7 +184,10 @@
                                           
                                         </div>
                                         <div class="profile-thumb-block">
-                                            <img src="~/assets/img/team/team-2.jpg" alt="profile-image" class="profile"/>
+                                            <img src="@ViewBag.Image" alt="profile-image" class="profile"/>
+
+                                            @*<img src="~/assets/img/team/team-2.jpg" alt="profile-image" class="profile" />*@
+                                            
                                         </div>
                                         <div class="card-content">
                                             <h2 class="text-center">@ViewBag.Name<span class="text-orange"><small>@ViewBag.Designation</small></span></h2>

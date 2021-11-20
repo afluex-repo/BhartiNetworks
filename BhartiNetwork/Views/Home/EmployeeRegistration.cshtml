@@ -4,7 +4,7 @@
     ViewBag.Title = "EmployeeRegistration";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using (Html.BeginForm("EmployeeRegistration", "Home", FormMethod.Post))
+@using (Html.BeginForm("EmployeeRegistration", "Home", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
 {
      <!-- ======= Hero Section ======= -->
     <section id="hero-new" class="d-flex justify-cntent-center align-items-center herocareer">
@@ -65,7 +65,7 @@
                             </div>
                             <div class="col-md-6 form-group mt-3 mt-md-0">
                                 <label>DOB </label>
-                                @Html.TextBoxFor(m => m.DOB, new { @class = "form-control", @placeholder = "DOB" })
+                                @Html.TextBoxFor(m => m.DOB, new { @class = "form-control", @placeholder = "DOB",@readonly="true" })
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -90,7 +90,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12 form-group">
+                            <div class="col-md-6 form-group">
+                                <label>Upload File<span style="color: red">*</span></label>
+                                <input type="file" name="postedFile" id="postedFile" class="form-control" />
+                            </div>
+                            <div class="col-md-6 form-group">
                                 <label>Address</label>
                                 @Html.TextAreaFor(m => m.Address, new { @class = "form-control", @placeholder = "Address" })
                             </div>
@@ -153,6 +157,13 @@
             $('#Mobile').focus();
             return false;
         }
+        if ($('#postedFile').val() == '') {
+            $("#postedFile").addClass('errortext');
+            $('#postedFile').focus();
+            return false;
+        }
+
+
     }
     function isNumberKey(evt) {
         var charCode = (evt.which) ? evt.which : event.keyCode;
