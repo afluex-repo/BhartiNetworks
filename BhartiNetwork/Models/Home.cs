@@ -165,7 +165,8 @@ namespace BhartiNetwork.Models
                 new SqlParameter("@Gender",Gender),
                 new SqlParameter("@DOB",DOB),
                 new SqlParameter("@BloodGroup",BloodGroup),
-                new SqlParameter("@Designation",Designation)
+                new SqlParameter("@Designation",Designation),
+                 new SqlParameter("@PostedFile",Image)
                                  };
             DataSet ds = Connection.ExecuteQuery("EmployeeRegistration", para);
             return ds;
