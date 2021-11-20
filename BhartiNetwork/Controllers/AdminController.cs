@@ -736,7 +736,7 @@ namespace BhartiNetwork.Controllers
                                 model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
                                 model.AdminName = ds.Tables[0].Rows[0]["AdminName"].ToString();
                                 //mailbody = "Dear,  <br/>" + model.Name + " <br/> Your record has been  approved";
-                                mailbody = "Registration Approvel<br/> Dear," + model.Name + " <br/> Your registration request has been  approved by "+ model.AdminName + " now you can login your pannel your login credencial and url mention bellow.";
+                                mailbody = "Dear"+" " + model.Name + ", <br/> Your registration request has been  approved by "+ model.AdminName + " now you can login your pannel your login credencial and url mention bellow.";
 
                                 System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
                                 {
@@ -751,7 +751,7 @@ namespace BhartiNetwork.Controllers
                                 using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
                                 {
                                     IsBodyHtml = true,
-                                    Subject = "Successfull Message",
+                                    Subject = "Registration Approvel",
                                     Body = mailbody
                                 })
                                     smtp.Send(message);
@@ -805,7 +805,7 @@ namespace BhartiNetwork.Controllers
                                 model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
                                 model.AdminName = ds.Tables[0].Rows[0]["AdminName"].ToString();
                                 //mailbody = "Dear,  <br/>" + model.Name + " <br/> Your record has been  Declined";
-                                mailbody = "Registration Approvel<br/> Dear," + model.Name + " <br/> Your registration request has been  declined by "+ model.AdminName + "";
+                                mailbody = "Dear"+ " "+ model.Name + ", <br/> Your registration request has been  declined by "+ model.AdminName + "";
 
 
                                 System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
@@ -820,7 +820,7 @@ namespace BhartiNetwork.Controllers
                                 using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
                                 {
                                     IsBodyHtml = true,
-                                    Subject = "Successfull Message",
+                                    Subject = "Registration Approvel",
                                     Body = mailbody
                                 })
                                     smtp.Send(message);
@@ -1313,7 +1313,7 @@ namespace BhartiNetwork.Controllers
                             {
                                 model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
                                 model.AdminName = ds.Tables[0].Rows[0]["AdminName"].ToString();
-                                mailbody = "Registration Approvel<br/> Dear," + model.Name + " <br/> Your registration request has been  approved by "+ model.AdminName + " now you can login your pannel and download your id card your login credencial and url mention bellow.";
+                                mailbody = "Dear"+" " + model.Name + ", <br/> Your registration request has been  approved by "+ model.AdminName + " now you can login your pannel and download your id card your login credencial and url mention bellow.";
 
                                 System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
                                 {
@@ -1327,7 +1327,7 @@ namespace BhartiNetwork.Controllers
                                 using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
                                 {
                                     IsBodyHtml = true,
-                                    Subject = "Successfull Message",
+                                    Subject = "Registration Approvel",
                                     Body = mailbody
                                 })
                                     smtp.Send(message);
