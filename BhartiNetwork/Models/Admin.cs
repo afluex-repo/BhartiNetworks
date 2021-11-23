@@ -428,6 +428,16 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("ApproveEmployee", para);
             return ds;
         }
+
+        public DataSet DeleteInvoice()
+        {
+            SqlParameter[] para ={new SqlParameter ("@InvoiceId",InvoiceId),
+                                 new SqlParameter("@AddedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("DeleteInvoice", para);
+            return ds;
+        }
         
+
     }
 }

@@ -93,6 +93,7 @@
                                                                 <a href="/Admin/DeclineInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want decline this record ?')">Decline</a>
                                                                 <a href="/Admin/AproveInvoice?Id=@item.InvoiceId" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want approve this record ?')">Approve</a>
                                                                 <a href="#" onclick="return openmodal(@item.InvoiceId)" class="btn btn-info btn-sm payment" data-toggle="modal">Payment</a>
+                                                                <a href="/Admin/DeleteInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this record ?')">Delete</a>
                                                             </td>
                                                         }
                                                         else if (item.Status == "Approved")
@@ -100,12 +101,14 @@
                                                             <td>
                                                                 <a href="/Admin/DeclineInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want decline this record ?')">Decline</a>
                                                                 <a href="#" onclick="return openmodal(@item.InvoiceId)" class="btn btn-info btn-sm payment" data-toggle="modal">Payment</a>
+                                                                <a href="/Admin/DeleteInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this record ?')">Delete</a>
                                                             </td>
                                                         }
                                                         else if (item.Status == "Declined")
                                                         {
                                                             <td>
                                                                 <a href="/Admin/AproveInvoice?Id=@item.InvoiceId" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want approve this record ?')">Approve</a>
+                                                                <a href="/Admin/DeleteInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this record ?')">Delete</a>
                                                             </td>
 
                                                         }
