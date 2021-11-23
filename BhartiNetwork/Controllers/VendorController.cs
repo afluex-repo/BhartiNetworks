@@ -107,12 +107,12 @@ namespace BhartiNetwork.Controllers
             DataSet ds = model.SelectInvoce();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                    Vendor obj = new Vendor();
-                    ViewBag.Status = ds.Tables[0].Rows[0]["Status"].ToString();
+                Vendor obj = new Vendor();
+                ViewBag.Status = ds.Tables[0].Rows[0]["Status"].ToString();
                 ViewBag.PaymentStatus = ds.Tables[0].Rows[0]["PaymentStatus"].ToString();
                 ViewBag.ExpectedPaymentDate = ds.Tables[0].Rows[0]["ExpectedPaymentDate"].ToString();
             }
-            
+
             List<Vendor> Invoicelst = new List<Vendor>();
             model.LoginId = Session["LoginId"].ToString();
             DataSet ds1 = model.SelectInvoiceDetails();
@@ -122,6 +122,7 @@ namespace BhartiNetwork.Controllers
                 {
                     Vendor obj = new Vendor();
                     obj.InvoiceId = dr["PK_InvoiceId"].ToString();
+                    obj.InvoiceNo = dr["InvoiceNo"].ToString();
                     obj.Image = dr["ImageFile"].ToString();
                     obj.Status = dr["Status"].ToString();
                     obj.PaymentStatus = dr["PaymentStatus"].ToString();
@@ -151,7 +152,7 @@ namespace BhartiNetwork.Controllers
             }
             ViewBag.ddlPONumber = ddlPONumber;
             return View(model);
-            
+
             //List<SelectListItem> ddlStatus = Status();
             //ViewBag.ddlStatus = ddlStatus;
 
@@ -160,7 +161,7 @@ namespace BhartiNetwork.Controllers
 
             //List<SelectListItem> ddlExpectedPaymentDate = ExpectedPaymentDate();
             //ViewBag.ddlExpectedPaymentDate = ddlExpectedPaymentDate;
-        
+
         }
 
         [HttpPost]
@@ -169,24 +170,24 @@ namespace BhartiNetwork.Controllers
         {
             try
             {
-                    if (postedFile != null)
+                if (postedFile != null)
+                {
+                    model.Image = "../FileUploadInvoice/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
+                    postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
+                }
+                //obj.DDChequeDate = string.IsNullOrEmpty(obj.DDChequeDate) ? null : Common.ConvertToSystemDate(obj.DDChequeDate, "dd/MM/yyyy");
+                model.AddedBy = Session["PK_VendorId"].ToString();
+                DataSet ds = model.SaveInvoice();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
                     {
-                        model.Image = "../FileUploadInvoice/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
-                        postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
+                        TempData["Invoice"] = "Invoice save successfully";
                     }
-                    //obj.DDChequeDate = string.IsNullOrEmpty(obj.DDChequeDate) ? null : Common.ConvertToSystemDate(obj.DDChequeDate, "dd/MM/yyyy");
-                    model.AddedBy = Session["PK_VendorId"].ToString();
-                    DataSet ds = model.SaveInvoice();
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
                     {
-                        if (ds.Tables[0].Rows[0][0].ToString() == "1")
-                        {
-                            TempData["Invoice"] = "Invoice save successfully";
-                        }
-                        else if (ds.Tables[0].Rows[0][0].ToString() == "0")
-                        {
-                            TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-                        }
+                        TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
                     //List<SelectListItem> ddlStatus = Status();
                     //ViewBag.ddlStatus = ddlStatus;
 
@@ -196,11 +197,11 @@ namespace BhartiNetwork.Controllers
                     //List<SelectListItem> ddlExpectedPaymentDate = ExpectedPaymentDate();
                     //ViewBag.ddlExpectedPaymentDate = ddlExpectedPaymentDate;
                 }
-                    else
-                    {
-                        TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-                    }
+                else
+                {
+                    TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
                 }
+            }
             catch (Exception ex)
             {
                 TempData["Invoice"] = ex.Message;
@@ -235,5 +236,36 @@ namespace BhartiNetwork.Controllers
 
 
 
+        public ActionResult VendorDeleteInvoice(string Id)
+        {
+            Vendor model = new Vendor();
+            try
+            {
+                model.InvoiceId = Id;
+                model.AddedBy = Session["PK_VendorId"].ToString();
+                DataSet ds = model.DeleteInvoice();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Invoice"] = "Invoice delete successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Invoice"] = ex.Message;
+            }
+            return RedirectToAction("Invoice", "Vendor");
+        }
     }
 }

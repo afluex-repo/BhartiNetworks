@@ -47,7 +47,10 @@ namespace BhartiNetwork.Models
         public string AddedBy { get; set; }
         public string InvoiceId { get; set; }
         public string PaymentDate { get; set; }
+        public string InvoiceNo { get; set; }
+
         
+
          public List<SelectListItem> ddlPONumber { get; set; }
 
 
@@ -74,6 +77,8 @@ namespace BhartiNetwork.Models
         public DataSet SaveInvoice()
         {
             SqlParameter[] para ={
+                
+                 new SqlParameter ("@InvoiceNo",InvoiceNo),
                 new SqlParameter ("@ImageFile",Image),
                                  new SqlParameter("@AddedBy",AddedBy)
                                  };
@@ -100,6 +105,17 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("GetPoNumber");
             return ds;
         }
+
+
+        public DataSet DeleteInvoice()
+        {
+            SqlParameter[] para ={new SqlParameter ("@InvoiceId",InvoiceId),
+                                 new SqlParameter("@AddedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("VendorDeleteInvoice", para);
+            return ds;
+        }
+
 
     }
 
