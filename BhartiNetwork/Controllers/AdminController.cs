@@ -736,7 +736,7 @@ namespace BhartiNetwork.Controllers
                                 model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
                                 model.AdminName = ds.Tables[0].Rows[0]["AdminName"].ToString();
                                 //mailbody = "Dear,  <br/>" + model.Name + " <br/> Your record has been  approved";
-                                mailbody = "Dear"+" " + model.Name + ", <br/> Your registration request has been  approved by "+ model.AdminName + " now you can login your pannel your login credencial and url mention bellow.";
+                                mailbody = "Dear" + " " + model.Name + ", <br/> Your registration request has been  approved by " + model.AdminName + " now you can login your pannel your login credencial and url mention bellow.";
 
                                 System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
                                 {
@@ -805,7 +805,7 @@ namespace BhartiNetwork.Controllers
                                 model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
                                 model.AdminName = ds.Tables[0].Rows[0]["AdminName"].ToString();
                                 //mailbody = "Dear,  <br/>" + model.Name + " <br/> Your record has been  Declined";
-                                mailbody = "Dear"+ " "+ model.Name + ", <br/> Your registration request has been  declined by "+ model.AdminName + "";
+                                mailbody = "Dear" + " " + model.Name + ", <br/> Your registration request has been  declined by " + model.AdminName + "";
 
 
                                 System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
@@ -996,7 +996,7 @@ namespace BhartiNetwork.Controllers
             }
             return View(model);
         }
-        
+
         public ActionResult DeleteEmployee(string Id)
         {
             Admin model = new Admin();
@@ -1316,7 +1316,7 @@ namespace BhartiNetwork.Controllers
                             {
                                 model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
                                 model.AdminName = ds.Tables[0].Rows[0]["AdminName"].ToString();
-                                mailbody = "Dear"+" " + model.Name + ", <br/> Your registration request has been  approved by "+ model.AdminName + " now you can login your pannel and download your id card your login credencial and url mention bellow.";
+                                mailbody = "Dear" + " " + model.Name + ", <br/> Your registration request has been  approved by " + model.AdminName + " now you can login your pannel and download your id card your login credencial and url mention bellow.";
 
                                 System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
                                 {
@@ -1358,8 +1358,46 @@ namespace BhartiNetwork.Controllers
             }
             return RedirectToAction("EmployeeList", "Admin");
         }
+
+
+
+
+        public ActionResult DeleteInvoice(string Id)
+        {
+            Admin model = new Admin();
+            try
+            {
+                model.InvoiceId = Id;
+                model.AddedBy = Session["Pk_AdminId"].ToString();
+                DataSet ds = model.DeleteInvoice();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Invoice"] = "Invoice delete successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Invoice"] = ex.Message;
+            }
+            return RedirectToAction("Invoice", "Admin");
         }
+
+
+
     }
+}
 
 
 
