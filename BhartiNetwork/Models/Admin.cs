@@ -55,7 +55,10 @@ namespace BhartiNetwork.Models
 
         public string FromDate { get; set; }
         public string ToDate { get; set; }
+        public string PODate { get; set; }
+        public string AddedOn { get; set; }
 
+        
 
         public List<Admin> lstClient { get; set; }
         public List<Admin> lstCareer { get; set; }
@@ -64,6 +67,9 @@ namespace BhartiNetwork.Models
         public List<Admin> lstContact { get; set; }
         public List<Admin> lstDashBoard { get; set; }
         public List<Admin> lstInvoice { get; set; }
+        public List<Admin> VendorInvoicelst { get; set; }
+
+        public string InvoiceNo { get; set; }
         public string Remark { get; set; }
         public string PaymentDate { get; set; }
         public string BloodGroup { get; set; }
@@ -383,7 +389,8 @@ namespace BhartiNetwork.Models
         public DataSet SelectInvoiceDetails()
         {
             SqlParameter[] para ={
-                new SqlParameter ("@InvoiceId",InvoiceId)
+                new SqlParameter ("@InvoiceId",InvoiceId),
+                  new SqlParameter ("@InvoiceNo",InvoiceNo)
                                  };
             DataSet ds = Connection.ExecuteQuery("SelectInvoiceDetails", para);
             return ds;
@@ -437,7 +444,14 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("DeleteInvoice", para);
             return ds;
         }
-        
 
+        public DataSet DeleteVendorInvoice()
+        {
+            SqlParameter[] para ={new SqlParameter ("@InvoiceId",InvoiceId),
+                                 new SqlParameter("@AddedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("DeleteVendorInvoiceByAdmin", para);
+            return ds;
+        }
     }
 }
