@@ -1043,6 +1043,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="EmployeeFileUpload\a5fc4f68-06f1-45ce-a54c-2b00c2595954.png" />
+    <Content Include="EmployeeFileUpload\f860156b-9d4b-4cb7-845d-0d2751286b17.png" />
+    <Content Include="EmployeeFileUpload\user.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="forms\Readme.txt" />
     <Content Include="Global.asax" />
@@ -1290,6 +1293,7 @@
     <Content Include="Views\Shared\_EmployeeLayout.cshtml" />
     <Content Include="Views\Employee\EmployeeDashboard.cshtml" />
     <Content Include="Views\Employee\EmployeeIdCards.cshtml" />
+    <Content Include="Views\Admin\VendorInvoiceDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1299,7 +1303,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="EmployeeFileUpload\" />
     <Folder Include="FileUploadInvoice\" />
     <Folder Include="FileUpload\" />
     <Folder Include="ProjectImage\" />
