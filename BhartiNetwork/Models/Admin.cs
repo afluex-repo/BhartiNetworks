@@ -386,15 +386,15 @@ namespace BhartiNetwork.Models
         }
 
 
-        public DataSet SelectInvoiceDetails()
-        {
-            SqlParameter[] para ={
-                new SqlParameter ("@InvoiceId",InvoiceId),
-                  new SqlParameter ("@InvoiceNo",InvoiceNo)
-                                 };
-            DataSet ds = Connection.ExecuteQuery("SelectInvoiceDetails", para);
-            return ds;
-        }
+        //public DataSet SelectInvoiceDetails()
+        //{
+        //    SqlParameter[] para ={
+        //        new SqlParameter ("@InvoiceId",InvoiceId),
+        //          new SqlParameter ("@InvoiceNo",InvoiceNo)
+        //                         };
+        //    DataSet ds = Connection.ExecuteQuery("SelectInvoiceDetails", para);
+        //    return ds;
+        //}
         
 
         public DataSet ApproveInvoice()

@@ -116,6 +116,14 @@ namespace BhartiNetwork.Models
             return ds;
         }
 
+        //public DataSet DeletePo()
+        //{
+        //    SqlParameter[] para ={new SqlParameter ("@VendorId",VendorId),
+        //                         new SqlParameter("@AddedBy",AddedBy)
+        //                         };
+        //    DataSet ds = Connection.ExecuteQuery("DeletePo", para);
+        //    return ds;
+        //}
 
     }
 
