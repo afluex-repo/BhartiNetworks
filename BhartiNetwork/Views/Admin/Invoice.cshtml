@@ -66,6 +66,7 @@
                                             <th>Invoice Status</th>
                                             <th>Payment Status</th>
                                             <th>Payment Date</th>
+                                            <th>Invoice</th>
                                             <th>Remark</th>
                                             <th>Action</th>
                                         </tr>
@@ -86,6 +87,13 @@
                                                         <td>@item.Status</td>
                                                         <td>@item.PaymentStatus</td>
                                                         <td>@item.PaymentDate</td>
+                                                        <td>
+                                                            <a href="@item.Image" download>
+                                                                <i class="fa fa-file-pdf-o" style="font-size:25px;color:red">
+                                                                    <i class="mdi mdi-download" style="font-size:25px;color:red"></i>
+                                                                </i>
+                                                            </a>
+                                                        </td>
                                                         <td>@item.Remark</td>
                                                         @if(item.Status == "Pending")
                                                         {
@@ -192,9 +200,10 @@
 @*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>*@
 
 
-
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+
+@*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">*@
 
 <script>
     $('#PaymentDate').datepicker({

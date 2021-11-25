@@ -179,7 +179,7 @@ namespace BhartiNetwork.Controllers
                     {
                         Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
                         Session["PK_VendorId"] = ds.Tables[0].Rows[0]["PK_VendorId"].ToString();
-                        Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
+                        Session["OrganizationName"] = ds.Tables[0].Rows[0]["OrganizationName"].ToString();
 
                         FormName = "VendorDashBoard";
                         Controller = "Vendor";

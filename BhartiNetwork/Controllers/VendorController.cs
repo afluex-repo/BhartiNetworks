@@ -267,5 +267,38 @@ namespace BhartiNetwork.Controllers
             }
             return RedirectToAction("Invoice", "Vendor");
         }
+
+        //public ActionResult DeletePO(string Id)
+        //{
+        //    Vendor model = new Vendor();
+        //    try
+        //    {
+        //        model.VendorId = Id;
+        //        model.AddedBy = Session["PK_VendorId"].ToString();
+        //        DataSet ds = model.DeletePo();
+        //        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        //        {
+        //            if (ds.Tables[0].Rows[0][0].ToString() == "1")
+        //            {
+        //                TempData["Vendor"] = "Po delete successfully";
+        //            }
+        //            else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+        //            {
+        //                TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        TempData["Invoice"] = ex.Message;
+        //    }
+        //    return RedirectToAction("PurcheseOrder", "Vendor");
+        //}
+
     }
 }

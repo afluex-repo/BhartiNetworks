@@ -865,7 +865,6 @@ namespace BhartiNetwork.Controllers
                     obj.LoginId = dr["LoginId"].ToString();
                     obj.Name = dr["Name"].ToString();
                     obj.OrganizationName = dr["OrganizationName"].ToString();
-
                     obj.PONumber = dr["PONumber"].ToString();
                     obj.file = dr["UploadFile"].ToString();
                     obj.PODate = dr["PODate"].ToString();
@@ -1059,6 +1058,7 @@ namespace BhartiNetwork.Controllers
                     obj.ApproveDeclineDate = dr["ApproveDeclineDate"].ToString();
                     obj.LoginId = dr["LoginId"].ToString();
                     obj.Status = dr["Status"].ToString();
+                    obj.Image = dr["ImageFile"].ToString();
                     obj.PaymentDate = dr["PaymentDate"].ToString();
                     obj.PaymentStatus = dr["PaymentStatus"].ToString();
                     obj.Remark = dr["Remarks"].ToString();
@@ -1406,47 +1406,47 @@ namespace BhartiNetwork.Controllers
         }
 
 
-        public ActionResult VendorInvoiceDetails()
-        {
-            //List<Admin> VendorInvoicelst = new List<Admin>();
-            //DataSet ds1 = model.SelectInvoiceDetails();
-            //if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
-            //{
-            //    foreach (DataRow dr in ds1.Tables[0].Rows)
-            //    {
-            //        Admin obj = new Admin();
-            //        obj.InvoiceId = dr["PK_InvoiceId"].ToString();
-            //        obj.InvoiceNo = dr["InvoiceNo"].ToString();
-            //        obj.Image = dr["ImageFile"].ToString();
-            //        obj.AddedOn = dr["AddedOn"].ToString();
-            //        VendorInvoicelst.Add(obj);
-            //    }
-            //    model.VendorInvoicelst = VendorInvoicelst;
-            //}
-            return View();
-        }
+        //public ActionResult VendorInvoiceDetails()
+        //{
+        //    List<Admin> VendorInvoicelst = new List<Admin>();
+        //    DataSet ds1 = model.SelectInvoiceDetails();
+        //    if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
+        //    {
+        //        foreach (DataRow dr in ds1.Tables[0].Rows)
+        //        {
+        //            Admin obj = new Admin();
+        //            obj.InvoiceId = dr["PK_InvoiceId"].ToString();
+        //            obj.InvoiceNo = dr["InvoiceNo"].ToString();
+        //            obj.Image = dr["ImageFile"].ToString();
+        //            obj.AddedOn = dr["AddedOn"].ToString();
+        //            VendorInvoicelst.Add(obj);
+        //        }
+        //        model.VendorInvoicelst = VendorInvoicelst;
+        //    }
+        //    return View();
+        //}
 
-        [HttpPost]
-        [ActionName("VendorInvoiceDetails")]
-        public ActionResult VendorInvoiceDetails(Admin model)
-        {
-            List<Admin> VendorInvoicelst = new List<Admin>();
-            DataSet ds1 = model.SelectInvoiceDetails();
-            if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
-            {
-                foreach (DataRow dr in ds1.Tables[0].Rows)
-                {
-                    Admin obj = new Admin();
-                    obj.InvoiceId = dr["PK_InvoiceId"].ToString();
-                    obj.InvoiceNo = dr["InvoiceNo"].ToString();
-                    obj.Image = dr["ImageFile"].ToString();
-                    obj.AddedOn = dr["AddedOn"].ToString();
-                    VendorInvoicelst.Add(obj);
-                }
-                model.VendorInvoicelst = VendorInvoicelst;
-            }
-            return View(model);
-        }
+        //[HttpPost]
+        //[ActionName("VendorInvoiceDetails")]
+        //public ActionResult VendorInvoiceDetails(Admin model)
+        //{
+        //    List<Admin> VendorInvoicelst = new List<Admin>();
+        //    DataSet ds1 = model.SelectInvoiceDetails();
+        //    if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
+        //    {
+        //        foreach (DataRow dr in ds1.Tables[0].Rows)
+        //        {
+        //            Admin obj = new Admin();
+        //            obj.InvoiceId = dr["PK_InvoiceId"].ToString();
+        //            obj.InvoiceNo = dr["InvoiceNo"].ToString();
+        //            obj.Image = dr["ImageFile"].ToString();
+        //            obj.AddedOn = dr["AddedOn"].ToString();
+        //            VendorInvoicelst.Add(obj);
+        //        }
+        //        model.VendorInvoicelst = VendorInvoicelst;
+        //    }
+        //    return View(model);
+        //}
 
 
         public ActionResult DeleteVendorInvoice(string Id)
