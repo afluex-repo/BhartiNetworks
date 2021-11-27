@@ -1294,6 +1294,7 @@
     <Content Include="Views\Employee\EmployeeDashboard.cshtml" />
     <Content Include="Views\Employee\EmployeeIdCards.cshtml" />
     <Content Include="Views\Admin\VendorInvoiceDetails.cshtml" />
+    <Content Include="Views\Admin\PoList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -893,8 +893,6 @@ namespace BhartiNetwork.Controllers
                     obj.LoginId = dr["LoginId"].ToString();
                     obj.Name = dr["Name"].ToString();
                     obj.OrganizationName = dr["OrganizationName"].ToString();
-
-
                     obj.PONumber = dr["PONumber"].ToString();
                     obj.file = dr["UploadFile"].ToString();
                     obj.PODate = dr["PODate"].ToString();
@@ -1481,10 +1479,84 @@ namespace BhartiNetwork.Controllers
             return RedirectToAction("VendorInvoiceDetails", "Admin");
         }
 
+        public ActionResult PoList()
+        {
+            //    Admin model = new Admin();
+            //    List<Admin> lstPo = new List<Admin>();
+            //    DataSet ds = model.PoList();
+            //    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            //    {
+            //        foreach (DataRow dr in ds.Tables[0].Rows)
+            //        {
+            //            Admin obj = new Admin();
+            //            obj.PK_PoId = dr["PK_PoId"].ToString();
+            //            obj.PONumber = dr["Po_Number"].ToString();
+            //            obj.AddedOn = dr["AddedOn"].ToString();
+            //            lstPo.Add(obj);
+            //        }
+            //        model.lstPo = lstPo;
+            //    }
+            return View();
+        }
+        [HttpPost]
+        [ActionName("PoList")]
+        public ActionResult PoList(Admin model)
+        {
+            List<Admin> lstPo = new List<Admin>();
+            model.PK_PoId = model.PK_PoId == "0" ? null : model.PK_PoId;
+            model.PONumber = model.PONumber == "0" ? null : model.PONumber;
+            model.FromDate = string.IsNullOrEmpty(model.FromDate) ? null : Comman.ConvertToSystemDate(model.FromDate, "dd/MM/yyyy");
+            model.ToDate = string.IsNullOrEmpty(model.ToDate) ? null : Comman.ConvertToSystemDate(model.ToDate, "dd/MM/yyyy");
+            DataSet ds = model.PoList();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Admin obj = new Admin();
+                    obj.PK_PoId = dr["PK_PoId"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    obj.PONumber = dr["Po_Number"].ToString();
+                    obj.file = dr["PoFile"].ToString();
+                    obj.AddedOn = dr["AddedOn"].ToString();
+                    lstPo.Add(obj);
+                }
+                model.lstPo = lstPo;
+            }
+            return View(model);
+        }
 
 
+        public ActionResult DeletePo(string Id)
+        {
+            Admin model = new Admin();
+            try
+            {
+                model.PK_PoId = Id;
+                model.AddedBy = Session["Pk_AdminId"].ToString();
+                DataSet ds = model.DeletePo();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["PO"] = "Po delete successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["PO"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["PO"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
 
-
+            }
+            catch (Exception ex)
+            {
+                TempData["PO"] = ex.Message;
+            }
+            return RedirectToAction("PoList", "Admin");
+        }
 
     }
 }
