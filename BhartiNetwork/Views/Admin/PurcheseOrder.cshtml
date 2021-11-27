@@ -79,6 +79,7 @@
                                                     <tr>
                                                         <td>@i</td>
                                                         <td>@item.LoginId</td>
+                                                      
                                                         <td>@item.Name</td>
                                                         <td>@item.OrganizationName</td>
                                                         @*<td>@item.file</td>*@
@@ -92,7 +93,7 @@
                                                                 <input name="imgupload" type="file" accept=".pdf,.doc" class="file-loading" />
 
                                                                 <button type="submit" class="btn btn-info btn-sm" onclick="UploadImage(@item.VendorId)">Submit</button>
-
+                                                                <a href="/Admin/PoList" class="btn btn-primary btn-sm">Back To List</a>
 
                                                                 @*<a href="@item.file" download>
                                                                         <i class="fa fa-file-pdf-o" style="font-size:25px;color:red">
@@ -125,7 +126,7 @@
                             <div class="card">
                                 <div class="card-body">*@
 
-                                    <div class="row">
+                                    @*<div class="row">
                                         <div class="col-12">
 
                                             <div class="table-responsive">
@@ -155,12 +156,11 @@
                                                                                     <i class="mdi mdi-download" style="font-size:25px;color:red"></i>
                                                                                 </i>
                                                                             </a>
-                                                                            @*@item.file*@
                                                                         </td>
                                                                         <td>@item.PODate</td>
-                                                                        @*<td>
+                                                                        <td>
                                                                             <a href="/Admin/DeleteInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this record ?')">Delete</a>
-                                                                        </td>*@
+                                                                        </td>
                                                                     </tr>
                                                                     i++;
                                                                 }
@@ -170,7 +170,7 @@
                                                 </table>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>*@
 
                                 @*</div>
                             </div>

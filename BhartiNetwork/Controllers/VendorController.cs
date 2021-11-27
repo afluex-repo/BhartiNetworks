@@ -80,25 +80,56 @@ namespace BhartiNetwork.Controllers
 
         public ActionResult PurcheseOrder()
         {
-            Vendor model = new Vendor();
-            List<Vendor> lstVendorPOList = new List<Vendor>();
-            model.LoginId = Session["LoginId"].ToString();
-            DataSet ds = model.GetVendorPODetails();
+            //Vendor model = new Vendor();
+            //List<Vendor> lstPo = new List<Vendor>();
+            //model.PK_PoId = model.PK_PoId == "0" ? null : model.PK_PoId;
+            //model.PONumber = model.PONumber == "0" ? null : model.PONumber;
+            //model.FromDate = string.IsNullOrEmpty(model.FromDate) ? null : Comman.ConvertToSystemDate(model.FromDate, "dd/MM/yyyy");
+            //model.ToDate = string.IsNullOrEmpty(model.ToDate) ? null : Comman.ConvertToSystemDate(model.ToDate, "dd/MM/yyyy");
+            //DataSet ds = model.PoList();
+            //if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            //{
+            //    foreach (DataRow dr in ds.Tables[0].Rows)
+            //    {
+            //        Vendor obj = new Vendor();
+            //        obj.PK_PoId = dr["PK_PoId"].ToString();
+            //        obj.PONumber = dr["Po_Number"].ToString();
+            //        obj.AddedOn = dr["AddedOn"].ToString();
+            //        lstPo.Add(obj);
+            //    }
+            //    model.lstPo = lstPo;
+            //}
+            return View();
+        }
+
+
+        [HttpPost]
+        [ActionName("PurcheseOrder")]
+        public ActionResult PurcheseOrder(Vendor model)
+        {
+            List<Vendor> lstPo = new List<Vendor>();
+            model.PK_PoId = model.PK_PoId == "0" ? null : model.PK_PoId;
+            model.PONumber = model.PONumber == "0" ? null : model.PONumber;
+            model.FromDate = string.IsNullOrEmpty(model.FromDate) ? null : Comman.ConvertToSystemDate(model.FromDate, "dd/MM/yyyy");
+            model.ToDate = string.IsNullOrEmpty(model.ToDate) ? null : Comman.ConvertToSystemDate(model.ToDate, "dd/MM/yyyy");
+            DataSet ds = model.PoList();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
                     Vendor obj = new Vendor();
-                    obj.LoginId = dr["LoginId"].ToString();
-                    obj.VendorId = dr["PONo"].ToString();
-                    obj.file = dr["UploadFile"].ToString();
-                    obj.Date = dr["PODate"].ToString();
-                    lstVendorPOList.Add(obj);
+                    obj.PK_PoId = dr["PK_PoId"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    obj.PONumber = dr["Po_Number"].ToString();
+                    obj.file = dr["PoFile"].ToString();
+                    obj.AddedOn = dr["AddedOn"].ToString();
+                    lstPo.Add(obj);
                 }
-                model.lstVendorPOList = lstVendorPOList;
+                model.lstPo = lstPo;
             }
             return View(model);
         }
+        
 
         public ActionResult Invoice()
         {

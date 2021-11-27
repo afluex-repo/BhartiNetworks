@@ -49,9 +49,15 @@ namespace BhartiNetwork.Models
         public string PaymentDate { get; set; }
         public string InvoiceNo { get; set; }
 
-        
+        public string PK_PoId { get; set; }
+        public string PONumber { get; set; }
+        public string FromDate { get; set; }
+        public string ToDate { get; set; }
+        public string AddedOn { get; set; }
 
-         public List<SelectListItem> ddlPONumber { get; set; }
+        
+        public List<Vendor> lstPo { get; set; }
+        public List<SelectListItem> ddlPONumber { get; set; }
 
 
 
@@ -115,6 +121,21 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("VendorDeleteInvoice", para);
             return ds;
         }
+
+
+        public DataSet PoList()
+        {
+            SqlParameter[] para ={new SqlParameter ("@PK_PoId",PK_PoId),
+                                 new SqlParameter("@Po_Number",PONumber),
+                                 new SqlParameter ("@FromDate",FromDate),
+                                 new SqlParameter("@ToDate",ToDate)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("GetPoDetails", para);
+            return ds;
+        }
+
+
+
 
         //public DataSet DeletePo()
         //{
