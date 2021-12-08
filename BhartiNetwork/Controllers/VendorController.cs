@@ -48,6 +48,7 @@ namespace BhartiNetwork.Controllers
                 ViewBag.Designation = ds.Tables[0].Rows[0]["Designation"].ToString();
                 ViewBag.OrganizationName = ds.Tables[0].Rows[0]["OrganizationName"].ToString();
                 ViewBag.OrganizationType = ds.Tables[0].Rows[0]["OrganisationType"].ToString();
+                ViewBag.Image = ds.Tables[0].Rows[0]["VendorPic"].ToString();
             }
             return View(model);
 
@@ -75,6 +76,7 @@ namespace BhartiNetwork.Controllers
                 ViewBag.Designation = ds.Tables[0].Rows[0]["Designation"].ToString();
                 ViewBag.OrganizationName = ds.Tables[0].Rows[0]["OrganizationName"].ToString();
                 ViewBag.OrganizationType = ds.Tables[0].Rows[0]["OrganisationType"].ToString();
+                ViewBag.Image = ds.Tables[0].Rows[0]["VendorPic"].ToString();
             }
             return View(model);
         }

@@ -256,10 +256,15 @@ namespace BhartiNetwork.Controllers
 
         [HttpPost]
         [ActionName("newuser")]
-        public ActionResult newuser(Home model)
+        public ActionResult newuser(Home model, HttpPostedFileBase postedFile)
         {
             try
             {
+                if (postedFile != null)
+                {
+                    model.Image = "../VendorImage/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
+                    postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
+                }
                 model.AddedBy = "1";
                 Random rnd = new Random();
                 string Pass = rnd.Next(111111, 999999).ToString();

@@ -5,7 +5,7 @@
 }
 
 
-@using (Html.BeginForm("newuser", "Home", FormMethod.Post))
+@using (Html.BeginForm("newuser", "Home", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data"}))
 {
      <!-- ======= Hero Section ======= -->
     <section id="hero-new" class="d-flex justify-cntent-center align-items-center herocareer">
@@ -192,23 +192,31 @@
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12 form-group">
+                            <div class="col-md-6 form-group">
                                 <!-- <input type="text" name="position" class="form-control" id="position" placeholder="Select Your Position" required> -->
                                 <label>Designation</label>
                                 @Html.DropDownListFor(m => m.PK_DesignationId, new SelectList(ViewBag.ddlDesignation, "Value", "Text"), new { @class = "form-control" })
+                            </div>
+
+
+                         
+                            <div class="col-md-6 form-group">
+                                <label>Vendor File</label>
+                                <input type="file" class="form-control" style="line-height: 2.2;" accept="image/*" name="postedFile" id="postedFile" placeholder="Submit Your Cover Letter or Resume">
+                            </div>
 
 
                                 @*<select class="form-control" id="Designation" name="Designation" required>
-                                        <option value="0">Select</option>
-                                        <option>BTS,Node-B,MR,LTE,Installation & Commissioning,CAB-EX & All the Extra Activity</option>
-                                        <option>Link Installation And Commissioning</option>
-                                        <option>Site Survey</option>
-                                        <option>Man Power Supply</option>
-                                        <option>Civil Work</option>
-                                        <option>Electrical Work</option>
-                                    </select>*@
+                <option value="0">Select</option>
+                <option>BTS,Node-B,MR,LTE,Installation & Commissioning,CAB-EX & All the Extra Activity</option>
+                <option>Link Installation And Commissioning</option>
+                <option>Site Survey</option>
+                <option>Man Power Supply</option>
+                <option>Civil Work</option>
+                <option>Electrical Work</option>
+            </select>*@
+
                             </div>
-                        </div>
 
                         <div class="form-group mt-3">
 
