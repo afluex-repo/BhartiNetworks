@@ -30,9 +30,10 @@ namespace BhartiNetwork.Controllers
             //    ViewBag.Password = ds.Tables[0].Rows[0]["Password"].ToString(); 
             //}
             //return View(model);
-
+            
             Vendor model = new Vendor();
-            model.VendorId = Session["PK_VendorId"].ToString();
+            model.LoginId = Session["LoginId"].ToString();
+            //model.VendorId = Session["PK_VendorId"].ToString();
             DataSet ds = model.GetVendorDetails();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
@@ -58,7 +59,8 @@ namespace BhartiNetwork.Controllers
         {
 
             Vendor model = new Vendor();
-            model.VendorId = Session["PK_VendorId"].ToString();
+            //model.VendorId = Session["PK_VendorId"].ToString();
+            model.LoginId = Session["LoginId"].ToString();
             DataSet ds = model.GetVendorDetails();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
