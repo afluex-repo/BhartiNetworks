@@ -148,6 +148,7 @@ namespace BhartiNetwork.Models
                                  new SqlParameter("@GSTNo",GSTNo),
                                  new SqlParameter("@FK_DesignationId",PK_DesignationId),
                                  new SqlParameter("@FK_InvoiceId",PK_InvoiceId),
+                                   new SqlParameter("@VendorFile",Image),
                                  new SqlParameter("@AddedBy",AddedBy)
                                  };
             DataSet ds = Connection.ExecuteQuery("SaveVendor", para);

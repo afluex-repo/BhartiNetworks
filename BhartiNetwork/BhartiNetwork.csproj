@@ -1308,6 +1308,7 @@
     <Folder Include="FileUpload\" />
     <Folder Include="ProjectImage\" />
     <Folder Include="VendorFileUpload\" />
+    <Folder Include="VendorImage\" />
     <Folder Include="Views\AdminBase\" />
     <Folder Include="Views\Employeebase\" />
     <Folder Include="Views\VendorBase\" />
