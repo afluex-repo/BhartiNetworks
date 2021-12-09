@@ -603,6 +603,7 @@ namespace BhartiNetwork.Controllers
                     obj.PanNo = dr["PanNumber"].ToString();
                     obj.GSTNo = dr["GSTNo"].ToString();
                     obj.Designation = dr["Designation"].ToString();
+                    obj.Image = dr["VendorPic"].ToString();
                     lstVendor.Add(obj);
                 }
                 model.lstVendor = lstVendor;
