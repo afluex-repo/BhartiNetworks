@@ -1,11 +1,12 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 
 <html>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Admin</title>
+    <title>Vendor</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../AdminCss/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../AdminCss/assets/vendors/css/vendor.bundle.base.css">
@@ -40,7 +41,7 @@
                                 <span class="count bg-success"></span>
                             </div>
                             <div class="profile-name">
-                                <h5 class="mb-0 font-weight-normal">Admin</h5>
+                                <h6 class="mb-0 font-weight-normal" style="font-size:11px;">@Session["OrganizationName"]</h6>
                                 @*<span>Gold Member</span>*@
                             </div>
                         </div>
@@ -85,7 +86,7 @@
                         <span class="nav-link">Navigation</span>
                     </li>*@
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="/Admin/AdminDashBoard">
+                    <a class="nav-link" href="/Vendor/VendorDashBoard">
                         <span class="menu-icon">
                             <i class="mdi mdi-speedometer"></i>
                         </span>
@@ -97,31 +98,12 @@
                         <span class="menu-icon">
                             <i class="mdi mdi-laptop"></i>
                         </span>
-                        <span class="menu-title">Master</span>
+                        <span class="menu-title">Profile</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
-                            @*<li class="nav-item"> <a class="nav-link" href="/Admin/Project">Project</a></li>*@
-                            <li class="nav-item"> <a class="nav-link" href="/Admin/GetCareerList">Career List</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/Admin/GetContactList">Contact List</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/Admin/SaveClient">Client</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/Admin/GetVendorDetails">Vendor Details</a></li>
-                            @*<li class="nav-item"> <a class="nav-link" href="/Admin/VendorInvoiceDetails">Vendor Invoice List</a></li>*@
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item menu-items">
-                    <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                        <span class="menu-icon">
-                            <i class="mdi mdi-security"></i>
-                        </span>
-                        <span class="menu-title">Employee</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse" id="auth">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/Admin/EmployeeList">Employee Details</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="/Vendor/Profile">Profile</a></li>
                         </ul>
                     </div>
                 </li>
@@ -157,25 +139,20 @@
                             <span class="menu-title">Icons</span>
                         </a>
                     </li>*@
-
-                <li class="nav-item menu-items">
-                    <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                        <span class="menu-icon">
-                            <i class="mdi mdi-security"></i>
-                        </span>
-                        <span class="menu-title">Purchase Order</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse" id="auth">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/Admin/PurcheseOrder">Purchase Order</a></li>
-                        </ul>
-                    </div>
-                </li>
-
-
-
-
+                    <li class="nav-item menu-items">
+                        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                            <span class="menu-icon">
+                                <i class="mdi mdi-security"></i>
+                            </span>
+                            <span class="menu-title">Purchase Order</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="auth">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="/Vendor/PurcheseOrder">Purchase Order</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 <li class="nav-item menu-items">
                     <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                         <span class="menu-icon">
@@ -186,12 +163,11 @@
                     </a>
                     <div class="collapse" id="auth">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/Admin/Invoice">Invoice</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="/Vendor/Invoice">Invoice</a></li>
                         </ul>
                     </div>
                 </li>
-
-                @*<li class="nav-item menu-items">
+                    @*<li class="nav-item menu-items">
                         <a class="nav-link" href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
                             <span class="menu-icon">
                                 <i class="mdi mdi-file-document-box"></i>
@@ -353,13 +329,14 @@
                                     <div class="dropdown-divider"></div>
                                     <p class="p-3 mb-0 text-center">See all notifications</p>
                                 </div>*@
-                            <a href="/Admin/ChangePassword" style="color:white">Change Password</a>
+                            @*<a href="/Admin/ChangePassword" style="color:white">Change Password</a>*@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                                 <div class="navbar-profile">
                                     <img class="img-xs rounded-circle" src="../AdminCss/assets/images/user.png" alt="">
-                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Admin</p>
+                                    <p class="mb-0 d-none d-sm-block navbar-profile-name" style="font-size:11px;">@Session["OrganizationName"]</p>
+                                   
                                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                                 </div>
                             </a>
@@ -404,8 +381,7 @@
                     <!-- partial:partials/_footer.html -->
                     <footer class="footer">
                         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">© Copyright  <a href="http://www.bhartinetworks.com/">Bharti Networks.</a> All Rights Reserved.  Designed by <a href="https://afluex.com/">Afluex Multiservices LLP</a></span>
-
+                            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
                             @*<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>*@
                         </div>
                     </footer>
@@ -440,3 +416,9 @@
 
 </body>
 </html>
+
+
+
+
+
+

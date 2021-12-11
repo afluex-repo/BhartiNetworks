@@ -108,12 +108,12 @@
                 <div class="clients-slider swiper">
                     <div class="swiper-wrapper align-items-center">
                         @if (Model != null)
-                       {
-                    if (Model.lstClient != null)
-                    {
-                        int i = 1;
-                        foreach (var item in Model.lstClient)
                         {
+                            if (Model.lstClient != null)
+                            {
+                                int i = 1;
+                                foreach (var item in Model.lstClient)
+                                {
                                     <div class="swiper-slide"><img src="@item.Image" class="img-fluid" alt="ncr"></div>
                                     i++;
                                 }
@@ -131,22 +131,22 @@
 
                 <div class="section-title">
                     <h2>Services</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <p>Our wide network architecture capabilities enable businesses to evolve in the rapidly changing world of cellular technology. We are proud to be partnered with different businesses worldwide, transforming networks and building new possibilities together. We deliver unique innovations that help businesses overcome the challenges standing in the way of great customer experience.</p>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon-box">
                             <i class="bi bi-card-checklist"></i>
-                            <h4><a href="telecom.html">Telecom</a></h4>
-                            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                            <h4><a href="/Home/Telecom">Telecom</a></h4>
+                            <p>Today’s Network Planning requires great strategies and planning. In Network planning it is also important to make provision for future innovative technology. We offer services for 2G,3G, LTE, 5G NR Wi-Fi, and indoor densification planning.</p>
                         </div>
                     </div>
                     <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon-box">
                             <i class="bi bi-bar-chart"></i>
-                            <h4><a href="#">Manpower Outsourcing</a></h4>
-                            <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                            <h4><a href="/Home/ManpowerOutsourcing">Manpower Outsourcing</a></h4>
+                            <p>Bharti Networks Services, over the years has assimilated Technical knowhow and expertise which has enabled it to create Intellectual Capital which is being constantly replenished by its Training Department.</p>
                         </div>
                     </div>
 
@@ -160,11 +160,11 @@
 
                 <div class="row" data-aos="zoom-in">
                     <div class="col-lg-9 text-center text-lg-start">
-                        <h3>Call To Action</h3>
-                        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        @*<h3>Call To Action</h3>*@
+                        <p> Leading provider of telecom services & solutions for wireless networks with in-house network analytics software & global presence strong multi-vendor & multi-technologies experience in network planning, optimization & end-to-end network managed services</p>
                     </div>
                     <div class="col-lg-3 cta-btn-container text-center">
-                        <a class="cta-btn align-middle" href="tel: +91 9839 4182 22">Call To Action</a>
+                        <a class="cta-btn align-middle" href="/Home/Career">Let's Start Here</a>
                     </div>
                 </div>
 
@@ -200,14 +200,19 @@
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
                                 <h4>Location:</h4>
-                                <p>Bharti Networks, Building no-6757 ,gvh ,xyz</p>
+                                <p>
+                                    Bharti Networks<br />
+                                    444 Alaska Avenue Suite #BFK943<br>
+                                    Torrance, California- 90503<br>
+                                    USA <br>
+                                   Call : +12058513414</p>
                             </div>
 
                             <div class="email">
-                                <a href="mailto: projects@bhartinetworks.com">
+                                <a href="mailto: info@bhartinetworks.com">
                                     <i class="bi bi-envelope"></i>
                                     <h4>Email:</h4>
-                                    <p>projects@bhartinetworks.com</p>
+                                    <p>info@bhartinetworks.com</p>
                                 </a>
                             </div>
 
@@ -216,6 +221,7 @@
                                     <i class="bi bi-phone"></i>
                                     <h4>Call:</h4>
                                     <p>call us</p>
+                                   
                                 </a>
                             </div>
 
@@ -224,29 +230,60 @@
                     </div>
 
                     <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
-
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        @*@using (Html.BeginForm("ContactUs", "Home", FormMethod.Post))
+                        {
                             <div class="row">
+                                <p style="color:red;">
+                                    @TempData["Contact"]
+                                </p>
+
                                 <div class="col-md-6 form-group">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Your Name", @onkeypress = "return onlyAlphabets();" })
+
                                 </div>
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Your Email" })
                                 </div>
                             </div>
                             <div class="form-group mt-3">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                                @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", @placeholder = " Subject" })
                             </div>
                             <div class="form-group mt-3">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                                @Html.TextAreaFor(m => m.Address, new { @class = "form-control", @placeholder = " Message" })
                             </div>
                             <div class="my-3">
                                 <div class="loading">Loading</div>
                                 <div class="error-message"></div>
                                 <div class="sent-message">Your message has been sent. Thank you!</div>
                             </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
-                        </form>
+                            <div class="container">
+                                <div class="text-center"><button class="btn-success sss" type="submit" onclick="return validateform();">Send Message</button></div>
+                            </div>
+                        }*@
+
+
+                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                                    </div>
+                                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                                </div>
+                                <div class="my-3">
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                                </div>
+                                <div class="text-center"><button type="submit">Send Message</button></div>
+                            </form>
 
                     </div>
 

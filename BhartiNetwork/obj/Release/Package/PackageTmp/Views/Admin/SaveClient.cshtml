@@ -14,6 +14,13 @@
                     <p style="color:red;">
                         @TempData["Client"]
                     </p>
+
+                    <div class="form-group">
+                        <input type="hidden" id="ClientId" name="ClientId" value="@Model.ClientId" />
+                        <label for="exampleInputEmail3">Name <span style="color: red">*</span></label>
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Name" })
+                    </div>
+
                     <div class="form-group">
                         <label for="exampleInputPassword4">Upload File <span style="color: red">*</span></label>
                         <input type="file" name="PostedFile" id="PostedFile" class="form-control" />
@@ -24,7 +31,7 @@
                         </div>
                     <input type="submit" value="Submit" class="btn btn-info" id="btnsave" name="btnsave" onclick="return validateform();" />
                         @*<button type="submit" class="btn btn-info" id="btnsave" name="btnsave" onclick="return validateform();">Submit</button>*@
-                        @*<a href="/Admin/GetProjectList" class="btn btn-primary">Back To List</a>*@
+                        <a href="/Admin/GetClientDetails" class="btn btn-primary">Back To List</a>
                 </div>
             </div>
         </div>
@@ -36,18 +43,31 @@
 
 
 <script>
+
+    var ClientId = $("#ClientId").val();
+    if (ClientId!=0)
+    {
+        $("#btnsave").val("Update");
+    }
+
+
     function validateform() {
         $(".errortext").removeClass("errortext");
+        if ($('#Name').val() == '') {
+            $("#Name").addClass('errortext');
+            $('#Name').focus();
+            return false;
+        }
         if ($('#Date').val() == '') {
             $("#Date").addClass('errortext');
             $('#Date').focus();
             return false;
         }
-        if ($('#PostedFile').val() == '') {
-            $("#PostedFile").addClass('errortext');
-            $('#PostedFile').focus();
-            return false;
-        }
+        //if ($('#PostedFile').val() == '') {
+        //    $("#PostedFile").addClass('errortext');
+        //    $('#PostedFile').focus();
+        //    return false;
+        //}
     }
 </script>
 
@@ -76,7 +96,7 @@
 <script>
 
     $('#Date').datepicker({
-        format: 'dd/mm/yyyy',
+        format: 'dd/mm/yy',
         changeYear: true,
         changeMonth: true,
 

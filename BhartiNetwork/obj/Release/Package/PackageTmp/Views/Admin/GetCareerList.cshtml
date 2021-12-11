@@ -4,6 +4,7 @@
     ViewBag.Title = "GetCareerList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 @using (Html.BeginForm("GetCareerList", "Admin", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
 {   <div class="row">
@@ -21,6 +22,27 @@
                             @*<a href="/Admin/Project" class="btn btn-primary" style="border-radius:100px;">Add New</a>*@
                         </div>
                     </div>
+
+                    <div class="row" style="margin-bottom:20px;">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="exampleInputName1">Career Name</label>
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Client Name" })
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail3">Qualification</label>
+                                @Html.TextBoxFor(m => m.Qualification, new { @class = "form-control", @placeholder = "Qualification" })
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="submit" value="Search" class="btn btn-success" style="margin-top:25px;" />
+                        </div>
+                    </div>
+
+
+
 
                     <div class="row">
                         <div class="col-12">
@@ -57,7 +79,13 @@
                                                         <td>@item.Qualification</td>
                                                         <td>@item.Location</td>
                                                         <td>@item.Experience</td>
-                                                        <td><img src="@item.Image" style="height:50px;width:50px;" /></td>
+                                                        <td>
+                                                            <a href="@item.Image" download>
+                                                                <i class="fa fa-file-pdf-o" style="font-size:25px;color:red">
+                                                                    <i class="mdi mdi-download" style="font-size:25px;color:red"></i>
+                                                                </i>
+                                                            </a>
+                                                      </td>
                                                         <td>
                                                             @*<a href="/Admin/Project?Id=@item.ProjectId" class="btn btn-info btn-sm">Edit</a>*@
                                                             <a href="/Admin/DeleteCareer?Id=@item.CareerId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want delete this record ?')">Delete</a>
@@ -79,4 +107,7 @@
     </div>
 }
 
+<script>
+
+</script>
 

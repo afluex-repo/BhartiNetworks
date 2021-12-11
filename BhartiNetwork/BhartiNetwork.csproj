@@ -1217,7 +1217,9 @@
     <Content Include="assets\vendor\remixicon\remixicon.ttf" />
     <Content Include="assets\vendor\remixicon\remixicon.woff" />
     <Content Include="assets\vendor\remixicon\remixicon.woff2" />
+    <None Include="Properties\PublishProfiles\Bharteee.pubxml" />
     <None Include="Properties\PublishProfiles\BhartiNetwork.pubxml" />
+    <None Include="Properties\PublishProfiles\BhartiNetwork_1.pubxml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
