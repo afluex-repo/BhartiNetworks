@@ -51,3 +51,4 @@ E:\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 E:\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
 E:\Repository\BhartiNetworks\BhartiNetwork\obj\Release\BhartiNetwork.dll
 E:\Repository\BhartiNetworks\BhartiNetwork\obj\Release\BhartiNetwork.pdb
+E:\Repository\BhartiNetworks\BhartiNetwork\obj\Release\BhartiNetwork.csprojResolveAssemblyReference.cache

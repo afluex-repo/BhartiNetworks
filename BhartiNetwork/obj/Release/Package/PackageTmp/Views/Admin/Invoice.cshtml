@@ -1,0 +1,291 @@
+﻿@model BhartiNetwork.Models.Admin
+
+@{
+    ViewBag.Title = "Invoice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm("Invoice", "Admin", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{   <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Invoice</h4>
+                    <p style="color:red;">
+                        @TempData["Invoice"]
+                    </p>
+                    <div class="row" style="padding-bottom:20px;">
+                        <div class="col-sm-10">
+                        </div>
+                        <div class="col-sm-2">
+                            @*<a href="/Admin/Project" class="btn btn-primary" style="border-radius:100px;">Add New</a>*@
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-bottom:20px;">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                @*<input type="hidden" id="InvoiceId" name="InvoiceId" value="@Model.InvoiceId" />*@
+                                <label for="exampleInputName1">LoginId</label>
+                                @Html.TextBoxFor(m => m.LoginId, new { @class = "form-control", @placeholder = "LoginId" })
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="exampleInputName1">Invoice Status</label>
+                                @Html.TextBoxFor(m => m.Status, new { @class = "form-control", @placeholder = "Invoice Status" })
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="exampleInputEmail3">From Appro/Decl Date</label>
+                                @Html.TextBoxFor(m => m.FromDate, new { @class = "form-control", @placeholder = "dd/mm/yyyy", autocomplete = "off" })
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="exampleInputEmail3">To Appro/Decl Date</label>
+                                @Html.TextBoxFor(m => m.ToDate, new { @class = "form-control", @placeholder = "dd/mm/yyyy", autocomplete = "off" })
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="submit" value="Search" class="btn btn-success" style="margin-top:25px;" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+
+                            <div class="table-responsive">
+                                <table id="file_export" class="table table-striped table-bordered display">
+                                    <thead>
+                                        <tr>
+                                            <th>S No.</th>
+                                            <th>LoginId</th>
+                                            <th>Vendor Name</th>
+                                            <th>Approve/Decline Date</th>
+                                            <th>Invoice Status</th>
+                                            <th>Payment Status</th>
+                                            <th>Payment Date</th>
+                                            <th>Invoice</th>
+                                            <th>Remark</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if(Model != null)
+                                        {
+                                            if(Model.lstInvoice != null)
+                                            {
+                                                int i = 1;
+                                                foreach (var item in Model.lstInvoice)
+                                                {
+                                                    <tr>
+                                                        <td>@i</td>
+                                                        <td>@item.LoginId</td>
+                                                        <td>@item.Name</td>
+                                                        <td>@item.ApproveDeclineDate</td>
+                                                        <td>@item.Status</td>
+                                                        <td>@item.PaymentStatus</td>
+                                                        <td>@item.PaymentDate</td>
+                                                        <td>
+                                                            <a href="@item.Image" download>
+                                                                <i class="fa fa-file-pdf-o" style="font-size:25px;color:red">
+                                                                    <i class="mdi mdi-download" style="font-size:25px;color:red"></i>
+                                                                </i>
+                                                            </a>
+                                                        </td>
+                                                        <td>@item.Remark</td>
+                                                        @if(item.Status == "Pending")
+                                                        {
+                                                            <td>
+                                                                <a href="/Admin/DeclineInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want decline this record ?')">Decline</a>
+                                                                <a href="/Admin/AproveInvoice?Id=@item.InvoiceId" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want approve this record ?')">Approve</a>
+                                                                <a href="#" onclick="return openmodal(@item.InvoiceId)" class="btn btn-info btn-sm payment" data-toggle="modal">Payment</a>
+                                                                <a href="/Admin/DeleteInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this record ?')">Delete</a>
+                                                            </td>
+                                                        }
+                                                        else if (item.Status == "Approved")
+                                                        {
+                                                            <td>
+                                                                <a href="/Admin/DeclineInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want decline this record ?')">Decline</a>
+                                                                <a href="#" onclick="return openmodal(@item.InvoiceId)" class="btn btn-info btn-sm payment" data-toggle="modal">Payment</a>
+                                                                <a href="/Admin/DeleteInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this record ?')">Delete</a>
+                                                            </td>
+                                                        }
+                                                        else if (item.Status == "Declined")
+                                                        {
+                                                            <td>
+                                                                <a href="/Admin/AproveInvoice?Id=@item.InvoiceId" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want approve this record ?')">Approve</a>
+                                                                <a href="/Admin/DeleteInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this record ?')">Delete</a>
+                                                            </td>
+
+                                                        }
+
+                                                        @*<a href="/Admin/AproveInvoice?Id=@item.InvoiceId" class="btn btn-success btn-sm" onclick="return confirm('Are you sure you want approve this record ?')">Approve</a>
+                                                            <a href="/Admin/DeclineInvoice?Id=@item.InvoiceId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want decline this record ?')">Decline</a>
+                                                            <a href="#" onclick="return openmodal(@item.InvoiceId)" class="btn btn-info btn-sm payment" data-toggle="modal">Payment</a>*@
+
+                                                        @*<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">
+                                                                Payment
+                                                            </button>*@
+
+                                                    </tr>
+                                                    i++;
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" id="rrr">
+        @*<h2>Modal Example</h2>*@
+        <!-- Button to Open the Modal -->
+        @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                Open modal
+            </button>*@
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        @*<h4 class="modal-title">Modal Heading</h4>*@
+                        <button type="button" class="btn btn-danger btn-sm" value="Close" id="hidee" onclick="return Hide();" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    @*value="Close" id="hidee" onclick="return Hide();"*@
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="hidden" id="InvoiceId" name="InvoiceId" value="@Model.InvoiceId" />
+                                <label for="exampleInputEmail3">Payment Date</label>
+                                @Html.TextBoxFor(m => m.PaymentDate, new { @class = "form-control", @placeholder = "dd/mm/yyyy", autocomplete = "off" })
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="exampleInputEmail3">Remark</label>
+                                @Html.TextAreaFor(m => m.Remark, new { @class = "form-control", @placeholder = "Remark", @style = "height:40px;" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        @*<button type="button" class="btn btn-success" data-dismiss="modal"  onclick="return UpdatePatient();">Submit</button>*@
+
+                        <input type="submit" value="Save" id="btnSave" class="btn btn-danger" onclick="return validateform();" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">*@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+@*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>*@
+
+
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+
+@*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">*@
+
+<script>
+    $('#PaymentDate').datepicker({
+        dateFormat: 'dd/mm/yy',
+        changeYear: true,
+        changeMonth: true,
+        
+    });
+    $('#FromDate').datepicker({
+        dateFormat: 'dd/mm/yy',
+        changeYear: true,
+        changeMonth: true,
+    });
+    $('#ToDate').datepicker({
+        dateFormat: 'dd/mm/yy',
+        changeYear: true,
+        changeMonth: true,
+    });
+ 
+    function Hide(evt) {
+        $('#rrr').hide();
+    }
+
+    function openmodal(evt) {
+        $('#InvoiceId').val(evt)
+        $('#myModal').show();
+    }
+    $(document).ready(function () {
+        $("#btnSave").click(function () {
+            debugger;
+            var model = {};
+            model.InvoiceId = $("#InvoiceId").val();
+            model.PaymentDate = $("#PaymentDate").val();
+            model.Remark = $("#Remark").val();
+            action = "";
+            message = '';
+            if (model.InvoiceId != '' && model.InvoiceId > 0) {
+                action = '@Url.Action("Update", "Admin")'
+                //message = 'Record updated successfully';
+
+            }
+            else {
+                action = '@Url.Action("SaveForm", "Home")'
+                //message = 'Record saved successfully';
+            }
+            $.ajax({
+                type: "Post",
+                url: action,
+                data: JSON.stringify({ model: model }),
+                contentType: "Application/json",
+                success: function (result) {
+                    //alert(message);
+                    $('.tbody').empty();
+                    GetData();
+                },
+                error: function () {
+                    alert("Some error occured");
+                }
+            });
+        });
+    });
+    function validateform() {
+
+        $(".errortext").removeClass("errortext");
+        if ($('#PaymentDate').val() == '') {
+            $("#PaymentDate").addClass('errortext');
+            $('#PaymentDate').focus();
+            return false;
+        }
+
+        if ($('#Remark').val() == '') {
+            $("#Remark").addClass('errortext');
+            $('#Remark').focus();
+            return false;
+        }
+    }
+
+</script>
+
+<style>
+    .errortext {
+        border: 1px solid red !important;
+        background-color: #fff0f0 !important;
+    }
+</style>

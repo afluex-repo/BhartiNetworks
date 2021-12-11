@@ -5,7 +5,7 @@
 }
 
 
-@using (Html.BeginForm("newuser", "Home", FormMethod.Post))
+@using (Html.BeginForm("newuser", "Home", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data"}))
 {
      <!-- ======= Hero Section ======= -->
     <section id="hero-new" class="d-flex justify-cntent-center align-items-center herocareer">
@@ -48,6 +48,8 @@
                             <div class="col-md-12 form-group">
                                 <label>Circle<span style="color: red">*</span></label>
                                 @Html.TextBoxFor(m => m.Circle, new { @class = "form-control", @placeholder = "Circle" })
+                                @Html.HiddenFor(m=>m.PK_InvoiceId)
+
                                 @*<label>Circle</label>
                                     <input type="text" name="circle" class="form-control" id="circle" placeholder="Enter Your Circle" required>*@
                             </div>
@@ -79,8 +81,9 @@
                             </div>
                             <div class="col-md-6 form-group mt-3 mt-md-0">
 
-                                <label>Email<span style="color: red">*</span></label>
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                                <label>Email@*<span style="color: red">*</span>*@</label>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email", @onchange= "return ValidateEmail(event);" })
+                                <span id="lblError" style="color:red"></span>
 
                                 @*<label>Email</label>
                                     <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>*@
@@ -102,7 +105,7 @@
 
                             <div class="col-md-12 form-group">
                                 <label> Name As Per Bank Record<span style="color: red">*</span></label>
-                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Name As Per Bank Record", @onkeypress = "return onlyAlphabets();" })
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Name As Per Bank Record"})
                                 @*<label>Circle</label>
                                     <input type="text" name="circle" class="form-control" id="circle" placeholder="Enter Your Circle" required>*@
                             </div>
@@ -128,8 +131,8 @@
                             </div>
                             <div class="col-md-6 form-group mt-3 mt-md-0">
 
-                                <label>Branch Address<span style="color: red">*</span></label>
-                                @Html.TextBoxFor(m => m.Branch, new { @class = "form-control", @placeholder = "Branch Address", @onkeypress = "return onlyAlphabets();" })
+                                <label>Branch Address@*<span style="color: red">*</span>*@</label>
+                                @Html.TextBoxFor(m => m.Branch, new { @class = "form-control", @placeholder = "Branch Address"})
 
 
                                 @*<label>Branch Address</label>
@@ -172,8 +175,8 @@
                             <div class="col-md-6 form-group">
 
 
-                                <label>Pan Number.<span style="color: red">*</span></label>
-                                @Html.TextBoxFor(m => m.PanNo, new { @class = "form-control", @placeholder = "Pan Number.", @onkeypress = "return validatePan();"})
+                                <label>Pan Number.@*<span style="color: red">*</span>*@</label>
+                                @Html.TextBoxFor(m => m.PanNo, new { @class = "form-control", @placeholder = "Pan Number."})
 
 
                                 @*<label>Pan No. </label>
@@ -181,31 +184,39 @@
                             </div>
                             <div class="col-md-6 form-group mt-3 mt-md-0">
 
-                                <label>GST Number.<span style="color: red">*</span></label>
-                                @Html.TextBoxFor(m => m.GSTNo, new { @class = "form-control", @placeholder = "GST Number.", @onkeypress = "return isNumberKey(event)" })
+                                <label>GST Number.@*<span style="color: red">*</span>*@</label>
+                                @Html.TextBoxFor(m => m.GSTNo, new { @class = "form-control", @placeholder = "GST Number." })
 
                                 @*<label>GST No.</label>
                                     <input type="text" class="form-control" name="gstno" id="gstno" placeholder="Type Your GST No." required>*@
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12 form-group">
+                            <div class="col-md-6 form-group">
                                 <!-- <input type="text" name="position" class="form-control" id="position" placeholder="Select Your Position" required> -->
                                 <label>Designation</label>
                                 @Html.DropDownListFor(m => m.PK_DesignationId, new SelectList(ViewBag.ddlDesignation, "Value", "Text"), new { @class = "form-control" })
+                            </div>
+
+
+                         
+                            <div class="col-md-6 form-group">
+                                <label>Vendor File</label>
+                                <input type="file" class="form-control" style="line-height: 2.2;" accept="image/*" name="postedFile" id="postedFile" placeholder="Submit Your Cover Letter or Resume">
+                            </div>
 
 
                                 @*<select class="form-control" id="Designation" name="Designation" required>
-                                        <option value="0">Select</option>
-                                        <option>BTS,Node-B,MR,LTE,Installation & Commissioning,CAB-EX & All the Extra Activity</option>
-                                        <option>Link Installation And Commissioning</option>
-                                        <option>Site Survey</option>
-                                        <option>Man Power Supply</option>
-                                        <option>Civil Work</option>
-                                        <option>Electrical Work</option>
-                                    </select>*@
+                <option value="0">Select</option>
+                <option>BTS,Node-B,MR,LTE,Installation & Commissioning,CAB-EX & All the Extra Activity</option>
+                <option>Link Installation And Commissioning</option>
+                <option>Site Survey</option>
+                <option>Man Power Supply</option>
+                <option>Civil Work</option>
+                <option>Electrical Work</option>
+            </select>*@
+
                             </div>
-                        </div>
 
                         <div class="form-group mt-3">
 
@@ -310,24 +321,24 @@
             $('#Deposit').focus();
             return false;
         }
-        if ($('#OrganizationType').val() == '0') {
-            $("#OrganizationType").addClass('errortext');
-            $('#OrganizationType').focus();
+        if ($('#PK_OrganisationTypeId').val() == '0') {
+            $("#PK_OrganisationTypeId").addClass('errortext');
+            $('#PK_OrganisationTypeId').focus();
             return false;
         }
-        if ($('#PanNo').val() == '') {
-            $("#PanNo").addClass('errortext');
-            $('#PanNo').focus();
-            return false;
-        }
-        if ($('#GSTNo').val() == '') {
-            $("#GSTNo").addClass('errortext');
-            $('#GSTNo').focus();
-            return false;
-        }
-        if ($('#Designation').val() == '0') {
-            $("#Designation").addClass('errortext');
-            $('#Designation').focus();
+        //if ($('#PanNo').val() == '') {
+        //    $("#PanNo").addClass('errortext');
+        //    $('#PanNo').focus();
+        //    return false;
+        //}
+        //if ($('#GSTNo').val() == '') {
+        //    $("#GSTNo").addClass('errortext');
+        //    $('#GSTNo').focus();
+        //    return false;
+        //}
+        if ($('#PK_DesignationId').val() == '0') {
+            $("#PK_DesignationId").addClass('errortext');
+            $('#PK_DesignationId').focus();
             return false;
         }
         if ($('#Password').val() == '') {
@@ -335,8 +346,6 @@
             $('#Password').focus();
             return false;
         }
-
-
 
     }
     function isNumberKey(evt) {
@@ -355,7 +364,7 @@
                 var charCode = e.which;
             }
             else { return true; }
-            if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode == 32))
+            if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123)|| (charCode == 32))
                 return true;
             else
                 return false;
@@ -366,16 +375,55 @@
     }
 
 
-    function validatePan() {
-        var panVal = $('#PanNo').val();
-        var regpan = /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/;
+
+    function validatepan(event) {
+        $(".errortext").removeClass("errortext");
+        var regExp = /[a-zA-z]{5}\d{4}[a-zA-Z]{1}/;
+        var txtpan = $('#PanNo').val();
+        if (txtpan.length == 10) {
+            if (txtpan.match(regExp)) {
+
+            }
+            else {
+                $("#PanNo").addClass('errortext');
+                $('#PanNo').focus();
+                $('#PanNo').val('');
+                alert('Please enter valid PanNo');
+
+            }
+        }
+        else {
+            $("#PanNo").addClass('errortext');
+            $('#PanNo').focus();
+            $('#PanNo').val('');
+            alert('Please enter 10 digits for a valid PAN number');
+
+        }
+    }
+
+        
+    //    function ValidateEmail() {
+    //    var email = document.getElementById("Email").value;
+    //    var lblError = document.getElementById("lblError");
+    //    lblError.innerHTML = "";
+    //    var expr = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    //    if (!expr.test(email)) {
+    //        lblError.innerHTML = "Invalid email address.";
+    //    }
+    //}
+
+
+
+    function ValidateEmail(event) {
+        var panVal = $('#Email').val();
+        var regpan = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
         if (regpan.test(panVal)) {
-            $("#PanNo").removeClass('errortext');
+            $("#Email").removeClass('errortext');
         } else {
-            alert("Invalid PAN Number");
-            $("#PanNo").val('');
-            $("#PanNo").addClass('errortext');
+            alert("Invalid Email ID");
+            $("#Email").val('');
+            $("#Email").addClass('errortext');
         }
     }
 
