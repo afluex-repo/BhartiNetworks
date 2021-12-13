@@ -40,7 +40,7 @@ namespace BhartiNetwork.Models
         public string StartingofOrganization { get; set; }
         public string Circle { get; set; }
         public string PK_InvoiceId { get; set; }
-        
+
         public string AccountNo { get; set; }
         public string Branch { get; set; }
         public string Deposit { get; set; }
@@ -54,13 +54,16 @@ namespace BhartiNetwork.Models
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string CountryCode { get; set; }
+
 
         public List<Home> lstClient { get; set; }
         public List<Home> lstProject { get; set; }
         public List<SelectListItem> ddlOrganizationType { get; set; }
         public List<SelectListItem> ddlDesignation { get; set; }
+        public List<SelectListItem> ddlCountryCode { get; set; }
 
-
+        
 
         public DataSet SaveCareer()
         {
@@ -170,6 +173,14 @@ namespace BhartiNetwork.Models
                  new SqlParameter("@PostedFile",Image)
                                  };
             DataSet ds = Connection.ExecuteQuery("EmployeeRegistration", para);
+            return ds;
+        }
+
+
+
+        public DataSet GetCountryCode()
+        {
+            DataSet ds = Connection.ExecuteQuery("GetCountryCode");
             return ds;
         }
     }

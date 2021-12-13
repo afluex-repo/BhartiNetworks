@@ -58,10 +58,8 @@ namespace BhartiNetwork.Models
         public string PODate { get; set; }
         public string AddedOn { get; set; }
         public string PK_PoId { get; set; }
-
+        public string DOB { get; set; }
         
-
-
         public List<Admin> lstClient { get; set; }
         public List<Admin> lstCareer { get; set; }
         public List<Admin> lstProject { get; set; }

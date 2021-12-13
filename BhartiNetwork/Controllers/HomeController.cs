@@ -67,7 +67,7 @@ namespace BhartiNetwork.Controllers
         [HttpPost]
         [ActionName("Career")]
         //[OnAction(ButtonName="")]
-        public ActionResult Career(Home model,HttpPostedFileBase postedFile)
+        public ActionResult Career(Home model, HttpPostedFileBase postedFile)
         {
             try
             {
@@ -102,7 +102,7 @@ namespace BhartiNetwork.Controllers
                 TempData["Career"] = ex.Message;
             }
             return RedirectToAction("Career", "Home");
- 
+
         }
         public ActionResult ContactUs()
         {
@@ -201,7 +201,7 @@ namespace BhartiNetwork.Controllers
                 }
             }
             catch (Exception ex)
-            { 
+            {
                 TempData["Login"] = ex.Message;
                 FormName = "Vendor";
                 Controller = "Home";
@@ -275,14 +275,14 @@ namespace BhartiNetwork.Controllers
                     if (ds.Tables[0].Rows[0][0].ToString() == "1")
                     {
                         TempData["Registration"] = "Registration save successfully";
-                        
+
                         if (model.Email != null)
                         {
                             string mailbody = "";
                             try
                             {
                                 model.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
-                                mailbody = "Dear,  <br/>" + model.Name + " <br/> Your Registration successfully completed<br/> Your LoginId is :" +model.LoginId+"<br/> Password is :"+model.Password;
+                                mailbody = "Dear,  <br/>" + model.Name + " <br/> Your Registration successfully completed<br/> Your LoginId is :" + model.LoginId + "<br/> Password is :" + model.Password;
 
                                 System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
                                 {
@@ -347,9 +347,29 @@ namespace BhartiNetwork.Controllers
             }
             return View(model);
         }
+
         public ActionResult EmployeeRegistration()
         {
-            return View();
+            Home model = new Home();
+            int count = 0;
+            List<SelectListItem> ddlCountryCode = new List<SelectListItem>();
+            DataSet ds = model.GetCountryCode();
+
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow r in ds.Tables[0].Rows)
+                {
+                    if (count == 0)
+                    {
+                        ddlCountryCode.Add(new SelectListItem { Text = "-Select-", Value = "" });
+                    }
+                    ddlCountryCode.Add(new SelectListItem { Text = r["CountryCode"].ToString(), Value = r["PK_CountryCodeId"].ToString() });
+                    count = count + 1;
+                }
+            }
+
+            ViewBag.ddlCountryCode = ddlCountryCode;
+            return View(model);
         }
         [HttpPost]
         [ActionName("EmployeeRegistration")]
@@ -366,6 +386,7 @@ namespace BhartiNetwork.Controllers
                 string Pass = rnd.Next(111111, 999999).ToString();
                 model.Password = Pass;
                 model.DOB = string.IsNullOrEmpty(model.DOB) ? null : Comman.ConvertToSystemDate(model.DOB, "dd/MM/yyyy");
+                model.Mobile = model.CountryCode + model.Mobile;
                 DataSet ds = model.EmpRegistration();
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {

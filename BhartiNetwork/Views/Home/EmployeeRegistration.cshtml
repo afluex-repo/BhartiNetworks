@@ -79,16 +79,27 @@
                             </div>
                             </div>
                         <div class="row mt-3">
-                            <div class="col-md-6 form-group">
-                                <label>Mobile<span style="color: red">*</span></label>
-                                @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @placeholder = "Mobile", @onkeypress = "return isNumberKey(event)" })
+                            <div class="col-sm-2">
+                                <label>Code</label>
+                                @Html.DropDownListFor(m => m.CountryCode, new SelectList(ViewBag.ddlCountryCode, "Text", "Text"), new { @class = "form-control" })
+                                @*<select class="form-control" name="cd" id="cd">
+                                    <option value="0">Select</option>
+                                    <option>+91</option>
+                                    <option>+92</option>
+                                    <option>+93</option>
+                                    <option>+94</option>
+                                </select>*@
                             </div>
-                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                <div class="col-md-4 form-group">
+                                    <label>Mobile<span style="color: red">*</span></label>
+                                    @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @placeholder = "Mobile", @onkeypress = "return isNumberKey(event)" })
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
 
-                                <label>Email<span style="color: red">*</span></label>
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                                    <label>Email<span style="color: red">*</span></label>
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                                </div>
                             </div>
-                        </div>
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <label>Upload File</label>
