@@ -1294,6 +1294,7 @@ namespace BhartiNetwork.Controllers
                 ViewBag.Designation = ds.Tables[0].Rows[0]["Designation"].ToString();
                 ViewBag.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
                 ViewBag.BloodGroup = ds.Tables[0].Rows[0]["BloodGroup"].ToString();
+                ViewBag.DOB = ds.Tables[0].Rows[0]["DOB"].ToString();
                 ViewBag.ApproveDeclineDate = ds.Tables[0].Rows[0]["ApproveDeclineDate"].ToString();
                 ViewBag.ExpiaryDate = ds.Tables[0].Rows[0]["ExpiaryDate"].ToString();
                 ViewBag.Mobile = ds.Tables[0].Rows[0]["Mobile"].ToString();
