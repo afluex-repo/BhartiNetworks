@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Mvc;
+
 namespace BhartiNetwork.Models
 {
     public class Admin : Comman
@@ -69,13 +71,18 @@ namespace BhartiNetwork.Models
         public List<Admin> lstInvoice { get; set; }
         public List<Admin> VendorInvoicelst { get; set; }
         public List<Admin> lstPo { get; set; }
+        public List<SelectListItem> ddlVendor { get;set;}
+
+        
 
         public string InvoiceNo { get; set; }
         public string Remark { get; set; }
         public string PaymentDate { get; set; }
         public string BloodGroup { get; set; }
-
+        public string Destination { get; set; }
         
+
+
 
 
         public DataSet SaveProject()
@@ -477,5 +484,15 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("DeletePoByAdmin", para);
             return ds;
         }
+
+        public DataSet GetVendorName()
+        { 
+            DataSet ds = Connection.ExecuteQuery("GetVendorName");
+            return ds;
+        }
+
+
+
+        
     }
 }

@@ -1560,6 +1560,29 @@ namespace BhartiNetwork.Controllers
             return RedirectToAction("PoList", "Admin");
         }
 
+        public ActionResult PurchaseOrderForm()
+        {
+            Admin model = new Admin();
+            int count = 0;
+            List<SelectListItem> ddlVendor = new List<SelectListItem>();
+            DataSet ds1 = model.GetVendorName();
+            if (ds1 != null && ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow r in ds1.Tables[0].Rows)
+                {
+                    if (count == 0)
+                    {
+                        ddlVendor.Add(new SelectListItem { Text = "-Select-", Value = "" });
+                    }
+                    ddlVendor.Add(new SelectListItem { Text = r["Name"].ToString(), Value = r["PK_VendorId"].ToString() });
+                    count = count + 1;
+                }
+            }
+            ViewBag.ddlVendor = ddlVendor;
+
+            return View(model);
+        }
+
     }
 }
 
