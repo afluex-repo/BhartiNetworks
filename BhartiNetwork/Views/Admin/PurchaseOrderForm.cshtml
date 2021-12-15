@@ -1,0 +1,208 @@
+﻿@model BhartiNetwork.Models.Admin
+
+@{
+    ViewBag.Title = "PurchaseOrderForm";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("PurchaseOrderForm", "Admin", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{   <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Purchase Order</h4>
+                    <p>Please enter our order for the following subject to the Terms and Conditions attached below and incorporated as an integral part of this order</p>
+                    <hr style="background-color:white" />
+                    <p style="color:red;">
+                        @TempData["PoForm"]
+                    </p>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label for="exampleInputEmail3">Vendor Name <span style="color: red">*</span></label>
+                            @Html.DropDownListFor(m => m.Name, new SelectList(ViewBag.ddlVendor, "Value", "Text"), new { @class = "form-control" })
+                        </div>
+                        <div class="col-sm-8">
+                            <label for="Important">Important</label>
+                            <p>
+                                1.Your confirmation and  acceptance of our order  by return  email is to reach us within 3 working days from receipt of this order,  failing which it will be deemed, that you are  in acceptance of all terms
+                                and  conditions mentioned in this Purchase Order<br />
+                                2.Show  our order  number on all invoices and  packing sheets
+                            </p>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="exampleInputEmail3">To Address <span style="color: red">*</span></label>
+                            @Html.TextAreaFor(m => m.Address, new { @class = "form-control", @placeholder = "To Address" })
+                        </div>
+                    </div>
+                    <hr style="background-color:white" />
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label for="exampleInputEmail3">Destination<span style="color: red">*</span></label>
+                            @Html.TextBoxFor(m => m.Destination, new { @class = "form-control", @placeholder = "Destination" })
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="Important">Transportation </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="Important">Currency </label>
+                            <p>INR</p>
+                        </div>
+                    </div>
+                        <div class="row mt-3">
+                            <div class="col-sm-4">
+                                <label for="Important">Trade Terms </label>
+                                <p>NS AT Site</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="Important">Payment Terms </label>
+                                <p>T/T 60 Days After Invoice</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="Important">For Office  Use Only </label>
+                                <p>CNS</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="Important">GST PAN</label>
+                            </div>
+                        </div>
+                    <hr style="background-color:white" />
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table  table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Item   <span style="color: red">*</span> </th>
+                                        <th>Part No.<span style="color: red">*</span> </th>
+                                        <th>Description <span style="color: red">*</span> </th>
+                                        <th>HSN/SAC No.  <span style="color: red">*</span> </th>
+                                        <th>CGST/SGST/ <span style="color: red">*</span> </th>
+                                        <th>IGST Rate <span style="color: red">*</span> </th>
+                                        <th>Unit <span style="color: red">*</span> </th>
+                                        <th>Quantity <span style="color: red">*</span> </th>
+                                        <th>Unit Price <span style="color: red">*</span> </th>
+                                        <th>Taxable Total <span style="color: red">*</span> </th>
+                                        <th>GST Value  <span style="color: red">*</span> </th>
+                                        <th>Total  Value  <span style="color: red">*</span> </th>
+                                        <th>Delivery Date <span style="color: red">*</span> </th>
+                                        <th>REMARKS <span style="color: red">*</span> </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="TextBoxContainer">
+                                    <tr class="mycontainer" id="mainrow">
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Name, new { @class = "Name form-control"})
+
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Name, new { @class = "MobileNo form-control"})
+
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Address, new { @class = "Address form-control" })
+
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Name, new { @class = "Name form-control", @Placeholder = "Customer Name" })
+
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Name, new { @class = "MobileNo form-control", @Placeholder = "Mobile Number", @onkeypress = "return isNumberKey(event)", @maxlength = "10" })
+
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Address, new { @class = "Address form-control", @Placeholder = "Address.." })
+
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Name, new { @class = "Name form-control", @Placeholder = "Customer Name" })
+
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Name, new { @class = "MobileNo form-control", @Placeholder = "Mobile Number", @onkeypress = "return isNumberKey(event)", @maxlength = "10" })
+
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Address, new { @class = "Address form-control", @Placeholder = "Address.." })
+
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Name, new { @class = "Name form-control", @Placeholder = "Customer Name" })
+
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Name, new { @class = "MobileNo form-control", @Placeholder = "Mobile Number", @onkeypress = "return isNumberKey(event)", @maxlength = "10" })
+
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Address, new { @class = "Address form-control", @Placeholder = "Address.." })
+
+                                        </td>
+                                        <td>
+                                            <input type="button" id="add" data-toggle="tooltip" data-original-title="Add" value="Add" style="width:80px" class="btn btn-success" />
+                                        </td>
+                                    </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="orderItems">
+                        <table class="table  table-striped table-bordered" id="orderdetailsItems"></table>
+                        <span id="orderItemError" style="color:red"></span>
+                    </div>
+
+
+
+                    <hr style="background-color:white" />
+                  <br />
+                    <input type="submit" value="Submit" class="btn btn-info" id="btnsave" name="btnsave" onclick="return validateform();" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+<script>
+    function validateform() {
+        $(".errortext").removeClass("errortext");
+        if ($('#Name').val() == '') {
+            $("#Name").addClass('errortext');
+            $('#Name').focus();
+            return false;
+        }
+        if ($('#Address').val() == '') {
+            $("#Address").addClass('errortext');
+            $('#Address').focus();
+            return false;
+        }
+    }
+</script>
+<style>
+    .errortext {
+        border: 1px solid red !important;
+        background-color: #fff0f0 !important;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

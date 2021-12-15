@@ -92,7 +92,7 @@
                             </div>
                                 <div class="col-md-4 form-group">
                                     <label>Mobile<span style="color: red">*</span></label>
-                                    @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @placeholder = "Mobile", @onkeypress = "return isNumberKey(event)" })
+                                    @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control",@maxlength="10", @placeholder = "Mobile", @onkeypress = "return isNumberKey(event)" })
                                 </div>
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
 
