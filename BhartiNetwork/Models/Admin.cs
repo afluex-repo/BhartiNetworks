@@ -72,17 +72,34 @@ namespace BhartiNetwork.Models
         public List<Admin> VendorInvoicelst { get; set; }
         public List<Admin> lstPo { get; set; }
         public List<SelectListItem> ddlVendor { get;set;}
-
         
-
         public string InvoiceNo { get; set; }
         public string Remark { get; set; }
         public string PaymentDate { get; set; }
         public string BloodGroup { get; set; }
         public string Destination { get; set; }
+        public string Result { get; set; }
+
+        public string PK_VendorId { get; set; }
         
 
 
+
+        public string Item { get; set; }
+        public string PartNo { get; set; }
+        public string Description { get; set; }
+        public string HSNSACNo { get; set; }
+        public string CGSTSGST { get; set; }
+        public string IGSTRate { get; set; }
+        public string Unit { get; set; }
+        public string Quantity { get; set; }
+        public string UnitPrice { get; set; }
+        public string TaxableTotal { get; set; }
+        public string GSTValue { get; set; }
+        public string TotalValue { get; set; }
+        public string DeliveryDate { get; set; }
+     
+      
 
 
         public DataSet SaveProject()
@@ -486,13 +503,21 @@ namespace BhartiNetwork.Models
         }
 
         public DataSet GetVendorName()
-        { 
+        {
             DataSet ds = Connection.ExecuteQuery("GetVendorName");
             return ds;
         }
 
 
-
+        public DataSet GetAddress()
+        {
+            SqlParameter[] para ={
+                new SqlParameter ("@PK_VendorId",PK_VendorId)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("GetAddress",para);
+            return ds;
+        }
         
+
     }
 }
