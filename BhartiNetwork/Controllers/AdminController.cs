@@ -1572,16 +1572,106 @@ namespace BhartiNetwork.Controllers
                 {
                     if (count == 0)
                     {
-                        ddlVendor.Add(new SelectListItem { Text = "-Select-", Value = "" });
+                        ddlVendor.Add(new SelectListItem { Text = "-Select-", Value = "0" });
                     }
                     ddlVendor.Add(new SelectListItem { Text = r["Name"].ToString(), Value = r["PK_VendorId"].ToString() });
                     count = count + 1;
                 }
             }
             ViewBag.ddlVendor = ddlVendor;
-
+            
             return View(model);
         }
+        
+        [HttpPost]
+        public ActionResult GetAddress(string PK_VendorId)
+        {
+            Admin model = new Admin();
+            try
+            {
+                model.PK_VendorId = PK_VendorId;
+                DataSet ds = model.GetAddress();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    model.Result = "yes";
+                    model.Address = ds.Tables[0].Rows[0]["Address"].ToString();
+                }
+                else
+                {
+                    model.Address = "";
+                    model.Result = "no";
+                }
+            }
+            catch (Exception ex)
+            {
+                return View(ex.Message);
+            }
+            return Json(model,JsonRequestBehavior.AllowGet);
+        }
+
+
+
+        //[HttpPost]
+        //public JsonResult AddProfile(Admin userDetail)
+        //{
+        //    var profile = Request.Files;
+        //    bool status = false;
+        //    var datavalue = Request["dataValue"];
+
+        //    var jss = new JavaScriptSerializer();
+        //    var jdv = jss.Deserialize<dynamic>(Request["dataValue"]);
+        //    DataTable VisitorDetails = new DataTable();
+        //    VisitorDetails = JsonConvert.DeserializeObject<DataTable>(jdv["AddData"]);
+        //    userDetail.dtVisitorDetails = VisitorDetails;
+        //    userDetail.CreatedBy = Session["UserID"].ToString();
+        //    DataSet ds = new DataSet();
+
+        //    if (userDetail.VisitorId == null)
+        //    {
+        //        ds = userDetail.SaveVisitorDetails();
+        //        if (ds != null && ds.Tables[0].Rows.Count > 0)
+        //        {
+        //            if (ds.Tables[0].Rows[0][0].ToString() == "1")
+        //            {
+        //                TempData["Visitor"] = "Visitor Details saved successfully";
+        //                status = true;
+        //            }
+        //            else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+        //            {
+        //                TempData["Visitor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            TempData["Visitor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        userDetail.CreatedBy = Session["UserID"].ToString();
+        //        ds = userDetail.UpdateVisitorDetails();
+        //        if (ds != null && ds.Tables[0].Rows.Count > 0)
+        //        {
+        //            if (ds.Tables[0].Rows[0][0].ToString() == "1")
+        //            {
+        //                TempData["Visitor"] = "Visitor Details Update successfully";
+        //                status = true;
+        //            }
+        //            else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+        //            {
+        //                TempData["Visitor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            TempData["Visitor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+        //        }
+        //    }
+        //    return new JsonResult { Data = new { status = status } };
+        //    //return Json(userDetail, JsonRequestBehavior.AllowGet);
+        //}
+
+
 
     }
 }
