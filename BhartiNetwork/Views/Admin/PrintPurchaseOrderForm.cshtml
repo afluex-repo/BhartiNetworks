@@ -1,0 +1,142 @@
+﻿@model BhartiNetwork.Models.Admin
+
+@{
+    ViewBag.Title = "PrintPurchaseOrderForm";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("PrintPurchaseOrderForm", "Admin", FormMethod.Post, new { @id = "form1", enctype = "multipart/form-data" }))
+{
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-sm-2">
+                fhfhfgh
+            </div>
+            <div class="col-sm-7">
+
+            </div>
+            <div class="col-sm-3">
+                <label>Page No:1 of 3</label><br />
+                <label>PO No:	 4500487</label><br />
+                <label>PO Date:     17-Nov-21</label><br />
+                <label>Buyer:	 Bharti Networks</label><br />
+                <label>Rev:	 00</label><br />
+                <label>Rev Date :</label>
+            </div>
+            <div>
+                <h3>Purchase Order</h3>
+                <p>Please enter  our order for the following subject to the Terms and Conditions attached below and incorporated as an integral part of this order</p>
+            </div>
+
+        </div>
+
+
+        <hr style="background-color:white" />
+        <div class="row">
+            <div class="col-sm-2">
+                To
+            </div>
+            <div class="col-sm-7">
+                Address of Vendor
+            </div>
+            <div class="col-sm-3">
+                <label>IMPORTANT</label>
+                <p>
+                    1.Your confirmation and  acceptance of our order  by return  email is to reach us within 3 working days from receipt of this order,  failing which it will be deemed, that you are  in acceptance of all terms
+                    and  conditions mentioned in this Purchase Order<br />
+
+                    2.Show  our order  number on all invoices and  packing sheets
+                </p>
+            </div>
+
+        </div>
+
+        <hr style="background-color:white" />
+
+        <div class="row">
+            <div class="col-sm-2">
+                <label>Destination</label><br />
+                <p>
+                    RELIANCE PROJECTS & PROPERTY MANAGEMENT SERVICES LIMITED
+                    6- 3- 1090 / B, 4
+                    LAKE SHORE  TOWERS RAJBHAVAN ROAD, SOMAJIGUDA
+                    500082  HYDERABAD India
+                </p>
+            </div>
+            <div class="col-sm-2">
+                <label>Transportation </label><br />
+                <p></p>
+            </div>
+            <div class="col-sm-1">
+                <label>Currency</label><br />
+                <p>INR</p>
+            </div>
+            <div class="col-sm-2">
+                <label>Trade Terms</label><br />
+                <p>NS AT Site</p>
+            </div>
+            <div class="col-sm-2">
+                <label style="font-size:30px;"> Payment </label> <label> Terms</label><br />
+                <p>T/T 60 Days After Invoice</p>
+            </div>
+            <div class="col-sm-3">
+                <label>For Office Use Only</label><br />
+                <p>CNS</p>
+            </div>
+        </div>
+
+        <hr style="background-color:white" />
+
+        <table class="table table-bordered">
+            <tr>
+                <th>Item</th>
+                <th>Part No. </th>
+                <th>Description </th>
+                <th>HSN/SAC  No. </th>
+                <th>CGST/SGST/UGST Rate </th>
+                <th>IGST Rate </th>
+                <th>Unit </th>
+                <th>Quantity </th>
+                <th>Unit Price </th>
+                <th>Taxable Total</th>
+                <th>GST Value </th>
+                <th>Total  Value </th>
+                <th>Delivery Date</th>
+                <th>REMARKS</th>
+            </tr>
+        </table>
+        <table class="table table-bordered">
+            <tr>
+                <td>00010 </td>
+                <td>56u67</td>
+                <td>56u67</td>
+                <td>56u67</td>
+                <td>56u67</td>
+                <td>56u67</td>
+                <td>56u67</td>
+                <td>56u67</td>
+                <td>56u67</td>
+                <td>56u67</td>
+                <td>56u67</td>
+                <td>56u67</td>
+                <td>56u67</td>
+                <td>56u67</td>
+            </tr>
+        </table>
+     
+        <hr style="background-color:white" />
+       
+        <hr style="background-color:white" />
+        <div class="row">
+            <div class="col-sm-12">
+              <p><b>Note:</b> This is a Computer Generated Purchase Order.  No Signature is required. Acceptance of this Purchase Order,  constitutes your agreement to our paperless transaction and your support to Bharti Networks Environment  Management effort.</p>
+            </div>
+        </div>
+    </div>
+
+
+}
