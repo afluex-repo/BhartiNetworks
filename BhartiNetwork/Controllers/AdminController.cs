@@ -1,4 +1,5 @@
 ﻿using BhartiNetwork.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace BhartiNetwork.Controllers
 {
@@ -1595,6 +1597,7 @@ namespace BhartiNetwork.Controllers
                 {
                     model.Result = "yes";
                     model.Address = ds.Tables[0].Rows[0]["Address"].ToString();
+                    model.PanNo = ds.Tables[0].Rows[0]["PanNumber"].ToString();
                 }
                 else
                 {
@@ -1611,65 +1614,52 @@ namespace BhartiNetwork.Controllers
 
 
 
-        //[HttpPost]
-        //public JsonResult AddProfile(Admin userDetail)
-        //{
-        //    var profile = Request.Files;
-        //    bool status = false;
-        //    var datavalue = Request["dataValue"];
+        [HttpPost]
+        public JsonResult AddProfile(Admin formData)
+        {
+            //userDetail
 
-        //    var jss = new JavaScriptSerializer();
-        //    var jdv = jss.Deserialize<dynamic>(Request["dataValue"]);
-        //    DataTable VisitorDetails = new DataTable();
-        //    VisitorDetails = JsonConvert.DeserializeObject<DataTable>(jdv["AddData"]);
-        //    userDetail.dtVisitorDetails = VisitorDetails;
-        //    userDetail.CreatedBy = Session["UserID"].ToString();
-        //    DataSet ds = new DataSet();
+            var profile = Request.Files;
+            bool status = false;
+            var datavalue = Request["dataValue"];
+          
+            var jss = new JavaScriptSerializer();
+            var jdv = jss.Deserialize<dynamic>(Request["dataValue"]);
+            DataTable PurchaseOrderDetails = new DataTable();
+            PurchaseOrderDetails = JsonConvert.DeserializeObject<DataTable>(jdv["AddData"]);
+            formData.DtPurchaseOrderDetails = PurchaseOrderDetails;
+            formData.AddedBy = Session["Pk_AdminId"].ToString();
+            formData.DeliveryDate = string.IsNullOrEmpty(formData.DeliveryDate) ? null : Comman.ConvertToSystemDate(formData.DeliveryDate, "dd/MM/yyyy");
+            DataSet ds = new DataSet();
+            
+                ds = formData.SavePurchaseOrder();
+                if (ds != null && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["PurchageOrder"] = "Purchage Order Details saved successfully";
+                        status = true;
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["PurchageOrder"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["PurchageOrder"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+       
+            return new JsonResult { Data = new { status = status } };
+            //return Json(userDetail, JsonRequestBehavior.AllowGet);
+        }
 
-        //    if (userDetail.VisitorId == null)
-        //    {
-        //        ds = userDetail.SaveVisitorDetails();
-        //        if (ds != null && ds.Tables[0].Rows.Count > 0)
-        //        {
-        //            if (ds.Tables[0].Rows[0][0].ToString() == "1")
-        //            {
-        //                TempData["Visitor"] = "Visitor Details saved successfully";
-        //                status = true;
-        //            }
-        //            else if (ds.Tables[0].Rows[0][0].ToString() == "0")
-        //            {
-        //                TempData["Visitor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-        //            }
-        //        }
-        //        else
-        //        {
-        //            TempData["Visitor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        userDetail.CreatedBy = Session["UserID"].ToString();
-        //        ds = userDetail.UpdateVisitorDetails();
-        //        if (ds != null && ds.Tables[0].Rows.Count > 0)
-        //        {
-        //            if (ds.Tables[0].Rows[0][0].ToString() == "1")
-        //            {
-        //                TempData["Visitor"] = "Visitor Details Update successfully";
-        //                status = true;
-        //            }
-        //            else if (ds.Tables[0].Rows[0][0].ToString() == "0")
-        //            {
-        //                TempData["Visitor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-        //            }
-        //        }
-        //        else
-        //        {
-        //            TempData["Visitor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-        //        }
-        //    }
-        //    return new JsonResult { Data = new { status = status } };
-        //    //return Json(userDetail, JsonRequestBehavior.AllowGet);
-        //}
+
+
+        public ActionResult PrintPurchaseOrderForm()
+        {
+            return View();
+        }
 
 
 
