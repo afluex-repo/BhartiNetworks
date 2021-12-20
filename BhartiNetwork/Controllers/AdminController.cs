@@ -1581,10 +1581,10 @@ namespace BhartiNetwork.Controllers
                 }
             }
             ViewBag.ddlVendor = ddlVendor;
-            
+
             return View(model);
         }
-        
+
         [HttpPost]
         public ActionResult GetAddress(string PK_VendorId)
         {
@@ -1609,7 +1609,7 @@ namespace BhartiNetwork.Controllers
             {
                 return View(ex.Message);
             }
-            return Json(model,JsonRequestBehavior.AllowGet);
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -1622,7 +1622,7 @@ namespace BhartiNetwork.Controllers
             var profile = Request.Files;
             bool status = false;
             var datavalue = Request["dataValue"];
-          
+
             var jss = new JavaScriptSerializer();
             var jdv = jss.Deserialize<dynamic>(Request["dataValue"]);
             DataTable PurchaseOrderDetails = new DataTable();
@@ -1631,25 +1631,25 @@ namespace BhartiNetwork.Controllers
             formData.AddedBy = Session["Pk_AdminId"].ToString();
             formData.DeliveryDate = string.IsNullOrEmpty(formData.DeliveryDate) ? null : Comman.ConvertToSystemDate(formData.DeliveryDate, "dd/MM/yyyy");
             DataSet ds = new DataSet();
-            
-                ds = formData.SavePurchaseOrder();
-                if (ds != null && ds.Tables[0].Rows.Count > 0)
+
+            ds = formData.SavePurchaseOrder();
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                if (ds.Tables[0].Rows[0][0].ToString() == "1")
                 {
-                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
-                    {
-                        TempData["PurchageOrder"] = "Purchage Order Details saved successfully";
-                        status = true;
-                    }
-                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
-                    {
-                        TempData["PurchageOrder"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-                    }
+                    TempData["PurchageOrder"] = "Purchage Order Details saved successfully";
+                    status = true;
                 }
-                else
+                else if (ds.Tables[0].Rows[0][0].ToString() == "0")
                 {
                     TempData["PurchageOrder"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
                 }
-       
+            }
+            else
+            {
+                TempData["PurchageOrder"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+            }
+
             return new JsonResult { Data = new { status = status } };
             //return Json(userDetail, JsonRequestBehavior.AllowGet);
         }
@@ -1658,8 +1658,164 @@ namespace BhartiNetwork.Controllers
 
         public ActionResult PrintPurchaseOrderForm()
         {
-            return View();
+            Admin model = new Admin();
+            try
+            {
+                DataSet ds = model.GetPurchaseOrderDetails();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.Address = ds.Tables[0].Rows[0]["Address"].ToString();
+                    ViewBag.PanNo = ds.Tables[0].Rows[0]["PanNumber"].ToString();
+                    ViewBag.Destination = ds.Tables[0].Rows[0]["Destination"].ToString();
+                    ViewBag.Type = ds.Tables[0].Rows[0]["Type"].ToString();
+                    ViewBag.Item = ds.Tables[0].Rows[0]["Item"].ToString();
+                    ViewBag.PartNo = ds.Tables[0].Rows[0]["PartNo"].ToString();
+                    ViewBag.Description = ds.Tables[0].Rows[0]["Description"].ToString();
+                    ViewBag.HSNSACNo = ds.Tables[0].Rows[0]["HSN_SACNo"].ToString();
+                    ViewBag.Unit = ds.Tables[0].Rows[0]["Unit"].ToString();
+                    ViewBag.Quantity = ds.Tables[0].Rows[0]["Quantity"].ToString();
+                    ViewBag.UnitPrice = ds.Tables[0].Rows[0]["UnitPrice"].ToString();
+                    ViewBag.TaxableTotal = ds.Tables[0].Rows[0]["TaxableTotal"].ToString();
+                    ViewBag.GSTValue = ds.Tables[0].Rows[0]["GSTValue"].ToString();
+                    ViewBag.TotalValue = ds.Tables[0].Rows[0]["TotalValue"].ToString();
+                    ViewBag.DeliveryDate = ds.Tables[0].Rows[0]["DeliveryDate"].ToString();
+                    ViewBag.Remark = ds.Tables[0].Rows[0]["REMARKS"].ToString();
+                    ViewBag.CGSTRate = ds.Tables[0].Rows[0]["CGST_Rate"].ToString();
+                    ViewBag.SGSTRate = ds.Tables[0].Rows[0]["SGST_Rate"].ToString();
+                    ViewBag.IGSTRate = ds.Tables[0].Rows[0]["IGST_Rate"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["PurchageOrder"] = ex.Message;
+            }
+            return View(model);
         }
+
+
+        public ActionResult PrintPurchaseOrder()
+        {
+            Admin model = new Admin();
+            try
+            {
+                DataSet ds = model.GetPurchaseOrderDetails();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.Address = ds.Tables[0].Rows[0]["Address"].ToString();
+                    ViewBag.PanNo = ds.Tables[0].Rows[0]["PanNumber"].ToString();
+                    ViewBag.Destination = ds.Tables[0].Rows[0]["Destination"].ToString();
+                    ViewBag.Type = ds.Tables[0].Rows[0]["Type"].ToString();
+                    ViewBag.Item = ds.Tables[0].Rows[0]["Item"].ToString();
+                    ViewBag.PartNo = ds.Tables[0].Rows[0]["PartNo"].ToString();
+                    ViewBag.Description = ds.Tables[0].Rows[0]["Description"].ToString();
+                    ViewBag.HSNSACNo = ds.Tables[0].Rows[0]["HSN_SACNo"].ToString();
+                    ViewBag.Unit = ds.Tables[0].Rows[0]["Unit"].ToString();
+                    ViewBag.Quantity = ds.Tables[0].Rows[0]["Quantity"].ToString();
+                    ViewBag.UnitPrice = ds.Tables[0].Rows[0]["UnitPrice"].ToString();
+                    ViewBag.TaxableTotal = ds.Tables[0].Rows[0]["TaxableTotal"].ToString();
+                    ViewBag.GSTValue = ds.Tables[0].Rows[0]["GSTValue"].ToString();
+                    ViewBag.TotalValue = ds.Tables[0].Rows[0]["TotalValue"].ToString();
+                    ViewBag.DeliveryDate = ds.Tables[0].Rows[0]["DeliveryDate"].ToString();
+                    ViewBag.Remark = ds.Tables[0].Rows[0]["REMARKS"].ToString();
+                    ViewBag.CGSTRate = ds.Tables[0].Rows[0]["CGST_Rate"].ToString();
+                    ViewBag.SGSTRate = ds.Tables[0].Rows[0]["SGST_Rate"].ToString();
+                    ViewBag.IGSTRate = ds.Tables[0].Rows[0]["IGST_Rate"].ToString();
+
+                    ViewBag.PONumber = ds.Tables[0].Rows[0]["PONumber"].ToString();
+                    ViewBag.PoDate = ds.Tables[0].Rows[0]["PoDate"].ToString();
+                    ViewBag.VendorName = ds.Tables[0].Rows[0]["VendorName"].ToString();
+              
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["PurchageOrder"] = ex.Message;
+            }
+            return View(model);
+
+        }
+
+
+        //public ActionResult PrintPo()
+        //{
+        //    Admin model = new Admin();
+        //    try
+        //    {
+        //        DataSet ds = model.GetPurchaseOrderDetails();
+        //        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        //        {
+        //            ViewBag.Address = ds.Tables[0].Rows[0]["Address"].ToString();
+        //            ViewBag.PanNo = ds.Tables[0].Rows[0]["PanNumber"].ToString();
+        //            ViewBag.Destination = ds.Tables[0].Rows[0]["Destination"].ToString();
+        //            ViewBag.Type = ds.Tables[0].Rows[0]["Type"].ToString();
+        //            ViewBag.Item = ds.Tables[0].Rows[0]["Item"].ToString();
+        //            ViewBag.PartNo = ds.Tables[0].Rows[0]["PartNo"].ToString();
+        //            ViewBag.Description = ds.Tables[0].Rows[0]["Description"].ToString();
+        //            ViewBag.HSNSACNo = ds.Tables[0].Rows[0]["HSN_SACNo"].ToString();
+        //            ViewBag.Unit = ds.Tables[0].Rows[0]["Unit"].ToString();
+        //            ViewBag.Quantity = ds.Tables[0].Rows[0]["Quantity"].ToString();
+        //            ViewBag.UnitPrice = ds.Tables[0].Rows[0]["UnitPrice"].ToString();
+        //            ViewBag.TaxableTotal = ds.Tables[0].Rows[0]["TaxableTotal"].ToString();
+        //            ViewBag.GSTValue = ds.Tables[0].Rows[0]["GSTValue"].ToString();
+        //            ViewBag.TotalValue = ds.Tables[0].Rows[0]["TotalValue"].ToString();
+        //            ViewBag.DeliveryDate = ds.Tables[0].Rows[0]["DeliveryDate"].ToString();
+        //            ViewBag.Remark = ds.Tables[0].Rows[0]["REMARKS"].ToString();
+        //            ViewBag.CGSTRate = ds.Tables[0].Rows[0]["CGST_Rate"].ToString();
+        //            ViewBag.SGSTRate = ds.Tables[0].Rows[0]["SGST_Rate"].ToString();
+        //            ViewBag.IGSTRate = ds.Tables[0].Rows[0]["IGST_Rate"].ToString();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        TempData["PurchageOrder"] = ex.Message;
+        //    }
+        //    return View(model);
+
+        //}
+
+
+
+
+
+
+        public ActionResult PurchaseOrderList()
+        {
+            Admin model = new Admin();
+            List<Admin> lst = new List<Admin>();
+            model.PurchaseOrderId = model.PurchaseOrderId == "0" ? null : model.PurchaseOrderId;
+            DataSet ds = model.GetPurchaseOrderDetails();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Admin obj = new Admin();
+                    obj.PurchaseOrderId = dr["PK_PurchageOrderId"].ToString();
+                    obj.Address = dr["Address"].ToString();
+                    obj.Destination = dr["Destination"].ToString();
+                    obj.Type = dr["Type"].ToString();
+                    obj.PanNo = dr["PanNumber"].ToString();
+                    obj.Item = dr["Item"].ToString();
+                    obj.PartNo = dr["PartNo"].ToString();
+                    obj.Description = dr["Description"].ToString();
+                    obj.HSNSACNo = dr["HSN_SACNo"].ToString();
+                    obj.Unit = dr["Unit"].ToString();
+                    obj.Quantity = dr["Quantity"].ToString();
+                    obj.UnitPrice = dr["UnitPrice"].ToString();
+                    obj.TaxableTotal = dr["TaxableTotal"].ToString();
+                    obj.GSTValue = dr["GSTValue"].ToString();
+                    obj.TotalValue = dr["TotalValue"].ToString();
+                    obj.DeliveryDate = dr["DeliveryDate"].ToString();
+                    obj.Remark = dr["REMARKS"].ToString();
+                    obj.CGSTRate = dr["CGST_Rate"].ToString();
+                    obj.SGSTRate = dr["SGST_Rate"].ToString();
+                    obj.IGSTRate = dr["IGST_Rate"].ToString();
+                    lst.Add(obj);
+                }
+                model.lstPurchaseorder = lst;
+            }
+            return View(model);
+        }
+
 
 
 

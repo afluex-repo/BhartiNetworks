@@ -109,12 +109,10 @@ namespace BhartiNetwork.Models
 
         public string CGSTRate { get; set; }
         public string SGSTRate { get; set; }
-
+        public string PurchaseOrderId { get; set; }
+        public List<Admin> lstPurchaseorder { get; set; }
         
-
-
-
-
+        
 
         public DataSet SaveProject()
         {
@@ -554,6 +552,14 @@ namespace BhartiNetwork.Models
 
 
 
+        public DataSet GetPurchaseOrderDetails()
+        {
+            SqlParameter[] para ={
+                new SqlParameter ("@PurchaseOrderId",PurchaseOrderId)
+                                 };
 
+            DataSet ds = Connection.ExecuteQuery("GetPurchaseOrderDetails", para);
+            return ds;
+        }
     }
 }
