@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title">Purchase Order List</h4>
+                    <h4 class="card-title">PO Generator List</h4>
                     <p style="color:red;">
                         @TempData["Employee"]
                     </p>
@@ -44,6 +44,8 @@
                                         <tr>
                                             <th>S No.</th>
                                             <th>Address</th>
+                                            <th>Payment Terms</th>
+                                            <th>Po Number</th>
                                             <th>Destination</th>
                                             <th>Type</th>
                                             <th>PanNo</th>
@@ -51,7 +53,7 @@
                                             <th>PartNo</th>
                                             <th>Description</th>
                                             <th>HSNSACNo</th>
-                                            <th>Unit</th>
+                                            @*<th>Unit</th>*@
                                             <th>Quantity</th>
                                             <th>Unit Price</th>
                                             <th>Taxable Total</th>
@@ -76,6 +78,8 @@
                                                     <tr>
                                                         <td>@i</td>  
                                                         <td>@item.Address</td>
+                                                        <td>@item.PaymentTerms</td>
+                                                        <td>@item.PONumber</td>
                                                         <td>@item.Destination</td>
                                                         <td>@item.Type</td>
                                                         <td>@item.PanNo</td>
@@ -83,7 +87,7 @@
                                                         <td>@item.PartNo</td>
                                                         <td>@item.Description</td>
                                                         <td>@item.HSNSACNo</td>
-                                                        <td>@item.Unit</td>
+                                                        @*<td>@item.Unit</td>*@
                                                         <td>@item.Quantity</td>
                                                         <td>@item.UnitPrice</td>
                                                         <td>@item.TaxableTotal</td>
