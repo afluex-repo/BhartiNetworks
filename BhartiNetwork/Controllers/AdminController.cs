@@ -1617,12 +1617,10 @@ namespace BhartiNetwork.Controllers
         [HttpPost]
         public JsonResult AddProfile(Admin formData)
         {
-            //userDetail
-
+           
             var profile = Request.Files;
             bool status = false;
             var datavalue = Request["dataValue"];
-
             var jss = new JavaScriptSerializer();
             var jdv = jss.Deserialize<dynamic>(Request["dataValue"]);
             DataTable PurchaseOrderDetails = new DataTable();
@@ -1637,7 +1635,7 @@ namespace BhartiNetwork.Controllers
             {
                 if (ds.Tables[0].Rows[0][0].ToString() == "1")
                 {
-                    TempData["PurchageOrder"] = "Purchage Order Details saved successfully";
+                    TempData["PurchageOrder"] = "Purchase Order Details saved successfully";
                     status = true;
                 }
                 else if (ds.Tables[0].Rows[0][0].ToString() == "0")
@@ -1693,15 +1691,18 @@ namespace BhartiNetwork.Controllers
         }
 
 
-        public ActionResult PrintPurchaseOrder()
+        public ActionResult PrintPurchaseOrder(string Id)
         {
             Admin model = new Admin();
             try
             {
+                model.PurchaseOrderId = Id;
                 DataSet ds = model.GetPurchaseOrderDetails();
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     ViewBag.Address = ds.Tables[0].Rows[0]["Address"].ToString();
+                    ViewBag.PaymentTerms = ds.Tables[0].Rows[0]["PaymentTerms"].ToString();
+                    ViewBag.PONumber = ds.Tables[0].Rows[0]["PONumber"].ToString();
                     ViewBag.PanNo = ds.Tables[0].Rows[0]["PanNumber"].ToString();
                     ViewBag.Destination = ds.Tables[0].Rows[0]["Destination"].ToString();
                     ViewBag.Type = ds.Tables[0].Rows[0]["Type"].ToString();
@@ -1720,8 +1721,6 @@ namespace BhartiNetwork.Controllers
                     ViewBag.CGSTRate = ds.Tables[0].Rows[0]["CGST_Rate"].ToString();
                     ViewBag.SGSTRate = ds.Tables[0].Rows[0]["SGST_Rate"].ToString();
                     ViewBag.IGSTRate = ds.Tables[0].Rows[0]["IGST_Rate"].ToString();
-
-                    ViewBag.PONumber = ds.Tables[0].Rows[0]["PONumber"].ToString();
                     ViewBag.PoDate = ds.Tables[0].Rows[0]["PoDate"].ToString();
                     ViewBag.VendorName = ds.Tables[0].Rows[0]["VendorName"].ToString();
               
@@ -1791,6 +1790,8 @@ namespace BhartiNetwork.Controllers
                     Admin obj = new Admin();
                     obj.PurchaseOrderId = dr["PK_PurchageOrderId"].ToString();
                     obj.Address = dr["Address"].ToString();
+                    obj.PaymentTerms = dr["PaymentTerms"].ToString();
+                    obj.PONumber = dr["PONumber"].ToString();
                     obj.Destination = dr["Destination"].ToString();
                     obj.Type = dr["Type"].ToString();
                     obj.PanNo = dr["PanNumber"].ToString();

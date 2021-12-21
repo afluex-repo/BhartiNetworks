@@ -11,7 +11,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Admin</title>
+    <title></title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../AdminCss/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../AdminCss/assets/vendors/css/vendor.bundle.base.css">
@@ -80,7 +80,7 @@
 
 
 </head>
-<body>
+<body style="background-color:white;color:black;">
     <div id="print-area-2" class="print-area">
         <div class="mx-3 my-5">
             @using (Html.BeginForm("PrintPurchaseOrder", "Admin", FormMethod.Post, new { @id = "form1", enctype = "multipart/form-data" }))
@@ -90,7 +90,7 @@
 
                     <div class="row">
                         <div class="col-sm-2">
-                            <img src="~/assets/img/logo.png" style="max-width: 60%;" alt="" class="img-fluid" />
+                            <img src="~/assets/img/logo-dark.png" style="max-width: 60%;" alt="" class="img-fluid" />
                         </div>
                         <div class="col-sm-7 mx-auto">
                             @*<a class="btn btn-sm btn-primary pull-right no-print" href="javascript:printDiv('print-area-2');">Print</a>*@
@@ -100,8 +100,8 @@
                         <div class="col-sm-3">
                             @*<label>Page No:1 of 3</label><br />*@
                             <label>PO No : @ViewBag.PONumber</label><br />
-                            <label>PO Date: @ViewBag.PoDate</label><br />
-                            <label>Buyer:	 @ViewBag.VendorName</label><br />
+                            <label>PO Date : @ViewBag.DeliveryDate</label><br />
+                            <label>Buyer : Bharti Networks</label><br />
                             @*<label>Rev:	 00</label><br />
                             <label>Rev Date :</label>*@
                         </div>
@@ -110,7 +110,7 @@
                             <p>Please enter  our order for the following subject to the Terms and Conditions attached below and incorporated as an integral part of this order</p>
                         </div>
                     </div>
-                    <hr style="background-color:white" />
+                    <hr style="background-color:black" />
                     <div class="row">
                         <div class="col-sm-2">
                           @ViewBag.VendorName
@@ -128,7 +128,7 @@
                             </p>
                         </div>
                     </div>
-                    <hr style="background-color:white" />
+                    <hr style="background-color:black" />
                     <div class="row">
                         <div class="col-sm-3">
                             <label>Destination <br />@ViewBag.Destination</label>
@@ -154,7 +154,7 @@
                         </div>
                         <div class="col-sm-2">
                             <label style="font-size:28px;"> Payment </label> <label> Terms</label><br />
-                            <p>T/T 60 Days After Invoice</p>
+                            <p>@ViewBag.PaymentTerms</p>
                         </div>
                         <div class="col-sm-2">
                             <label>For Office Use Only</label><br />
@@ -162,11 +162,9 @@
                         </div>
                     </div>
                     <br />
-                    <hr style="background-color:white" />
+                    <hr style="background-color:black" />
 
-
-
-                    <table style="width: 100%;" class="table1 table-striped">
+                    <table style="width: 100%;" class="table1">
                         <tr>
                             <th style="border: 1px solid black;">Item</th>
                             <th style="border: 1px solid black;">Part No.</th>
@@ -174,7 +172,7 @@
                             <th style="border: 1px solid black;">HSN/SAC  No.</th>
                             <th style="border: 1px solid black;">CGST/SGST/UGST Rate</th>
                             <th style="border: 1px solid black;">IGST Rate</th>
-                            <th style="border: 1px solid black;">Unit</th>
+                            @*<th style="border: 1px solid black;">Unit</th>*@
                             <th style="border: 1px solid black;">Quantity</th>
                             <th style="border: 1px solid black;">Unit Price</th>
                             <th style="border: 1px solid black;">Taxable Total</th>
@@ -188,60 +186,21 @@
                             <td style="border: 1px solid black;">@ViewBag.PartNo</td>
                             <td style="border: 1px solid black;">@ViewBag.Description</td>
                             <td style="border: 1px solid black;">@ViewBag.HSNSACNo</td>
-                            <td style="border: 1px solid black;">@ViewBag.CGSTRate/@ViewBag.SGSTRate</td>
+                            <td style="border: 1px solid black;">@ViewBag.CGSTRate@ViewBag.SGSTRate</td>
                             <td style="border: 1px solid black;">@ViewBag.IGSTRate</td>
-                            <td style="border: 1px solid black;">@ViewBag.Unit</td>
+                            @*<td style="border: 1px solid black;">@ViewBag.Unit</td>*@
                             <td style="border: 1px solid black;">@ViewBag.Quantity</td>
                             <td style="border: 1px solid black;">@ViewBag.UnitPrice</td>
                             <td style="border: 1px solid black;">@ViewBag.TaxableTotal</td>
                             <td style="border: 1px solid black;">@ViewBag.GSTValue</td>
                             <td style="border: 1px solid black;">@ViewBag.TotalValue </td>
                             <td style="border: 1px solid black;">@ViewBag.DeliveryDate</td>
-                            <td style="border: 1px solid black;">PO Validity 90 days</td>
-                            @*<td>@ViewBag.Remark</td>*@
+                            @*<td style="border: 1px solid black;">PO Validity 90 days</td>*@
+                            <td style="border: 1px solid black;">@ViewBag.Remark</td>
                         </tr>
                     </table>
 
-
-
-
-
-
-                        @*<table class="table table-bordered">
-                            <tr>
-                                <th>Item</th>
-                                <th>Part No.</th>
-                                <th>Description</th>
-                                <th>HSN/SAC  No.</th>
-                                <th>CGST/SGST/UGST Rate</th>
-                                <th>IGST Rate</th>
-                                <th>Unit</th>
-                                <th>Quantity</th>
-                                <th>Unit Price</th>
-                                <th>Taxable Total</th>
-                                <th>GST Value</th>
-                                <th>Total  Value</th>
-                                <th>Delivery Date</th>
-                                <th>REMARKS</th>
-                            </tr>
-                            <tr>
-                                <td>@ViewBag.Item</td>
-                                <td>@ViewBag.PartNo</td>
-                                <td>@ViewBag.Description</td>
-                                <td>@ViewBag.HSNSACNo</td>
-                                <td>@ViewBag.CGSTRate/@ViewBag.SGSTRate</td>
-                                <td>@ViewBag.IGSTRate</td>
-                                <td>@ViewBag.Unit</td>
-                                <td>@ViewBag.Quantity</td>
-                                <td>@ViewBag.UnitPrice</td>
-                                <td>@ViewBag.TaxableTotal</td>
-                                <td>@ViewBag.GSTValue</td>
-                                <td>@ViewBag.TotalValue </td>
-                                <td>@ViewBag.DeliveryDate</td>
-                                <td>PO Validity 90 days</td>
-                            </tr>
-                        </table>*@
-                    <hr style="background-color:white" />
+                    <hr style="background-color:black" />
                     <br />
                     <div class="row">
                         <div class="col-sm-12">
@@ -256,7 +215,7 @@
                                 GENERAL TERMS AND CONDITIONS OF THE PURCHASE ORDER TERMS:
                             </h4>
                             <p>
-                                : The terms and conditions of this Purchase Order, including those on the face hereof and those set forth below and in the Supplemental Terms and Conditions attached hereto, if any, represent the entire agreement between Seller and Buyer. Acceptance is limited to the
+                                The terms and conditions of this Purchase Order, including those on the face hereof and those set forth below and in the Supplemental Terms and Conditions attached hereto, if any, represent the entire agreement between Seller and Buyer. Acceptance is limited to the
                                 terms and  conditions of this Purchase Order,  and  no purported revisions of, additions to, or deletions from this Purchase Order  shall  be  effective, whether  in Seller's proposal, invoice, acknowledgment or otherwise, and  no local, general  or trade  custom or usage, shall  be
                                 deemed to effect any variation herein unless expressly agreed to in writing by Buyer's authorized representative. The delivery of any goods or the furnishing of any services pursuant to this Purchase Order shall constitute acceptance by Seller of this Purchase Order subject to,
                                 and  in strict accordance with, all of its terms and  conditions. To the  extent  that  terms appearing on the  face of this Purchase Order  are  inconsistent with those set forth herein, the terms on the  face shall  govern.  Any reference on the face of this Purchase Order  to Seller's

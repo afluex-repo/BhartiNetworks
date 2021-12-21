@@ -19,31 +19,36 @@
                             @TempData["PurchageOrder"]
                         </p>
                         <div class="row">
-                            <div class="col-sm-5">
+                            <div class="col-sm-4">
                                 <label for="exampleInputEmail3">Vendor Name <span style="color: red">*</span></label>
                                 @Html.DropDownListFor(m => m.PK_VendorId, new SelectList(ViewBag.ddlVendor, "Value", "Text"), new { @class = "form-control", @onchange = "return onchangeGetAddress();" })
                             </div>
-                            <div class="col-sm-7">
+                            <div class="col-sm-4">
                                 <label for="exampleInputEmail3">To Address <span style="color: red">*</span></label>
                                 @Html.TextAreaFor(m => m.Address, new { @class = "form-control", @placeholder = "To Address", @readonly = true })
                             </div>
+                            <div class="col-sm-4">
+                                <label for="exampleInputEmail3">Payment Terms <span style="color: red">*</span></label>
+                                @Html.TextBoxFor(m => m.PaymentTerms, new { @class = "form-control", @placeholder = "Payment Terms"})
+                            </div>
+                          
                         </div>
                         <hr style="background-color:white" />
                         <div class="row">
-                            <div class="col-sm-5">
+                            <div class="col-sm-4">
                                 <label for="exampleInputEmail3">Destination<span style="color: red">*</span></label>
                                 @Html.TextBoxFor(m => m.Destination, new { @class = "form-control", @placeholder = "Destination" })
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-4">
                                 <label for="exampleInputEmail3">Type<span style="color: red">*</span></label><br />
                                 <input type="radio" class="r" id="GST" name="Type" value="GST" />GST&nbsp;&nbsp;&nbsp;
                                 <input type="radio" class="r" id="PAN" name="Type" value="PAN" />PAN
                             </div>
 
-                            <div class="col-sm-3" style="display:none" id="GSTType">
+                            <div class="col-sm-4" style="display:none" id="GSTType">
                                 <label for="exampleInputEmail3">GST Type<span style="color: red">*</span></label><br />
-                                <input type="radio" id="InterStatus" name="InterStatus" value="InterStatus" />Inter State&nbsp;&nbsp;&nbsp;
-                                <input type="radio" id="IntraStatus" name="InterStatus" value="IntraStatus" />Intra State
+                                <input type="radio" id="InterStatus" name="InterStatus" value="InterStatus" onchange="return GETCGSTSGST();"/>Inter State&nbsp;&nbsp;&nbsp;
+                                <input type="radio" id="IntraStatus" name="InterStatus" value="IntraStatus" onchange="return GETIGST();" />Intra State
                             </div>
 
                             @*<div class="col-sm-2" style="display:none" id="CGSTSGSTT">
@@ -54,7 +59,7 @@
                                     <input type="radio" id="IGST" name="CGST" value="IGST" />IGST
                                 </div>*@
 
-                            <div class="col-sm-5" style="display:none" id="PanNumber">
+                            <div class="col-sm-4" style="display:none" id="PanNumber">
                                 <label for="PanNumber">Pan Number</label><br />
                                 <label for="PanNumber" id="PanNo" name="PanNo"></label>
                                 @*@Html.TextBoxFor(m => m.PanNo, new { @class = "form-control", @placeholder = "Pan Number", @readonly = true })*@
@@ -73,7 +78,7 @@
                                             <th style="display:none" @*id="CGSTRate"*@ class="CGSTSGSTdffdgf">CGST Rate <span style="color: red">*</span> </th>
                                             <th style="display:none" @*id="SGSTRate"*@ class="CGSTSGSTdffdgf">SGST Rate <span style="color: red">*</span> </th>
                                             <th style="display:none" @*id="IGSTRate"*@ class="IGSTRater">IGST Rate <span style="color: red">*</span> </th>
-                                            <th>Unit <span style="color: red">*</span> </th>
+                                            <th style="display:none">Unit <span style="color: red">*</span> </th>
                                             <th>Quantity <span style="color: red">*</span> </th>
                                             <th>Unit Price <span style="color: red">*</span> </th>
                                             <th>Taxable Total <span style="color: red">*</span> </th>
@@ -116,8 +121,9 @@
                                                 @Html.TextBoxFor(m => m.IGSTRate, new { @class = "IGSTRate form-control", @Placeholder = "IGST Rate", @onkeypress = "return isNumberOrDecimal(event);" })
 
                                             </td>
-                                            <td>
-                                                @Html.TextBoxFor(m => m.Unit, new { @class = "Unit form-control", @Placeholder = "Unit", @onkeypress = "return isNumberOrDecimal(event);" })
+                                            <td style="display:none">
+
+                                                @Html.TextBoxFor(m => m.Unit, new { @class = "Unit form-control", @Placeholder = "Unit", @onkeypress = "return isNumberOrDecimal(event);",@value="1",@style="display:none"})
 
                                             </td>
                                             <td>
@@ -125,7 +131,7 @@
 
                                             </td>
                                             <td>
-                                                @Html.TextBoxFor(m => m.UnitPrice, new { @class = "UnitPrice form-control", @Placeholder = "Unit Price", @onkeypress = "return isNumberOrDecimal(event);" })
+                                                @Html.TextBoxFor(m => m.UnitPrice, new { @class = "UnitPrice form-control", @Placeholder = "Unit Price", @onkeypress = "return isNumberOrDecimal(event);",@onchange= "return onchangeUnitPrice();" })
 
                                             </td>
                                             <td>
@@ -266,12 +272,12 @@
                     return;
                 }
             }
-             if (!($('#Unit').val().trim() != '' && ($('#Unit').val().trim()))) {
-                $("#Unit").addClass('errortext');
-                $('#Unit').focus();
-                isAllValid = false;
-                return;
-            }
+            // if (!($('#Unit').val().trim() != '' && ($('#Unit').val().trim()))) {
+            //    $("#Unit").addClass('errortext');
+            //    $('#Unit').focus();
+            //    isAllValid = false;
+            //    return;
+            //}
 
              if (!($('#Quantity').val().trim() != '' && ($('#Quantity').val().trim()))) {
                 $("#Quantity").addClass('errortext');
@@ -362,6 +368,11 @@
                 $("#PK_VendorId").addClass('errortext');
                 $('#PK_VendorId').focus();
 
+                return false;
+            }
+            if ($('#PaymentTerms').val() == '') {
+                $("#PaymentTerms").addClass('errortext');
+                $('#PaymentTerms').focus();
                 return false;
             }
             if ($('#Address').val() == '') {
@@ -461,6 +472,7 @@
                 //formData.append("Image", files[0]);
                 formData.append("PK_VendorId", $('#PK_VendorId').val());
                 formData.append("Address", $('#Address').val());
+                formData.append("PaymentTerms", $('#PaymentTerms').val());
                 formData.append("Destination", $('#Destination').val());
                 //formData.append("Type", $('#Type').val());
                 formData.append("Type", $("input[name='Type']:checked").val());
@@ -531,6 +543,61 @@
 
 
 <script>
+
+
+    function GETCGSTSGST()
+    {
+        var CGSTRate = $("#CGSTRate").val(9);
+        var SGSTRate = $("#SGSTRate").val(9);
+      
+    }
+
+    function  GETIGST()
+    {
+        var IGSTRate = $("#IGSTRate").val(18);
+    }
+
+    function onchangeUnitPrice()
+    {
+        var CGST = $("#CGSTRate").val();
+        var SGST = $("#SGSTRate").val();
+        var IGST = $("#IGSTRate").val();
+        var Quantity = $("#Quantity").val();
+        var UnitPrice = $("#UnitPrice").val();
+        var CGSTAmount = 0;
+        var SGSTAmount = 0;
+        var TotalPaidAmount = 0;
+        var TotalGST = 0;
+        var TaxbleAmount = (Number(Quantity) * Number(UnitPrice))
+        //if()
+        if (TaxbleAmount != null && TaxbleAmount != 0)
+        {
+            $("#TaxableTotal").val(TaxbleAmount);
+            $("TaxableTotal").prop('disabled', true);
+        }
+        debugger
+        if (CGST != null && CGST != 0 && CGST !="")
+        {
+             CGSTAmount = ((Number(TaxbleAmount) * Number(CGST)) / 100)
+             SGSTAmount = ((Number(TaxbleAmount) * Number(SGST)) / 100)
+             TotalGST = (Number(SGSTAmount) + Number(CGSTAmount))
+             TotalPaidAmount = (Number(TaxbleAmount) + Number(TotalGST))
+             $('#GSTValue').val(TotalGST);
+             $('#TotalValue').val(TotalPaidAmount);
+             $("GSTValue").prop('disabled', true);
+             $("TotalValue").prop('disabled', true);
+        }
+        else if (IGST != null && IGST != 0 && IGST != "") {
+            CGSTAmount = ((Number(TaxbleAmount) * Number(IGST)) / 100)
+            TotalPaidAmount = (Number(TaxbleAmount) + Number(CGSTAmount))
+            $('#GSTValue').val(CGSTAmount);
+            $('#TotalValue').val(TotalPaidAmount);
+            $("GSTValue").prop('disabled', true);
+            $("TotalValue").prop('disabled', true);
+        }
+      
+    }
+
     function onchangeGetAddress() {
         debugger;
         var PK_VendorId = $('#PK_VendorId').val();
@@ -554,6 +621,12 @@
             }
         });
     }
+
+
+
+
+
+
 </script>
 
 <style>

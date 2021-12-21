@@ -111,8 +111,10 @@ namespace BhartiNetwork.Models
         public string SGSTRate { get; set; }
         public string PurchaseOrderId { get; set; }
         public List<Admin> lstPurchaseorder { get; set; }
+        public string PaymentTerms { get; set; }
         
-        
+
+
 
         public DataSet SaveProject()
         {
@@ -537,6 +539,7 @@ namespace BhartiNetwork.Models
             SqlParameter[] para ={
                                        new SqlParameter("@FK_VendorId",PK_VendorId),
                                        new SqlParameter("@Address", Address),
+                                       new SqlParameter("@PaymentTerms",PaymentTerms),
                                        new SqlParameter("@Destination", Destination),
                                        new SqlParameter("@Type",Type),
                                        //new SqlParameter("@GstType",CGST),
@@ -549,9 +552,7 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("SavePurchaseOrder", para);
             return ds;
         }
-
-
-
+        
         public DataSet GetPurchaseOrderDetails()
         {
             SqlParameter[] para ={
