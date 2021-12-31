@@ -350,26 +350,26 @@ namespace BhartiNetwork.Controllers
 
         public ActionResult EmployeeRegistration()
         {
-            Home model = new Home();
-            int count = 0;
-            List<SelectListItem> ddlCountryCode = new List<SelectListItem>();
-            DataSet ds = model.GetCountryCode();
+            //Home model = new Home();
+            //int count = 0;
+            //List<SelectListItem> ddlCountryCode = new List<SelectListItem>();
+            //DataSet ds = model.GetCountryCode();
 
-            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
-            {
-                foreach (DataRow r in ds.Tables[0].Rows)
-                {
-                    if (count == 0)
-                    {
-                        ddlCountryCode.Add(new SelectListItem { Text = "-Select-", Value = "" });
-                    }
-                    ddlCountryCode.Add(new SelectListItem { Text = r["CountryCode"].ToString(), Value = r["PK_CountryCodeId"].ToString() });
-                    count = count + 1;
-                }
-            }
+            //if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            //{
+            //    foreach (DataRow r in ds.Tables[0].Rows)
+            //    {
+            //        if (count == 0)
+            //        {
+            //            ddlCountryCode.Add(new SelectListItem { Text = "-Select-", Value = "" });
+            //        }
+            //        ddlCountryCode.Add(new SelectListItem { Text = r["CountryCode"].ToString(), Value = r["PK_CountryCodeId"].ToString() });
+            //        count = count + 1;
+            //    }
+            //}
 
-            ViewBag.ddlCountryCode = ddlCountryCode;
-            return View(model);
+            //ViewBag.ddlCountryCode = ddlCountryCode;
+            return View();
         }
         [HttpPost]
         [ActionName("EmployeeRegistration")]
