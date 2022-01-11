@@ -111,11 +111,11 @@ namespace BhartiNetwork.Models
 
         public DataSet GetClientDetails()
         {
-            SqlParameter[] para ={new SqlParameter ("@ClientId",ClientId),
-                                new SqlParameter("@Date",Date),
-                                new SqlParameter("@PostedFile",Image)
-                                 };
-            DataSet ds = Connection.ExecuteQuery("GetClientDetails", para);
+        //    SqlParameter[] para ={new SqlParameter ("@ClientId",ClientId),
+        //                        new SqlParameter("@Date",Date),
+        //                        new SqlParameter("@PostedFile",Image)
+        //                         };
+            DataSet ds = Connection.ExecuteQuery("GetClientDetails");
             return ds;
 
         }

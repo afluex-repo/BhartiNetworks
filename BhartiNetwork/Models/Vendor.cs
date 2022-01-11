@@ -55,7 +55,7 @@ namespace BhartiNetwork.Models
         public string ToDate { get; set; }
         public string AddedOn { get; set; }
 
-        
+
         public List<Vendor> lstPo { get; set; }
         public List<SelectListItem> ddlPONumber { get; set; }
 
@@ -67,7 +67,7 @@ namespace BhartiNetwork.Models
             SqlParameter[] para ={
                 new SqlParameter("@LoginId",LoginId)
             };
-            DataSet ds = Connection.ExecuteQuery("GetVendorDetails",para);
+            DataSet ds = Connection.ExecuteQuery("GetVendorDetails", para);
             return ds;
         }
 
@@ -76,14 +76,14 @@ namespace BhartiNetwork.Models
             SqlParameter[] para ={
                 new SqlParameter("@LoginId",LoginId)
             };
-            DataSet ds = Connection.ExecuteQuery("GetVendorPODetails",para);
+            DataSet ds = Connection.ExecuteQuery("GetVendorPODetails", para);
             return ds;
         }
 
         public DataSet SaveInvoice()
         {
             SqlParameter[] para ={
-                
+
                  new SqlParameter ("@InvoiceNo",InvoiceNo),
                 new SqlParameter ("@ImageFile",Image),
                                  new SqlParameter("@AddedBy",AddedBy)
@@ -102,7 +102,7 @@ namespace BhartiNetwork.Models
             SqlParameter[] para ={
                 new SqlParameter ("@InvoiceId",InvoiceId)
                                  };
-            DataSet ds = Connection.ExecuteQuery("SelectInvoiceDetails",para);
+            DataSet ds = Connection.ExecuteQuery("SelectInvoiceDetails", para);
             return ds;
         }
 
@@ -121,16 +121,17 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("VendorDeleteInvoice", para);
             return ds;
         }
-
-
+        
         public DataSet PoList()
         {
-            SqlParameter[] para ={new SqlParameter ("@PK_PoId",PK_PoId),
+            SqlParameter[] para ={
+                                 new SqlParameter ("@VendorId",VendorId),
+                                 new SqlParameter ("@PK_PoId",PK_PoId),
                                  new SqlParameter("@Po_Number",PONumber),
                                  new SqlParameter ("@FromDate",FromDate),
                                  new SqlParameter("@ToDate",ToDate)
                                  };
-            DataSet ds = Connection.ExecuteQuery("GetPoDetails", para);
+            DataSet ds = Connection.ExecuteQuery("GetPoDetailsForVendor", para);
             return ds;
         }
 

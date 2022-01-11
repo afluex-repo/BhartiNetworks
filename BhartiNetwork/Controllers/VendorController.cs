@@ -116,6 +116,7 @@ namespace BhartiNetwork.Controllers
             model.PONumber = model.PONumber == "0" ? null : model.PONumber;
             model.FromDate = string.IsNullOrEmpty(model.FromDate) ? null : Comman.ConvertToSystemDate(model.FromDate, "dd/MM/yyyy");
             model.ToDate = string.IsNullOrEmpty(model.ToDate) ? null : Comman.ConvertToSystemDate(model.ToDate, "dd/MM/yyyy");
+            model.VendorId = Session["PK_VendorId"].ToString();
             DataSet ds = model.PoList();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
