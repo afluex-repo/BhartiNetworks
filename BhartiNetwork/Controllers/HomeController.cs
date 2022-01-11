@@ -71,8 +71,6 @@ namespace BhartiNetwork.Controllers
         {
             try
             {
-
-
                 if (postedFile != null)
                 {
                     model.Image = "../FileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
