@@ -911,7 +911,7 @@ namespace BhartiNetwork.Controllers
 
 
         //[HttpPost]
-        public ActionResult AddProfile(HttpPostedFileBase file, string Id, string po)
+        public ActionResult AddProfilee(HttpPostedFileBase file, string Id, string po)
         {
             Admin userDetail = new Admin();
 
