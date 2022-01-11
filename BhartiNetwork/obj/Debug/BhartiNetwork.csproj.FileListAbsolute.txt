@@ -158,3 +158,4 @@ D:\SachinMishraProject\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Ht
 D:\SachinMishraProject\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 D:\SachinMishraProject\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
 E:\Repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
+D:\SachinMishraProject\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
