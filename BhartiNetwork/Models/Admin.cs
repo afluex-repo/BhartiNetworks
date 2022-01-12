@@ -112,6 +112,7 @@ namespace BhartiNetwork.Models
         public string PurchaseOrderId { get; set; }
         public List<Admin> lstPurchaseorder { get; set; }
         public string PaymentTerms { get; set; }
+        public string PK_PurchageOrderId { get; set; }
         
 
 
@@ -562,5 +563,18 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("GetPurchaseOrderDetails", para);
             return ds;
         }
+
+
+
+        public DataSet DeletePoGenerator()
+        {
+            SqlParameter[] para ={new SqlParameter ("@PK_PurchageOrderId",PK_PurchageOrderId),
+                                 new SqlParameter("@AddedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("DeletePoGenerator", para);
+            return ds;
+        }
+
+
     }
 }

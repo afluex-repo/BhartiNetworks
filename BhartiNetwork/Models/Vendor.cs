@@ -100,7 +100,8 @@ namespace BhartiNetwork.Models
         public DataSet SelectInvoiceDetails()
         {
             SqlParameter[] para ={
-                new SqlParameter ("@InvoiceId",InvoiceId)
+                new SqlParameter ("@InvoiceId",InvoiceId),
+                 new SqlParameter ("@LoginId",LoginId)
                                  };
             DataSet ds = Connection.ExecuteQuery("SelectInvoiceDetails", para);
             return ds;
