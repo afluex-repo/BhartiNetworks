@@ -1617,7 +1617,7 @@ namespace BhartiNetwork.Controllers
         [HttpPost]
         public JsonResult AddProfile(Admin formData)
         {
-           
+
             var profile = Request.Files;
             bool status = false;
             var datavalue = Request["dataValue"];
@@ -1723,7 +1723,7 @@ namespace BhartiNetwork.Controllers
                     ViewBag.IGSTRate = ds.Tables[0].Rows[0]["IGST_Rate"].ToString();
                     ViewBag.PoDate = ds.Tables[0].Rows[0]["PoDate"].ToString();
                     ViewBag.VendorName = ds.Tables[0].Rows[0]["VendorName"].ToString();
-              
+
                 }
             }
             catch (Exception ex)
@@ -1818,6 +1818,38 @@ namespace BhartiNetwork.Controllers
         }
 
 
+
+        public ActionResult DeletePoGenerator(string Id)
+        {
+            Admin model = new Admin();
+            try
+            {
+                model.PK_PurchageOrderId = Id;
+                model.AddedBy = Session["Pk_AdminId"].ToString();
+                DataSet ds = model.DeletePoGenerator();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["PO"] = "Po generator deleted successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["PO"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["PO"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["PO"] = ex.Message;
+            }
+            return RedirectToAction("PurchaseOrderList", "Admin");
+        }
 
 
     }
