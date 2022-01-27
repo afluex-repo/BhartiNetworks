@@ -435,7 +435,7 @@ namespace BhartiNetwork.Controllers
                         model.Image = "../FileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
                         postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
                     }
-                    // model.Date = string.IsNullOrEmpty(model.Date) ? null : Comman.ConvertToSystemDate(model.Date, "dd/MM/yyyy");
+                    model.Date = string.IsNullOrEmpty(model.Date) ? null : Comman.ConvertToSystemDate(model.Date, "dd/MM/yyyy");
                     model.AddedBy = Session["Pk_AdminId"].ToString();
                     DataSet ds = model.SaveClient();
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -521,6 +521,11 @@ namespace BhartiNetwork.Controllers
         {
             //Admin model = new Admin();
             List<Admin> lst = new List<Admin>();
+
+            //model.ClientId = model.ClientId == "0" ? null : model.ClientId;
+            //model.Name = model.Name == "0" ? null : model.Name;
+            //model.Image = model.Image == "0" ? null : model.Image;
+
             model.FromDate = string.IsNullOrEmpty(model.FromDate) ? null : Comman.ConvertToSystemDate(model.FromDate, "dd/MM/yyyy");
             model.ToDate = string.IsNullOrEmpty(model.ToDate) ? null : Comman.ConvertToSystemDate(model.ToDate, "dd/MM/yyyy");
             DataSet ds = model.GetClientDetailsForAdmin();
