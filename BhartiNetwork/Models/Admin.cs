@@ -339,9 +339,10 @@ namespace BhartiNetwork.Models
             SqlParameter[] para = {new SqlParameter("@Name",Name),
                                    new SqlParameter("@ClientId",ClientId),
                                     new SqlParameter("@PostedFile",Image),
-                                     new SqlParameter("@Date",Date)
+                                     new SqlParameter("@FromDate",FromDate),
+                                      new SqlParameter("@ToDate",ToDate)
             };
-            DataSet ds = Connection.ExecuteQuery("GetClientDetails", para);
+            DataSet ds = Connection.ExecuteQuery("GetClientDetailsForAdmin", para);
             return ds;
 
         }
@@ -357,10 +358,7 @@ namespace BhartiNetwork.Models
 
         }
 
-
-
-
-
+        
         public DataSet ClientDelete()
         {
             SqlParameter[] para ={new SqlParameter ("@ClientId",ClientId),

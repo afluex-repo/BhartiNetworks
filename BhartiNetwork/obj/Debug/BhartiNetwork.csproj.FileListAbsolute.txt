@@ -157,6 +157,9 @@ E:\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 E:\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
 E:\Repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 E:\Repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
+<<<<<<< HEAD
+E:\Repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
+=======
 E:\Divya\repository\BhartiNetworks\BhartiNetwork\bin\ApplicationInsights.config
 E:\Divya\repository\BhartiNetworks\BhartiNetwork\bin\roslyn\csc.exe
 E:\Divya\repository\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -211,3 +214,4 @@ E:\Divya\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
 E:\Divya\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
 E:\Divya\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 E:\Divya\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
+>>>>>>> 8904d0a88116e883dd58ddc3745a48a9277bcf08
