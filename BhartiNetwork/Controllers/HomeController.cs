@@ -274,37 +274,37 @@ namespace BhartiNetwork.Controllers
                     {
                         TempData["Registration"] = "Registration save successfully";
 
-                        if (model.Email != null)
-                        {
-                            string mailbody = "";
-                            try
-                            {
-                                model.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
-                                mailbody = "Dear,  <br/>" + model.Name + " <br/> Your Registration successfully completed<br/> Your LoginId is :" + model.LoginId + "<br/> Password is :" + model.Password;
+                        //if (model.Email != null)
+                        //{
+                        //    string mailbody = "";
+                        //    try
+                        //    {
+                        //        model.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
+                        //        mailbody = "Dear,  <br/>" + model.Name + " <br/> Your Registration successfully completed<br/> Your LoginId is :" + model.LoginId + "<br/> Password is :" + model.Password;
 
-                                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
-                                {
-                                    Host = "smtp.gmail.com",
-                                    Port = 587,
-                                    EnableSsl = true,
-                                    DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
-                                    UseDefaultCredentials = true,
-                                    Credentials = new NetworkCredential("developer2.afluex@gmail.com", "devel@486")
-                                };
-                                using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
-                                {
-                                    IsBodyHtml = true,
-                                    Subject = "Successfull Message",
-                                    Body = mailbody
-                                })
-                                    smtp.Send(message);
+                        //        System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
+                        //        {
+                        //            Host = "smtp.gmail.com",
+                        //            Port = 587,
+                        //            EnableSsl = true,
+                        //            DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
+                        //            UseDefaultCredentials = true,
+                        //            Credentials = new NetworkCredential("developer2.afluex@gmail.com", "devel@486")
+                        //        };
+                        //        using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
+                        //        {
+                        //            IsBodyHtml = true,
+                        //            Subject = "Successfull Message",
+                        //            Body = mailbody
+                        //        })
+                        //            smtp.Send(message);
 
-                            }
-                            catch (Exception ex)
-                            {
+                        //    }
+                        //    catch (Exception ex)
+                        //    {
 
-                            }
-                        }
+                        //    }
+                        //}
                     }
                     else if (ds.Tables[0].Rows[0][0].ToString() == "0")
                     {
@@ -390,39 +390,41 @@ namespace BhartiNetwork.Controllers
                 {
                     if (ds.Tables[0].Rows[0][0].ToString() == "1")
                     {
-                        TempData["EmpRegistration"] = "Registration  successfully you will get a notification once registration will approved !!";
+                        TempData["EmpRegistration"] = "Registration save successfully";
 
-                        if (model.Email != null)
-                        {
-                            string mailbody = "";
-                            try
-                            {
-                                model.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
-                                mailbody = "Dear,  <br/>" + model.Name + " <br/> Your Registration successfully completed<br/> Your LoginId is :" + model.LoginId + "<br/> Password is :" + model.Password;
+                        //TempData["EmpRegistration"] = "Registration  successfully you will get a notification once registration will approved !!";
 
-                                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
-                                {
-                                    Host = "smtp.gmail.com",
-                                    Port = 587,
-                                    EnableSsl = true,
-                                    DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
-                                    UseDefaultCredentials = true,
-                                    Credentials = new NetworkCredential("developer2.afluex@gmail.com", "devel@486")
-                                };
-                                using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
-                                {
-                                    IsBodyHtml = true,
-                                    Subject = "Successfull Message",
-                                    Body = mailbody
-                                })
-                                    smtp.Send(message);
+                        //if (model.Email != null)
+                        //{
+                        //    string mailbody = "";
+                        //    try
+                        //    {
+                        //        model.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
+                        //        mailbody = "Dear,  <br/>" + model.Name + " <br/> Your Registration successfully completed<br/> Your LoginId is :" + model.LoginId + "<br/> Password is :" + model.Password;
 
-                            }
-                            catch (Exception ex)
-                            {
+                        //        System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
+                        //        {
+                        //            Host = "smtp.gmail.com",
+                        //            Port = 587,
+                        //            EnableSsl = true,
+                        //            DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
+                        //            UseDefaultCredentials = true,
+                        //            Credentials = new NetworkCredential("developer2.afluex@gmail.com", "devel@486")
+                        //        };
+                        //        using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
+                        //        {
+                        //            IsBodyHtml = true,
+                        //            Subject = "Successfull Message",
+                        //            Body = mailbody
+                        //        })
+                        //            smtp.Send(message);
 
-                            }
-                        }
+                        //    }
+                        //    catch (Exception ex)
+                        //    {
+
+                        //    }
+                        //}
                     }
                     else if (ds.Tables[0].Rows[0][0].ToString() == "0")
                     {
