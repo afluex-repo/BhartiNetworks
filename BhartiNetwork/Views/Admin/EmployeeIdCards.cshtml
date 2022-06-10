@@ -139,14 +139,12 @@
             color: #f58846;
         }
 
-
-
-
         @@media print {
             #printPageButton {
                 display: none;
             }
         }
+
     </style>
 
     <style>
@@ -188,7 +186,7 @@
             }
 
         .id-card {
-            background-color: #e5abab;
+            background-color: #38bdd3;
             padding: 10px;
             border-radius: 10px;
             text-align: center;
@@ -299,7 +297,7 @@
 
         @@media print {
             body {
-                background-color: #d7d6d3;
+                /*background-color: #d7d6d3;*/
                 font-family: 'verdana';
             }
 
@@ -336,7 +334,7 @@
                 }
 
             .id-card {
-                background-color: #e5abab;
+                background-color: #38bdd3;
                 padding: 10px;
                 border-radius: 10px;
                 text-align: center;
@@ -446,13 +444,7 @@
             }
         }
     </style>
-
-
-
-
-
-
-
+   
     <style type="text/css">
         .details {
             text-align: left;
@@ -484,7 +476,8 @@
         }
 
         .company_name {
-            color: #0098da;
+            color: #992b1a;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -493,8 +486,9 @@
     <div class="id-card-tag-strip"></div>
     <div class="id-card-hook"></div>
     <div class="id-card-holder">
-        <div class="id-card">
+        <div class="id-card" id="idCard">
             <div class="header">
+                <button id="download-page-as-image" style="font-size:15px;float:left;color:black;background-color:#38bdd3;"><i class="fa fa-file-image-o" aria-hidden="true"></i></button>
                 <img src="~/assets/img/logo.png">
                 <i class="fa fa-print" style="font-size:24px;float:right" id="printpagebutton" onclick="printpage()"></i>
             </div>
@@ -505,7 +499,7 @@
             <p style="font-size: 13px;margin-bottom:12px;">@ViewBag.Designation</p>
             @*<small>@ViewBag.Designation</small>*@
 
-         
+
             <div class="details">
                 <h3><strong class="strong-id1">ID No </strong>:  @ViewBag.LoginId</h3>
                 <h3><strong class="strong-id2">Blood Group </strong>:  @ViewBag.BloodGroup</h3>
@@ -518,31 +512,76 @@
             <h3><a class="company_name">www.bhartinetworks.com</a></h3>
 
             @*<h3><strong>ID No </strong>: @ViewBag.LoginId</h3>
-            <h3><strong>Blood Group </strong>: @ViewBag.BloodGroup</h3>
-            <h3><strong>Joining Date </strong>: @ViewBag.ApproveDeclineDate</h3>
-            <h3><strong>Expire Date </strong>: @ViewBag.ExpiaryDate</h3>
-            <h3><strong>Mobile No </strong>: @ViewBag.Mobile</h3>
-            <h3><strong>Email </strong>: @ViewBag.Email</h3>*@
-                
-           @*<h3><a>www.bhartinetworks.com</a></h3>*@
+                <h3><strong>Blood Group </strong>: @ViewBag.BloodGroup</h3>
+                <h3><strong>Joining Date </strong>: @ViewBag.ApproveDeclineDate</h3>
+                <h3><strong>Expire Date </strong>: @ViewBag.ExpiaryDate</h3>
+                <h3><strong>Mobile No </strong>: @ViewBag.Mobile</h3>
+                <h3><strong>Email </strong>: @ViewBag.Email</h3>*@
+
+            @*<h3><a>www.bhartinetworks.com</a></h3>*@
 
             @*<hr>*@
             @*<p><strong>"PENGG"</strong>HOUSE,4th Floor, TC 11/729(4), Division Office Road <p>
-            <p>Near PMG Junction, Thiruvananthapuram Kerala, India <strong>695033</strong></p>
-            <p>Ph: 9446062493 | E-ail: info@onetikk.info</p>*@
+                <p>Near PMG Junction, Thiruvananthapuram Kerala, India <strong>695033</strong></p>
+                <p>Ph: 9446062493 | E-ail: info@onetikk.info</p>*@
 
         </div>
     </div>
+
+    <script src="~/assets/js/main.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
     <script>
         function printpage() {
             //Get the print button and put it into a variable
             var printButton = document.getElementById("printpagebutton");
-            //Set the print button visibility to 'hidden' 
+            //Set the print button visibility to 'hidden'
             printButton.style.visibility = 'hidden';
+            document.getElementById("download-page-as-image").style.visibility = 'hidden';
             //Print the page content
             window.print()
             printButton.style.visibility = 'visible';
+            document.getElementById("download-page-as-image").style.visibility = 'visible';
+        }
+        // html2canvas <- https://html2canvas.hertzen.com/dist/html2canvas.min.js
+
+        // code reference: https://stackoverflow.com/questions/31656689/how-to-save-img-to-users-local-computer-using-html2canvas
+
+        setUpDownloadPageAsImage();
+
+        function setUpDownloadPageAsImage() {
+            document.getElementById("download-page-as-image").addEventListener("click", function () {
+                var printButton = document.getElementById("printpagebutton");
+
+                //Set the print button visibility to 'hidden'
+                printButton.style.visibility = 'hidden';
+                document.getElementById("download-page-as-image").style.visibility = 'hidden';
+                html2canvas(document.body).then(function (canvas) {
+                    console.log(canvas);
+                    simulateDownloadImageClick(canvas.toDataURL(), 'IdCard.jpeg');
+                });
+            });
+        }
+        function simulateDownloadImageClick(uri, filename) {
+            var link = document.createElement('a');
+            if (typeof link.download !== 'string') {
+                window.open(uri);
+            } else {
+                link.href = uri;
+                link.download = filename;
+                accountForFirefox(clickLink, link);
+            }
+        }
+        function clickLink(link) {
+            link.click();
+        }
+        function accountForFirefox(click) { // wrapper function
+            let link = arguments[1];
+            document.body.appendChild(link);
+            click(link);
+            document.body.removeChild(link);
         }
     </script>
+
 </body>
 </html>
