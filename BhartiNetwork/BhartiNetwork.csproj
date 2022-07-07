@@ -1302,6 +1302,7 @@
     <Content Include="Views\Admin\PrintPurchaseOrder.cshtml" />
     <Content Include="Views\Admin\PurchaseOrderList.cshtml" />
     <Content Include="Views\Admin\PrintPo.cshtml" />
+    <Content Include="Views\Home\Metro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

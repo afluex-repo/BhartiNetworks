@@ -60,6 +60,12 @@ namespace BhartiNetwork.Controllers
         {
             return View();
         }
+
+        public ActionResult Metro()
+        {
+            return View();
+        }
+
         public ActionResult Career()
         {
             return View();
