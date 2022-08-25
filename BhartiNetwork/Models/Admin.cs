@@ -114,7 +114,7 @@ namespace BhartiNetwork.Models
         public string PaymentTerms { get; set; }
         public string PK_PurchageOrderId { get; set; }
 
-        public DataTable DtAcademic { get; set; }
+        public DataTable DtAcademicDetails { get; set; }
         public string Father { get; set; }
         public string CNIC { get; set; }
         public string PostalAddress { get; set; }
@@ -136,8 +136,12 @@ namespace BhartiNetwork.Models
         public string FYGRPDEPT { get; set; }
         public string ProPoSedInternShipFromDate { get; set; }
         public string ProPoSedInternShipToDate { get; set; }
-
-
+        public string PassingYear { get; set; }
+        public string MarksObtainedTotalMarksGPA { get; set; }
+        public string Division { get; set; }
+        public string Board { get; set; }
+        public string Certificate { get; set; }
+        
 
 
 
@@ -627,7 +631,7 @@ namespace BhartiNetwork.Models
                          new SqlParameter("@ProPoSedInternShipToDate",ProPoSedInternShipToDate),
                          new SqlParameter("@Date",Date),
                          new SqlParameter("@AddedBy",AddedBy),
-                         new SqlParameter("@DtAcademic",DtAcademic)
+                         new SqlParameter("@DtAcademicDetails",DtAcademicDetails)
                                  };
             DataSet ds = Connection.ExecuteQuery("SaveInternShip", para);
             return ds;

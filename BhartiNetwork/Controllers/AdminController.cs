@@ -1866,9 +1866,52 @@ namespace BhartiNetwork.Controllers
         }
 
 
+        [HttpPost]
+        public JsonResult SaveInternShip(Admin formData)
+        {
+            var profile = Request.Files;
+            bool status = false;
+            var Intershipdatavalue = Request["IntershipdataValue"];
+            var jssIntership = new JavaScriptSerializer();
+            var jdvIntership = jssIntership.Deserialize<dynamic>(Request["IntershipdataValue"]);
+            DataTable AcademicDetails = new DataTable();
+            AcademicDetails = JsonConvert.DeserializeObject<DataTable>(jdvIntership["AddDataIntership"]);
+            formData.DtAcademicDetails = AcademicDetails;
+            formData.AddedBy = Session["Pk_AdminId"].ToString();
+            DataSet ds = new DataSet();
+            ds = formData.SaveInternShip();
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                {
+                    TempData["InternShip"] = "InternShip Application saved successfully";
+                    status = true;
+                }
+                else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                {
+                    TempData["InternShip"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+            }
+            else
+            {
+                TempData["InternShip"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+            }
 
+            return new JsonResult { Data = new { status = status } };
+            //return Json(userDetail, JsonRequestBehavior.AllowGet);
+
+
+
+        }
+
+
+
+
+
+
+
+        }
     }
-}
 
 
 
