@@ -102,7 +102,6 @@ E:\Repository-Projects\repository\BhartiNetworks\BhartiNetwork\bin\Newtonsoft.Js
 E:\Repository-Projects\repository\BhartiNetworks\BhartiNetwork\bin\System.Net.Http.Formatting.xml
 E:\Repository-Projects\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 E:\Repository-Projects\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
-E:\Repository-Projects\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
 E:\Repository-Projects\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 E:\Repository-Projects\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
-E:\Repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
+E:\Repository-Projects\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache

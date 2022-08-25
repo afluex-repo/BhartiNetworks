@@ -130,6 +130,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminCss\assets\css\certificate_style.css" />
     <Content Include="AdminCss\assets\css\style.css" />
     <Content Include="AdminCss\assets\images\auth\lockscreen-bg.jpg" />
     <Content Include="AdminCss\assets\images\auth\login-bg.jpg" />
@@ -1049,6 +1050,19 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="forms\Readme.txt" />
     <Content Include="Global.asax" />
+    <Content Include="main-assets\css\bootstrap.min.css" />
+    <Content Include="main-assets\css\fontawesome-all.min.css" />
+    <Content Include="main-assets\css\fxt-animation.css" />
+    <Content Include="main-assets\css\style.css" />
+    <Content Include="main-assets\js\bootstrap.min.js" />
+    <Content Include="main-assets\js\imagesloaded.pkgd.min.js" />
+    <Content Include="main-assets\js\jquery-3.5.0.min.js" />
+    <Content Include="main-assets\js\jquery.countdown.min.js" />
+    <Content Include="main-assets\js\main.js" />
+    <Content Include="main-assets\media\figure\maintenance-img.png" />
+    <Content Include="main-assets\webfonts\fa-brands-400.html" />
+    <Content Include="main-assets\webfonts\fa-regular-400.html" />
+    <Content Include="main-assets\webfonts\fa-solid-900.html" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap.js" />
@@ -1217,6 +1231,21 @@
     <Content Include="assets\vendor\remixicon\remixicon.ttf" />
     <Content Include="assets\vendor\remixicon\remixicon.woff" />
     <Content Include="assets\vendor\remixicon\remixicon.woff2" />
+    <Content Include="main-assets\webfonts\fa-brands-400.eot" />
+    <Content Include="main-assets\webfonts\fa-brands-400.ttf" />
+    <Content Include="main-assets\webfonts\fa-brands-400.woff" />
+    <Content Include="main-assets\webfonts\fa-brands-400.woff2" />
+    <Content Include="main-assets\webfonts\fa-brands-400d41d.eot" />
+    <Content Include="main-assets\webfonts\fa-regular-400.eot" />
+    <Content Include="main-assets\webfonts\fa-regular-400.ttf" />
+    <Content Include="main-assets\webfonts\fa-regular-400.woff" />
+    <Content Include="main-assets\webfonts\fa-regular-400.woff2" />
+    <Content Include="main-assets\webfonts\fa-regular-400d41d.eot" />
+    <Content Include="main-assets\webfonts\fa-solid-900.eot" />
+    <Content Include="main-assets\webfonts\fa-solid-900.ttf" />
+    <Content Include="main-assets\webfonts\fa-solid-900.woff" />
+    <Content Include="main-assets\webfonts\fa-solid-900.woff2" />
+    <Content Include="main-assets\webfonts\fa-solid-900d41d.eot" />
     <None Include="Properties\PublishProfiles\Bharteee.pubxml" />
     <None Include="Properties\PublishProfiles\BhartiNetwork.pubxml" />
     <None Include="Properties\PublishProfiles\BhartiNetwork_1.pubxml" />
@@ -1303,7 +1332,8 @@
     <Content Include="Views\Admin\PurchaseOrderList.cshtml" />
     <Content Include="Views\Admin\PrintPo.cshtml" />
     <Content Include="Views\Home\Metro.cshtml" />
-    <Content Include="Views\Admin\InternShipApplication.cshtml" />
+    <Content Include="Views\Home\Maintenance.cshtml" />
+    <Content Include="Views\Admin\Certificate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
