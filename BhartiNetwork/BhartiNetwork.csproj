@@ -1334,6 +1334,7 @@
     <Content Include="Views\Home\Metro.cshtml" />
     <Content Include="Views\Home\Maintenance.cshtml" />
     <Content Include="Views\Admin\Certificate.cshtml" />
+    <Content Include="Views\Admin\InternShipApplication.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

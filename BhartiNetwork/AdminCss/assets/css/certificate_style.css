@@ -5,14 +5,14 @@ html,p,h1,h2,h3,h4,h5,input
 }
   .certificate-container {
     padding: 10px 50px 10px 50px;
-    width: 1024px;
+    /*width: 1024px;*/
     margin:0px auto;
 }
 .certificate {
     border: 20px solid #0C5280;
     border-radius: 100px 0px 100px 0;
     padding: 25px;
-    height: 650px;
+    /*height: 650px;*/
     position: relative;
 }
 
@@ -50,12 +50,14 @@ font-size: 20px;
 
 .certificate-content {
     margin: 0 auto;
-    width: 750px;
+    /*width: 750px;*/
 }
 
 .about-certificate {
-    width: 380px;
+    /*width: 380px;*/
+    font-size:18px;
     margin: 0 auto;
+    padding:0px 25px 0px 25px;
 }
 #btn-print
 {

@@ -17,49 +17,53 @@
 <body>
     <div class="container mt-3">
         <div class="row">
-            <div class="col-md-10 offset-1 text-right">
+            <div class="col-md-10 text-right">
                 <input type='button' class="btn btn-primary btn-lg" id='btn-print' value='Print' onclick="printDiv('#print');" />
             </div>
         </div>
     </div>
-    <div class="certificate-container" id="print">
-        <div class="certificate">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="certificate-header p-2">
-                        <img src="~/assets/img/logo.png" class="logo" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="certificate-body mt-5 text-center">
-                <h1 class="text-uppercase title">Certificate of Intership</h1>
-                <div class="certificate-content mt-4">
-                    <div class="about-certificate ">
-                        <p class="certificate_desc">
-                            This intership program certificate is proudly
-                            awarded to
-                        </p>
-                        <h3 class="mt-4">Drew Feig</h3>
-                        <hr class="bg-dark mt-0" />
-                    </div>
-                    <p class="topic-title mt-5">
-                        For her outstanding completion of the compulsory <br /> intership program at Timmerman Construction Co. from July to December 2022.
-                    </p>
-                </div>
-                <div class="certificate-footer mt-5">
-                    <div class="row">
-                        <div class="col-md-3 offset-1 text-left">
-                            <p>Avery Davis</p>
-                            <h4>HR Admin</h4>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <div class="certificate-container" id="print">
+                    <div class="certificate">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="certificate-header p-2">
+                                    <img src="~/assets/img/logo.png" class="logo" alt="">
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-3 text-center ml-3">
-                            <img src="~/assets/img/medal_img.png" style="height:90px;" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-md-4 col-md-offset-1 text-right">
-                            <p>
-                                Reese Milller
-                            </p>
-                            <h4>Training Officer</h4>
+                        <div class="certificate-body mt-5 text-center">
+                            <h1 class="text-uppercase title mb-5">Certificate of Internship</h1>
+                            <div class="certificate-content mt-4">
+                                <div class="about-certificate">
+                                    <p>
+                                        This is to certify that Mr/Miss ...................................................................
+                                        Son/Daughter of Sri/Smt ...........................................................................
+                                        Student of B.Tech/Diploma/ITI ......................................... College................................................
+                                        has undergone tech training from ........................ to ...........................
+                                        for his/her outstanding completion of the internship program at Bharti Network.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="certificate-footer mt-5">
+                                <div class="row">
+                                    <div class="col-md-3 offset-1 text-left">
+                                        <p>Avery Davis</p>
+                                        <h4>HR Admin</h4>
+                                    </div>
+                                    <div class="col-md-3 text-center ml-3">
+                                        <img src="~/assets/img/medal_img.png" style="height:90px;" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1 text-right">
+                                        <p>
+                                            Reese Milller
+                                        </p>
+                                        <h4>Training Officer</h4>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,27 +71,25 @@
         </div>
     </div>
 
-
     <script type="text/javascript">
 
-      function printDiv(elem)
-    {
-    var mywindow = window.open('', 'PRINT', 'height=700,width=800');
+        function printDiv(elem) {
+            var mywindow = window.open('', 'PRINT', 'height=700,width=800');
 
-    mywindow.document.write('<html><head>');
-    mywindow.document.write("<link href=\"/AdminCss/assets/css/certificate_style.css\" rel=\"stylesheet\"><link href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\">")
-    mywindow.document.write('</head><body >');
-    mywindow.document.write(document.getElementById('print').innerHTML);
-    mywindow.document.write('</body></html>');
-    mywindow.document.close(); // necessary for IE >= 10
-    mywindow.focus(); // necessary for IE >= 10*/
+            mywindow.document.write('<html><head>');
+            mywindow.document.write("<link href=\"/AdminCss/assets/css/certificate_style.css\" rel=\"stylesheet\"><link href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\">")
+            mywindow.document.write('</head><body >');
+            mywindow.document.write(document.getElementById('print').innerHTML);
+            mywindow.document.write('</body></html>');
+            mywindow.document.close(); // necessary for IE >= 10
+            mywindow.focus(); // necessary for IE >= 10*/
 
-    setTimeout(function () {
-    mywindow.print();
-    mywindow.close();
-    }, 100)
-    return true;
-   }
+            setTimeout(function () {
+                mywindow.print();
+                mywindow.close();
+            }, 100)
+            return true;
+        }
     </script>
 </body>
 </html>
