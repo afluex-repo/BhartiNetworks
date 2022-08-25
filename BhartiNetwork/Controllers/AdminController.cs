@@ -1856,6 +1856,12 @@ namespace BhartiNetwork.Controllers
             return RedirectToAction("PurchaseOrderList", "Admin");
         }
 
+        public ActionResult InternShipApplication()
+        {
+            return View();
+        }
+
+
 
     }
 }
