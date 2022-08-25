@@ -1860,6 +1860,13 @@ namespace BhartiNetwork.Controllers
             return View();
         }
 
+        public ActionResult InternShipApplication()
+        {
+            return View();
+        }
+
+
+
     }
 }
 
