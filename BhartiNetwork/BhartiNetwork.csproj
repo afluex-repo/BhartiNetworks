@@ -130,6 +130,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminCss\assets\css\certificate_style.css" />
     <Content Include="AdminCss\assets\css\style.css" />
     <Content Include="AdminCss\assets\images\auth\lockscreen-bg.jpg" />
     <Content Include="AdminCss\assets\images\auth\login-bg.jpg" />
@@ -1332,6 +1333,7 @@
     <Content Include="Views\Admin\PrintPo.cshtml" />
     <Content Include="Views\Home\Metro.cshtml" />
     <Content Include="Views\Home\Maintenance.cshtml" />
+    <Content Include="Views\Admin\Certificate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
