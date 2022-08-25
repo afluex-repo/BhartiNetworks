@@ -113,7 +113,31 @@ namespace BhartiNetwork.Models
         public List<Admin> lstPurchaseorder { get; set; }
         public string PaymentTerms { get; set; }
         public string PK_PurchageOrderId { get; set; }
-        
+
+        public DataTable DtAcademic { get; set; }
+        public string Father { get; set; }
+        public string CNIC { get; set; }
+        public string PostalAddress { get; set; }
+        public string PermanentAddress { get; set; }
+        public string Domicile { get; set; }
+        public string CellNo { get; set; }
+        public string Gender { get; set; }
+        public string Religion { get; set; }
+        public string Degree { get; set; }
+        public string Discipline { get; set; }
+        public string Semester { get; set; }
+        public string CGPA { get; set; }
+        public string RegistrationNo { get; set; }
+        public string RollNo { get; set; }
+        public string UniverSity { get; set; }
+        public string FinalYearProject { get; set; }
+        public string FatherMother { get; set; }
+        public string PINO { get; set; }
+        public string FYGRPDEPT { get; set; }
+        public string ProPoSedInternShipFromDate { get; set; }
+        public string ProPoSedInternShipToDate { get; set; }
+
+
 
 
 
@@ -358,7 +382,7 @@ namespace BhartiNetwork.Models
 
         }
 
-        
+
         public DataSet ClientDelete()
         {
             SqlParameter[] para ={new SqlParameter ("@ClientId",ClientId),
@@ -551,7 +575,7 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("SavePurchaseOrder", para);
             return ds;
         }
-        
+
         public DataSet GetPurchaseOrderDetails()
         {
             SqlParameter[] para ={
@@ -562,14 +586,50 @@ namespace BhartiNetwork.Models
             return ds;
         }
 
-
-
         public DataSet DeletePoGenerator()
         {
             SqlParameter[] para ={new SqlParameter ("@PK_PurchageOrderId",PK_PurchageOrderId),
                                  new SqlParameter("@AddedBy",AddedBy)
                                  };
             DataSet ds = Connection.ExecuteQuery("DeletePoGenerator", para);
+            return ds;
+        }
+
+     
+        public DataSet SaveInternShip()
+        {
+            SqlParameter[] para ={
+                         new SqlParameter("@Name",Name),
+                         new SqlParameter("@Father", Father),
+                         new SqlParameter("@CNIC",CNIC),
+                         new SqlParameter("@DOB", DOB),
+                         new SqlParameter("@PostalAddress",PostalAddress),
+                         new SqlParameter("@PermanentAddress",PermanentAddress),
+                         new SqlParameter("@Domicile",Domicile),
+                         new SqlParameter("@CellNo",CellNo),
+                         new SqlParameter("@MobileNo", Mobile),
+                         new SqlParameter("@Gender",Gender),
+                         new SqlParameter("@Religion", Religion),
+                         new SqlParameter("@Email",Email),
+                         new SqlParameter("@Degree",Degree),
+                         new SqlParameter("@Discipline",Discipline),
+                         new SqlParameter("@Semester",Semester),
+                         new SqlParameter("@CGPA", CGPA),
+                         new SqlParameter("@RegistrationNo",RegistrationNo),
+                         new SqlParameter("@RollNo", RollNo),
+                         new SqlParameter("@UniverSity",UniverSity),
+                         new SqlParameter("@FinalYearProject",FinalYearProject),
+                         new SqlParameter("@FatherMother",FatherMother),
+                         new SqlParameter("@Designation",Designation),
+                         new SqlParameter("@PINO", PINO),
+                         new SqlParameter("@FYGRPDEPT",FYGRPDEPT),
+                         new SqlParameter("@ProPoSedInternShipFromDate", ProPoSedInternShipFromDate),
+                         new SqlParameter("@ProPoSedInternShipToDate",ProPoSedInternShipToDate),
+                         new SqlParameter("@Date",Date),
+                         new SqlParameter("@AddedBy",AddedBy),
+                         new SqlParameter("@DtAcademic",DtAcademic)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("SaveInternShip", para);
             return ds;
         }
 
