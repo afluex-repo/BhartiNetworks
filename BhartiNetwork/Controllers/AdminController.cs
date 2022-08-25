@@ -1855,7 +1855,10 @@ namespace BhartiNetwork.Controllers
             }
             return RedirectToAction("PurchaseOrderList", "Admin");
         }
-
+        public ActionResult Certificate()
+        {
+            return View();
+        }
 
     }
 }
