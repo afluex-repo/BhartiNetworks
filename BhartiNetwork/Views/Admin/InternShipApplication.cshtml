@@ -41,7 +41,7 @@
                         <div class="col-sm-4">
                             <div class="row form-group">
                                 <div class="col-md-4">
-                                    <label>Student Name</label>
+                                    <label>Student Name <span style="color: red">*</span></label>
                                 </div>
                                 <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Student Name", @onkeypress = "return onlyAlphabets();" })
@@ -52,7 +52,7 @@
                         <div class="col-sm-4">
                             <div class="row form-group">
                                 <div class="col-md-4">
-                                    <label>Father's Name</label>
+                                    <label>Father's Name <span style="color: red">*</span></label>
                                 </div>
                                 <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.Father, new { @class = "form-control", @placeholder = "Father's Name", @onkeypress = "return onlyAlphabets();" })
@@ -63,7 +63,7 @@
                         <div class="col-sm-4">
                             <div class="row form-group">
                                 <div class="col-md-4">
-                                    <label>Date Of Birth</label>
+                                    <label>Date Of Birth <span style="color: red">*</span></label>
                                 </div>
                                 <div class="col-md-8">
                                     @Html.TextBoxFor(m => m.DOB, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @autocomplete = "off" })
@@ -73,12 +73,12 @@
                             </div>
                         </div>
                         <div class="col-sm-6 form-group">
-                            <label>Postal Address</label>
+                            <label>Postal Address <span style="color: red">*</span></label>
                             @Html.TextAreaFor(m => m.PostalAddress, new { @class = "form-control", @placeholder = "Postal Address" })
                             @*<textarea class="form-control" rows="3"></textarea>*@
                         </div>
                         <div class="col-sm-6 form-group">
-                            <label>Permanent Address</label>
+                            <label>Permanent Address <span style="color: red">*</span></label>
                             @Html.TextAreaFor(m => m.PermanentAddress, new { @class = "form-control", @placeholder = "Permanent Address" })
                             @*<textarea class="form-control" rows="3"></textarea>*@
                         </div>
@@ -93,7 +93,7 @@
                                 <div class="col-sm-4">
                                     <div class="row form-group">
                                         <div class="col-sm-4">
-                                            <label>Domicile</label>
+                                            <label>Domicile <span style="color: red">*</span></label>
                                         </div>
                                         <div class="col-sm-8">
                                             @Html.TextBoxFor(m => m.Domicile, new { @class = "form-control", @placeholder = "Domicile" })
@@ -104,7 +104,7 @@
                                 <div class="col-sm-4">
                                     <div class="row form-group">
                                         <div class="col-sm-4">
-                                            <label>Cell No.</label>
+                                            <label>Cell No. <span style="color: red">*</span></label>
                                         </div>
                                         <div class="col-sm-8">
                                             @Html.TextBoxFor(m => m.CellNo, new { @class = "form-control", @placeholder = "Cell No." })
@@ -115,7 +115,7 @@
                                 <div class="col-sm-4">
                                     <div class="row form-group">
                                         <div class="col-sm-4">
-                                            <label>Phone No.</label>
+                                            <label>Phone No. <span style="color: red">*</span></label>
                                         </div>
                                         <div class="col-sm-8">
                                             @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @placeholder = "Phone No.", @onkeypress = "return isNumberKey(event);",@maxlength="10" })
@@ -126,7 +126,7 @@
                                 <div class="col-sm-4">
                                     <div class="row form-group">
                                         <div class="col-sm-4">
-                                            <label>Gender</label>
+                                            <label>Gender <span style="color: red">*</span></label>
                                         </div>
                                         <div class="col-sm-8">
                                             <select name="Gender" id="Gender" class="form-control" placeholder="Gender">
@@ -141,7 +141,7 @@
                                 <div class="col-sm-4">
                                     <div class="row form-group">
                                         <div class="col-sm-4">
-                                            <label>Religion</label>
+                                            <label>Religion <span style="color: red">*</span></label>
                                         </div>
                                         <div class="col-sm-8">
                                             @Html.TextBoxFor(m => m.Religion, new { @class = "form-control", @placeholder = "Religion" })
@@ -152,7 +152,7 @@
                                 <div class="col-sm-4">
                                     <div class="row form-group">
                                         <div class="col-sm-4">
-                                            <label>Email</label>
+                                            <label>Email <span style="color: red">*</span></label>
                                         </div>
                                         <div class="col-sm-8">
                                             @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
@@ -172,7 +172,7 @@
                         <div class="col-sm-4">
                             <div class="row form-group">
                                 <div class="col-sm-4">
-                                    <label>Degree</label>
+                                    <label>Degree <span style="color: red">*</span></label>
                                 </div>
                                 <div class="col-sm-8">
                                     @Html.TextBoxFor(m => m.Degree, new { @class = "form-control", @placeholder = "Degree" })
@@ -183,7 +183,7 @@
                         <div class="col-sm-4">
                             <div class="row form-group">
                                 <div class="col-sm-4">
-                                    <label>Discipline</label>
+                                    <label>Discipline <span style="color: red">*</span></label>
                                 </div>
                                 <div class="col-sm-8">
                                     @Html.TextBoxFor(m => m.Discipline, new { @class = "form-control", @placeholder = "Discipline" })
@@ -194,7 +194,7 @@
                         <div class="col-sm-4">
                             <div class="row form-group">
                                 <div class="col-sm-4">
-                                    <label>Semester</label>
+                                    <label>Semester <span style="color: red">*</span></label>
                                 </div>
                                 <div class="col-sm-8">
                                     @Html.TextBoxFor(m => m.Semester, new { @class = "form-control", @placeholder = "Semester" })
@@ -205,7 +205,7 @@
                         <div class="col-sm-4">
                             <div class="row form-group">
                                 <div class="col-sm-4">
-                                    <label>CGPA</label>
+                                    <label>CGPA <span style="color: red">*</span></label>
                                 </div>
                                 <div class="col-sm-8">
                                     @Html.TextBoxFor(m => m.CGPA, new { @class = "form-control", @placeholder = "CGPA" })
@@ -216,7 +216,7 @@
                         <div class="col-sm-4">
                             <div class="row form-group">
                                 <div class="col-sm-4">
-                                    <label>Registration No.</label>
+                                    <label>Registration No. <span style="color: red">*</span></label>
                                 </div>
                                 <div class="col-sm-8">
                                     @Html.TextBoxFor(m => m.RegistrationNo, new { @class = "form-control", @placeholder = "Registration No." })
@@ -227,7 +227,7 @@
                         <div class="col-sm-4">
                             <div class="row form-group">
                                 <div class="col-sm-4">
-                                    <label>Roll No.</label>
+                                    <label>Roll No. <span style="color: red">*</span></label>
                                 </div>
                                 <div class="col-sm-8">
                                     @Html.TextBoxFor(m => m.RollNo, new { @class = "form-control", @placeholder = "Roll No", @onkeypress = "return isNumberKey(event);" })
@@ -238,7 +238,7 @@
                         <div class="col-sm-6">
                             <div class="row">
                                 <div class="col-sm-2">
-                                    <label>University</label>
+                                    <label>University <span style="color: red">*</span></label>
                                 </div>
                                 <div class="col-sm-10">
                                     @Html.TextBoxFor(m => m.UniverSity, new { @class = "form-control", @placeholder = "UniverSity", @onkeypress = "return onlyAlphabets();" })
@@ -249,7 +249,7 @@
                         <div class="col-sm-6">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <label>Final Year Project (if any)</label>
+                                    <label>Final Year Project (if any) <span style="color: red">*</span></label>
                                 </div>
                                 <div class="col-sm-9">
                                     @Html.TextBoxFor(m => m.FinalYearProject, new { @class = "form-control", @placeholder = "Final Year Project (if any)" })
@@ -266,12 +266,12 @@
                                 <table class="table  table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>Degree/Certificate</th>
-                                            <th>Passing Year</th>
-                                            <th>Marked Obtained/Total Marks & GPA</th>
-                                            <th>Division/Grade</th>
-                                            <th>Institute/Board</th>
-                                            <th>Action</th>
+                                            <th>Degree/Certificate <span style="color: red">*</span></th>
+                                            <th>Passing Year <span style="color: red">*</span></th>
+                                            <th>Marked Obtained/Total Marks & GPA <span style="color: red">*</span></th>
+                                            <th>Division/Grade <span style="color: red">*</span></th>
+                                            <th>Institute/Board <span style="color: red">*</span></th>
+                                            <th>Action </th>
                                         </tr>
                                     </thead>
                                     <tbody  id="TextBoxContainer">
@@ -300,10 +300,10 @@
                             <table class="table table-striped table-bordered display">
                                 <thead>
                                     <tr>
-                                        <th>Name of Father/Mother</th>
-                                        <th>Designation</th>
-                                        <th>PI. No</th>
-                                        <th>Fy/Grp/Dept</th>
+                                        <th>Name of Father/Mother <span style="color: red">*</span></th>
+                                        <th>Designation <span style="color: red">*</span></th>
+                                        <th>PI. No <span style="color: red">*</span></th>
+                                        <th>Fy/Grp/Dept <span style="color: red">*</span></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -322,7 +322,7 @@
                                 <div class="col-sm-4">
                                     <div class="row">
                                         <div class="col-sm-2">
-                                            <label>From</label>
+                                            <label>From <span style="color: red">*</span></label>
                                         </div>
                                         <div class="col-sm-10">
                                             @Html.TextBoxFor(m => m.ProPoSedInternShipFromDate, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @autocomplete = "off" })
@@ -333,7 +333,7 @@
                                 <div class="col-sm-4">
                                     <div class="row">
                                         <div class="col-sm-2">
-                                            <label>To</label>
+                                            <label>To <span style="color: red">*</span></label>
                                         </div>
                                         <div class="col-sm-10">
                                             @Html.TextBoxFor(m => m.ProPoSedInternShipToDate, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @autocomplete = "off" })
@@ -345,7 +345,7 @@
                                 <div class="col-sm-4">
                                     <div class="row form-group">
                                         <div class="col-sm-2">
-                                            <label>Date</label>
+                                            <label>Date <span style="color: red">*</span></label>
                                         </div>
                                         <div class="col-sm-10">
                                             @Html.TextBoxFor(m => m.Date, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @autocomplete = "off" })
@@ -353,11 +353,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-
                             </div>
                         </div>
                     </div>
