@@ -1335,6 +1335,8 @@
     <Content Include="Views\Home\Maintenance.cshtml" />
     <Content Include="Views\Admin\Certificate.cshtml" />
     <Content Include="Views\Admin\InternShipApplication.cshtml" />
+    <Content Include="Views\Admin\InternShipApplicationList.cshtml" />
+    <Content Include="Views\Admin\AcademicList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1347,6 +1349,7 @@
     <Folder Include="FileUploadInvoice\" />
     <Folder Include="FileUpload\" />
     <Folder Include="ProjectImage\" />
+    <Folder Include="StudentFileUpload\" />
     <Folder Include="VendorFileUpload\" />
     <Folder Include="VendorImage\" />
     <Folder Include="Views\AdminBase\" />

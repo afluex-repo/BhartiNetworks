@@ -141,9 +141,12 @@ namespace BhartiNetwork.Models
         public string Division { get; set; }
         public string Board { get; set; }
         public string Certificate { get; set; }
+        public string InterShipId { get; set; }
+        public string AcademicId { get; set; }
+        public List<Admin> lstInterShip { get; set; }
+        public List<Admin> lstAccadamic { get; set; }
+        public string PostedFile { get; set; }
         
-
-
 
         public DataSet SaveProject()
         {
@@ -599,7 +602,7 @@ namespace BhartiNetwork.Models
             return ds;
         }
 
-     
+
         public DataSet SaveInternShip()
         {
             SqlParameter[] para ={
@@ -630,6 +633,7 @@ namespace BhartiNetwork.Models
                          new SqlParameter("@ProPoSedInternShipFromDate", ProPoSedInternShipFromDate),
                          new SqlParameter("@ProPoSedInternShipToDate",ProPoSedInternShipToDate),
                          new SqlParameter("@Date",Date),
+                          new SqlParameter("@FileUpload",PostedFile),
                          new SqlParameter("@AddedBy",AddedBy),
                          new SqlParameter("@DtAcademicDetails",DtAcademicDetails)
                                  };
@@ -637,6 +641,36 @@ namespace BhartiNetwork.Models
             return ds;
         }
 
+        public DataSet GetInternShipList()
+        {
 
+            SqlParameter[] para ={
+                new SqlParameter ("@Name",Name),
+                     new SqlParameter ("@RollNo",RollNo)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("GetInternShipList", para);
+            return ds;
+        }
+
+
+        public DataSet GetAcademicDetails()
+        {
+            SqlParameter[] para ={
+                new SqlParameter ("@FK_InterShipId",InterShipId)
+                                 };
+
+            DataSet ds = Connection.ExecuteQuery("GetAcademicDetails", para);
+            return ds;
+        }
+
+        public DataSet PrintCertificate()
+        {
+            SqlParameter[] para ={
+                new SqlParameter ("@InterShipId",InterShipId)
+                                 };
+
+            DataSet ds = Connection.ExecuteQuery("PrintCertificate", para);
+            return ds;
+        }
     }
 }

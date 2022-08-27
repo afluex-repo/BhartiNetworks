@@ -1,0 +1,142 @@
+﻿@model BhartiNetwork.Models.Admin
+
+@{
+    ViewBag.Title = "InternShipApplicationList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm("InternShipApplicationList", "Admin", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+{   <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+
+                    <h4 class="card-title">InternShip Application List</h4>
+                    <p style="color:red;">
+                        @*@TempData["PO"]*@
+                    </p>
+                    <div class="row" style="padding-bottom:20px;">
+                        <div class="col-sm-10">
+                        </div>
+                        <div class="col-sm-2">
+                        </div>
+                    </div>
+
+
+                    <div class="row" style="margin-bottom:20px;">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="exampleInputName1"> Name</label>
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = " Name" })
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="exampleInputName1"> RollNo</label>
+                                @Html.TextBoxFor(m => m.RollNo, new { @class = "form-control", @placeholder = " Roll No" })
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="submit" value="Search" class="btn btn-success" style="margin-top:25px;" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+
+                            <div class="table-responsive">
+                                <table id="file_export" class="table table-striped table-bordered display">
+                                    <thead>
+                                        <tr>
+                                            <th>S No.</th>
+                                            <th>Name</th>
+                                            <th>Father</th>
+                                            <th>DOB</th>
+                                            <th>Postal Address</th>
+                                            <th>Permanent Address</th>
+                                            <th>Domicile</th>
+                                            <th>CellNo</th>
+                                            <th>Mobile</th>
+                                            <th>Gender</th>
+                                            <th>Religion</th>
+                                            <th>Email</th>
+                                            <th>Degree</th>
+                                            <th>Discipline</th>
+                                            <th>Semester</th>
+                                            <th>CGPA</th>
+                                            <th>Registration No</th>
+                                            <th>RollNo</th>
+                                            <th>UniverSity</th>
+                                            <th>Final Year Project</th>
+                                            <th>Father/Mother</th>
+                                            <th>Designation</th>
+                                            <th>PINO</th>
+                                            <th>FYGRPDEPT</th>
+                                            <th>FromDate</th>
+                                            <th>ToDate</th>
+                                            <th>Date</th>
+                                            <th>Image</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (Model != null)
+                                        {
+                                            if (Model.lstInterShip != null)
+                                            {
+                                                int i = 1;
+                                                foreach (var item in Model.lstInterShip)
+                                                {
+                                                    <tr>
+                                                        <td>@i</td>
+                                                        <td>@item.Name</td>
+                                                        <td>@item.Father</td>
+                                                        <td>@item.DOB</td>
+                                                        <td>@item.PostalAddress</td>
+                                                        <td>@item.PermanentAddress</td>
+                                                        <td>@item.Domicile</td>
+                                                        <td>@item.CellNo</td>
+                                                        <td>@item.Mobile</td>
+                                                        <td>@item.Gender</td>
+                                                        <td>@item.Religion</td>
+                                                        <td>@item.Email</td>
+                                                        <td>@item.Degree</td>
+                                                        <td>@item.Discipline</td>
+                                                        <td>@item.Semester</td>
+                                                        <td>@item.CGPA</td>
+                                                        <td>@item.RegistrationNo</td>
+                                                        <td>@item.RollNo</td>
+                                                        <td>@item.UniverSity</td>
+                                                        <td>@item.FinalYearProject</td>
+                                                        <td>@item.FatherMother</td>
+                                                        <td>@item.Designation</td>
+                                                        <td>@item.PINO</td>
+                                                        <td>@item.FYGRPDEPT</td>
+                                                        <td>@item.FromDate</td>
+                                                        <td>@item.ToDate</td>
+                                                        <td>@item.Date</td>
+                                                        <td><img src="@item.PostedFile" height="80" /></td>
+                                                        <td><a href="/Admin/AcademicList?InterShipId=@item.InterShipId" class="btn btn-info btn-sm">View Academic Details</a>
+                                                        <a href="/Admin/Certificate?InterShipId=@item.InterShipId" class="btn btn-success btn-sm">Print</a>
+                                                        </td>
+
+
+                                                    </tr>
+                                                    i++;
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+
