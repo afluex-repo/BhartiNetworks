@@ -15,154 +15,145 @@
                 <div class="card-body">
                     @*<h4 class="card-title">Transaction History</h4>*@
                     @*<canvas id="transaction-history" class="transaction-chart"></canvas>*@
-                    <img src="~/assets/img/icon.png" class="img-fluid" style="width:200px;height:320px; border-radius:80%" />
+                    @*<img src="@ViewBag.Image" class="img-fluid" style="width:200px;height:200px; border-radius:80%" />*@
+
+                    @if (ViewBag.image == null || ViewBag.image == "")
+                    {
+                        <img src="~/assets/img/icon.png" class="img-fluid" style="width:200px;height:200px; border-radius:80%" />
+                    }
+                    else
+                    {
+                        <img src="@ViewBag.Image" class="img-fluid" style="width:200px;height:200px; border-radius:80%" />
+                    }
+
 
                     @*<div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                        <div class="text-md-center text-xl-left">
-                            <h6 class="mb-1">Transfer to Paypal</h6>
-                            <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
-                        </div>
-                        <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                            <h6 class="font-weight-bold mb-0">$236</h6>
-                        </div>
-                    </div>*@
+                            <div class="text-md-center text-xl-left">
+                                <h6 class="mb-1">Transfer to Paypal</h6>
+                                <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
+                            </div>
+                            <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                                <h6 class="font-weight-bold mb-0">$236</h6>
+                            </div>
+                        </div>*@
                     @*<div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                        <div class="text-md-center text-xl-left">
-                            <h6 class="mb-1">Tranfer to Stripe</h6>
-                            <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
-                        </div>
-                        <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                            <h6 class="font-weight-bold mb-0">$593</h6>
-                        </div>
-                    </div>*@
+                            <div class="text-md-center text-xl-left">
+                                <h6 class="mb-1">Tranfer to Stripe</h6>
+                                <p class="text-muted mb-0">07 Jan 2019, 09:12AM</p>
+                            </div>
+                            <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                                <h6 class="font-weight-bold mb-0">$593</h6>
+                            </div>
+                        </div>*@
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+
         <div class="col-md-9 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <div class="d-flex flex-row justify-content-between">
-                        @*<h4 class="card-title mb-1">Open Projects</h4>
-                        <p class="text-muted mb-1">Your data status</p>*@
-                    </div>
+
                     <div class="row">
-                        <div class="col-12">
-                            <div class="preview-list">
-                                <div class="preview-item border-bottom">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-primary">
-                                            <i class="mdi mdi-file-document"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content d-sm-flex flex-grow">
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">Login Id  :  @ViewBag.LoginId</h6>
-                                            @*<p class="text-muted mb-0">Broadcast web app mockup</p>*@
-                                        </div>
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">Circle  :  @ViewBag.Circle</h6>
-                                            @*<p class="text-muted mb-0">Broadcast web app mockup</p>*@
-                                        </div>
-                                        <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                            @*<p class="text-muted">15 minutes ago</p>
-                                            <p class="text-muted mb-0">30 tasks, 5 issues </p>*@
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="preview-item border-bottom">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-success">
-                                            <i class="mdi mdi-cloud-download"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content d-sm-flex flex-grow">
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">Name : @ViewBag.Name</h6>
-                                            @*<p class="text-muted mb-0">Upload new design</p>*@
-                                        </div>
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">Email : @ViewBag.Email</h6>
-                                            @*<p class="text-muted mb-0">Upload new design</p>*@
-                                        </div>
-                                        <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                            @*<p class="text-muted">1 hour ago</p>
-                                            <p class="text-muted mb-0">23 tasks, 5 issues </p>*@
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="preview-item border-bottom">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-info">
-                                            <i class="mdi mdi-clock"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content d-sm-flex flex-grow">
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">Mobile : @ViewBag.Mobile</h6>
-                                            @*<p class="text-muted mb-0">New project discussion</p>*@
-                                        </div>
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">Address : @ViewBag.Address</h6>
-                                            @*<p class="text-muted mb-0">New project discussion</p>*@
-                                        </div>
-                                        <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                            @*<p class="text-muted">35 minutes ago</p>
-                                            <p class="text-muted mb-0">15 tasks, 2 issues</p>*@
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="preview-item border-bottom">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-danger">
-                                            <i class="mdi mdi-email-open"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content d-sm-flex flex-grow">
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">Pan Number : @ViewBag.PanNo</h6>
-                                            @*<p class="text-muted mb-0">Sent release details to team</p>*@
-                                        </div>
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">Mode Of Work : @ViewBag.Designation</h6>
-                                            @*<p class="text-muted mb-0">Sent release details to team</p>*@
-                                        </div>
-                                        @*<div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                            <p class="text-muted">55 minutes ago</p>
-                                            <p class="text-muted mb-0">35 tasks, 7 issues </p>
-                                        </div>*@
-                                    </div>
-                                </div>
-                                <div class="preview-item">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-warning">
-                                            <i class="mdi mdi-chart-pie"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content d-sm-flex flex-grow">
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">OrganizationName : @ViewBag.OrganizationName</h6>
-                                            @*<p class="text-muted mb-0">New application planning</p>*@
-                                        </div>
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">OrganizationType : @ViewBag.OrganizationType</h6>
-                                            @*<p class="text-muted mb-0">New application planning</p>*@
-                                        </div>
-                                        <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                            @*<p class="text-muted">50 minutes ago</p>
-                                            <p class="text-muted mb-0">27 tasks, 4 issues </p>*@
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-warning">
+                                <i class="mdi mdi-chart-pie"></i>
                             </div>
                         </div>
+                        <div class="col-md-5">
+                            <p class="preview-subject"><strong style="color:#0094ff">LoginId Id  : </strong>  @ViewBag.LoginId</p>
+                        </div>
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-warning">
+                                <i class="mdi mdi-chart-pie"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="preview-subject"><strong style="color:#0094ff">OrganizationName : </strong>  @ViewBag.OrganizationName</p>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-warning">
+                                <i class="mdi mdi-chart-pie"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <p class="preview-subject"><strong style="color:#0094ff">OrganizationType : </strong>  @ViewBag.OrganizationType</p>
+                        </div>
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-warning">
+                                <i class="mdi mdi-chart-pie"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <p style="margin-right:210px;" class="preview-subject"><strong style="color:#0094ff"> Mobile : </strong> @ViewBag.Mobile</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-warning">
+                                <i class="mdi mdi-chart-pie"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <p class="preview-subject"><strong style="color:#0094ff"> Email : </strong> @ViewBag.Email</p>
+                        </div>
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-warning">
+                                <i class="mdi mdi-chart-pie"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="preview-subject"><strong style="color:#0094ff">Designation : </strong>  @ViewBag.Designation</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-warning">
+                                <i class="mdi mdi-chart-pie"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <p class="preview-subject"><strong style="color:#0094ff">Bank Name : </strong>  @ViewBag.Name</p>
+                        </div>
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-warning">
+                                <i class="mdi mdi-chart-pie"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <p style="margin-right:240px;" class="preview-subject"><strong style="color:#0094ff">Circle  : </strong>   @ViewBag.Circle</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-warning">
+                                <i class="mdi mdi-chart-pie"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <p class="preview-subject"><strong style="color:#0094ff"> Pan Number :  </strong> @ViewBag.PanNo</p>
+                        </div>
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-warning">
+                                <i class="mdi mdi-chart-pie"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="preview-subject"><strong style="color:#0094ff">Address : </strong>  @ViewBag.Address</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
-
-
-
 }
 
 

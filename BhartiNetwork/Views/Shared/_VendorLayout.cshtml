@@ -41,7 +41,7 @@
                                 <span class="count bg-success"></span>
                             </div>
                             <div class="profile-name">
-                                <h5 class="mb-0 font-weight-normal">@Session["Name"]</h5>
+                                <h6 class="mb-0 font-weight-normal" style="font-size:11px;">@Session["OrganizationName"]</h6>
                                 @*<span>Gold Member</span>*@
                             </div>
                         </div>
@@ -335,7 +335,8 @@
                             <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                                 <div class="navbar-profile">
                                     <img class="img-xs rounded-circle" src="../AdminCss/assets/images/user.png" alt="">
-                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">@Session["Name"]</p>
+                                    <p class="mb-0 d-none d-sm-block navbar-profile-name" style="font-size:11px;">@Session["OrganizationName"]</p>
+                                   
                                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                                 </div>
                             </a>

@@ -30,9 +30,10 @@ namespace BhartiNetwork.Controllers
             //    ViewBag.Password = ds.Tables[0].Rows[0]["Password"].ToString(); 
             //}
             //return View(model);
-
+            
             Vendor model = new Vendor();
-            model.VendorId = Session["PK_VendorId"].ToString();
+            model.LoginId = Session["LoginId"].ToString();
+            //model.VendorId = Session["PK_VendorId"].ToString();
             DataSet ds = model.GetVendorDetails();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
@@ -47,6 +48,7 @@ namespace BhartiNetwork.Controllers
                 ViewBag.Designation = ds.Tables[0].Rows[0]["Designation"].ToString();
                 ViewBag.OrganizationName = ds.Tables[0].Rows[0]["OrganizationName"].ToString();
                 ViewBag.OrganizationType = ds.Tables[0].Rows[0]["OrganisationType"].ToString();
+                ViewBag.Image = ds.Tables[0].Rows[0]["VendorPic"].ToString();
             }
             return View(model);
 
@@ -58,7 +60,8 @@ namespace BhartiNetwork.Controllers
         {
 
             Vendor model = new Vendor();
-            model.VendorId = Session["PK_VendorId"].ToString();
+            //model.VendorId = Session["PK_VendorId"].ToString();
+            model.LoginId = Session["LoginId"].ToString();
             DataSet ds = model.GetVendorDetails();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
@@ -73,6 +76,7 @@ namespace BhartiNetwork.Controllers
                 ViewBag.Designation = ds.Tables[0].Rows[0]["Designation"].ToString();
                 ViewBag.OrganizationName = ds.Tables[0].Rows[0]["OrganizationName"].ToString();
                 ViewBag.OrganizationType = ds.Tables[0].Rows[0]["OrganisationType"].ToString();
+                ViewBag.Image = ds.Tables[0].Rows[0]["VendorPic"].ToString();
             }
             return View(model);
         }
@@ -80,25 +84,57 @@ namespace BhartiNetwork.Controllers
 
         public ActionResult PurcheseOrder()
         {
-            Vendor model = new Vendor();
-            List<Vendor> lstVendorPOList = new List<Vendor>();
-            model.LoginId = Session["LoginId"].ToString();
-            DataSet ds = model.GetVendorPODetails();
+            //Vendor model = new Vendor();
+            //List<Vendor> lstPo = new List<Vendor>();
+            //model.PK_PoId = model.PK_PoId == "0" ? null : model.PK_PoId;
+            //model.PONumber = model.PONumber == "0" ? null : model.PONumber;
+            //model.FromDate = string.IsNullOrEmpty(model.FromDate) ? null : Comman.ConvertToSystemDate(model.FromDate, "dd/MM/yyyy");
+            //model.ToDate = string.IsNullOrEmpty(model.ToDate) ? null : Comman.ConvertToSystemDate(model.ToDate, "dd/MM/yyyy");
+            //DataSet ds = model.PoList();
+            //if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            //{
+            //    foreach (DataRow dr in ds.Tables[0].Rows)
+            //    {
+            //        Vendor obj = new Vendor();
+            //        obj.PK_PoId = dr["PK_PoId"].ToString();
+            //        obj.PONumber = dr["Po_Number"].ToString();
+            //        obj.AddedOn = dr["AddedOn"].ToString();
+            //        lstPo.Add(obj);
+            //    }
+            //    model.lstPo = lstPo;
+            //}
+            return View();
+        }
+
+
+        [HttpPost]
+        [ActionName("PurcheseOrder")]
+        public ActionResult PurcheseOrder(Vendor model)
+        {
+            List<Vendor> lstPo = new List<Vendor>();
+            model.PK_PoId = model.PK_PoId == "0" ? null : model.PK_PoId;
+            model.PONumber = model.PONumber == "0" ? null : model.PONumber;
+            model.FromDate = string.IsNullOrEmpty(model.FromDate) ? null : Comman.ConvertToSystemDate(model.FromDate, "dd/MM/yyyy");
+            model.ToDate = string.IsNullOrEmpty(model.ToDate) ? null : Comman.ConvertToSystemDate(model.ToDate, "dd/MM/yyyy");
+            model.VendorId = Session["PK_VendorId"].ToString();
+            DataSet ds = model.PoList();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
                     Vendor obj = new Vendor();
-                    obj.LoginId = dr["LoginId"].ToString();
-                    obj.VendorId = dr["PONo"].ToString();
-                    obj.file = dr["UploadFile"].ToString();
-                    obj.Date = dr["PODate"].ToString();
-                    lstVendorPOList.Add(obj);
+                    obj.PK_PoId = dr["PK_PoId"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    obj.PONumber = dr["Po_Number"].ToString();
+                    obj.file = dr["PoFile"].ToString();
+                    obj.AddedOn = dr["AddedOn"].ToString();
+                    lstPo.Add(obj);
                 }
-                model.lstVendorPOList = lstVendorPOList;
+                model.lstPo = lstPo;
             }
             return View(model);
         }
+        
 
         public ActionResult Invoice()
         {
@@ -107,12 +143,12 @@ namespace BhartiNetwork.Controllers
             DataSet ds = model.SelectInvoce();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                    Vendor obj = new Vendor();
-                    ViewBag.Status = ds.Tables[0].Rows[0]["Status"].ToString();
+                Vendor obj = new Vendor();
+                ViewBag.Status = ds.Tables[0].Rows[0]["Status"].ToString();
                 ViewBag.PaymentStatus = ds.Tables[0].Rows[0]["PaymentStatus"].ToString();
                 ViewBag.ExpectedPaymentDate = ds.Tables[0].Rows[0]["ExpectedPaymentDate"].ToString();
             }
-            
+
             List<Vendor> Invoicelst = new List<Vendor>();
             model.LoginId = Session["LoginId"].ToString();
             DataSet ds1 = model.SelectInvoiceDetails();
@@ -122,6 +158,7 @@ namespace BhartiNetwork.Controllers
                 {
                     Vendor obj = new Vendor();
                     obj.InvoiceId = dr["PK_InvoiceId"].ToString();
+                    obj.InvoiceNo = dr["InvoiceNo"].ToString();
                     obj.Image = dr["ImageFile"].ToString();
                     obj.Status = dr["Status"].ToString();
                     obj.PaymentStatus = dr["PaymentStatus"].ToString();
@@ -151,7 +188,7 @@ namespace BhartiNetwork.Controllers
             }
             ViewBag.ddlPONumber = ddlPONumber;
             return View(model);
-            
+
             //List<SelectListItem> ddlStatus = Status();
             //ViewBag.ddlStatus = ddlStatus;
 
@@ -160,7 +197,7 @@ namespace BhartiNetwork.Controllers
 
             //List<SelectListItem> ddlExpectedPaymentDate = ExpectedPaymentDate();
             //ViewBag.ddlExpectedPaymentDate = ddlExpectedPaymentDate;
-        
+
         }
 
         [HttpPost]
@@ -169,24 +206,24 @@ namespace BhartiNetwork.Controllers
         {
             try
             {
-                    if (postedFile != null)
+                if (postedFile != null)
+                {
+                    model.Image = "../FileUploadInvoice/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
+                    postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
+                }
+                //obj.DDChequeDate = string.IsNullOrEmpty(obj.DDChequeDate) ? null : Common.ConvertToSystemDate(obj.DDChequeDate, "dd/MM/yyyy");
+                model.AddedBy = Session["PK_VendorId"].ToString();
+                DataSet ds = model.SaveInvoice();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
                     {
-                        model.Image = "../FileUploadInvoice/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
-                        postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
+                        TempData["Invoice"] = "Invoice save successfully";
                     }
-                    //obj.DDChequeDate = string.IsNullOrEmpty(obj.DDChequeDate) ? null : Common.ConvertToSystemDate(obj.DDChequeDate, "dd/MM/yyyy");
-                    model.AddedBy = Session["PK_VendorId"].ToString();
-                    DataSet ds = model.SaveInvoice();
-                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
                     {
-                        if (ds.Tables[0].Rows[0][0].ToString() == "1")
-                        {
-                            TempData["Invoice"] = "Invoice save successfully";
-                        }
-                        else if (ds.Tables[0].Rows[0][0].ToString() == "0")
-                        {
-                            TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-                        }
+                        TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
                     //List<SelectListItem> ddlStatus = Status();
                     //ViewBag.ddlStatus = ddlStatus;
 
@@ -196,11 +233,11 @@ namespace BhartiNetwork.Controllers
                     //List<SelectListItem> ddlExpectedPaymentDate = ExpectedPaymentDate();
                     //ViewBag.ddlExpectedPaymentDate = ddlExpectedPaymentDate;
                 }
-                    else
-                    {
-                        TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
-                    }
+                else
+                {
+                    TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
                 }
+            }
             catch (Exception ex)
             {
                 TempData["Invoice"] = ex.Message;
@@ -234,6 +271,70 @@ namespace BhartiNetwork.Controllers
         //}
 
 
+
+        public ActionResult VendorDeleteInvoice(string Id)
+        {
+            Vendor model = new Vendor();
+            try
+            {
+                model.InvoiceId = Id;
+                model.AddedBy = Session["PK_VendorId"].ToString();
+                DataSet ds = model.DeleteInvoice();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Invoice"] = "Invoice delete successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Invoice"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Invoice"] = ex.Message;
+            }
+            return RedirectToAction("Invoice", "Vendor");
+        }
+
+        //public ActionResult DeletePO(string Id)
+        //{
+        //    Vendor model = new Vendor();
+        //    try
+        //    {
+        //        model.VendorId = Id;
+        //        model.AddedBy = Session["PK_VendorId"].ToString();
+        //        DataSet ds = model.DeletePo();
+        //        if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+        //        {
+        //            if (ds.Tables[0].Rows[0][0].ToString() == "1")
+        //            {
+        //                TempData["Vendor"] = "Po delete successfully";
+        //            }
+        //            else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+        //            {
+        //                TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            TempData["Vendor"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        TempData["Invoice"] = ex.Message;
+        //    }
+        //    return RedirectToAction("PurcheseOrder", "Vendor");
+        //}
 
     }
 }

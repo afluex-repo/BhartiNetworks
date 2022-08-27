@@ -1,0 +1,303 @@
+﻿@model BhartiNetwork.Models.Admin
+
+@{
+    ViewBag.Title = "PrintPurchaseOrderForm";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div id="print-area-2" class="print-area">
+    <div class="mx-3 my-5">
+        @using (Html.BeginForm("PrintPurchaseOrderForm", "Admin", FormMethod.Post, new { @id = "form1", enctype = "multipart/form-data" }))
+            {
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <img src="~/assets/img/logo.png" style="max-width: 60%;" alt="" class="img-fluid" />
+                    </div>
+                    <div class="col-sm-7 mx-auto">
+                        <a class="btn btn-sm btn-primary pull-right no-print" href="javascript:printDiv('print-area-2');">Print</a>
+
+                        @*<button class="btn btn-info mx-auto" id="printpagebutton" onclick="printpage()">Print</button>*@
+                    </div>
+                    <div class="col-sm-3">
+                        <label>Page No:1 of 3</label><br />
+                        <label>PO No:	 4500487</label><br />
+                        <label>PO Date:     17-Nov-21</label><br />
+                        <label>Buyer:	 Bharti Networks</label><br />
+                        <label>Rev:	 00</label><br />
+                        <label>Rev Date :</label>
+                    </div>
+                    <div>
+                        <h3>Purchase Order</h3>
+                        <p>Please enter  our order for the following subject to the Terms and Conditions attached below and incorporated as an integral part of this order</p>
+                    </div>
+                </div>
+                <hr style="background-color:white" />
+                <div class="row">
+                    <div class="col-sm-2">
+                        To
+                    </div>
+                    <div class="col-sm-7">
+                        @*Address of Vendor*@
+                        <label>@ViewBag.Address</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>IMPORTANT</label>
+                        <p>
+                            1.Your confirmation and  acceptance of our order  by return  email is to reach us within 3 working days from receipt of this order,  failing which it will be deemed, that you are  in acceptance of all terms
+                            and  conditions mentioned in this Purchase Order<br />
+                            2.Show  our order  number on all invoices and  packing sheets
+                        </p>
+                    </div>
+                </div>
+                <hr style="background-color:white" />
+                <div class="row">
+                    <div class="col-sm-3">
+                        @*<label>Destination <br />@ViewBag.Destination</label>*@
+                        <label>Destination</label><br />
+                        <p>
+                            RELIANCE PROJECTS & PROPERTY MANAGEMENT SERVICES LIMITED
+                            6- 3- 1090 / B, 4
+                            LAKE SHORE  TOWERS RAJBHAVAN ROAD, SOMAJIGUDA
+                            500082  HYDERABAD India
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label>Transportation </label><br />
+                        <p></p>
+                    </div>
+                    <div class="col-sm-1">
+                        <label>Currency</label><br />
+                        <p>INR</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label>Trade Terms</label><br />
+                        <p>NS AT Site</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label style="font-size:30px;"> Payment </label> <label> Terms</label><br />
+                        <p>T/T 60 Days After Invoice</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label>For Office Use Only</label><br />
+                        <p>CNS</p>
+                    </div>
+                </div>
+                <br />
+                <hr style="background-color:white" />
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Item</th>
+                            <th>Part No.</th>
+                            <th>Description</th>
+                            <th>HSN/SAC  No.</th>
+                            <th>CGST/SGST/UGST Rate</th>
+                            <th>IGST Rate</th>
+                            <th>Unit</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Taxable Total</th>
+                            <th>GST Value</th>
+                            <th>Total  Value</th>
+                            <th>Delivery Date</th>
+                            <th>REMARKS</th>
+                        </tr>
+                        <tr>
+                            <td>@ViewBag.Item</td>
+                            <td>@ViewBag.PartNo</td>
+                            <td>@ViewBag.Description</td>
+                            <td>@ViewBag.HSNSACNo</td>
+                            <td>@ViewBag.CGSTRate/@ViewBag.SGSTRate</td>
+                            <td>@ViewBag.IGSTRate</td>
+                            <td>@ViewBag.Unit</td>
+                            <td>@ViewBag.Quantity</td>
+                            <td>@ViewBag.UnitPrice</td>
+                            <td>@ViewBag.TaxableTotal</td>
+                            <td>@ViewBag.GSTValue</td>
+                            <td>@ViewBag.TotalValue </td>
+                            <td>@ViewBag.DeliveryDate</td>
+                            <td>PO Validity 90 days</td>
+                            @*<td>@ViewBag.Remark</td>*@
+                        </tr>
+                    </table>
+                </div>
+                <hr style="background-color:white" />
+                <br />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p><b>Note:</b> This is a Computer Generated Purchase Order.  No Signature is required. Acceptance of this Purchase Order,  constitutes your agreement to our paperless transaction and your support to Bharti Networks Environment  Management effort.</p>
+                    </div>
+                </div>
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <h4>
+                            GENERAL TERMS AND CONDITIONS OF THE PURCHASE ORDER TERMS:
+                        </h4>
+                        <p>
+
+                            The terms and conditions of this Purchase Order, including those on the face hereof and those set forth below and in the Supplemental Terms and Conditions attached hereto, if any, represent the entire agreement between Seller and Buyer. Acceptance is limited to the
+                            terms and  conditions of this Purchase Order,  and  no purported revisions of, additions to, or deletions from this Purchase Order  shall  be  effective, whether  in Seller's proposal, invoice, acknowledgment or otherwise, and  no local, general  or trade  custom or usage, shall  be
+                            deemed to effect any variation herein unless expressly agreed to in writing by Buyer's authorized representative. The delivery of any goods or the furnishing of any services pursuant to this Purchase Order shall constitute acceptance by Seller of this Purchase Order subject to,
+                            and  in strict accordance with, all of its terms and  conditions. To the  extent  that  terms appearing on the  face of this Purchase Order  are  inconsistent with those set forth herein, the terms on the  face shall  govern.  Any reference on the face of this Purchase Order  to Seller's
+                            proposal shall be exclusive of any terms and conditions attached to or referred to therein.
+                            SCOPE AND SPECIFICATIONS: All goods and  services furnished pursuant to this Purchase Order  shall strictly conform to the specifications, descriptions and  warranties set forth in this Purchase Order.  No change in this Purchase Order  shall be made except upon  written
+                            application to, and subsequent written authority of, Buyer.
+                            PRICES AND TAXES: This is a firm price order and is as per the price set forth in the Purchase order.  No change in this Price shall be made except upon written application to, and subsequent written authority of, Buyer. Unit Prices are exclusive of GST.
+                            PAYMENT TERMS:  As per agreed payment terms. For claiming this payment the following document is to be submitted to BHARTI NETWORKS office reflected in the Purchase Order:  Three  Copies of Signed Commercial Invoices, Original Proof of delivery, Three  set of Packing List, One
+                            Copy of Shipment Document,as may be applicable.
+                            TIME AND PLACE  OF DELIVERY; BUYER'S INSPECTION; ACCEPTANCE: Time is of the essence of this Purchase Order.  Delivery will be made as specified on the Instruction at the time when  goods are  ready  for dispatch. Buyer reserves the right to reject goods and  to
+                            cancel all or any portion of this Purchase Order in the event  of failure to deliver at the time and place specified. Buyer's acceptance of any part of a shipment will happen only when the goods are delivered as per instruction and the same are accepted by the receiver and buyer's
+                            acceptance of any part of a shipment not delivered as specified herein shall not obligate Buyer to accept the remainder of that shipment or any future shipments. If Seller is required to provide Material Safety Data  Sheets, they will be delivered to Buyer prior to delivery of any
+                            goods under  this Purchase Order.  All goods shall be  received subject to Buyer's inspection and  acceptance, and  subject to Buyer's right to reject and  return  at Seller's expense goods which fail  to conform strictly to the  requirements of this Purchase Order.  All materials are
+                            subject to inspection and testing by Buyer at manufacturer's plant.
+                            LIQUIDATED DAMAGES: Liquidated damages will be charged at the following rates for the delayed portion from the scheduled shipment date  with a 2% per week up to a maximum of 16% on the value of materials of the delayed Portion:
+                            EXTENSION OF TIME OF DELIVERY: Buyer shall not be liable to Seller for any failure of Buyer to take any delivery hereunder when due,  if occasioned by any event  beyond Buyer's reasonable control, including without limitation fire, flood, earthquake, lightning or other acts of
+                            God; acts of, or compliance with the directions of, civil or military authority, including any federal, state or local agency or authority; wars; riots; insurrections; sabotage; accident; embargo; strike or other labor trouble; interruption of or delay in transportation; shortage or failure of
+                            supply of materials; or equipment breakdown. At Buyer's option, the time for delivery hereunder shall be extended to the extent  of the delay occasioned by any such circumstance and the deliveries so omitted shall be made during the period of such extension.
+                            RISK OF LOSS: Risk of loss of any goods sold hereunder shall transfer to Buyer at the time and place of delivery; provided that risk of loss prior to actual receipt of the goods by Buyer shall nonetheless remain with Seller.
+                            SHIPMENT: Goods must be shipped by the particular route,  method and  carrier as stated in this Purchase Order.  In the event  that Seller fails to ship goods on or before any scheduled shipping date,  Buyer shall have  the right to specify a more  rapid method of shipment than
+                            was specified originally and Seller shall bear,  at no additional cost to Buyer, any increased costs occasioned thereby. Partial shipment is allowed under  the stated Purchase order and the seller will ship the goods as instructed by Buyer from Time to Time.
+                            PACKING, MARKING, AND INVOICING: A packing list shall be included with each shipment. Two copies of Seller's invoices, together with original bills of lading, properly signed by carrier's representative, shall be forwarded to Buyer not later than the day after shipments are
+                            made. Individual invoices shall be issued for each separate shipment. Buyer shall not be charged for packaging, boxing, crating or cartage. All invoices, packing lists, bills of lading, and  each separate package within each shipment shall clearly reference piece number, Buyer's
+                            Purchase Order number  and Seller's packing slip number. Partial shipments must be identified as such on the shipping memoranda and invoices.
+                            PAYMENT: WAIVER OF LIENS: Payment will be made following receipt and acceptance of the goods and receipt, in proper  form and substance, of all documentation required by this Purchase Order. Seller shall furnish to Buyer any analysis or breakdown of the price as Buyer
+                            may reasonably request. This Purchase Order  shall not be filled at prices higher than last quoted or charged by Seller, except as expressly agreed by Buyer. As a condition to any payment hereunder, Seller shall furnish to Buyer, upon request, an executed waiver of liens and
+                            claims in form reasonably satisfactory to Buyer. Seller agrees to indemnify, defend and  hold harmless Buyer from and  against any and  all liens and  encumbrances arising out of Seller's performance of this Purchase Order  or rising out of any claim for payment by any laborer,
+                            subcontractor or supplier of Seller.
+                            SELLER'S WARRANTIES: Seller expressly warrants that  for a period of one  year  after Buyer's acceptance of the  goods or services hereunder, or for such longer period as may be  expressly provided in this Purchase Order  or under  applicable law, all goods and  services
+                            covered by this Purchase Order will: (a) strictly conform to Seller's specifications, drawings, samples and other written materials and descriptions, or, to the extent  the goods were purchased to Buyer's specifications and drawings as set forth or referred to in this Purchase Order,
+                            that  the  goods strictly  conform  with those specifications  and  drawings;  (b) be  free  from  defects  in design,  material  and  workmanship;  (c) be  of merchantable  quality  and  suitable  for the  particular  purposes intended,  whether  express or reasonably  implied;  and  (d) bear  all
+                            warnings, labels, and  markings required by applicable laws and  regulations. In addition, Seller warrants that: (e) none  of the goods covered hereby, to the extent  they are  subject to laws prohibiting adulteration or misbranding, is adulterated or misbranded within the meaning of
+                            such laws as of the date  of delivery to Buyer; (f) all goods covered hereby may be introduced into interstate commerce without violation of applicable laws and  regulations; (g) all services have  been performed in a good  and  workmanlike manner; and  (h) all goods and  services
+                            furnished or rendered pursuant to this Purchase Order have  been produced, sold, delivered or rendered to Buyer in compliance with all applicable laws and regulations, including those set forth in Section 14.
+                            BUYER'S REMEDIES: Buyer's acceptance of all or any part of the goods or services provided hereunder shall not be deemed a waiver of the failure of such goods or services to conform to all of the warranties set forth in Section 9. Buyer retains the right to cancel any portion of
+                            the remaining order,  to reject any portion of the goods or services delivered, or to revoke  acceptance as to any portion of the goods or services accepted, and  return  such goods to Seller and  to recover the purchase price, any excess costs of cover,  and  damages, including
+                            manufacturing costs, costs of removal or recall, transportation and  custodial expenses, injury to person or property  incurred by Buyer, all in addition to Buyer's other  remedies under  this Purchase Order  or applicable law. If Seller becomes insolvent or makes an assignment for
+                            the benefit of creditors, or files or has filed against it any petition in bankruptcy, Buyer shall have  the right to cancel this Purchase Order immediately.
+                            PATENT, COPYRIGHTS, TRADEMARKS: Seller warrants that the goods furnished under  or used in conBharti Networkson with this Purchase Order (except those furnished according to Buyer's specific design) and  Buyer's express or reasonably implied intended use thereof, do not and
+                            will not infringe any patent, copyright, trademark, trade  secret or other proprietary right of any third party. If any claim, suit or proceeding is made or instituted against Buyer alleging any such infringement, Seller shall indemnify, defend and  hold Buyer harmless from and  against
+                            any  damages, liabilities, judgments, costs and  expenses (including without limitation reasonable attorney's fees)  it may  incur in conBharti Networkson with any  such claim, suit or proceeding. In the  event  that  the  goods or Buyer's use is held in any  suit or proceeding to constitute an
+                            infringement, or if Seller determines that there  is a substantial risk of a finding of such infringement, Seller agrees, as appropriate, and  at its expense to: (a) procure for Buyer, at no expense to Buyer, the right to continue using the goods, (b) replace the goods with equivalent
+                            goods that meet  the requirements of this Purchase Order and that do not infringe any such rights, or (c) modify the goods so that they become non-infringing.
+                            INDEMNIFICATION: To the  fullest extent  permitted by law, Seller agrees to indemnify, defend, and  hold harmless Buyer,  its affiliates, and  their respective directors, officers, employees and  agents (the "Indemnified Parties") from and  against all claims, demands, causes of
+                            action, losses, costs and  expenses (including without limitation reasonable attorneys' fees and  costs of defense) (collectively, "Losses") arising out of or incident to Seller's performance hereunder, or the presence of Seller, its employees, agents or invitees ("Seller Parties") on
+                            Buyer's premises, provided that such Losses are  attributable to (a) the negligence or wilful misconduct of the Seller Parties, (b) the failure of the Seller Parties to comply with applicable laws, or (c) bodily injury, sickness, disease or death (including but not limited to bodily injury,
+                            sickness, disease or death of the employees of Seller or Buyer), or to damage to or destruction of tangible property  (including the loss of use thereof); in each case regardless of whether  or not caused in part by the negligence or other  fault of any Indemnified Party  hereunder;
+                            provided that Seller shall not be liable for Losses caused by the sole negligence or wilful misconduct of any Indemnified Party.
+                            LABOR, WORK AND SERVICES: INSURANCE: In supplying any services hereunder, Seller warrants that it is, and  undertakes such performance as, an independent contractor, with sole responsibility for the payment of all federal and/or  state unemployment insurance, social
+                            security and/or  other similar taxes incurred hereunder.
+                            LAWS AND REGULATIONS: All goods furnished or services rendered pursuant to this Purchase Order  shall be produced, sold, delivered, or rendered to Buyer in compliance with all applicable laws and  regulations and  guidelines, including but not limited to, the Employment
+                            Act, the Workplace Safety and  Health Act, the Environmental Protection and  Management Act. Seller shall not use any payment or other benefit derived from BHARTI NETWORKS to offer, promise or pay any money,  gift or any other thing of value to any person for the purpose of influencing
+                            official actions or decisions affecting the Order,  while knowing or having reason to know that any portion of this money,  gift or thing will, directly or indirectly, be given, offered or promised to an employee, officer or other person acting in an official capacity for any government or
+                            agency or any political party.  Seller shall at all times refrain from engaging in any illegal, unfair, anti-competitive or deceptive trade  practices or unethical business practices. Seller shall at its expense obtain any and  all permits, licenses, authorizations, and/or  certificates that
+                            may be required in any jurisdiction or by any regulatory or administrative agency in conBharti Networkson with its activities hereunder. Seller shall adhere to BHARTI NETWORKS’s rules and policies and disseminate current  information and materials as announced or provided from time to time by BHARTI NETWORKS
+                            to Seller. Seller shall comply with BHARTI NETWORKS’s Supplier Code  of Conduct  at all times.
+                            Without prejudice to the foregoing, Seller shall not and shall ensure that its employees, agents and contractors shall not offer or give or agree to give to any person any gift or consideration of any kind to BHARTI NETWORKS, its employees, agents and contractors as an inducement or reward
+                            for doing to forbearing to do or for having done  or forborne to do any action in relation to the Order,  including any act which may constitute an offence under  Chapter IX of the Penal Code  or Prevention of Corruption Act or any other  law or the abetment of or attempt to commit
+                            such offence.
+                            Seller shall defend, indemnify and  hold harmless the Indemnitees from and  against all liability, loss, damage, penalties, claims, suits, actions, costs and  expenses (including, without limitation, attorney's fees and  disbursements) which may be incurred by, imposed on, brought
+                            against or suffered by any one  or more of the Indemnitees for or in relation to Seller's failure to comply with (i) any laws or regulations by which the performance of the Order will be governed; (ii) the Seller’s obligations  as set forth in this Section and  (iii) the Seller’s obligations
+                            set forth in Section (a) below.
+                            COMPLIANCE WITH EXPORT CONTROL LAWS AND REGULATIONS, AND TRADE RESTRICTIONS.
+                            (a)Seller shall comply with all applicable export control laws and  regulations of the countries having competent jurisdiction, including but not limited to the Export Administration Regulations ("EAR") of the U.S.A and  shall procure any export licenses required from the competent
+                            authorities to supply BHARTI NETWORKS with the Goods (including software) and/or  technologies (hereinafter referred to as "Item"). If requested by BHARTI NETWORKS, Seller shall submit to BHARTI NETWORKS the export control documents on classification of the Item in accordance with the export control laws and
+                            regulations of the country in which Seller is domiciled as well as under  the U.S. export control laws and regulations and disclose the details of any encryption functionality of the Item. The export control classification documents shall set out and contain the following information:-
+                            (i) terms and  conditions of the individual license or license exception applicable to any  Item which is subject to the U.S. export  control  regulations, such as the  EAR and  the International  Traffic in Arms Regulations(ITAR), information of Export Control  Classification Number
+                            (ECCN) on the Commerce Control List or Category of the U.S. Munitions List; and  (ii)state whether  the Item is listed on the export  control list of the country  in which Seller exists and,  if listed, the export  control classification number  of the Item classified in acc  ordance with the
+                            list. Where  an Item is controlled under  the EAR, Seller shall be required to fill in the Export Control Information Sheet as provided by BHARTI NETWORKS to the Seller and to submit to BHARTI NETWORKS the duly completed and signed copy thereof. (b) If there  are any changes to be made by the Seller to
+                            the specification, materials or country of origin of the Item, Seller shall promptly notify and  obtain BHARTI NETWORKS's written consent to such changes, and  re-submit the duly revised export control classification documents to BHARTI NETWORKS reflecting such changes. (c) Seller shall promptly submit
+                            to BHARTI NETWORKS any additional information related to export control classification in accordance with the latest laws and  regulations and/or  apply for necessary amendment to the (re-) export licenses issued by the U.S. authorities for the Item supplied to BHARTI NETWORKS upon any request made
+                            by BHARTI NETWORKS. (d) If, following the date  of the Order, (i) there  shall be imposed any import, export or other restriction on international trade  or commerce or there  shall be enacted or otherwise issued any law, regulation or order regulating or purporting to regulate any import, export or
+
+
+                            other  international trade  or commerce in any way including, without limitation, any creation or increase (whether  retaliatory or otherwise) of tariffs, import surcharges, anti-dumping or countervailing duties, fees or any other  form of charge whatsoever, or the imposition of any
+                            import or export  quota  or embargo, and  (i) BHARTI NETWORKS's ability to perform the Order  is adversely affected thereby, or its underlying economic assumptions with respect to the Order  become inaccurate in any respect, BHARTI NETWORKS shall have  the option either (a) to terminate the Order  in
+                            whole  or in  part  by written  notice  to Seller,  without  incurring  any  liability  to Seller  thereby, or (b) to require  Seller  to renegotiate,  in  good  faith,  for the  purpose of adjusting  equitably  any  of the  Terms and  Conditions,  in  which  event  Seller  shall  promptly  commence such
+                            renegotiations with BHARTI NETWORKS.
+                            TERMINATION: Buyer may at any time, without cause, terminate this Purchase Order  in whole or in part upon  written notice to Seller. In such event,  Seller shall be entitled to a reasonable termination fee consisting of a percentage of the Purchase Order  price reflecting the
+                            percentage of the work, goods delivered or services properly performed prior to termination. Payment of such termination fee shall be Seller's sole remedy. Upon Buyer's request, Seller shall preserve, protect  and  deliver to Buyer, at Buyer's expense, materials on hand,  work in
+                            progress, and completed work, both in its own and in its suppliers' plants.
+                            ASSIGNMENT AND SET-OFF: Seller shall not assign its rights or delegate its performance hereunder, nor any interest herein, without Buyer's prior written consent and  any attempted assignment or delegation without such consent shall be void. Buyer shall be entitled at all
+                            times to set-off any amount owing from Seller to Buyer, whether  under  this Purchase Order or otherwise, against any amounts otherwise payable to Seller.
+                            CONFIDENTIALITY: Seller and its directors, officers, employees and agents shall not disclose to any third party any information pertaining to the goods provided or services performed hereunder, or pertaining to Buyer's business or operations which Seller obtains or has
+
+                            access to in conBharti Networkson herewith, without the prior written consent of Buyer.
+                            NO WAIVER OF DEFAULTS: No failure by Buyer to enforce at any time any of the terms or conditions of this Purchase Order shall constitute a waiver thereof or in any way impair Buyer's right at any time to avail itself of such remedies as it may have  to enforce such terms or
+                            conditions. No waiver by Buyer hereunder will be effective unless in writing and signed by Buyer.
+                            SURVIVAL: REMEDIES CUMULATIVE: All agreements and  representations of Seller herein (including those regarding, confidentiality, indemnification and  warranties) shall survive delivery and  final payment hereunder, or any  earlier termination hereof. All of the  rights and
+                            remedies available to Buyer hereunder are in addition to, and not in limitation of, the rights and remedies otherwise available at law or in equity.
+                            SEVERABILITY: Any provision of this Purchase Order that is unenforceable in any jurisdiction shall be ineffective to the extent  of such unenforceability (but shall be enforced to the maximum extent  permissible) without invalidating the remaining provisions hereof.
+                            GOVERNING LAW: This Purchase Order shall be governed by the laws of the state from which Buyer issues this Purchase Order, without giving effect to its principles of conflicts of law.
+                            APPROPRIATION: Whenever under  this Purchase Order  any  sum of money  is recoverable from and  payable by the  Seller, BHARTI NETWORKS shall be  entitled to recover such sum by appropriating, in part  or whole by deducting any  sum then  due  or which at any  time thereafter may
+                            become due to the seller; he shall pay to BHARTI NETWORKS on demand the remaining balance due.
+                            DISPUTE SETTLEMENT: Any disputes shall be settled under  arbitration proceedings to be conducted in Delhi under  the provisions of Arbitration and Conciliation Act 1996.  The Laws of India shall apply.
+                            As NEC's business partner, we require you to comply with our Procurement Policy (including Green Procurement Guidelines where  material and  hardware purchase is applicable) and  Supplier Code  of Conduct. In addition to the abovemention ed  Procurement Policy and  Code
+                            of Conduct, business partners performing site installation and / or maintenance works are also required to comply with NEC's Health and Safety Manual for Contractors.
+                            Indemnity clause for GST: It is the responsibility of the supplier to ensure that outward  supply return is filed correctly and  to declare correct  information on the invoice and  GST portal. In case of mismatch because of vendor’s fault, prompt  amendments must be made by the
+                            supplier else supplier shall be required to indemnify BHARTI NETWORKS of the loss of credit due to mis-match. The compliances to be adhered by supplier includes (but is not limited to) the following:
+                            (i) Uploading appropriate invoice details on the GSTN (Goods and Service Tax Number)  within the stipulated time;
+                            (ii) Issuing GST compliant invoice / CN/ DN.  PO issued by BHARTI NETWORKS should be referred by supplier for capturing information on the invoice;
+                            (iii) Acceptance of changes made by BHARTI NETWORKS on GSTN on account of non-upload or incorrect upload of details on GSTN. Such  changes w.r.t. the mis-match are  required to be accepted by supplier within the time limit prescribed under  the GST law. It must be noted  that in case
+                            supplier does not accept such changes within the time limit prescribed under  GST law, the loss of input tax credit (if any) would be recovered from the supplier.
+                            BHARTI NETWORKS reserves the right to be indemnified for the credit loss by supplier in case BHARTI NETWORKS is unable to claim the input tax credit for any non-compliance or default or due  to lack of diligence on the part of the supplier. Further  in case any credit is not received or short credit is
+                            received or in case of any error because of which no credit is received then such equivalent amount is not liable to be paid by BHARTI NETWORKS. Where,  however  the amount has already been paid by BHARTI NETWORKS the same is liable to be recoverable or adjustable against subsequent payments."
+                            It is hereby agreed between both the parties that in case any GST and/  or cess liability, interest, penalties or any other  tax/ duty/ amount/  charge/ liability / professional costs related to litigation becomes payable by BHARTI NETWORKS or input tax credit is denied to BHARTI NETWORKS due  to failure of
+                            the supplier to comply with the relevant laws/ regulations applicable in India, Supplier undertakes to indemnify BHARTI NETWORKS for an amount equal to amount payable by BHARTI NETWORKS.
+                            Tax deducted at source: Nothing contained herein in the agreement shall prevent BHARTI NETWORKS from deducting tax at source as required under  GST Act, any law or any regulation
+                            GST invoice: It shall be the responsibility of supplier to raise appropriate tax invoice as per the provisions of GST Act. BHARTI NETWORKS reserves the right to be indemnified for the credit loss in case BHARTI NETWORKS is unable to claim the input tax credit for any non-compliance / default in raising
+                            appropriate invoice by supplier. Further  all invoices should be sent to BHARTI NETWORKS promptly and in no case beyond 05 days of Invoice date.
+                            Further  the Supplier is required to comply following requirements w.r.t. issuance of invoice:
+                            • All the details of supplier (name, address, GSTN/ unregistered vendor,  place of supply, SAC/ HSN code  etc.) and other mandatory details shall be mentioned on the invoice;
+                            • Invoice/DN/CN need to be issued timely within the time prescribed under  GST law;
+                            • In case of any deficient supply, BHARTI NETWORKS shall convey  the same in a reasonable time to enable the supplier to issue credit note and take tax adjustment;
+                            • It would be the responsibility of the supplier to declare correct  information on invoice and  GST portal viz. the amount, the place of supply, rate  of tax etc.   In case, the eligibility of input tax credit is questioned or denied to BHARTI NETWORKS on account of default by the supplier, the same
+                            would be recovered by BHARTI NETWORKS from the supplier;
+                            • It shall be the responsibility of supplier to raise invoice within the prescribed timelines;
+                            • E-waybill number  should be mentioned on the invoices, if applicable;
+                            It is understood between the parties that supplier shall raise invoice basis purchase order  issued by BHARTI NETWORKS. In case of any deviation or disagreement by supplier on place of supply, billing location, HSN code/  SAC code  stated on PO, it shall be the responsibility of supplier to
+                            intimate BHARTI NETWORKS well in advance. Further,  in case supplier raises the invoice on an address other than agreed, it shall be the responsibility of the supplier to modify the invoice.
+                            Debit  note: The supplier acknowledges and agrees to issue appropriate debit note/ credit note as prescribed under  GST Act and send to BHARTI NETWORKS within the prescribed time. All documents should be received well in advance so as to enable BHARTI NETWORKS to claim proper  credit. Further  it
+                            shall be the responsibility of supplier to declare the details of such credit note  in the return for the month during which such credit note has been issued but not later than September following the end  of the financial year  in which such supply was made, or the date  of furnishing
+                            of the relevant annual return, whichever is earlier. BHARTI NETWORKS reserves the right to be indemnified for the credit loss by supplier in case BHARTI NETWORKS is unable to claim the input tax credit for any non-compliance or default or due to lack of diligence on the part of the supplier.
+                            Documents required for Payment: It is agreed that for claiming the payment the following documents are to be submitted by the Supplier along with appropriate invoice:
+                            1. Invoice along with e-way bills, as applicable;
+                            2. Delivery challans;
+                            3. Consignee Receipt (L.R);
+                            4. Signed Work Completion Certificate, in case of delivery of software / services
+                            5. Any other document as agreed between BHARTI NETWORKS and Supplier
+                            Place of supply: For the purpose of this PO, place of supply under  GST Act shall be the place of supply as determined under  purchase order raised by BHARTI NETWORKS. It shall be the responsibility of supplier to intimate BHARTI NETWORKS well in advance in case of deviation / disagreement with the
+                            place of supply as determined in PO.
+                            Deficient Supply/ Incomplete supply/ Rejected supply: Each  party to contract agrees that in case of any deficient supply or incomplete supply or rejected supplier, it shall be the responsibility of supplier to issue GST compliance credit note within the reasonable time and take
+                            tax adjustment. In case the supplier fails to issue proper  credit note within the time stipulated under  the GST law the taxes charged and not adjusted would be borne  by the supplier.
+                            Advance payment: Where  in terms of the  agreement, BHARTI NETWORKS pays advance amount to supplier  for supply of goods/ services, it shall  be  the  responsibility of supplier to issue GST  compliant receipt voucher or such other  document as may  be  prescribed to BHARTI NETWORKS. Further
+                            supplier would be required to issue refund voucher as prescribed under  GST Act in case no supply is made and no invoice is raised.
+                            E-way  bill: It shall be the responsibility of supplier to obtain e-way bill (if applicable) in case of movement of goods exceeding limit as prescribed under  the GST Act. Supplier would indemnify BHARTI NETWORKS in case of any non-compliance or default or due to lack of diligence on the part
+                            of the supplier to comply with the e-waybill requirement.
+                            Penalty: It is agreed by supplier that in case of any deviation, default or negligence on the part of supplier due to which it is liable to pay penalty to BHARTI NETWORKS, the same shall be recovered by BHARTI NETWORKS from supplier along with applicable GST tax (as may be applicable).
+                            Composition scheme: Where  the supplier is registered as a composition dealer under  GST Act, it shall declare the same at the time of acceptance of purchase order.  Supplier shall not levy or impose taxes under  GST on invoices.
+                            RULES AND REGULATIONS: The agent, representative or the employee, if any, sent/deputed by the vendor/seller for performing any task, assignment or work at BHARTI NETWORKS premises shall be governed by relevant rules, regulations and  policies in force in BHARTI NETWORKS unless anything
+                            else is agreed in writing between the parties.
+                            BACKGROUND VERIFICATION CLAUSE:  In case any employee of or any other person on behalf of the vendor/seller's work or perform the services under  this order in BHARTI NETWORKS's office premises, the Vendor/Seller shall solely be responsible, at its own cost, for the background
+                            verification of such employee or person.
+                            Security: Vendor/Seller  agrees that  BHARTI NETWORKS shall, at all  times, have  the  right to audit and  inspect the  security of the  Vendor's/Seller's premises and  business/ office locations. Vendor/Seller will use reasonable efforts and  methods to ensure the  reliability and  security of all
+                            confidential  information of NTI and  the  Vendor/Seller  shall  be  responsible  for any  unauthorized  access/use  of any  confidential  information by any  of its  employees  or any  person to whom  Vendor  have  given access and/or  by any  person who gains  access to confidential
+                            information as a result of Vendor's failure to use reasonable security precautions.
+                            Representations  by  Seller/Vendor:  Seller/Vendor  represents that  it has the  full right,  power  to perform  its  respective  obligations  under  this  PO  and  that  there  are  no  encumbrances or other  restrictions  that  may  prevent it from  performing  this  PO.  Further  all  sanctions,
+                            approvals, permissions, licenses from Government of India and/or  State Government and/or  any statutory authorities or from any other third parties required for performance of this PO shall be obtained and thereafter maintained by Vendor/Seller.
+                            Protection of Personal Information: Seller/Vendor agrees to ensure protection against unauthorized or unlawful processing of personal data  and  against accidental loss or destruction of, or damage to, personal data,  if any received under  this order  from Buyer. In particular,
+                            Seller shall  not use personal  data  for any  other  purposes except for providing services or delivery of goods under  this Agreement. In this conBharti Networkson, seller/vendor  agrees to comply with all  applicable laws in conBharti Networkson with personal  data  protection in order  to process the
+                            personal data  received from BHARTI NETWORKS under  this order.  In this clause, personal data  means any information relating to an individual natural person. This clause shall survive after termination of this PO
+
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

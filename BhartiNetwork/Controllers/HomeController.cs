@@ -60,6 +60,12 @@ namespace BhartiNetwork.Controllers
         {
             return View();
         }
+
+        public ActionResult Metro()
+        {
+            return View();
+        }
+
         public ActionResult Career()
         {
             return View();
@@ -67,12 +73,10 @@ namespace BhartiNetwork.Controllers
         [HttpPost]
         [ActionName("Career")]
         //[OnAction(ButtonName="")]
-        public ActionResult Career(Home model,HttpPostedFileBase postedFile)
+        public ActionResult Career(Home model, HttpPostedFileBase postedFile)
         {
             try
             {
-
-
                 if (postedFile != null)
                 {
                     model.Image = "../FileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
@@ -102,10 +106,8 @@ namespace BhartiNetwork.Controllers
                 TempData["Career"] = ex.Message;
             }
             return RedirectToAction("Career", "Home");
- 
+
         }
-
-
         public ActionResult ContactUs()
         {
             return View();
@@ -168,20 +170,20 @@ namespace BhartiNetwork.Controllers
                         FormName = "AdminDashBoard";
                         Controller = "Admin";
                     }
-                    //else if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1" && ds.Tables[0].Rows[0]["UserType"].ToString() == "Employee")
-                    //{
-                    //    Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
-                    //    Session["PK_EmployeeId"] = ds.Tables[0].Rows[0]["PK_EmployeeId"].ToString();
-                    //    Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
+                    else if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1" && ds.Tables[0].Rows[0]["UserType"].ToString() == "Employee")
+                    {
+                        Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
+                        Session["PK_EmployeeId"] = ds.Tables[0].Rows[0]["PK_EmployeeId"].ToString();
+                        Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
 
-                    //    FormName = "EmployeeDashBoard";
-                    //    Controller = "Employee";
-                    //}
+                        FormName = "EmployeeDashBoard";
+                        Controller = "Employee";
+                    }
                     else if (ds.Tables[0].Rows[0]["Msg"].ToString() == "1" && ds.Tables[0].Rows[0]["UserType"].ToString() == "Vendor")
                     {
                         Session["LoginId"] = ds.Tables[0].Rows[0]["LoginId"].ToString();
                         Session["PK_VendorId"] = ds.Tables[0].Rows[0]["PK_VendorId"].ToString();
-                        Session["Name"] = ds.Tables[0].Rows[0]["Name"].ToString();
+                        Session["OrganizationName"] = ds.Tables[0].Rows[0]["OrganizationName"].ToString();
 
                         FormName = "VendorDashBoard";
                         Controller = "Vendor";
@@ -203,7 +205,7 @@ namespace BhartiNetwork.Controllers
                 }
             }
             catch (Exception ex)
-            { 
+            {
                 TempData["Login"] = ex.Message;
                 FormName = "Vendor";
                 Controller = "Home";
@@ -258,10 +260,15 @@ namespace BhartiNetwork.Controllers
 
         [HttpPost]
         [ActionName("newuser")]
-        public ActionResult newuser(Home model)
+        public ActionResult newuser(Home model, HttpPostedFileBase postedFile)
         {
             try
             {
+                if (postedFile != null)
+                {
+                    model.Image = "../VendorImage/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
+                    postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
+                }
                 model.AddedBy = "1";
                 Random rnd = new Random();
                 string Pass = rnd.Next(111111, 999999).ToString();
@@ -272,38 +279,38 @@ namespace BhartiNetwork.Controllers
                     if (ds.Tables[0].Rows[0][0].ToString() == "1")
                     {
                         TempData["Registration"] = "Registration save successfully";
-                        
-                        if (model.Email != null)
-                        {
-                            string mailbody = "";
-                            try
-                            {
-                                model.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
-                                mailbody = "Dear,  <br/>" + model.Name + " <br/> Your Registration successfully completed<br/> Your LoginId is :" +model.LoginId+"<br/> Password is :"+model.Password;
 
-                                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
-                                {
-                                    Host = "smtp.gmail.com",
-                                    Port = 587,
-                                    EnableSsl = true,
-                                    DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
-                                    UseDefaultCredentials = true,
-                                    Credentials = new NetworkCredential("developer2.afluex@gmail.com", "devel@486")
-                                };
-                                using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
-                                {
-                                    IsBodyHtml = true,
-                                    Subject = "Successfull Message",
-                                    Body = mailbody
-                                })
-                                    smtp.Send(message);
+                        //if (model.Email != null)
+                        //{
+                        //    string mailbody = "";
+                        //    try
+                        //    {
+                        //        model.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
+                        //        mailbody = "Dear,  <br/>" + model.Name + " <br/> Your Registration successfully completed<br/> Your LoginId is :" + model.LoginId + "<br/> Password is :" + model.Password;
 
-                            }
-                            catch (Exception ex)
-                            {
+                        //        System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
+                        //        {
+                        //            Host = "smtp.gmail.com",
+                        //            Port = 587,
+                        //            EnableSsl = true,
+                        //            DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
+                        //            UseDefaultCredentials = true,
+                        //            Credentials = new NetworkCredential("developer2.afluex@gmail.com", "devel@486")
+                        //        };
+                        //        using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
+                        //        {
+                        //            IsBodyHtml = true,
+                        //            Subject = "Successfull Message",
+                        //            Body = mailbody
+                        //        })
+                        //            smtp.Send(message);
 
-                            }
-                        }
+                        //    }
+                        //    catch (Exception ex)
+                        //    {
+
+                        //    }
+                        //}
                     }
                     else if (ds.Tables[0].Rows[0][0].ToString() == "0")
                     {
@@ -344,58 +351,86 @@ namespace BhartiNetwork.Controllers
             }
             return View(model);
         }
+
         public ActionResult EmployeeRegistration()
         {
+            //Home model = new Home();
+            //int count = 0;
+            //List<SelectListItem> ddlCountryCode = new List<SelectListItem>();
+            //DataSet ds = model.GetCountryCode();
+
+            //if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            //{
+            //    foreach (DataRow r in ds.Tables[0].Rows)
+            //    {
+            //        if (count == 0)
+            //        {
+            //            ddlCountryCode.Add(new SelectListItem { Text = "-Select-", Value = "" });
+            //        }
+            //        ddlCountryCode.Add(new SelectListItem { Text = r["CountryCode"].ToString(), Value = r["PK_CountryCodeId"].ToString() });
+            //        count = count + 1;
+            //    }
+            //}
+
+            //ViewBag.ddlCountryCode = ddlCountryCode;
             return View();
         }
         [HttpPost]
         [ActionName("EmployeeRegistration")]
-        public ActionResult Registraion(Home model)
+        public ActionResult Registraion(Home model, HttpPostedFileBase postedFile)
         {
             try
             {
+                if (postedFile != null)
+                {
+                    model.Image = "../EmployeeFileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
+                    postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
+                }
                 Random rnd = new Random();
                 string Pass = rnd.Next(111111, 999999).ToString();
                 model.Password = Pass;
                 model.DOB = string.IsNullOrEmpty(model.DOB) ? null : Comman.ConvertToSystemDate(model.DOB, "dd/MM/yyyy");
+                model.Mobile = model.CountryCode + model.Mobile;
                 DataSet ds = model.EmpRegistration();
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     if (ds.Tables[0].Rows[0][0].ToString() == "1")
                     {
-                        TempData["EmpRegistration"] = "Registration  successfully you will get a notification once registration will approved !!";
+                        TempData["EmpRegistration"] = "Registration save successfully";
 
-                        if (model.Email != null)
-                        {
-                            string mailbody = "";
-                            try
-                            {
-                                model.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
-                                mailbody = "Dear,  <br/>" + model.Name + " <br/> Your Registration successfully completed<br/> Your LoginId is :" + model.LoginId + "<br/> Password is :" + model.Password;
+                        //TempData["EmpRegistration"] = "Registration  successfully you will get a notification once registration will approved !!";
 
-                                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
-                                {
-                                    Host = "smtp.gmail.com",
-                                    Port = 587,
-                                    EnableSsl = true,
-                                    DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
-                                    UseDefaultCredentials = true,
-                                    Credentials = new NetworkCredential("developer2.afluex@gmail.com", "devel@486")
-                                };
-                                using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
-                                {
-                                    IsBodyHtml = true,
-                                    Subject = "Successfull Message",
-                                    Body = mailbody
-                                })
-                                    smtp.Send(message);
+                        //if (model.Email != null)
+                        //{
+                        //    string mailbody = "";
+                        //    try
+                        //    {
+                        //        model.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
+                        //        mailbody = "Dear,  <br/>" + model.Name + " <br/> Your Registration successfully completed<br/> Your LoginId is :" + model.LoginId + "<br/> Password is :" + model.Password;
 
-                            }
-                            catch (Exception ex)
-                            {
+                        //        System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
+                        //        {
+                        //            Host = "smtp.gmail.com",
+                        //            Port = 587,
+                        //            EnableSsl = true,
+                        //            DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
+                        //            UseDefaultCredentials = true,
+                        //            Credentials = new NetworkCredential("developer2.afluex@gmail.com", "devel@486")
+                        //        };
+                        //        using (var message = new MailMessage("developer2.afluex@gmail.com", model.Email)
+                        //        {
+                        //            IsBodyHtml = true,
+                        //            Subject = "Successfull Message",
+                        //            Body = mailbody
+                        //        })
+                        //            smtp.Send(message);
 
-                            }
-                        }
+                        //    }
+                        //    catch (Exception ex)
+                        //    {
+
+                        //    }
+                        //}
                     }
                     else if (ds.Tables[0].Rows[0][0].ToString() == "0")
                     {
