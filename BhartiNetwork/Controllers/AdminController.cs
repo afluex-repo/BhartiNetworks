@@ -1974,7 +1974,7 @@ namespace BhartiNetwork.Controllers
         public ActionResult InternShipApplicationList(Admin model)
         {
             model.Name = model.Name == "" ? null : model.Name;
-            model.RollNo = model.RollNo == "" ? null : model.RollNo;
+            model.Mobile = model.Mobile == "" ? null : model.Mobile;
             List<Admin> lst = new List<Admin>();
             DataSet ds = model.GetInternShipList();
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
