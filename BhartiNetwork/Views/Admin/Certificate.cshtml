@@ -1,0 +1,247 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Print Certificate</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="~/AdminCss/assets/css/certificate_style.css" rel="stylesheet" />
+    <link href="../assets/img/bn-favicon.png" rel="icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <style>
+        * {
+  box-dizing: border-box;
+}
+
+div {
+  .portrait, .landscape {
+    border: 1px solid red;
+    font-size: 28px;
+  }
+}
+$ratio: 0.5;
+.portrait_wrapper {
+  overflow: hidden;
+  width: 595px * $ratio + 2;
+  height: 842px * $ratio + 2;
+}
+.portrait {
+  width: 595px;
+  height: 842px;
+  transform: scale($ratio);
+  transform-origin: 0 0 ;
+}
+.landscape_wrapper {
+  overflow: hidden;
+  width: 842px * $ratio + 2;
+  height: 594px * $ratio + 2;
+}
+.landscape {
+  width: 842px;
+  height: 594px;
+  transform: scale($ratio);
+  transform-origin: 0 0 ;
+}
+
+/*body * {
+  display: none;
+  visibility: hidden;
+}
+.portrait_wrapper {
+  display: block;
+  visibility: visible;
+}
+.portrait, .portrait * {
+  display: block;
+  visibility: visible;
+}*/
+
+
+@@media print {
+  html, body {height: 100%;}
+  body {
+    margin: 0;
+  }
+  body * {
+    display: none;
+    visibility: hidden;
+  }
+  .portrait, .portrait * {
+    //display: block;
+    //visibility: visible;
+  }
+  .landscape, .landcape * {
+    //display: block;
+    //visibility: visible;
+  }
+  .portrait {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: scale(1.3227);
+    transform-origin: 0 0 ;
+  }
+  .landscape {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: scale(1.3227);
+    transform-origin: 0 0 ;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-10 text-right">
+                <input type='button' class="btn btn-primary btn-lg" id='btn-print' value='Print' onclick="printDiv('#print');" />
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <div class="certificate-container" id="print">
+                    <div class="certificate">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="certificate-header p-2">
+                                    <img src="~/assets/img/logo.png" class="logo" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="certificate-body mt-5 text-center">
+                            <h1 class="text-uppercase title mb-5">Certificate of Internship</h1>
+                            <div class="certificate-content mt-4">
+                                <div class="about-certificate">
+                                    <p>
+                                        This is to certify that Mr/Miss   <b>     :     @ViewBag.Name  ,</b> 
+                                        Son/Daughter of Sri/Smt <b>  :  @ViewBag.Father  ,</b> 
+                                        Student of B.Tech/Diploma/ITI <b>  :  @ViewBag.Degree  ,</b>   College <b> : @ViewBag.UniverSity  ,</b> 
+                                        has undergone tech training from <b>  :  @ViewBag.FromDate  </b>  to <b> : @ViewBag.ToDate ,</b>
+                                        for his/her outstanding completion of the internship program at Bharti Network.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="certificate-footer mt-5">
+                                <div class="row">
+                                    <div class="col-md-3 offset-1 text-left">
+                                        <p>Avery Davis</p>
+                                        <h4>HR Admin</h4>
+                                    </div>
+                                    <div class="col-md-3 text-center ml-3">
+                                        <img src="~/assets/img/medal_img.png" style="height:90px;" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1 text-right">
+                                        <p>
+                                            Reese Milller
+                                        </p>
+                                        <h4>Training Officer</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="portrait_button">portrait print</button>
+    <button class="landscape_button">landscape print</button>
+
+    <br />
+
+    <div class="portrait_wrapper"><div class="portrait">A4 portrait</div></div>
+    <br />
+    <div class="landscape_wrapper"><div class="landscape">A4 landscape</div></div>
+    <script type="text/javascript">
+
+        function print() {
+            var frame = document.getElementsByClassName('mydivclass').item(0);
+            var data = frame.innerHTML;
+            var win = window.open('', '', 'height=500,width=900');
+            win.document.write('<style>@@page{size:landscape;}</style><html><head><title></title>');
+            win.document.write('</head><body >');
+            win.document.write(data);
+            win.document.write('</body></html>');
+            win.print();
+            win.close();
+            return true;
+        }
+        function printDiv(elem) {
+            var mywindow = window.open('', 'PRINT', 'height=700,width=800');
+            mywindow.document.write('<html><head>');
+            mywindow.document.write("<link href=\"/AdminCss/assets/css/certificate_style.css\" rel=\"stylesheet\"><link href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\">")
+            mywindow.document.write('</head><body >');
+            //mywindow.document.write('<style>@@page{size:landscape;}</style><html><head><title></title>');
+            mywindow.document.write(document.getElementById('print').innerHTML);
+            mywindow.document.write('</body></html>');
+            mywindow.document.close(); // necessary for IE >= 10
+            mywindow.focus(); // necessary for IE >= 10*/
+
+            setTimeout(function () {
+                mywindow.print();
+                mywindow.close();
+            }, 100)
+            return true;
+        }
+    </script>
+<script>
+    $(function () {
+        function printP() {
+            usePageSize("A4 portrait");
+            onlyPrint(".portrait");
+            window.print();
+        }
+
+        function printL() {
+            usePageSize("A4 landscape");
+            onlyPrint(".landscape");
+            window.print();
+        }
+
+        function usePageSize(land_por) {
+            var cssPagedMedia = (function () {
+                var style = document.createElement('style');
+                document.head.appendChild(style);
+                return function (rule) {
+                    style.innerHTML = rule;
+                };
+            }());
+            cssPagedMedia.size = function (size) {
+                cssPagedMedia('@@page {margin:0;size: ' + size + '}');
+            };
+            cssPagedMedia.size(land_por);
+        }
+
+        var myStyle = document.createElement('style');
+        document.head.appendChild(myStyle);
+
+        function onlyPrint(selector) {
+            var custom = "@@media print{" + selector + "_wrapper" + ", " + selector + ", " + selector + " * {visibility: visible;display:block}" + "}";
+            //myStyle.innerHTML = custom;
+            //alert(custom);
+            var custom2 = "@@media print{.portrait, .portrait * {visibility: visible}}";
+
+            myStyle.innerHTML = custom;
+            //$(selector).show();
+        }
+
+        $(".portrait_button").click(function () {
+            printP();
+        });
+
+        $(".landscape_button").click(function () {
+            printL();
+        });
+
+    });
+</script>
+</body>
+</html>
