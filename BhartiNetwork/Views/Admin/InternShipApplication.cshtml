@@ -24,7 +24,9 @@
                             <p>(Fill all fields in Block letters)</p>
                         </div>
                         <div class="col-md-4 text-right">
-                            <img src="~/AdminCss/assets/images/user.png" class="img-fluid" style="height:100px;" />
+                            @*<img src="~/AdminCss/assets/images/user.png" class="img-fluid" style="height:100px;" />*@
+                            <input type="file" name="PostedFile" id="PostedFile" />
+                            <img id="blah" src="#" height="80"  width="80" class="rounded-circle" />
                         </div>
                     </div>
                     <div class="row mt-4 mb-4">
@@ -42,7 +44,7 @@
                                     <label>Student Name</label>
                                 </div>
                                 <div class="col-md-8">
-                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Student Name" })
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Student Name", @onkeypress = "return onlyAlphabets();" })
                                     @*<input type="text" class="form-control"/>*@
                                 </div>
                             </div>
@@ -53,7 +55,7 @@
                                     <label>Father's Name</label>
                                 </div>
                                 <div class="col-md-8">
-                                    @Html.TextBoxFor(m => m.Father, new { @class = "form-control", @placeholder = "Father's Name" })
+                                    @Html.TextBoxFor(m => m.Father, new { @class = "form-control", @placeholder = "Father's Name", @onkeypress = "return onlyAlphabets();" })
                                     @*<input type="text" class="form-control" />*@
                                 </div>
                             </div>
@@ -116,7 +118,7 @@
                                             <label>Phone No.</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @placeholder = "Phone No." })
+                                            @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @placeholder = "Phone No.", @onkeypress = "return isNumberKey(event);",@maxlength="10" })
                                             @*<input type="number" class="form-control" />*@
                                         </div>
                                     </div>
@@ -228,7 +230,7 @@
                                     <label>Roll No.</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    @Html.TextBoxFor(m => m.RollNo, new { @class = "form-control", @placeholder = "Roll No" })
+                                    @Html.TextBoxFor(m => m.RollNo, new { @class = "form-control", @placeholder = "Roll No", @onkeypress = "return isNumberKey(event);" })
                                     @*<input type="number" class="form-control" />*@
                                 </div>
                             </div>
@@ -239,7 +241,7 @@
                                     <label>University</label>
                                 </div>
                                 <div class="col-sm-10">
-                                    @Html.TextBoxFor(m => m.UniverSity, new { @class = "form-control", @placeholder = "UniverSity" })
+                                    @Html.TextBoxFor(m => m.UniverSity, new { @class = "form-control", @placeholder = "UniverSity", @onkeypress = "return onlyAlphabets();" })
                                     @*<input type="text" class="form-control" />*@
                                 </div>
                             </div>
@@ -272,13 +274,13 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody  id="TextBoxContainer">
                                         <tr class="mycontainer" id="mainrow">
                                             <td>@Html.TextBoxFor(m => m.Certificate, new { @class = "Certificate form-control", @placeholder = "Degree" })</td>
-                                            <td>@Html.TextBoxFor(m => m.PassingYear, new { @class = "PassingYear form-control", @placeholder = "Passing Year" })</td>
+                                            <td>@Html.TextBoxFor(m => m.PassingYear, new { @class = "PassingYear form-control", @placeholder = "Passing Year", @onkeypress = "return isNumberKey(event);" })</td>
                                             <td>@Html.TextBoxFor(m => m.MarksObtainedTotalMarksGPA, new { @class = "MarksObtainedTotalMarksGPA form-control", @placeholder = "Marked Obtained/Total Marks & GPA" })</td>
                                             <td>@Html.TextBoxFor(m => m.Division, new { @class = "Division form-control", @placeholder = "Division/Grade" })</td>
-                                            <td>@Html.TextBoxFor(m => m.Board, new { @class = "Board form-control", @placeholder = "Institute/Board" })</td>
+                                            <td>@Html.TextBoxFor(m => m.Board, new { @class = "Board form-control", @placeholder = "Institute/Board", @onkeypress = "return onlyAlphabets();" })</td>
                                             <td><input type="button" id="add" data-toggle="tooltip" data-original-title="Add" value="Add" style="width:80px" class="btn btn-success" /></td>
                                         </tr>
                                     </tbody>
@@ -306,8 +308,8 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>@Html.TextBoxFor(m => m.FatherMother, new { @class = "form-control", @placeholder = "Name of Father/Mother" })</td>
-                                        <td>@Html.TextBoxFor(m => m.Designation, new { @class = "form-control", @placeholder = "Designation" })</td>
+                                        <td>@Html.TextBoxFor(m => m.FatherMother, new { @class = "form-control", @placeholder = "Name of Father/Mother", @onkeypress = "return onlyAlphabets();" })</td>
+                                        <td>@Html.TextBoxFor(m => m.Designation, new { @class = "form-control", @placeholder = "Designation", @onkeypress = "return onlyAlphabets();" })</td>
                                         <td>@Html.TextBoxFor(m => m.PINO, new { @class = "form-control", @placeholder = "PI. No" })</td>
                                         <td>@Html.TextBoxFor(m => m.FYGRPDEPT, new { @class = "form-control Degree", @placeholder = "Fy/Grp/Dept" })</td>
                                     </tr>
@@ -317,7 +319,7 @@
                         <div class="col-sm-12">
                             <h4 class="mt-4 mb-4">Proposed Intership Date</h4>
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="row">
                                         <div class="col-sm-2">
                                             <label>From</label>
@@ -328,7 +330,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="row">
                                         <div class="col-sm-2">
                                             <label>To</label>
@@ -339,10 +341,27 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-sm-4">
+                                    <div class="row form-group">
+                                        <div class="col-sm-2">
+                                            <label>Date</label>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.Date, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @autocomplete = "off" })
+                                            @*<input type="date" class="form-control"/>*@
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-5">
+                    @*<div class="row mt-5">
                         <div class="col-sm-6">
                             <div class="row form-group">
                                 <div class="col-sm-2">
@@ -350,7 +369,7 @@
                                 </div>
                                 <div class="col-sm-10">
                                     @Html.TextBoxFor(m => m.Date, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @autocomplete = "off" })
-                                    @*<input type="date" class="form-control"/>*@
+                                    <input type="date" class="form-control"/>
                                 </div>
                             </div>
                         </div>
@@ -360,11 +379,11 @@
                                     <label>Student's Signature</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    @*<input type="text" class="form-control" />*@
+                                    <input type="text" class="form-control" />
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                     <input type="submit" value="Submit" class="btn btn-info mt-5" id="FinalbtnSave" name="btnsave" />
                 </div>
             </div>
@@ -424,7 +443,7 @@
                 $('.MarksObtainedTotalMarksGPA', $newRow).prop('disabled', true).val($('#MarksObtainedTotalMarksGPA').val());
                 $('.Division', $newRow).prop('disabled', true).val($('#Division').val());
                 $('.Board', $newRow).prop('disabled', true).val($('#Board').val());
-               
+
                 //Replace add button with remove button
                $('#add', $newRow).addClass('remove').val('Remove').removeClass('btn-success').addClass('btn-danger');
                 //remove id attribute from new clone row
@@ -576,7 +595,7 @@
                 $('#Date').focus();
                 return false;
             }
-       
+
             $('#orderItemError').text('');
             var list = [];
             var errorItemCount = 0;
@@ -616,10 +635,12 @@
                 var data = {
                     AddDataIntership: JSON.stringify(list),
                 }
-                debugger
+
+                debugger 
                 var formData = new FormData();
-                //var files = $("#postedFile1").get(0).files;
-                //formData.append("Image", files[0]);
+                var fileUpload = $("#PostedFile").get(0);
+                var files = fileUpload.files;
+                formData.append("PostedFile", files[0]);
                 formData.append("Name", $('#Name').val());
                 formData.append("Father", $('#Father').val());
                 formData.append("DOB", $('#DOB').val());
@@ -634,7 +655,7 @@
                 formData.append("Religion", $('#Religion').val());
                 formData.append("Email", $('#Email').val());
                 formData.append("Degree", $('#Degree').val());
-                ////////////
+               
                 formData.append("Discipline", $('#Discipline').val());
                 formData.append("Semester", $('#Semester').val());
                 formData.append("CGPA", $('#CGPA').val());
@@ -661,35 +682,17 @@
                     cache: false,
                     contentType: false,
                     processData: false,
-                    //url: 'save',
-                    //Type: "POST",
-                    //DataType: "JSON",
-                    //data: { dataValue: JSON.stringify(data), SiteID: $("#SiteID").val(), AssociateID: $("#UserID").val(), Amount: $("#Amount").val(), VisiteDate: $("#VisitDate").val(), postedFile1: formData},
-
-                    //contentType: 'application/json',
-                    success: function (response) {
+                    success: function (data) {
                         //alert(result);
-                        if (response.status) {
-
+                        if (data.Result == "1") {
                             // here we will clear the form
                             list = [];
-
-                            //$('#ExpenseID,#ExpenseName,#TransactionID,#PaymentMode').val('0');
-                            //$('#Check,#Amount,#Date,#Remarks').val('');
-                            //$('#orderdetailsItems').empty();
-                            //$('#orderdetailsItems').hide();
                         }
                         else {
-                            alert('Error');
+                            //alert(data.Result);
                         }
-                        $('#submit').text('Save');
                     },
-                    error: function (error) {
-                        console.log(error);
-                        $('#submit').text('Save');
-                    }
                 });
-                $('#submit').text('Save');
             }
         });
     });
@@ -700,30 +703,80 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
 <script>
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#PostedFile").change(function () {
+        readURL(this);
+    });
+
+
     $('#DOB').datepicker({
-        format: 'dd/mm/yy',
+        dateFormat: 'dd/mm/yy',
         changeYear: true,
         changeMonth: true,
+        yearRange: '1950:2030'
 
     });
     $('#ProPoSedInternShipFromDate').datepicker({
-        format: 'dd/mm/yy',
+        dateFormat: 'dd/mm/yy',
         changeYear: true,
         changeMonth: true,
-
+        yearRange: '1950:2030'
     });
     $('#ProPoSedInternShipToDate').datepicker({
-        format: 'dd/mm/yy',
+        dateFormat: 'dd/mm/yy',
         changeYear: true,
         changeMonth: true,
-
+        yearRange: '1950:2030'
     });
     $('#Date').datepicker({
-        format: 'dd/mm/yy',
+        dateFormat: 'dd/mm/yy',
         changeYear: true,
         changeMonth: true,
-
+        yearRange: '1950:2030'
     });
+
+    
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode != 46 && charCode > 31
+          && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+
+
+    function onlyAlphabets(e, t) {
+        try {
+            if (window.event) {
+                var charCode = window.event.keyCode;
+            }
+            else if (e) {
+                var charCode = e.which;
+            }
+            else { return true; }
+            if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode == 32))
+                return true;
+            else
+                return false;
+        }
+        catch (err) {
+            alert(err.Description);
+        }
+    }
+
 </script>
 <style>
     .errortext {
