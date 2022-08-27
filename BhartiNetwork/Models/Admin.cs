@@ -646,7 +646,7 @@ namespace BhartiNetwork.Models
 
             SqlParameter[] para ={
                 new SqlParameter ("@Name",Name),
-                     new SqlParameter ("@RollNo",RollNo)
+                     new SqlParameter ("@MobileNo",Mobile)
                                  };
             DataSet ds = Connection.ExecuteQuery("GetInternShipList", para);
             return ds;

@@ -31,8 +31,8 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleInputName1"> RollNo</label>
-                                @Html.TextBoxFor(m => m.RollNo, new { @class = "form-control", @placeholder = " Roll No" })
+                                <label for="exampleInputName1"> Mobile</label>
+                                @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @placeholder = "Mobile" })
                             </div>
                         </div>
                         <div class="col-sm-3">
@@ -114,12 +114,17 @@
                                                         <td>@item.FromDate</td>
                                                         <td>@item.ToDate</td>
                                                         <td>@item.Date</td>
-                                                        <td><img src="@item.PostedFile" height="80" /></td>
-                                                        <td><a href="/Admin/AcademicList?InterShipId=@item.InterShipId" class="btn btn-info btn-sm">View Academic Details</a>
-                                                        <a href="/Admin/Certificate?InterShipId=@item.InterShipId" class="btn btn-success btn-sm">Print</a>
+                                                        <td>
+                                                        <img src="@item.PostedFile" height="100" />
+                                                            <a href="@item.PostedFile" download>
+                                                                <i class="fa fa-file-pdf-o" style="font-size:25px;color:red">
+                                                                    <i class="mdi mdi-download" style="font-size:25px;color:red"></i>
+                                                                </i>
+                                                            </a>
                                                         </td>
-
-
+                                                        <td><a href="/Admin/AcademicList?InterShipId=@item.InterShipId" class="btn btn-info btn-sm">View Academic Details</a>
+                                                        <a target="_blank" href="/Admin/Certificate?InterShipId=@item.InterShipId" class="btn btn-success btn-sm">Print</a>
+                                                        </td>
                                                     </tr>
                                                     i++;
                                                 }
@@ -138,5 +143,8 @@
 
 }
 
+
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
 
 
