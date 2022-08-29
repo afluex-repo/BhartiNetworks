@@ -1,339 +1,787 @@
-﻿
+﻿@model BhartiNetwork.Models.Admin
+
 @{
     ViewBag.Title = "InternShipApplication";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <style>
-    .form-group label
-    {
-        vertical-align:sub !important;
+    .form-group label {
+        vertical-align: sub !important;
     }
 </style>
-<div class="row">
-    <div class="col-12 grid-margin stretch-card">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="~/assets/img/logo.png" class="logo img-fluid" style="width:200px;" alt="">
+@using (Html.BeginForm("InternShipApplication", "Admin", FormMethod.Post, new { @id = "form1", enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="~/assets/img/logo.png" class="logo img-fluid" style="width:200px;" alt="">
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Intership Application Form</h4>
+                            <p>(Fill all fields in Block letters)</p>
+                        </div>
+                        <div class="col-md-4 text-right">
+                            @*<img src="~/AdminCss/assets/images/user.png" class="img-fluid" style="height:100px;" />*@
+                            <span style="color: red">*</span>  <input type="file" name="PostedFile" id="PostedFile" />
+                            <img id="blah" src="#" height="80"  width="80" class="rounded-circle" />
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <h4>Intership Application Form</h4>
-                        <p>(Fill all fields in Block letters)</p>
+                    <div class="row mt-4 mb-4">
+                        <div class="col-md-4">
+                            <h3>Personal Information</h3>
+                        </div>
+                        <div class="col-md-5">
+                            <span style="color:red;">@TempData["InternShip"]</span>
+                        </div>
                     </div>
-                    <div class="col-md-4 text-right">
-                        <img src="~/AdminCss/assets/images/user.png" class="img-fluid" style="height:100px;" /> 
-                    </div>
-                  </div>
-                <div class="row mt-4 mb-4">
-                    <div class="col-md-12">
-                        <h3>Personal Information</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="row form-group">
-                            <div class="col-md-4">
-                                <label>Student Name</label>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="row form-group">
+                                <div class="col-md-4">
+                                    <label>Student Name <span style="color: red">*</span></label>
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Student Name", @onkeypress = "return onlyAlphabets();" })
+                                    @*<input type="text" class="form-control"/>*@
+                                </div>
                             </div>
-                            <div class="col-md-8">
-                                <input type="text" class="form-control"/>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row form-group">
+                                <div class="col-md-4">
+                                    <label>Father's Name <span style="color: red">*</span></label>
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.Father, new { @class = "form-control", @placeholder = "Father's Name", @onkeypress = "return onlyAlphabets();" })
+                                    @*<input type="text" class="form-control" />*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row form-group">
+                                <div class="col-md-4">
+                                    <label>Date Of Birth <span style="color: red">*</span></label>
+                                </div>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(m => m.DOB, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @autocomplete = "off" })
+                                    @*<input type="date" class="form-control" />*@
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>Postal Address <span style="color: red">*</span></label>
+                            @Html.TextAreaFor(m => m.PostalAddress, new { @class = "form-control", @placeholder = "Postal Address" })
+                            @*<textarea class="form-control" rows="3"></textarea>*@
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <label>Permanent Address <span style="color: red">*</span></label>
+                            @Html.TextAreaFor(m => m.PermanentAddress, new { @class = "form-control", @placeholder = "Permanent Address" })
+                            @*<textarea class="form-control" rows="3"></textarea>*@
+                        </div>
+                        @*<div class="col-sm-2 form-group">
+                                <label>Permanent Address</label>
+                            </div>
+                            <div class="col-sm-10 form-group">
+
+                            </div>*@
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="row form-group">
+                                        <div class="col-sm-4">
+                                            <label>Domicile <span style="color: red">*</span></label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(m => m.Domicile, new { @class = "form-control", @placeholder = "Domicile" })
+                                            @*<input type="text" class="form-control"/>*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row form-group">
+                                        <div class="col-sm-4">
+                                            <label>Blood Group </label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(m => m.CellNo, new { @class = "form-control", @placeholder = "Blood Group" })
+                                            @*<input type="number" class="form-control" />*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row form-group">
+                                        <div class="col-sm-4">
+                                            <label>Phone No. <span style="color: red">*</span></label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @placeholder = "Phone No.", @onkeypress = "return isNumberKey(event);",@maxlength="10" })
+                                            @*<input type="number" class="form-control" />*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row form-group">
+                                        <div class="col-sm-4">
+                                            <label>Gender <span style="color: red">*</span></label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <select name="Gender" id="Gender" class="form-control" placeholder="Gender">
+                                                <option value="">-- select --</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row form-group">
+                                        <div class="col-sm-4">
+                                            <label>Religion <span style="color: red">*</span></label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(m => m.Religion, new { @class = "form-control", @placeholder = "Religion" })
+                                            @*<input type="number" class="form-control" />*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row form-group">
+                                        <div class="col-sm-4">
+                                            <label>Email <span style="color: red">*</span></label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+                                            @*<input type="email" class="form-control" />*@
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="row form-group">
-                            <div class="col-md-4">
-                                <label>Father's Name</label>
+                    <div class="row mt-4 mb-4">
+                        <div class="col-md-12">
+                            <h3>Qualification in progress</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="row form-group">
+                                <div class="col-sm-4">
+                                    <label>Degree <span style="color: red">*</span></label>
+                                </div>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(m => m.Degree, new { @class = "form-control", @placeholder = "Degree" })
+                                    @*<input type="text" class="form-control" />*@
+                                </div>
                             </div>
-                            <div class="col-md-8">
-                                <input type="text" class="form-control" />
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row form-group">
+                                <div class="col-sm-4">
+                                    <label>Discipline <span style="color: red">*</span></label>
+                                </div>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(m => m.Discipline, new { @class = "form-control", @placeholder = "Discipline" })
+                                    @*<input type="number" class="form-control" />*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row form-group">
+                                <div class="col-sm-4">
+                                    <label>Semester <span style="color: red">*</span></label>
+                                </div>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(m => m.Semester, new { @class = "form-control", @placeholder = "Semester" })
+                                    @*<input type="text" class="form-control" />*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row form-group">
+                                <div class="col-sm-4">
+                                    <label>CGPA </label>
+                                </div>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(m => m.CGPA, new { @class = "form-control", @placeholder = "CGPA" })
+                                    @*<input type="text" class="form-control" />*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row form-group">
+                                <div class="col-sm-4">
+                                    <label>Registration No. <span style="color: red">*</span></label>
+                                </div>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(m => m.RegistrationNo, new { @class = "form-control", @placeholder = "Registration No." })
+                                    @*<input type="number" class="form-control" />*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row form-group">
+                                <div class="col-sm-4">
+                                    <label>Roll No. </label>
+                                </div>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(m => m.RollNo, new { @class = "form-control", @placeholder = "Roll No", @onkeypress = "return isNumberKey(event);" })
+                                    @*<input type="number" class="form-control" />*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label>University <span style="color: red">*</span></label>
+                                </div>
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(m => m.UniverSity, new { @class = "form-control", @placeholder = "UniverSity", @onkeypress = "return onlyAlphabets();" })
+                                    @*<input type="text" class="form-control" />*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Final Year Project (if any) </label>
+                                </div>
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(m => m.FinalYearProject, new { @class = "form-control", @placeholder = "Final Year Project (if any)" })
+                                    @*<input type="text" class="form-control" />*@
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="row form-group">
-                            <div class="col-md-4">
-                                <label>Date Of Birth</label>
-                            </div>
-                            <div class="col-md-8">
-                                <input type="date" class="form-control" />
-                            </div>
+                    <div class="row">
+                        <div class="col-md-12 mt-4 mb-4">
+                            <h3>Previous Academic Record</h3>
                         </div>
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label>Postal Address</label>
-                        <textarea class="form-control" rows="3"></textarea>
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label>Permanent Address</label>
-                        <textarea class="form-control" rows="3"></textarea>
-                    </div>
-                    @*<div class="col-sm-2 form-group">
-                        <label>Permanent Address</label>
-                    </div>
-                    <div class="col-sm-10 form-group">
+                        <div class="col-sm-12 table-responsive">
+                                <table class="table  table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Degree/Certificate <span style="color: red">*</span></th>
+                                            <th>Passing Year <span style="color: red">*</span></th>
+                                            <th>Marked Obtained/Total Marks & GPA <span style="color: red">*</span></th>
+                                            <th>Division/Grade <span style="color: red">*</span></th>
+                                            <th>Institute/Board <span style="color: red">*</span></th>
+                                            <th>Action </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody  id="TextBoxContainer">
+                                        <tr class="mycontainer" id="mainrow">
+                                            <td>@Html.TextBoxFor(m => m.Certificate, new { @class = "Certificate form-control", @placeholder = "Degree" })</td>
+                                            <td>@Html.TextBoxFor(m => m.PassingYear, new { @class = "PassingYear form-control", @placeholder = "Passing Year", @onkeypress = "return isNumberKey(event);",@maxlength="4" })</td>
+                                            <td>@Html.TextBoxFor(m => m.MarksObtainedTotalMarksGPA, new { @class = "MarksObtainedTotalMarksGPA form-control", @placeholder = "Marked Obtained/Total Marks & GPA" })</td>
+                                            <td>@Html.TextBoxFor(m => m.Division, new { @class = "Division form-control", @placeholder = "Division/Grade" })</td>
+                                            <td>@Html.TextBoxFor(m => m.Board, new { @class = "Board form-control", @placeholder = "Institute/Board", @onkeypress = "return onlyAlphabets();" })</td>
+                                            <td><input type="button" id="add" data-toggle="tooltip" data-original-title="Add" value="Add" style="width:80px" class="btn btn-success" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <div id="orderItems">
+                                <table class="table  table-striped table-bordered" id="orderdetailsItems"></table>
+                                <span id="orderItemError" style="color:red"></span>
+                            </div>
+
+
+                        </div>
                       
+                        <div class="col-sm-12 mb-4 mt-4">
+                            <h5>In case applicant is son/daughter of Force employee/Ex- Force employee</h5>
+                        </div>
+                        <div class="col-sm-12 table-responsive">
+                            <table class="table table-striped table-bordered display">
+                                <thead>
+                                    <tr>
+                                        <th>Name of Father/Mother </th>
+                                        <th>Designation </th>
+                                        <th>PI. No </th>
+                                        <th>Fy/Grp/Dept </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>@Html.TextBoxFor(m => m.FatherMother, new { @class = "form-control", @placeholder = "Name of Father/Mother", @onkeypress = "return onlyAlphabets();" })</td>
+                                        <td>@Html.TextBoxFor(m => m.Designation, new { @class = "form-control", @placeholder = "Designation", @onkeypress = "return onlyAlphabets();" })</td>
+                                        <td>@Html.TextBoxFor(m => m.PINO, new { @class = "form-control", @placeholder = "PI. No" })</td>
+                                        <td>@Html.TextBoxFor(m => m.FYGRPDEPT, new { @class = "form-control Degree", @placeholder = "Fy/Grp/Dept" })</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-sm-12">
+                            <h4 class="mt-4 mb-4">Proposed Intership Date</h4>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label>From<span style="color: red">*</span></label>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.ProPoSedInternShipFromDate, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @autocomplete = "off" })
+                                            @*<input type="date" class="form-control"/>*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <label>To <span style="color: red">*</span></label>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.ProPoSedInternShipToDate, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @autocomplete = "off" })
+                                            @*<input type="date" class="form-control" />*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="row form-group">
+                                        <div class="col-sm-2">
+                                            <label>Date <span style="color: red">*</span></label>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.Date, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @autocomplete = "off" })
+                                            @*<input type="date" class="form-control"/>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="row mt-5">
+                        <div class="col-sm-6">
+                            <div class="row form-group">
+                                <div class="col-sm-2">
+                                    <label>Date</label>
+                                </div>
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(m => m.Date, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @autocomplete = "off" })
+                                    <input type="date" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row form-group">
+                                <div class="col-sm-3">
+                                    <label>Student's Signature</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
                     </div>*@
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="row form-group">
-                                    <div class="col-sm-4">
-                                        <label>Domicile</label>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="row form-group">
-                                    <div class="col-sm-4">
-                                        <label>Cell No.</label>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <input type="number" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="row form-group">
-                                    <div class="col-sm-4">
-                                        <label>Phone No.</label>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <input type="number" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="row form-group">
-                                    <div class="col-sm-4">
-                                        <label>Gender</label>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <select class="form-control">
-                                            <option>-- select --</option>
-                                            <option>Male</option>
-                                            <option>Female</option>
-                                            <option>Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="row form-group">
-                                    <div class="col-sm-4">
-                                        <label>Religion</label>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <input type="number" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="row form-group">
-                                    <div class="col-sm-4">
-                                        <label>Email</label>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <input type="email" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4 mb-4">
-                    <div class="col-md-12">
-                        <h3>Qualification in progress</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="row form-group">
-                            <div class="col-sm-4">
-                                <label>Degree</label>
-                            </div>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="row form-group">
-                            <div class="col-sm-4">
-                                <label>Discipline</label>
-                            </div>
-                            <div class="col-sm-8">
-                                <input type="number" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="row form-group">
-                            <div class="col-sm-4">
-                                <label>Semester</label>
-                            </div>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="row form-group">
-                            <div class="col-sm-4">
-                                <label>CGPA</label>
-                            </div>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="row form-group">
-                            <div class="col-sm-4">
-                                <label>Registration No.</label>
-                            </div>
-                            <div class="col-sm-8">
-                                <input type="number" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="row form-group">
-                            <div class="col-sm-4">
-                                <label>Roll No.</label>
-                            </div>
-                            <div class="col-sm-8">
-                                <input type="number" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <label>University</label>
-                            </div>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <label>Final Year Project (if any)</label>
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 mt-4 mb-4">
-                        <h3>Previous Academic Record</h3>
-                    </div>
-                    <div class="col-sm-12 table-responsive">
-                        <table class="table table-striped table-bordered display">
-                            <thead>
-                                <tr>
-                                    <th>Degree/Certificate</th>
-                                    <th>Passing Year</th>
-                                    <th>Marked Obtained/Total Marks & GPA</th>
-                                    <th>Division/Grade</th>
-                                    <th>Institute/Board</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-sm-12 mb-4 mt-4">
-                        <h5>In case applicant is son/daughter of POF employee/Ex- POF employee</h5>
-                    </div>
-                    <div class="col-sm-12 table-responsive">
-                        <table class="table table-striped table-bordered display">
-                            <thead>
-                                <tr>
-                                    <th>Name of Father/Mother</th>
-                                    <th>Designation</th>
-                                    <th>PI. No</th>
-                                    <th>Fy/Grp/Dept</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-sm-12">
-                        <h4 class="mt-4 mb-4">Proposed Intership Date</h4>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="row">
-                                    <div class="col-sm-2">
-                                        <label>From</label>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <input type="date" class="form-control"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="row">
-                                    <div class="col-sm-2">
-                                        <label>To</label>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <input type="date" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col-sm-6">
-                        <div class="row form-group">
-                            <div class="col-sm-2">
-                                <label>Date</label>
-                            </div>
-                            <div class="col-sm-10">
-                                <input type="date" class="form-control"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="row form-group">
-                            <div class="col-sm-3">
-                                <label>Student's Signature</label>
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <input type="submit" value="Submit" class="btn btn-info mt-5" id="btnsave" name="btnsave"/>
+                    <input type="submit" value="Submit" class="btn btn-info mt-5" id="FinalbtnSave" name="btnsave" />
                 </div>
             </div>
         </div>
     </div>
 
+    
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+@*<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">*@
+@*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">*@
+@*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />*@
 
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#add').click(function () {
+            debugger;
+            var isAllValid = true;
+            if (!($('#Certificate').val().trim() != '' && ($('#Certificate').val().trim()))) {
+                $("#Certificate").addClass('errortext');
+                $('#Certificate').focus();
+                isAllValid = false;
+                return;
+            }
+            if (!($('#PassingYear').val().trim() != '' && ($('#PassingYear').val().trim()))) {
+                $("#PassingYear").addClass('errortext');
+                $('#PassingYear').focus();
+                isAllValid = false;
+                return;
+            }
+            if (!($('#MarksObtainedTotalMarksGPA').val().trim() != '' && ($('#MarksObtainedTotalMarksGPA').val().trim()))) {
+                $("#MarksObtainedTotalMarksGPA").addClass('errortext');
+                $('#MarksObtainedTotalMarksGPA').focus();
+                isAllValid = false;
+                return;
+            }
+
+            if (!($('#Division').val().trim() != '' && ($('#Division').val().trim()))) {
+                $("#Division").addClass('errortext');
+                $('#Division').focus();
+                isAllValid = false;
+                return;
+            }
+            if (!($('#Board').val().trim() != '' && ($('#Board').val().trim()))) {
+                $("#Board").addClass('errortext');
+                $('#Board').focus();
+                 isAllValid = false;
+                 return;
+             }
+            debugger
+            if (isAllValid) {
+                var $newRow = $('#mainrow').clone().removeAttr('id');
+                $('.Certificate', $newRow).prop('disabled', true).val($('#Certificate').val());
+                $('.PassingYear', $newRow).prop('disabled', true).val($('#PassingYear').val());
+                $('.MarksObtainedTotalMarksGPA', $newRow).prop('disabled', true).val($('#MarksObtainedTotalMarksGPA').val());
+                $('.Division', $newRow).prop('disabled', true).val($('#Division').val());
+                $('.Board', $newRow).prop('disabled', true).val($('#Board').val());
+
+                //Replace add button with remove button
+               $('#add', $newRow).addClass('remove').val('Remove').removeClass('btn-success').addClass('btn-danger');
+                //remove id attribute from new clone row
+               $('#Certificate,#PassingYear,#MarksObtainedTotalMarksGPA,#Division,#Board,#add', $newRow).removeAttr('id');
+                $('span.error', $newRow).remove();
+                //append clone row
+                $('#orderdetailsItems').append($newRow);
+                //clear select data
+                $('#Certificate,#PassingYear,#MarksObtainedTotalMarksGPA,#Division,#Board').val('');
+                $('#orderItemError').empty();
+            }
+        })
+        //remove button click event
+        $('#orderdetailsItems').on('click', '.remove', function () {
+            $(this).parents('tr').remove();
+        });
+
+        $('#FinalbtnSave').click(function () {
+            var isAllValid = true;
+            if ($('#PostedFile').val() == '') {
+                $("#PostedFile").addClass('errortext');
+                $('#PostedFile').focus();
+                return false;
+            }
+            if ($('#Name').val() == '') {
+                $("#Name").addClass('errortext');
+                $('#Name').focus();
+
+                return false;
+            }
+            if ($('#Father').val() == '') {
+                $("#Father").addClass('errortext');
+                $('#Father').focus();
+                return false;
+            }
+            if ($('#DOB').val() == '') {
+                $("#DOB").addClass('errortext');
+                $('#DOB').focus();
+
+                return false;
+            }
+            if ($('#PostalAddress').val() == '') {
+                $("#PostalAddress").addClass('errortext');
+                $('#PostalAddress').focus();
+                return false;
+            }
+            if ($('#PermanentAddress').val() == '') {
+                $("#PermanentAddress").addClass('errortext');
+                $('#PermanentAddress').focus();
+                return false;
+            }
+            if ($('#Domicile').val() == '') {
+                $("#Domicile").addClass('errortext');
+                $('#Domicile').focus();
+                return false;
+            }
+
+            //if ($('#CellNo').val() == '') {
+            //    $("#CellNo").addClass('errortext');
+            //    $('#CellNo').focus();
+            //    return false;
+            //}
+            if ($('#Mobile').val() == '') {
+                $("#Mobile").addClass('errortext');
+                $('#Mobile').focus();
+                return false;
+            }
+            if ($('#Gender').val() == '') {
+                $("#Gender").addClass('errortext');
+                $('#Gender').focus();
+                return false;
+            }
+            if ($('#Religion').val() == '') {
+                $("#Religion").addClass('errortext');
+                $('#Religion').focus();
+                return false;
+            }
+            if ($('#Email').val() == '') {
+                $("#Email").addClass('errortext');
+                $('#Email').focus();
+                return false;
+            }
+            if ($('#Degree').val() == '') {
+                $("#Degree").addClass('errortext');
+                $('#Degree').focus();
+                return false;
+            }
+            if ($('#Discipline').val() == '') {
+                $("#Discipline").addClass('errortext');
+                $('#Discipline').focus();
+                return false;
+            }
+            if ($('#Semester').val() == '') {
+                $("#Semester").addClass('errortext');
+                $('#Semester').focus();
+                return false;
+            }
+            //if ($('#CGPA').val() == '') {
+            //    $("#CGPA").addClass('errortext');
+            //    $('#CGPA').focus();
+            //    return false;
+            //}
+            if ($('#RegistrationNo').val() == '') {
+                $("#RegistrationNo").addClass('errortext');
+                $('#RegistrationNo').focus();
+                return false;
+            }
+            //if ($('#RollNo').val() == '') {
+            //    $("#RollNo").addClass('errortext');
+            //    $('#RollNo').focus();
+            //    return false;
+            //}
+            if ($('#UniverSity').val() == '') {
+                $("#UniverSity").addClass('errortext');
+                $('#UniverSity').focus();
+                return false;
+            }
+            //if ($('#FinalYearProject').val() == '') {
+            //    $("#FinalYearProject").addClass('errortext');
+            //    $('#FinalYearProject').focus();
+            //    return false;
+            //}
+            //if ($('#FatherMother').val() == '') {
+            //    $("#FatherMother").addClass('errortext');
+            //    $('#FatherMother').focus();
+            //    return false;
+            //}
+            //if ($('#Designation').val() == '') {
+            //    $("#Designation").addClass('errortext');
+            //    $('#Designation').focus();
+            //    return false;
+            //}
+            //if ($('#PINO').val() == '') {
+            //    $("#PINO").addClass('errortext');
+            //    $('#PINO').focus();
+            //    return false;
+            //}
+            //if ($('#FYGRPDEPT').val() == '') {
+            //    $("#FYGRPDEPT").addClass('errortext');
+            //    $('#FYGRPDEPT').focus();
+            //    return false;
+            //}
+            if ($('#ProPoSedInternShipFromDate').val() == '') {
+                $("#ProPoSedInternShipFromDate").addClass('errortext');
+                $('#ProPoSedInternShipFromDate').focus();
+                return false;
+            }
+            if ($('#ProPoSedInternShipToDate').val() == '') {
+                $("#ProPoSedInternShipToDate").addClass('errortext');
+                $('#ProPoSedInternShipToDate').focus();
+                return false;
+            }
+            if ($('#Date').val() == '') {
+                $("#Date").addClass('errortext');
+                $('#Date').focus();
+                return false;
+            }
+
+            $('#orderItemError').text('');
+            var list = [];
+            var errorItemCount = 0;
+            $('#orderdetailsItems tr').each(function (index, ele) {
+                if (
+                    $('.Certificate', this).val() == "") {
+                    errorItemCount++;
+                    $(this).addClass('error');
+                } else {
+                    var orderItem = {
+                        Certificate: (
+                            $('.Certificate', this).val()),
+                        PassingYear: $('.PassingYear', this).val(),
+                        MarksObtainedTotalMarksGPA: $('.MarksObtainedTotalMarksGPA', this).val(),
+                        Division: $('.Division', this).val(),
+                        Board: $('.Board', this).val(),
+                    }
+                    list.push(orderItem);
+                }
+
+            })
+            console.log(list)
+            if (errorItemCount > 0) {
+                $('#orderItemError').text(errorItemCount + " invalid entry in order item list.");
+                isAllValid = false;
+            }
+
+            if (list.length == 0) {
+                $('#orderItemError').text('At least 1 row data required.');
+                isAllValid = false;
+                $("#divload").css({ 'display': 'none' });
+                return false;
+            }
+
+            if (isAllValid) {
+                debugger;
+                var data = {
+                    AddDataIntership: JSON.stringify(list),
+                }
+
+                debugger 
+                var formData = new FormData();
+                var fileUpload = $("#PostedFile").get(0);
+                var files = fileUpload.files;
+                formData.append("PostedFile", files[0]);
+                formData.append("Name", $('#Name').val());
+                formData.append("Father", $('#Father').val());
+                formData.append("DOB", $('#DOB').val());
+                formData.append("PostalAddress", $('#PostalAddress').val());
+
+                formData.append("PermanentAddress", $('#PermanentAddress').val());
+                formData.append("Domicile", $('#Domicile').val());
+                formData.append("CellNo", $('#CellNo').val());
+                formData.append("Mobile", $('#Mobile').val());
+
+                formData.append("Gender", $('#Gender').val());
+                formData.append("Religion", $('#Religion').val());
+                formData.append("Email", $('#Email').val());
+                formData.append("Degree", $('#Degree').val());
+               
+                formData.append("Discipline", $('#Discipline').val());
+                formData.append("Semester", $('#Semester').val());
+                formData.append("CGPA", $('#CGPA').val());
+                formData.append("RegistrationNo", $('#RegistrationNo').val());
+
+                formData.append("RollNo", $('#RollNo').val());
+                formData.append("UniverSity", $('#UniverSity').val());
+                formData.append("FinalYearProject", $('#FinalYearProject').val());
+                formData.append("FatherMother", $('#FatherMother').val());
+
+                formData.append("Designation", $('#Designation').val());
+                formData.append("PINO", $('#PINO').val());
+                formData.append("FYGRPDEPT", $('#FYGRPDEPT').val());
+                formData.append("ProPoSedInternShipFromDate", $('#ProPoSedInternShipFromDate').val());
+
+                formData.append("ProPoSedInternShipToDate", $('#ProPoSedInternShipToDate').val());
+                formData.append("Date", $('#Date').val());
+                formData.append("IntershipdataValue", JSON.stringify(data));
+                console.log(formData);
+                $.ajax({
+                    type: 'POST',
+                    url: "SaveInternShip",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        //alert(result);
+                        if (data.Result == "1") {
+                            // here we will clear the form
+                            list = [];
+                        }
+                        else {
+                            //alert(data.Result);
+                        }
+                    },
+                });
+            }
+        });
+    });
+
+</script>
+
+
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+<script>
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#PostedFile").change(function () {
+        readURL(this);
+    });
+
+
+    $('#DOB').datepicker({
+        dateFormat: 'dd/mm/yy',
+        changeYear: true,
+        changeMonth: true,
+        yearRange: '1950:2030'
+
+    });
+    $('#ProPoSedInternShipFromDate').datepicker({
+        dateFormat: 'dd/mm/yy',
+        changeYear: true,
+        changeMonth: true,
+        yearRange: '1950:2030'
+    });
+    $('#ProPoSedInternShipToDate').datepicker({
+        dateFormat: 'dd/mm/yy',
+        changeYear: true,
+        changeMonth: true,
+        yearRange: '1950:2030'
+    });
+    $('#Date').datepicker({
+        dateFormat: 'dd/mm/yy',
+        changeYear: true,
+        changeMonth: true,
+        yearRange: '1950:2030'
+    });
+
+    
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode != 46 && charCode > 31
+          && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+
+
+    function onlyAlphabets(e, t) {
+        try {
+            if (window.event) {
+                var charCode = window.event.keyCode;
+            }
+            else if (e) {
+                var charCode = e.which;
+            }
+            else { return true; }
+            if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode == 32))
+                return true;
+            else
+                return false;
+        }
+        catch (err) {
+            alert(err.Description);
+        }
+    }
+
+</script>
+<style>
+    .errortext {
+        border: 1px solid red !important;
+        background-color: #191c24 !important;
+    }
+</style>

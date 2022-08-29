@@ -1855,15 +1855,194 @@ namespace BhartiNetwork.Controllers
             }
             return RedirectToAction("PurchaseOrderList", "Admin");
         }
-        public ActionResult Certificate()
+        public ActionResult Certificate(Admin model, string InterShipId)
         {
-            return View();
+            if (InterShipId != null)
+            {
+                model.InterShipId = InterShipId;
+                DataSet ds = model.PrintCertificate();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewBag.InterShipId = ds.Tables[0].Rows[0]["PK_InterShipId"].ToString();
+                    ViewBag.Name = ds.Tables[0].Rows[0]["Name"].ToString();
+                    ViewBag.Father = ds.Tables[0].Rows[0]["Father"].ToString();
+                    ViewBag.Degree = ds.Tables[0].Rows[0]["Degree"].ToString();
+                    ViewBag.UniverSity = ds.Tables[0].Rows[0]["UniverSity"].ToString();
+                    ViewBag.FromDate = ds.Tables[0].Rows[0]["FromDate"].ToString();
+                    ViewBag.ToDate = ds.Tables[0].Rows[0]["ToDate"].ToString();
+                }
+            }
+            return View(model);
         }
-
+        
         public ActionResult InternShipApplication()
         {
             return View();
         }
+        
+        [HttpPost]
+        public JsonResult SaveInternShip(Admin formData, HttpPostedFileBase postedFile)
+        {
+            var profile = Request.Files;
+            var Intershipdatavalue = Request["IntershipdataValue"];
+            var jssIntership = new JavaScriptSerializer();
+            var jdvIntership = jssIntership.Deserialize<dynamic>(Request["IntershipdataValue"]);
+            DataTable AcademicDetails = new DataTable();
+            AcademicDetails = JsonConvert.DeserializeObject<DataTable>(jdvIntership["AddDataIntership"]);
+            formData.DtAcademicDetails = AcademicDetails;
+            formData.AddedBy = Session["Pk_AdminId"].ToString();
+            formData.DOB = string.IsNullOrEmpty(formData.DOB) ? null : Comman.ConvertToSystemDate(formData.DOB, "dd/MM/yyyy");
+            formData.ProPoSedInternShipFromDate = string.IsNullOrEmpty(formData.ProPoSedInternShipFromDate) ? null : Comman.ConvertToSystemDate(formData.ProPoSedInternShipFromDate, "dd/MM/yyyy");
+            formData.ProPoSedInternShipToDate = string.IsNullOrEmpty(formData.ProPoSedInternShipToDate) ? null : Comman.ConvertToSystemDate(formData.ProPoSedInternShipToDate, "dd/MM/yyyy");
+            formData.Date = string.IsNullOrEmpty(formData.Date) ? null : Comman.ConvertToSystemDate(formData.Date, "dd/MM/yyyy");
+            
+            if (postedFile != null)
+            {
+                formData.PostedFile = "../StudentFileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
+                postedFile.SaveAs(Path.Combine(Server.MapPath(formData.PostedFile)));
+            }
+            DataSet ds = new DataSet();
+            ds = formData.SaveInternShip();
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                {
+                    formData.Result = "1";
+                    TempData["InternShip"] = "InternShip Application saved successfully";
+
+                }
+                else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                {
+                    TempData["InternShip"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+            }
+            else
+            {
+                TempData["InternShip"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+            }
+            //return new JsonResult { Data = new { status = status } };
+            return Json(formData, JsonRequestBehavior.AllowGet);
+        }
+        
+        public ActionResult InternShipApplicationList()
+        {
+            Admin model = new Admin();
+            List<Admin> lst = new List<Admin>();
+            DataSet ds = model.GetInternShipList();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Admin obj = new Admin();
+                    obj.InterShipId = dr["PK_InterShipId"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    obj.Father = dr["Father"].ToString();
+                    obj.DOB = dr["DOB"].ToString();
+                    obj.PostalAddress = dr["PostalAddress"].ToString();
+                    obj.PermanentAddress = dr["PermanentAddress"].ToString();
+                    obj.Domicile = dr["Domicile"].ToString();
+                    obj.CellNo = dr["CellNo"].ToString();
+                    obj.Mobile = dr["MobileNo"].ToString();
+                    obj.Gender = dr["Gender"].ToString();
+                    obj.Religion = dr["Religion"].ToString();
+                    obj.Email = dr["Email"].ToString();
+                    obj.Degree = dr["Degree"].ToString();
+                    obj.Discipline = dr["Discipline"].ToString();
+                    obj.Semester = dr["Semester"].ToString();
+                    obj.CGPA = dr["CGPA"].ToString();
+                    obj.RegistrationNo = dr["RegistrationNo"].ToString();
+                    obj.RollNo = dr["RollNo"].ToString();
+                    obj.UniverSity = dr["UniverSity"].ToString();
+                    obj.FinalYearProject = dr["FinalYearProject"].ToString();
+                    obj.FatherMother = dr["FatherMother"].ToString();
+                    obj.Designation = dr["Designation"].ToString();
+                    obj.PINO = dr["PINO"].ToString();
+                    obj.FYGRPDEPT = dr["FYGRPDEPT"].ToString();
+                    obj.FromDate = dr["FromDate"].ToString();
+                    obj.ToDate = dr["ToDate"].ToString();
+                    obj.Date = dr["Date"].ToString();
+                    obj.PostedFile = dr["FileUpload"].ToString();
+                    lst.Add(obj);
+                }
+                model.lstInterShip = lst;
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("InternShipApplicationList")]
+        public ActionResult InternShipApplicationList(Admin model)
+        {
+            model.Name = model.Name == "" ? null : model.Name;
+            model.Mobile = model.Mobile == "" ? null : model.Mobile;
+            List<Admin> lst = new List<Admin>();
+            DataSet ds = model.GetInternShipList();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Admin obj = new Admin();
+                    obj.InterShipId = dr["PK_InterShipId"].ToString();
+                    obj.Name = dr["Name"].ToString();
+                    obj.Father = dr["Father"].ToString();
+                    obj.DOB = dr["DOB"].ToString();
+                    obj.PostalAddress = dr["PostalAddress"].ToString();
+                    obj.PermanentAddress = dr["PermanentAddress"].ToString();
+                    obj.Domicile = dr["Domicile"].ToString();
+                    obj.CellNo = dr["CellNo"].ToString();
+                    obj.Mobile = dr["MobileNo"].ToString();
+                    obj.Gender = dr["Gender"].ToString();
+                    obj.Religion = dr["Religion"].ToString();
+                    obj.Email = dr["Email"].ToString();
+                    obj.Degree = dr["Degree"].ToString();
+                    obj.Discipline = dr["Discipline"].ToString();
+                    obj.Semester = dr["Semester"].ToString();
+                    obj.CGPA = dr["CGPA"].ToString();
+                    obj.RegistrationNo = dr["RegistrationNo"].ToString();
+                    obj.RollNo = dr["RollNo"].ToString();
+                    obj.UniverSity = dr["UniverSity"].ToString();
+                    obj.FinalYearProject = dr["FinalYearProject"].ToString();
+                    obj.FatherMother = dr["FatherMother"].ToString();
+                    obj.Designation = dr["Designation"].ToString();
+                    obj.PINO = dr["PINO"].ToString();
+                    obj.FYGRPDEPT = dr["FYGRPDEPT"].ToString();
+                    obj.FromDate = dr["FromDate"].ToString();
+                    obj.ToDate = dr["ToDate"].ToString();
+                    obj.Date = dr["Date"].ToString();
+                    obj.PostedFile = dr["FileUpload"].ToString();
+                    lst.Add(obj);
+                }
+                model.lstInterShip = lst;
+            }
+            return View(model);
+        }
+        
+        public ActionResult AcademicList(string InterShipId)
+        {
+            Admin model = new Admin();
+            model.InterShipId = InterShipId;
+            List<Admin> lst = new List<Admin>();
+            DataSet ds = model.GetAcademicDetails();
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Admin obj = new Admin();
+                    obj.AcademicId = dr["PK_AcademicId"].ToString();
+                    obj.InterShipId = dr["FK_InterShipId"].ToString();
+                    obj.Certificate = dr["Certificate"].ToString();
+                    obj.PassingYear = dr["PassingYear"].ToString();
+                    obj.MarksObtainedTotalMarksGPA = dr["MarksObtainedTotalMarksGPA"].ToString();
+                    obj.Division = dr["Division"].ToString();
+                    obj.Board = dr["Board"].ToString();
+                    lst.Add(obj);
+                }
+                model.lstAccadamic = lst;
+            }
+            return View(model);
+        }
+
+
 
 
 
