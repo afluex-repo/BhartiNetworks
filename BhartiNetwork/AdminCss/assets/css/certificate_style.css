@@ -1,7 +1,10 @@
 
-html,p,h1,h2,h3,h4,h5,input
+html,p,h1,h2,h3,h4,h5,input,span
 {
     font-family: 'Rubik', sans-serif;
+}
+span{
+    font-size:16px !important;
 }
   .certificate-container {
     padding: 10px 50px 10px 50px;
@@ -9,9 +12,9 @@ html,p,h1,h2,h3,h4,h5,input
     margin:0px auto;
 }
 .certificate {
-    border: 20px solid #0C5280;
-    border-radius: 100px 0px 100px 0;
-    padding: 25px;
+    border: 20px solid #0C5280 !important;
+    border-radius: 100px 0px 100px 0 !important;
+    padding: 25px !important;
     /*height: 650px;*/
     position: relative;
 }
@@ -22,26 +25,26 @@ html,p,h1,h2,h3,h4,h5,input
     left: 0px;
     bottom: 0px;
     right: 0px;
-    position: absolute;
-    background-image: url(/assets/img/tower.jpg);
-    background-size: cover;
-    z-index: -1;
-    opacity: 0.23;
+    position: absolute !important;
+    background-image: url(/assets/img/tower.jpg) !important;
+    background-size: cover !important;
+    z-index: -1 !important;
+    opacity: 0.23 !important;
 }
 
 .certificate-header > .logo {
     height: 45px;
 }
 .certificate-header{
-    width: 182px;
-    background: #0c5280;
-    border-radius: 30px 0px 30px 0px;
+    width: 182px !important;
+    background: #0c5280 !important;
+    border-radius: 30px 0px 30px 0px !important;
 }
 
 .title{
-    font-weight: 600;
-    font-size: 40px;
-    color: #f58634;
+    font-weight: 600 !important;
+    font-size: 40px !important;
+    color: #f58634 !important;
 }
 .certificate_desc,.topic-title
 {
@@ -55,9 +58,9 @@ font-size: 20px;
 
 .about-certificate {
     /*width: 380px;*/
-    font-size:18px;
-    margin: 0 auto;
-    padding:0px 25px 0px 25px;
+    font-size:18px !important;
+    margin: 0 auto !important;
+    padding:0px 25px 0px 25px !important;
 }
 #btn-print
 {
