@@ -13,88 +13,6 @@
     <link href="../assets/img/bn-favicon.png" rel="icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-    <style>
-        * {
-  box-dizing: border-box;
-}
-
-div {
-  .portrait, .landscape {
-    border: 1px solid red;
-    font-size: 28px;
-  }
-}
-$ratio: 0.5;
-.portrait_wrapper {
-  overflow: hidden;
-  width: 595px * $ratio + 2;
-  height: 842px * $ratio + 2;
-}
-.portrait {
-  width: 595px;
-  height: 842px;
-  transform: scale($ratio);
-  transform-origin: 0 0 ;
-}
-.landscape_wrapper {
-  overflow: hidden;
-  width: 842px * $ratio + 2;
-  height: 594px * $ratio + 2;
-}
-.landscape {
-  width: 842px;
-  height: 594px;
-  transform: scale($ratio);
-  transform-origin: 0 0 ;
-}
-
-/*body * {
-  display: none;
-  visibility: hidden;
-}
-.portrait_wrapper {
-  display: block;
-  visibility: visible;
-}
-.portrait, .portrait * {
-  display: block;
-  visibility: visible;
-}*/
-
-
-@@media print {
-  html, body {height: 100%;}
-  body {
-    margin: 0;
-  }
-  body * {
-    display: none;
-    visibility: hidden;
-  }
-  .portrait, .portrait * {
-    //display: block;
-    //visibility: visible;
-  }
-  .landscape, .landcape * {
-    //display: block;
-    //visibility: visible;
-  }
-  .portrait {
-    position: absolute;
-    left: 0;
-    top: 0;
-    transform: scale(1.3227);
-    transform-origin: 0 0 ;
-  }
-  .landscape {
-    position: absolute;
-    left: 0;
-    top: 0;
-    transform: scale(1.3227);
-    transform-origin: 0 0 ;
-  }
-}
-    </style>
 </head>
 <body>
     <div class="container mt-3">
@@ -152,34 +70,15 @@ $ratio: 0.5;
             </div>
         </div>
     </div>
-    <button class="portrait_button">portrait print</button>
-    <button class="landscape_button">landscape print</button>
 
-    <br />
-
-    <div class="portrait_wrapper"><div class="portrait">A4 portrait</div></div>
-    <br />
-    <div class="landscape_wrapper"><div class="landscape">A4 landscape</div></div>
     <script type="text/javascript">
 
-        function print() {
-            var frame = document.getElementsByClassName('mydivclass').item(0);
-            var data = frame.innerHTML;
-            var win = window.open('', '', 'height=500,width=900');
-            win.document.write('<style>@@page{size:landscape;}</style><html><head><title></title>');
-            win.document.write('</head><body >');
-            win.document.write(data);
-            win.document.write('</body></html>');
-            win.print();
-            win.close();
-            return true;
-        }
         function printDiv(elem) {
             var mywindow = window.open('', 'PRINT', 'height=700,width=800');
+
             mywindow.document.write('<html><head>');
             mywindow.document.write("<link href=\"/AdminCss/assets/css/certificate_style.css\" rel=\"stylesheet\"><link href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\">")
             mywindow.document.write('</head><body >');
-            //mywindow.document.write('<style>@@page{size:landscape;}</style><html><head><title></title>');
             mywindow.document.write(document.getElementById('print').innerHTML);
             mywindow.document.write('</body></html>');
             mywindow.document.close(); // necessary for IE >= 10
@@ -192,56 +91,5 @@ $ratio: 0.5;
             return true;
         }
     </script>
-<script>
-    $(function () {
-        function printP() {
-            usePageSize("A4 portrait");
-            onlyPrint(".portrait");
-            window.print();
-        }
-
-        function printL() {
-            usePageSize("A4 landscape");
-            onlyPrint(".landscape");
-            window.print();
-        }
-
-        function usePageSize(land_por) {
-            var cssPagedMedia = (function () {
-                var style = document.createElement('style');
-                document.head.appendChild(style);
-                return function (rule) {
-                    style.innerHTML = rule;
-                };
-            }());
-            cssPagedMedia.size = function (size) {
-                cssPagedMedia('@@page {margin:0;size: ' + size + '}');
-            };
-            cssPagedMedia.size(land_por);
-        }
-
-        var myStyle = document.createElement('style');
-        document.head.appendChild(myStyle);
-
-        function onlyPrint(selector) {
-            var custom = "@@media print{" + selector + "_wrapper" + ", " + selector + ", " + selector + " * {visibility: visible;display:block}" + "}";
-            //myStyle.innerHTML = custom;
-            //alert(custom);
-            var custom2 = "@@media print{.portrait, .portrait * {visibility: visible}}";
-
-            myStyle.innerHTML = custom;
-            //$(selector).show();
-        }
-
-        $(".portrait_button").click(function () {
-            printP();
-        });
-
-        $(".landscape_button").click(function () {
-            printL();
-        });
-
-    });
-</script>
 </body>
 </html>

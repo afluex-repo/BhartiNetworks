@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-md-4 text-right">
                             @*<img src="~/AdminCss/assets/images/user.png" class="img-fluid" style="height:100px;" />*@
-                            <input type="file" name="PostedFile" id="PostedFile" />
+                            <span style="color: red">*</span>  <input type="file" name="PostedFile" id="PostedFile" />
                             <img id="blah" src="#" height="80"  width="80" class="rounded-circle" />
                         </div>
                     </div>
@@ -109,10 +109,10 @@
                                 <div class="col-sm-4">
                                     <div class="row form-group">
                                         <div class="col-sm-4">
-                                            <label>Cell No. <span style="color: red">*</span></label>
+                                            <label>Blood Group </label>
                                         </div>
                                         <div class="col-sm-8">
-                                            @Html.TextBoxFor(m => m.CellNo, new { @class = "form-control", @placeholder = "Cell No." })
+                                            @Html.TextBoxFor(m => m.CellNo, new { @class = "form-control", @placeholder = "Blood Group" })
                                             @*<input type="number" class="form-control" />*@
                                         </div>
                                     </div>
@@ -210,7 +210,7 @@
                         <div class="col-sm-4">
                             <div class="row form-group">
                                 <div class="col-sm-4">
-                                    <label>CGPA <span style="color: red">*</span></label>
+                                    <label>CGPA </label>
                                 </div>
                                 <div class="col-sm-8">
                                     @Html.TextBoxFor(m => m.CGPA, new { @class = "form-control", @placeholder = "CGPA" })
@@ -232,7 +232,7 @@
                         <div class="col-sm-4">
                             <div class="row form-group">
                                 <div class="col-sm-4">
-                                    <label>Roll No. <span style="color: red">*</span></label>
+                                    <label>Roll No. </label>
                                 </div>
                                 <div class="col-sm-8">
                                     @Html.TextBoxFor(m => m.RollNo, new { @class = "form-control", @placeholder = "Roll No", @onkeypress = "return isNumberKey(event);" })
@@ -282,7 +282,7 @@
                                     <tbody  id="TextBoxContainer">
                                         <tr class="mycontainer" id="mainrow">
                                             <td>@Html.TextBoxFor(m => m.Certificate, new { @class = "Certificate form-control", @placeholder = "Degree" })</td>
-                                            <td>@Html.TextBoxFor(m => m.PassingYear, new { @class = "PassingYear form-control", @placeholder = "Passing Year", @onkeypress = "return isNumberKey(event);" })</td>
+                                            <td>@Html.TextBoxFor(m => m.PassingYear, new { @class = "PassingYear form-control", @placeholder = "Passing Year", @onkeypress = "return isNumberKey(event);",@maxlength="4" })</td>
                                             <td>@Html.TextBoxFor(m => m.MarksObtainedTotalMarksGPA, new { @class = "MarksObtainedTotalMarksGPA form-control", @placeholder = "Marked Obtained/Total Marks & GPA" })</td>
                                             <td>@Html.TextBoxFor(m => m.Division, new { @class = "Division form-control", @placeholder = "Division/Grade" })</td>
                                             <td>@Html.TextBoxFor(m => m.Board, new { @class = "Board form-control", @placeholder = "Institute/Board", @onkeypress = "return onlyAlphabets();" })</td>
@@ -299,16 +299,16 @@
                         </div>
                       
                         <div class="col-sm-12 mb-4 mt-4">
-                            <h5>In case applicant is son/daughter of POF employee/Ex- POF employee</h5>
+                            <h5>In case applicant is son/daughter of Force employee/Ex- Force employee</h5>
                         </div>
                         <div class="col-sm-12 table-responsive">
                             <table class="table table-striped table-bordered display">
                                 <thead>
                                     <tr>
-                                        <th>Name of Father/Mother <span style="color: red">*</span></th>
-                                        <th>Designation <span style="color: red">*</span></th>
-                                        <th>PI. No <span style="color: red">*</span></th>
-                                        <th>Fy/Grp/Dept <span style="color: red">*</span></th>
+                                        <th>Name of Father/Mother </th>
+                                        <th>Designation </th>
+                                        <th>PI. No </th>
+                                        <th>Fy/Grp/Dept </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -327,7 +327,7 @@
                                 <div class="col-sm-4">
                                     <div class="row">
                                         <div class="col-sm-2">
-                                            <label>From <span style="color: red">*</span></label>
+                                            <label>From<span style="color: red">*</span></label>
                                         </div>
                                         <div class="col-sm-10">
                                             @Html.TextBoxFor(m => m.ProPoSedInternShipFromDate, new { @class = "form-control", @placeholder = "dd/mm/yyyy", @autocomplete = "off" })
@@ -463,6 +463,11 @@
 
         $('#FinalbtnSave').click(function () {
             var isAllValid = true;
+            if ($('#PostedFile').val() == '') {
+                $("#PostedFile").addClass('errortext');
+                $('#PostedFile').focus();
+                return false;
+            }
             if ($('#Name').val() == '') {
                 $("#Name").addClass('errortext');
                 $('#Name').focus();
@@ -495,11 +500,12 @@
                 $('#Domicile').focus();
                 return false;
             }
-            if ($('#CellNo').val() == '') {
-                $("#CellNo").addClass('errortext');
-                $('#CellNo').focus();
-                return false;
-            }
+
+            //if ($('#CellNo').val() == '') {
+            //    $("#CellNo").addClass('errortext');
+            //    $('#CellNo').focus();
+            //    return false;
+            //}
             if ($('#Mobile').val() == '') {
                 $("#Mobile").addClass('errortext');
                 $('#Mobile').focus();
@@ -535,21 +541,21 @@
                 $('#Semester').focus();
                 return false;
             }
-            if ($('#CGPA').val() == '') {
-                $("#CGPA").addClass('errortext');
-                $('#CGPA').focus();
-                return false;
-            }
+            //if ($('#CGPA').val() == '') {
+            //    $("#CGPA").addClass('errortext');
+            //    $('#CGPA').focus();
+            //    return false;
+            //}
             if ($('#RegistrationNo').val() == '') {
                 $("#RegistrationNo").addClass('errortext');
                 $('#RegistrationNo').focus();
                 return false;
             }
-            if ($('#RollNo').val() == '') {
-                $("#RollNo").addClass('errortext');
-                $('#RollNo').focus();
-                return false;
-            }
+            //if ($('#RollNo').val() == '') {
+            //    $("#RollNo").addClass('errortext');
+            //    $('#RollNo').focus();
+            //    return false;
+            //}
             if ($('#UniverSity').val() == '') {
                 $("#UniverSity").addClass('errortext');
                 $('#UniverSity').focus();
@@ -560,26 +566,26 @@
             //    $('#FinalYearProject').focus();
             //    return false;
             //}
-            if ($('#FatherMother').val() == '') {
-                $("#FatherMother").addClass('errortext');
-                $('#FatherMother').focus();
-                return false;
-            }
-            if ($('#Designation').val() == '') {
-                $("#Designation").addClass('errortext');
-                $('#Designation').focus();
-                return false;
-            }
-            if ($('#PINO').val() == '') {
-                $("#PINO").addClass('errortext');
-                $('#PINO').focus();
-                return false;
-            }
-            if ($('#FYGRPDEPT').val() == '') {
-                $("#FYGRPDEPT").addClass('errortext');
-                $('#FYGRPDEPT').focus();
-                return false;
-            }
+            //if ($('#FatherMother').val() == '') {
+            //    $("#FatherMother").addClass('errortext');
+            //    $('#FatherMother').focus();
+            //    return false;
+            //}
+            //if ($('#Designation').val() == '') {
+            //    $("#Designation").addClass('errortext');
+            //    $('#Designation').focus();
+            //    return false;
+            //}
+            //if ($('#PINO').val() == '') {
+            //    $("#PINO").addClass('errortext');
+            //    $('#PINO').focus();
+            //    return false;
+            //}
+            //if ($('#FYGRPDEPT').val() == '') {
+            //    $("#FYGRPDEPT").addClass('errortext');
+            //    $('#FYGRPDEPT').focus();
+            //    return false;
+            //}
             if ($('#ProPoSedInternShipFromDate').val() == '') {
                 $("#ProPoSedInternShipFromDate").addClass('errortext');
                 $('#ProPoSedInternShipFromDate').focus();
