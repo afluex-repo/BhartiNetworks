@@ -27,6 +27,9 @@
            {
                margin-left:40px !important;
                margin-top:20px !important;
+               background-color: #0c5280 !important;
+               display:inline !important;
+               padding:100px !important;
            }
            .certificate
            {
@@ -36,6 +39,10 @@
                padding:0px !important;
                margin-left:-65px !important;
               
+           }
+           .certificate_no
+           {
+               display:inline !important;
            }
         }
     </style>
@@ -55,10 +62,13 @@
                 <div class="certificate-container">
                     <div class="certificate">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="certificate-header" style="padding:10px;background-color: #0c5280;">
+                            <div class="col-md-6" style="display:inline !important;">
+                                <div class="certificate-header" style="padding:10px;background-color: #0c5280 !important;">
                                     <img src="~/assets/img/logo.png" class="logo" alt="">
                                 </div>
+                            </div>
+                            <div class="col-md-6" style="display:inline !important;">
+                                <h6 class="certificate_no" style="display:inline !important;"> Certificate No : <span> <b>@ViewBag.CertificateNo  </b>  </span></h6>
                             </div>
                         </div>
                         <div class="certificate-body mt-5 text-center" style="margin-top:50px;">
@@ -70,24 +80,20 @@
                                         Son/Daughter of Sri/Smt<span> <b>@ViewBag.Father  </b> </span>
                                         Student of B.Tech/Diploma/ITI <b>@ViewBag.Degree  </b> College <b>@ViewBag.UniverSity  </b>
                                         has undergone tech training from <b>@ViewBag.FromDate</b> to <b>@ViewBag.ToDate</b>
-                                        for his/her outstanding completion of the internship program at Bharti Network.
+                                        for his/her outstanding completion of the internship program at Bharti Networks.
                                     </span>
                                 </div>
                             </div>
-                            <div class="certificate-footer mt-5" style="margin:50px 0px 20px 0px">
+                            <div class="certificate-footer mt-5" style="margin:50px 40px 20px 40px">
                                 <div class="row">
                                     <div class="col-md-4 text-left" style="display:inline">
-                                        <span style="display:inline"><b>Avery Davis</b></span>
-                                        <span style="display:inline">(HR Admin)</span>
+                                        <span style="display:inline">HR Admin</span>
                                     </div>
                                     <div class="col-md-4 text-center" style="display:inline">
                                         <img src="~/assets/img/medal_img.png" style="height:80px;" class="img-fluid" alt="">
                                     </div>
-                                    <div class="col-md-4 text-right" style="display:inline" >
-                                        <span style="display:inline">
-                                            <b>Reese Milller</b>
-                                        </span>
-                                        <span style="display:inline">(Training Officer)</span>
+                                    <div class="col-md-4 text-right" style="display:inline">
+                                        <span style="display:inline">Training Officer</span>
                                     </div>
                                 </div>
                             </div>
