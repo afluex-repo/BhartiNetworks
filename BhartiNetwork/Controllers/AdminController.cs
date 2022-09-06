@@ -1870,6 +1870,7 @@ namespace BhartiNetwork.Controllers
                     ViewBag.UniverSity = ds.Tables[0].Rows[0]["UniverSity"].ToString();
                     ViewBag.FromDate = ds.Tables[0].Rows[0]["FromDate"].ToString();
                     ViewBag.ToDate = ds.Tables[0].Rows[0]["ToDate"].ToString();
+                    ViewBag.CertificateNo = ds.Tables[0].Rows[0]["CertificateNo"].ToString();
                 }
             }
             return View(model);
@@ -1962,6 +1963,8 @@ namespace BhartiNetwork.Controllers
                     obj.ToDate = dr["ToDate"].ToString();
                     obj.Date = dr["Date"].ToString();
                     obj.PostedFile = dr["FileUpload"].ToString();
+                    obj.CertificateNo = dr["CertificateNo"].ToString();
+                    
                     lst.Add(obj);
                 }
                 model.lstInterShip = lst;
@@ -2010,6 +2013,7 @@ namespace BhartiNetwork.Controllers
                     obj.ToDate = dr["ToDate"].ToString();
                     obj.Date = dr["Date"].ToString();
                     obj.PostedFile = dr["FileUpload"].ToString();
+                    obj.CertificateNo = dr["CertificateNo"].ToString();
                     lst.Add(obj);
                 }
                 model.lstInterShip = lst;

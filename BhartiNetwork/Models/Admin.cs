@@ -146,6 +146,7 @@ namespace BhartiNetwork.Models
         public List<Admin> lstInterShip { get; set; }
         public List<Admin> lstAccadamic { get; set; }
         public string PostedFile { get; set; }
+        public string CertificateNo { get; set; }
         
 
         public DataSet SaveProject()
