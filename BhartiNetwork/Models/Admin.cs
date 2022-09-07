@@ -673,5 +673,14 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("PrintCertificate", para);
             return ds;
         }
+
+        public DataSet DeleteInternShipDetails()
+        {
+            SqlParameter[] para ={new SqlParameter ("@PK_InterShipId",InterShipId),
+                                 new SqlParameter("@DeletedBy",AddedBy)
+                                 };
+            DataSet ds = Connection.ExecuteQuery("DeleteInternShipDetails", para);
+            return ds;
+        }
     }
 }
