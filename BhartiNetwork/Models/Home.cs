@@ -98,13 +98,13 @@ namespace BhartiNetwork.Models
 
         public DataSet GetProjectDetails()
         {
-            SqlParameter[] para ={new SqlParameter ("@ProjectId",ProjectId),
-                                 new SqlParameter ("@Name",Name),
-                                //new SqlParameter("@Date",Date),
-                                new SqlParameter("@Details",Details),
-                                new SqlParameter("@PostedFile",Image)
-                                 };
-            DataSet ds = Connection.ExecuteQuery("GetProjectDetails", para);
+            //SqlParameter[] para ={new SqlParameter ("@ProjectId",ProjectId),
+            //                     new SqlParameter ("@Name",Name),
+            //                    //new SqlParameter("@Date",Date),
+            //                    new SqlParameter("@Details",Details),
+            //                    new SqlParameter("@PostedFile",Image)
+            //                     };
+            DataSet ds = Connection.ExecuteQuery("GetProjectDetails");
             return ds;
 
         }
