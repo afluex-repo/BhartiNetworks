@@ -2047,9 +2047,38 @@ namespace BhartiNetwork.Controllers
         }
 
 
+        public ActionResult DeleteInternShipDetails(string InterShipId)
+        {
+            Admin model = new Admin();
+            try
+            {
+                model.InterShipId = InterShipId;
+                model.AddedBy = Session["Pk_AdminId"].ToString();
+                DataSet ds = model.DeleteInternShipDetails();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["InternShip"] = "InternShip details deleted successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["InternShip"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["InternShip"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
 
-
-
+            }
+            catch (Exception ex)
+            {
+                TempData["InternShip"] = ex.Message;
+            }
+            return RedirectToAction("InternShipApplicationList", "Admin");
+        }
+        
     }
 }
 

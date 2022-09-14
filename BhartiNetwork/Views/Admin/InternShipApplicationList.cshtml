@@ -12,7 +12,7 @@
 
                     <h4 class="card-title">InternShip Application List</h4>
                     <p style="color:red;">
-                        @*@TempData["PO"]*@
+                        @TempData["InternShip"]
                     </p>
                     <div class="row" style="padding-bottom:20px;">
                         <div class="col-sm-10">
@@ -126,6 +126,7 @@
                                                         </td>
                                                         <td><a href="/Admin/AcademicList?InterShipId=@item.InterShipId" class="btn btn-info btn-sm">View Academic Details</a>
                                                         <a target="_blank" href="/Admin/Certificate?InterShipId=@item.InterShipId" class="btn btn-success btn-sm">Print</a>
+                                                            <a href="/Admin/DeleteInternShipDetails?InterShipId=@item.InterShipId" onclick="confirm('Are You Sure You Want To Delete This Candidate Record ?')" class="btn btn-danger btn-sm">Delete</a>
                                                         </td>
                                                     </tr>
                                                     i++;
