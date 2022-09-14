@@ -534,5 +534,18 @@ namespace BhartiNetwork.Controllers
         //    return RedirectToAction(FormName, Controller);
 
         //}
+
+        public ActionResult PrivacyPolicy()
+        {
+            return View();
+        }
+        public ActionResult TermsAndConditions()
+        {
+            return View();
+        }
+        public ActionResult RefundAndCancellationPolicy()
+        {
+            return View();
+        }
     }
 }

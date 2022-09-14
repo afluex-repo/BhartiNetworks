@@ -1338,6 +1338,9 @@
     <Content Include="Views\Admin\InternShipApplication.cshtml" />
     <Content Include="Views\Admin\InternShipApplicationList.cshtml" />
     <Content Include="Views\Admin\AcademicList.cshtml" />
+    <Content Include="Views\Home\PrivacyPolicy.cshtml" />
+    <Content Include="Views\Home\TermsAndConditions.cshtml" />
+    <Content Include="Views\Home\RefundAndCancellationPolicy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
