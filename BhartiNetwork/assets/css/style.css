@@ -1199,6 +1199,7 @@ section {
 .team .member p {
   margin: 10px 0 0 0;
   font-size: 14px;
+  text-align:justify;
 }
 .team .member .social {
   margin-top: 12px;
