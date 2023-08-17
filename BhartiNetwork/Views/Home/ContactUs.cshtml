@@ -41,7 +41,7 @@
                             Vibhuti Khand, Gomti Nagar, Lucknow,
                             Uttar Pradesh, India 226010 
                              <br>
-                            Call : 0522-3156538
+                            Call : 0522-4077405
                         </p>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                <!--div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon-box mb-4">
                         <div class="icon"><i class="bi bi-geo-alt"></i></div>
                         <h4 class="title"><a>USA</a></h4>
@@ -70,7 +70,7 @@
                             Call : +12058513414
                         </p>
                     </div>
-                </div>
+                <div-->
                 <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box mb-4">
                         <div class="icon"><i class="bi bi-geo-alt"></i></div>
@@ -111,7 +111,7 @@
             <div class="row mt-1 d-flex justify-content-end" data-aos="fade-right" data-aos-delay="100">
 
                 <div class="col-lg-5">
-                    <div class="info">
+                    <div class="info card shadow p-4 rounded border-0">
                         @*<div class="address">
                             <i class="bi bi-geo-alt"></i>
                             <h4>Location:</h4>
@@ -154,20 +154,39 @@
                         </div>*@
                         @*<div class="row">
                             <div class="col-md-6">*@
-                                <div class="email">
+                        <div class="address">
+                            <i class="bi bi-geo-alt"></i>
+                            <h4>Office Address :</h4>
+                            <p>
+                                Bharti Networks<br />
+                                Corporate Office<br />
+                                D-28 3rd floor Taif Tower,
+                                <br />
+                                Vibhuti khand, Gomti Nagar Lucknow,<br />
+                                Uttar Pradesh 226010
+                                India
+                            </p>
+                            <!--  <p>
+             Bharti Networks<br />
+             444 Alaska Avenue Suite #BFK943<br>
+             Torrance, California- 90503<br>
+             USA <br>
+            Call : +12058513414</p> -->
+                        </div> <hr />
+                                <div class="email mt-2">
                                     <a href="mailto: info@bhartinetworks.com">
                                         <i class="bi bi-envelope"></i>
                                         <h4>Email:</h4>
                                         <p>info@bhartinetworks.com</p>
                                     </a>
-                                </div>
+                                </div> <hr />
                             @*</div>
                             <div class="col-md-6">*@
-                                <div class="phone">
-                                    <a href="tel: +05223156538">
+                                <div class="phone mt-2">
+                                    <a href="tel: +05224077405">
                                         <i class="bi bi-phone"></i>
                                         <h4>Call Us:</h4>
-                                        <p>0522-3156538</p>
+                                        <p>0522-4077405</p>
                                     </a>
                                 </div>
                             @*</div>
@@ -179,7 +198,7 @@
                 </div>
 
                 <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
-
+                    <div class="card shadow p-4 rounded border-0">
                     @*<form action="forms/contact.php" method="post" role="form" class="php-email-form">*@
 
                     @using (Html.BeginForm("ContactUs", "Home", FormMethod.Post))
@@ -219,6 +238,7 @@
                             </div>
                             @*</form>*@
                     }
+                    </div>
                 </div>
 
             </div>

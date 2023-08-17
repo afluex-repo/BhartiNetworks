@@ -547,5 +547,14 @@ namespace BhartiNetwork.Controllers
         {
             return View();
         }
+
+        public ActionResult Policies()
+        {
+            return View();
+        }
+        public ActionResult compliancesCertifications()
+        {
+            return View();
+        }
     }
 }
