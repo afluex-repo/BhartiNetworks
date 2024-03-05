@@ -1,0 +1,110 @@
+﻿@model BhartiNetwork.Models.Home
+@{
+    ViewBag.Title = "Policies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Policies", "Home", FormMethod.Post))
+{
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero-new" class="d-flex justify-cntent-center align-items-center policyBg">
+        <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="carousel-container">
+                    <h2 class="animate__animated animate__fadeInDown text-white text-center mb-0 fs-md-4 fs-2 ">Policies</h2>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+  <!-- ============================================-->
+      <!-- <section> begin ============================-->
+    <section class="py-4 "></section><!-- <section> close ============================-->
+      <!-- ============================================-->
+
+    <main id="main">
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row content">
+                    <div class="col-md-12 col-lg-12 col-12">
+                        <div class="section-title pb-0">
+                            <h2 class="text-capitalize"><span style="color:#f6b024">Policies</span></h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <a href="/home/cobce">
+                            <div class="card shadow rounded hvr-float-shadow">
+                                <img src="~/assets/img/polic1.jpg" class="card-img-top" alt="business">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-dark">Code of Business Conduct & Ethics</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <a href="/home/safeDrivingPolicy">
+                            <div class="card shadow rounded hvr-float-shadow">
+                                <img src="~/assets/img/polic2.jpg" class="card-img-top" alt="business">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-dark">Safe Driving Policy </h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <a href="/home/alcoholDrugsPolicy">
+                            <div class="card shadow rounded hvr-float-shadow">
+                                <img src="~/assets/img/polic3.jpg" class="card-img-top" alt="business">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-dark">Alcohol and Drugs Policy </h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <a href="/home/HumanLabourRightPolicy">
+                            <div class="card shadow rounded hvr-float-shadow">
+                                <img src="~/assets/img/polic4.jpg" class="card-img-top" alt="business">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-dark">Human and Labour Right Policy</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <a href="/home/HiraPolicy">
+                            <div class="card shadow rounded hvr-float-shadow">
+                                <img src="~/assets/img/polic5.jpg" class="card-img-top" alt="business">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-dark">Hira Policy</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <a href="/home/IncidentReportingPolicy">
+                            <div class="card shadow rounded hvr-float-shadow">
+                                <img src="~/assets/img/polic6.jpg" class="card-img-top" alt="business">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-dark">Incident Reporting Policy</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+  <!-------==========Whatsapp==================---------->
+    <a href="https://api.whatsapp.com/send?phone=919839418222" class="float" target="_blank">
+        <i class="bi bi-whatsapp my-float"></i>
+    </a>
+    <!-------==========Whatsapp==================---------->
+
+
+}
