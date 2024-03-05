@@ -966,12 +966,14 @@
     <Content Include="assets\img\manpower.jpg" />
     <Content Include="assets\img\network-rollout-integration.png" />
     <Content Include="assets\img\Outsourcing-services.jpg" />
+    <Content Include="assets\img\Permanent-Staffing-img.jpg" />
     <Content Include="assets\img\polic1.jpg" />
     <Content Include="assets\img\polic2.jpg" />
     <Content Include="assets\img\polic3.jpg" />
     <Content Include="assets\img\polic4.jpg" />
     <Content Include="assets\img\polic5.jpg" />
     <Content Include="assets\img\polic6.jpg" />
+    <Content Include="assets\img\policiesDetails.png" />
     <Content Include="assets\img\policy_bg.jpg" />
     <Content Include="assets\img\portfolio\about.jpg" />
     <Content Include="assets\img\portfolio\action.jpg" />
@@ -996,6 +998,13 @@
     <Content Include="assets\img\portfolio\portfolio-details-3.jpg" />
     <Content Include="assets\img\PPP01.jpg" />
     <Content Include="assets\img\project.jpg" />
+    <Content Include="assets\img\resource-bg.jpg" />
+    <Content Include="assets\img\resource-bg.png" />
+    <Content Include="assets\img\resource1.jpg" />
+    <Content Include="assets\img\resource2.jpg" />
+    <Content Include="assets\img\resource3.jpg" />
+    <Content Include="assets\img\services-icons\3d-modeling.jpg" />
+    <Content Include="assets\img\services-icons\cloud-computing.jpg" />
     <Content Include="assets\img\slider-1.png" />
     <Content Include="assets\img\slider-2.png" />
     <Content Include="assets\img\team\team-1.jpg" />
@@ -1259,6 +1268,7 @@
     <Content Include="main-assets\webfonts\fa-solid-900d41d.eot" />
     <Content Include="assets\img\slider-1.webp" />
     <Content Include="assets\img\slider-2.webp" />
+    <Content Include="assets\img\resource-bg.webp" />
     <None Include="Properties\PublishProfiles\Bharteee.pubxml" />
     <None Include="Properties\PublishProfiles\BhartiNetwork.pubxml" />
     <None Include="Properties\PublishProfiles\BhartiNetwork_1.pubxml" />
@@ -1355,6 +1365,16 @@
     <Content Include="Views\Home\RefundAndCancellationPolicy.cshtml" />
     <Content Include="Views\Home\Policies.cshtml" />
     <Content Include="Views\Home\compliancesCertifications.cshtml" />
+    <Content Include="Views\Home\cobce.cshtml" />
+    <Content Include="Views\Home\safeDrivingPolicy.cshtml" />
+    <Content Include="Views\Home\alcoholDrugsPolicy.cshtml" />
+    <Content Include="Views\Home\HumanLabourRightPolicy.cshtml" />
+    <Content Include="Views\Home\HiraPolicy.cshtml" />
+    <Content Include="Views\Home\IncidentReportingPolicy.cshtml" />
+    <Content Include="Views\Home\PermanentStaffing.cshtml" />
+    <Content Include="Views\Home\ContractualStaffing.cshtml" />
+    <Content Include="Views\Home\GlobalRecruitment.cshtml" />
+    <Content Include="Views\Home\ItStaffing.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

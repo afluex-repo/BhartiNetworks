@@ -265,3 +265,4 @@ D:\Jyoti\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 D:\Jyoti\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
 D:\Jyoti\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 D:\Jyoti\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
+D:\Jyoti\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
