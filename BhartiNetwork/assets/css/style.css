@@ -438,6 +438,14 @@ h1, h2, h3, h4, h5, h6 {
 .policyBg {
   background: url("../img/policy_bg.jpg") top center;
 }
+.policyBgDetails {
+  background: url("../img/policiesDetails.png") top center;
+  background-size:cover;
+}
+.resourceManagement {
+  background: url("../img/resource-bg.png") top center;
+  background-size:cover;
+}
 .herocontact {
   background: url("../img/contact.png") top center;
 }
@@ -2287,4 +2295,35 @@ color:#054a85!important;
   -webkit-transform: translateY(5px);
   transform: translateY(5px);
   /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+}
+
+.details_heading h4{
+       font-weight:bold;
+       color:#000;
+       margin:13px 0px;
+}
+.details_title {
+    font-weight: 500;
+    color: #000;
+    margin: 34px 0px 12px;
+    font-size: 20px;
+
+}
+.details_heading p {
+    line-height:28px;
+}
+.details_heading ul li {
+    line-height:28px;
+}
+.DevelopoServiceBox{
+    display:flex;
+    align-items:center;
+    padding:13px!important;
+}
+.DevelopoServiceBox .icon{
+    background:#ca9e45;
+}
+.DevelopoServiceBox h3{
+    padding-left:15px;
+    font-size:16px;
 }

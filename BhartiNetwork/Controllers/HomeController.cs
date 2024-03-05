@@ -556,5 +556,45 @@ namespace BhartiNetwork.Controllers
         {
             return View();
         }
+        public ActionResult cobce()
+        {
+            return View();
+        }
+        public ActionResult safeDrivingPolicy()
+        {
+            return View();
+        }
+        public ActionResult alcoholDrugsPolicy()
+        {
+            return View();
+        }
+        public ActionResult HumanLabourRightPolicy()
+        {
+            return View();
+        }
+        public ActionResult HiraPolicy()
+        {
+            return View();
+        }
+        public ActionResult IncidentReportingPolicy()
+        {
+            return View();
+        }
+        public ActionResult PermanentStaffing()
+        {
+            return View();
+        }
+        public ActionResult ContractualStaffing()
+        {
+            return View();
+        }
+        public ActionResult GlobalRecruitment()
+        {
+            return View();
+        }
+        public ActionResult ItStaffing()
+        {
+            return View();
+        }
     }
 }
