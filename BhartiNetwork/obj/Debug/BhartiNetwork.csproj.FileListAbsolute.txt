@@ -371,6 +371,5 @@ F:\Ashwani Afluex\repo\Done\BhartiNetworks\BhartiNetwork\bin\Newtonsoft.Json.xml
 F:\Ashwani Afluex\repo\Done\BhartiNetworks\BhartiNetwork\bin\System.Net.Http.Formatting.xml
 F:\Ashwani Afluex\repo\Done\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 F:\Ashwani Afluex\repo\Done\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
-F:\Ashwani Afluex\repo\Done\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
 F:\Ashwani Afluex\repo\Done\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 F:\Ashwani Afluex\repo\Done\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
