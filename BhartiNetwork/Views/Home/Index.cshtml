@@ -120,7 +120,7 @@
                     <h2>Our Clients</h2>
                 </div>
                <div class="row justify-content-center">
-                   <div class="col-md-6">
+                   <div class="col-md-12">
                        <div class="clients-slider swiper">
                            <div class="swiper-wrapper align-items-center">
                                @if (Model != null)
@@ -130,7 +130,7 @@
                                        int i = 1;
                                        foreach (var item in Model.lstClient)
                                        {
-                                           <div class="swiper-slide"><img src="@item.Image" class="img-fluid" alt="ncr"></div>
+                                           <div class="swiper-slide"><img style="width:300px; display:block; margin:auto;" src="@item.Image" class="img-fluid" alt="ncr"></div>
                                            i++;
                                        }
                                    }

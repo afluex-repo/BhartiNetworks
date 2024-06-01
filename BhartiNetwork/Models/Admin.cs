@@ -682,5 +682,25 @@ namespace BhartiNetwork.Models
             DataSet ds = Connection.ExecuteQuery("DeleteInternShipDetails", para);
             return ds;
         }
+
+
+        //==============================================================================================================================================================
+
+       public DataTable dtTable { get; set; }
+       
+        public DataSet DeleteMultipleContact()
+        {
+            SqlParameter[] para =
+                            {
+                                   new SqlParameter("@UpdatedBy",AddedBy),
+                                   new SqlParameter("@ContactId",ContactId)
+                            };
+            DataSet ds = Connection.ExecuteQuery("DeleteMultipleContact", para);
+            return ds;
+        }
+
+
+
+
     }
 }

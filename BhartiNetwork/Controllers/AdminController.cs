@@ -1,8 +1,10 @@
-﻿using BhartiNetwork.Models;
+﻿
+using BhartiNetwork.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using BhartiNetwork.Filter;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -2078,7 +2080,54 @@ namespace BhartiNetwork.Controllers
             }
             return RedirectToAction("InternShipApplicationList", "Admin");
         }
-        
+
+        //=============================================================================================================================================================
+
+        [HttpPost]
+        [ActionName("GetContactList")]
+        [OnAction(ButtonName = "btnDeleteMultipleContact")]
+        public ActionResult DeleteGetContactList(Admin model)
+        {
+            string ctrRowCount = Request["hdRows"].ToString();
+            string chk = "";
+            string ContactId = "";
+            int Id = 0;
+            DataTable dtpayment = new DataTable();
+            dtpayment.Columns.Add("Id");
+            dtpayment.Columns.Add("PK_ContactId");
+
+            for (int i = 1; i < int.Parse(ctrRowCount); i++)
+            {
+                chk = Request["chkpayment_" + i];
+                if (chk == "on")
+                {
+                    Id = dtpayment.Rows.Count + 1;
+                    ContactId = Request["PK_ContactId" + i].ToString();
+                    dtpayment.Rows.Add(Id, ContactId);
+                }
+
+            }
+            model.dtTable = dtpayment;
+            model.AddedBy = Session["Pk_AdminId"].ToString();
+            DataSet ds = model.DeleteMultipleContact();
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                {
+                    TempData["Plot"] = "Records Deleted Successfully !";
+                }
+                else
+                {
+                    TempData["Plot"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+            }
+            return View(model);
+        }
+
+
+
+
+
     }
 }
 
