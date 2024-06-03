@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="col-sm-3">
-                            <input type="submit" value="Search" class="btn btn-success" style="margin-top:25px;" />
+                            <input type="submit" value="Search" id="btnSearch" name="btnSearch"class="btn btn-success" style="margin-top:25px;" />
                         </div>
                     </div>
 
@@ -46,11 +46,15 @@
 
                     <div class="row">
                         <div class="col-12">
-
+                            <div class="col-md-3 mb-4">
+                                <input type="submit" id="btnDeleteMultipleCareer" name="btnDeleteMultipleCareer" onclick="return Validate();" class="btn btn-danger" value="Delete Multiple Records" />
+                            </div>
                             <div class="table-responsive">
                                 <table id="file_export" class="table table-striped table-bordered display">
                                     <thead>
                                         <tr>
+                                            <th hidden></th>
+                                            <th><INPUT type="checkbox" onchange="checkAll(this)" name="chk[]" /> Select All</th>
                                             <th>S No.</th>
                                             <th>Name</th>
                                             <th>Mobile</th>
@@ -71,6 +75,8 @@
                                                 foreach (var item in Model.lstCareer)
                                                 {
                                                     <tr>
+                                                        <td hidden><input type="hidden" id="PK_CareerId_@i" name="PK_CareerId_@i" value="@item.CareerId" /></td>
+                                                        <td><input type="checkbox" name="chkCareer_@i" id="chkCareer_@i" />&nbsp;&nbsp;&nbsp;&nbsp; </td>
                                                         <td>@i</td>
                                                         <td>@item.Name</td>
                                                         <td>@item.Mobile</td>
@@ -93,6 +99,7 @@
                                                     </tr>
                                                     i++;
                                                 }
+                                                <input type="hidden" id="hdRows" name="hdRows" value="@i" />
                                             }
                                         }
                                     </tbody>
@@ -108,6 +115,50 @@
 }
 
 <script>
+    function checkAll(ele) {
+        var checkboxes = document.getElementsByTagName('input');
+        if (ele.checked) {
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].type == 'checkbox') {
+                    checkboxes[i].checked = true;
+                }
+            }
+        } else {
+            for (var i = 0; i < checkboxes.length; i++) {
+                console.log(i)
+                if (checkboxes[i].type == 'checkbox') {
+                    checkboxes[i].checked = false;
+                }
+            }
+        }
+    }
 
+    function Validate() {
+        debugger;
+        if ($('input[type=checkbox]:checked').length == 0) {
+            alert("ERROR! Please select at least one checkbox");
+            return false;
+        }
+        else {
+            var r = confirm('Are you sure you want to delete these records ?')
+            @*if (r == true) {
+                var hdRows = $('#hdRows').val();
+                var chkpayment_ = $('#chkpayment_').val();
+                $.ajax({
+                    url: "/Admin/DeleteGetContactList",
+                    Type: "Get",
+                    DataType: "JSON",
+                    data: { hdRows: hdRows, chkpayment_: chkpayment_ },
+                    success: function (data) {
+                        //alert("Payment rejected ");
+                        window.location.href = '@Url.Action("DeleteMultipleContact", "Admin")';
+                        $("#divload").css({ 'display': 'none' });
+                    }
+
+                });
+            }*@
+
+            }
+    }
 </script>
 

@@ -26,6 +26,7 @@
     <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+
     @*<link href="~/assets/css/style.css" rel="stylesheet">
     <link href="~/assets/css/style.css" rel="stylesheet" />*@
     <link href="~/assets/css/style.css" rel="stylesheet" />
@@ -77,7 +78,7 @@
         <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
             <div class="contact-info d-flex align-items-center">
                 <i class="bi bi-envelope-fill"></i><a href="mailto:info@bhartinetworks.com">info@bhartinetworks.com</a>
-                <a href="tel:+05223156538" style="color: white;"><strong><i class="bi-telephone-inbound-fill phone-icon"></i></strong> 0522-3156538</a>
+                <a href="tel:+05224646187" style="color: white;"><strong><i class="bi-telephone-inbound-fill phone-icon"></i></strong> 0522 4646187</a>
             </div>
             <div class="cta d-none d-md-block">
                 @*<a href="#about" class="scrollto">Get Started</a>*@
@@ -94,18 +95,31 @@
 
             <!-- <h1 class="logo"><a href="index.html">Anyar</a></h1> -->
             <!-- Uncomment below if you prefer to use an image logo -->
-            <a href="/Home/Index" class="logo"><img src="~/assets/img/logo.png" alt="" class="img-fluid"></a>
+            <a href="/Home/Index" class="logo"><img src="~/assets/img/logo.png" alt="" class="img-fluid"/></a>
 
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link active" href="/Home/Index">Home</a></li>
-                    <li><a class="nav-link" href="/Home/AboutUs">About</a></li>
+                    <li class="dropdown">
+                      <a class="nav-link" href="#!"><span>About Bharti Network</span> <i class="bi bi-chevron-down"></i></a>
+                      <ul>
+                        <li>
+                          <a href="/Home/AboutUs">About Us</a>
+                        </li>
+                        <li>
+                          <a href="/Home/Policies">Policies</a>
+                        </li>
+                        <li>
+                          <a href="/Home/compliancesCertifications">Compliances and Certifications</a>
+                        </li>
+                      </ul>
+                    </li>
                     <li class="dropdown">
                         <a href="#"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="/Home/Telecom">Telecom</a></li>
                             <li><a href="/Home/Metro">Metro</a></li>
-                            <li><a href="/Home/ManpowerOutsourcing">Manpower Outsourcing</a></li>
+                            <li><a href="/Home/ManpowerOutsourcing">Resource Management</a></li>
                         </ul>
                     </li>
                     @*<li><a class="nav-link" href="/Home/Project">Projects</a></li>*@
@@ -221,7 +235,9 @@
 
 
 
-    <div id="preloader"></div>
+    <div id="preloader">
+        <img src="~/assets/img/loader1.gif" />
+    </div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
@@ -231,6 +247,8 @@
     <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="../assets/vendor/php-email-form/validate.js"></script>
     <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+
 
     <!-- Template Main JS File -->
     <script src="~/assets/js/main.js"></script>

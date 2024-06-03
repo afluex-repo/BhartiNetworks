@@ -1,8 +1,10 @@
-﻿using BhartiNetwork.Models;
+﻿
+using BhartiNetwork.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using BhartiNetwork.Filter;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -257,6 +259,7 @@ namespace BhartiNetwork.Controllers
 
         [HttpPost]
         [ActionName("GetContactList")]
+        [OnAction(ButtonName = "btnSearch")]
         public ActionResult GetContactList(Admin model)
         {
             List<Admin> lstContact = new List<Admin>();
@@ -340,6 +343,7 @@ namespace BhartiNetwork.Controllers
 
         [HttpPost]
         [ActionName("GetCareerList")]
+        [OnAction(ButtonName ="btnSearch")]
         public ActionResult GetCareerList(Admin model)
         {
             //Admin model = new Admin();
@@ -985,6 +989,7 @@ namespace BhartiNetwork.Controllers
 
         [HttpPost]
         [ActionName("EmployeeList")]
+        [OnAction(ButtonName = "btnSearch")]
         public ActionResult EmployeeList(Admin model)
         {
             List<Admin> lstVendor = new List<Admin>();
@@ -2078,7 +2083,134 @@ namespace BhartiNetwork.Controllers
             }
             return RedirectToAction("InternShipApplicationList", "Admin");
         }
-        
+
+        //=============================================================================================================================================================
+
+        [HttpPost]
+        [ActionName("GetContactList")]
+        [OnAction(ButtonName = "btnDeleteMultipleContact")]
+        public ActionResult DeleteGetContactList(Admin model)
+        {
+            string ctrRowCount = Request["hdRows"].ToString();
+            string chk = "";
+            string ContactId = "";
+            int Id = 0;
+            DataTable dtContact = new DataTable();
+            dtContact.Columns.Add("Id");
+            dtContact.Columns.Add("PK_ContactId");
+
+            for (int i = 1; i < int.Parse(ctrRowCount); i++)
+            {
+                chk = Request["chkpayment_" + i];
+                if (chk == "on")
+                {
+                    Id = dtContact.Rows.Count + 1;
+                    ContactId = Request["PK_ContactId_" + i].ToString();
+                    dtContact.Rows.Add(Id, ContactId);
+                }
+
+            }
+            model.dtTable = dtContact;
+            model.AddedBy = Session["Pk_AdminId"].ToString();
+            DataSet ds = model.DeleteMultipleContact();
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                {
+                    TempData["Contact"] = "Records Deleted Successfully !";
+                }
+                else
+                {
+                    TempData["Contact"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("GetCareerList")]
+        [OnAction(ButtonName = "btnDeleteMultipleCareer")]
+        public ActionResult DeleteGetCareerList(Admin model)
+        {
+            string ctrRowCount = Request["hdRows"].ToString();
+            string chk = "";
+            string CareerID = "";
+            int Id = 0;
+            DataTable dtCareer = new DataTable();
+            dtCareer.Columns.Add("Id");
+            dtCareer.Columns.Add("PK_CareerId");
+
+            for (int i = 1; i < int.Parse(ctrRowCount); i++)
+            {
+                chk = Request["chkCareer_" + i];
+                if (chk == "on")
+                {
+                    Id = dtCareer.Rows.Count + 1;
+                    CareerID = Request["PK_CareerId_" + i].ToString();
+                    dtCareer.Rows.Add(Id, CareerID);
+                }
+
+            }
+            model.dtCareer = dtCareer;
+            model.AddedBy = Session["Pk_AdminId"].ToString();
+            DataSet ds = model.DeleteMultipleCareer();
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                {
+                    TempData["Career"] = "Records Deleted Successfully !";
+                }
+                else
+                {
+                    TempData["Career"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("EmployeeList")]
+        [OnAction(ButtonName = "btnDeleteMultipleEmployee")]
+        public ActionResult DeleteEmployeeList(Admin model)
+        {
+            string ctrRowCount = Request["hdRows"].ToString();
+            string chk = "";
+            string EmployeeID = "";
+            int Id = 0;
+            DataTable dtEmployee = new DataTable();
+            dtEmployee.Columns.Add("Id");
+            dtEmployee.Columns.Add("PK_EmployeeId");
+
+            for (int i = 1; i < int.Parse(ctrRowCount); i++)
+            {
+                chk = Request["chkEmployee_" + i];
+                if (chk == "on")
+                {
+                    Id = dtEmployee.Rows.Count + 1;
+                    EmployeeID = Request["PK_EmployeeId_" + i].ToString();
+                    dtEmployee.Rows.Add(Id, EmployeeID);
+                }
+
+            }
+            model.dtEmployee = dtEmployee;
+            model.AddedBy = Session["Pk_AdminId"].ToString();
+            DataSet ds = model.DeleteMultipleEmployee();
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                {
+                    TempData["Employee"] = "Records Deleted Successfully !";
+                }
+                else
+                {
+                    TempData["Employee"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+            }
+            return View(model);
+        }
+
+
+
     }
 }
 
