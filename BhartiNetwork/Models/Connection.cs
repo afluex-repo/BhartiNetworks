@@ -19,7 +19,7 @@ namespace BhartiNetwork.Models
                 //connectionString = "Data Source=101.53.150.222,1440;Initial Catalog=bhartinetworksdb; User Id=sa; Password=Fx1479LVAPbF; Integrated Security=false;";
 
                 connectionString = "Data Source=101.53.150.222,1440;Initial Catalog=bhartinetworksdbTest_01June2024; User Id=sa; Password=Fx1479LVAPbF; Integrated Security=false;";
-                
+
                 //connectionString = "Data Source=103.48.51.111,1232;Initial Catalog=bhartinetworksdb; User Id=bhartiuser;Password=bharti@9919#12!;Integrated Security=false;";             
             }
             catch (Exception)

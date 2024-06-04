@@ -181,6 +181,10 @@
   new Swiper('.clients-slider', {
     speed: 400,
     loop: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
     autoplay: {
       delay: 5000,
       disableOnInteraction: false
@@ -193,19 +197,19 @@
     },
     breakpoints: {
       320: {
-        slidesPerView: 2,
+        slidesPerView: 1,
         spaceBetween: 40
       },
       480: {
-        slidesPerView: 3,
+        slidesPerView: 1,
         spaceBetween: 60
       },
       640: {
-        slidesPerView: 4,
+        slidesPerView: 1,
         spaceBetween: 80
       },
       992: {
-        slidesPerView: 6,
+        slidesPerView: 1,
         spaceBetween: 120
       }
     }

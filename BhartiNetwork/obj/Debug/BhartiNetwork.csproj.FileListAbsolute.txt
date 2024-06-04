@@ -265,7 +265,6 @@ D:\Jyoti\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 D:\Jyoti\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
 D:\Jyoti\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 D:\Jyoti\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
-D:\Jyoti\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
 F:\Ashwani Afluex\repo\BhartiNetworks\BhartiNetwork\bin\ApplicationInsights.config
 F:\Ashwani Afluex\repo\BhartiNetworks\BhartiNetwork\bin\roslyn\csc.exe
 F:\Ashwani Afluex\repo\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -424,6 +423,6 @@ F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Newtonsoft.Json.xml
 F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Net.Http.Formatting.xml
 F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
-F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
 F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache

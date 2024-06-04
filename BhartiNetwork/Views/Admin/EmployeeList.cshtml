@@ -160,25 +160,15 @@
             alert("ERROR! Please select at least one checkbox");
             return false;
         }
+        var r = confirm('Are you sure you want to delete these records ?');
+        debugger;
+        if (r == true) {
+
+        }
         else {
-            var r = confirm('Are you sure you want to delete these records ?')
-            @*if (r == true) {
-                var hdRows = $('#hdRows').val();
-                var chkpayment_ = $('#chkpayment_').val();
-                $.ajax({
-                    url: "/Admin/DeleteGetContactList",
-                    Type: "Get",
-                    DataType: "JSON",
-                    data: { hdRows: hdRows, chkpayment_: chkpayment_ },
-                    success: function (data) {
-                        //alert("Payment rejected ");
-                        window.location.href = '@Url.Action("DeleteMultipleContact", "Admin")';
-                        $("#divload").css({ 'display': 'none' });
-                    }
-
-                });
-            }*@
-
-            }
+            $('input[type=checkbox]:checked').prop('checked', false);
+            var checkedCount = $('input[type=checkbox]:checked').length;
+            return false;
+        }
     }
 </script>
