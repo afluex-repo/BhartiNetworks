@@ -1,313 +1,466 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ======== Page title ============ -->
     <title>Bharti Networks</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-    <link href="../assets/css/style.css" rel="stylesheet" />
-    <!-- Favicons -->
-    <link href="../assets/img/bn-favicon.png" rel="icon">
-    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!--<< Favcion >>-->
+    <link rel="shortcut icon" href="~/assets/img/favicon.png">
+    <!--<< Main.css >>-->
+    <link rel="stylesheet" href="~/assets/css/main.css">
+    <!--<< Style.css >>-->
+    <link rel="stylesheet" href="~/style.css">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <link href="~/assets/css/style.css" rel="stylesheet" />
-    <!-- Vendor CSS Files -->
-    <link href="../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-
-    @*<link href="~/assets/css/style.css" rel="stylesheet">
-    <link href="~/assets/css/style.css" rel="stylesheet" />*@
-    <link href="~/assets/css/style.css" rel="stylesheet" />
-    <link href="../assets/css/style.css" rel="stylesheet" />
-    <!-- Main CSS File -->
-    <style type="text/css">
-        .float {
-            position: fixed;
-            width: 50px;
-            height: 50px;
-            bottom: 60px;
-            right: 14px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-        }
-
-        .my-float {
-            margin-top: 16px;
-        }
-    </style>
+    <link href="~/assets/css/animate.css" rel="stylesheet" />
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/assets/css/magnific-popup.css" rel="stylesheet" />
+    <link href="~/assets/css/main.css" rel="stylesheet" />
+    <link href="~/assets/css/meanmenu.css" rel="stylesheet" />
+    <link href="~/assets/css/nice-select.css" rel="stylesheet" />
+    <link href="~/assets/css/slick.css" rel="stylesheet" />
+    <link href="~/assets/css/swiper-bundle.min.css" rel="stylesheet" />
 
 </head>
 
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>*@
 
-
-
-    <!-- ======= Top Bar ======= -->
-    <div id="topbar" class="fixed-top d-flex align-items-center ">
-        <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
-            <div class="contact-info d-flex align-items-center">
-                <i class="bi bi-envelope-fill"></i><a href="mailto:info@bhartinetworks.com">info@bhartinetworks.com</a>
-                <a href="tel:+05224646187" style="color: white;"><strong><i class="bi-telephone-inbound-fill phone-icon"></i></strong> 0522 4646187</a>
+    <!-- Preloader Start -->
+    <div id="preloader" class="preloader">
+        <div class="animation-preloader">
+            <div class="spinner">
             </div>
-            <div class="cta d-none d-md-block">
-                @*<a href="#about" class="scrollto">Get Started</a>*@
-                <a href="/Home/EmployeeRegistration" class="scrollto">Employee Registration</a>
-                @*<li><a class="nav-link" href="/Home/EmployeeRegistration">Employee Registration</a></li>*@
+            <div class="txt-loading">
+                <span data-text-preloader="B" class="letters-loading">
+                    B
+                </span>
+                <span data-text-preloader="H" class="letters-loading">
+                    H
+                </span>
+                <span data-text-preloader="A" class="letters-loading">
+                    A
+                </span>
+                <span data-text-preloader="R" class="letters-loading">
+                    R
+                </span>
+                <span data-text-preloader="T" class="letters-loading">
+                    T
+                </span>
+                <span data-text-preloader="I" class="letters-loading">
+                    I
+                </span>
             </div>
+            <p class="text-center">Networks</p>
         </div>
-    </div>
-
-
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center ">
-        <div class="container d-flex align-items-center justify-content-between">
-
-            <!-- <h1 class="logo"><a href="index.html">Anyar</a></h1> -->
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <a href="/Home/Index" class="logo"><img src="~/assets/img/logo.png" alt="" class="img-fluid"/></a>
-
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link active" href="/Home/Index">Home</a></li>
-                    <li class="dropdown">
-                      <a class="nav-link" href="#!"><span>About Bharti Network</span> <i class="bi bi-chevron-down"></i></a>
-                      <ul>
-                        <li>
-                          <a href="/Home/AboutUs">About Us</a>
-                        </li>
-                        <li>
-                          <a href="/Home/Policies">Policies</a>
-                        </li>
-                        <li>
-                          <a href="/Home/compliancesCertifications">Compliances and Certifications</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/Home/Telecom">Telecom</a></li>
-                            <li><a href="/Home/Metro">Metro</a></li>
-                            <li><a href="/Home/ManpowerOutsourcing">Resource Management</a></li>
-                        </ul>
-                    </li>
-                    @*<li><a class="nav-link" href="/Home/Project">Projects</a></li>*@
-                    <li><a class="nav-link" href="/Home/Career">Career</a></li>
-                    <li><a class="nav-link" href="/Home/ContactUs">Contact</a></li>
-                    @*<li><a class="nav-link" href="/Home/EmployeeRegistration">Employee Registration</a></li>*@
-                    <li class="dropdown">
-                        <a href="#"><span>Login</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="https://webmail.bhartinetworks.com/Mondo/lang/sys/login.aspx">Employee</a></li>
-                            <li><a href="/Home/vendor">Vendor</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
-
-        </div>
-    </header><!-- End Header -->
-    @*</div>
-        </div>*@
-
-
-
-
-
-
-
-    @RenderBody()
-
-    <a href="https://api.whatsapp.com/send?phone=919839418222" title="Bharti" class="float" target="_blank">
-        <i class="bi bi-whatsapp my-float"></i>
-    </a>
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
-
-        <div class="footer-top">
-            <div class="container">
-               <div class="row">
-
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/Home/Index">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/Home/AboutUs">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/Home/Career">Career</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/Home/ContactUs">Contact us</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Important Links</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/Home/PrivacyPolicy">Privacy Policy</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/Home/TermsAndConditions">Terms & Conditions</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/Home/RefundAndCancellationPolicy">Refund & Cancellation Policy</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/Home/vendor">Vendor</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Our Services</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/Home/Telecom">Telecom</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/Home/Metro">Metro</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/Home/ManpowerOutsourcing">Manpower Outsourcing</a></li>
-                        </ul>
-                    </div>
-
-                    @*<div class="col-lg-3 col-md-6 footer-contact">
-                        <h4>Contact Us</h4>
-                        <p>
-                            <strong>Head Quarter:</strong><br />
-                            Bharti Networks<br>
-                            444 Alaska Avenue Suite #BFK943<br /> 
-                            Torrance, California-90503 USA<br /><br />
-
-                            <a href="tel: +91 9839 4182 22" style="color: white;"><strong>Phone : </strong>+12058513414</a><br>
-                            <a href="mailto: info@bhartinetworks.com" style="color: white;"><strong>Email:</strong> info@bhartinetworks.com</a><br>
-                        </p>
-                    </div>*@
-
-                    <div class="col-lg-3 col-md-6 footer-info">
-                        <h3>Social Links</h3>
-                        @*<p>To provide Cost efficient Services for emerging Telecom Networks, carrying innovative products to enable our customers to achieve excellence in their performance</p>*@
-                        <div class="social-links mt-3">
-                            <a href="#" class="twitter" title="Twitter"><i class="bx bxl-twitter"></i></a>
-                            <a href="https://www.facebook.com/bhartinetworks" target="_blank" class="facebook" title="Facebook"><i class="bx bxl-facebook"></i></a>
-                            <a href="#" class="instagram" title="Instagram"><i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="google-plus" title="Skype"><i class="bx bxl-skype"></i></a>
-                            <a href="#" class="telegram" title="Telegram"><i class="bx bxl-telegram"></i></a>
-                            <a href="https://www.linkedin.com/in/bharti-networks" target="_blank" title="Linkedin"><i class="bx bxl-linkedin"></i></a>
-                            @*<a href="viber://contact?number=%2B977 982 1945614" class="viber" title="Viber"><i class="bx bxl-whatsapp"></i></a>*@
-                            <!-- <a href="viber://contact?number=%2B977 982 1945614">Viber Contact</a> -->
-                        </div>
-                    </div>
-
+        <div class="loader">
+            <div class="row">
+                <div class="col-3 loader-section section-left">
+                    <div class="bg"></div>
+                </div>
+                <div class="col-3 loader-section section-left">
+                    <div class="bg"></div>
+                </div>
+                <div class="col-3 loader-section section-right">
+                    <div class="bg"></div>
+                </div>
+                <div class="col-3 loader-section section-right">
+                    <div class="bg"></div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Bharti Networks</span></strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                Designed by <a href="https://afluex.com/">Afluex Multiservices LLP</a>
+    <!--<< Mouse Cursor Start >>-->
+    <div class="mouse-cursor cursor-outer"></div>
+    <div class="mouse-cursor cursor-inner"></div>
+
+    <!-- Offcanvas Area Start -->
+    <div class="fix-area">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="/Home/Index">
+                                <img src="~/assets/img/logo/logo.png" alt="logo-img">
+                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mobile-menu fix mb-3"></div>
+                    <div class="offcanvas__contact">
+                        <h4>Contact Info</h4>
+                        <ul>
+                            <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon">
+                                    <i class="fal fa-map-marker-alt"></i>
+                                </div>
+                                <div class="offcanvas__contact-text">
+                                    <a target="_blank" href="#">
+                                        Bharti Networks
+                                        Corporate Office
+                                        D-28 3rd floor Taif Tower,
+                                        Vibhuti khand, Gomti Nagar Lucknow,
+                                        Uttar Pradesh 226010 India
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon mr-15">
+                                    <i class="fal fa-envelope"></i>
+                                </div>
+                                <div class="offcanvas__contact-text">
+                                    <a href="#!">
+                                        <span class="mailto:info@bhartinetworks.com">info@bhartinetworks.com</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon mr-15">
+                                    <i class="far fa-phone"></i>
+                                </div>
+                                <div class="offcanvas__contact-text">
+                                    <a href="tel:0522 4646187">0522 4646187</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="header-button mt-4">
+                            <a href="ContactUs.html" class="theme-btn text-center">
+                                <span>More Contacts<i class="fas fa-chevron-right"></i></span>
+                            </a>
+                        </div>
+                        <div class="social-icon d-flex align-items-center">
+                            <a target="_blank"
+                               href="https://x.com/Bbhartinetworks?t=PwiGiK3ysDEVWJzeMUarHw&s=08"
+                               class="twitter" title="Twitter">
+                                <img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png"
+                                     style="width:30px; height:30px;" />
+                            </a>
+                            <a target="_blank" href="https://www.facebook.com/bhartinetworks" target="_blank"
+                               class="facebook" title="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a target="_blank"
+                               href="https://www.instagram.com/bhartinetworks?igsh=MXJycTYwbnAzaXI3OA=="
+                               class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a target="_blank" href="https://join.skype.com/invite/rnUsLHs66ZnJ"
+                               class="google-plus" title="Skype"><i class="fab fa-skype"></i></a>
+                            <a target="_blank" href="https://t.me/bhartinetworks" class="telegram"
+                               title="Telegram"><i class="fab fa-telegram"></i></a>
+                            <a href="https://www.linkedin.com/in/bharti-networks" target="_blank"
+                               title="Linkedin"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer><!-- End Footer -->
-
-
-
-
-
-    <div id="preloader">
-        <img src="~/assets/img/loader1.gif" />
     </div>
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div class="offcanvas__overlay"></div>
 
-    <!-- Vendor JS Files -->
-    <script src="../assets/vendor/aos/aos.js"></script>
-    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="../assets/vendor/php-email-form/validate.js"></script>
-    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <!-- Header Top Start -->
+    <div class="header-top-section fix">
+        <div class="container">
+            <div class="header-top-wrapper">
+                <ul class="contact-list">
+                    <li>
+                        <i class="far fa-envelope"></i>
+                        <a href="mailto:info@bhartinetworks.com" class="link text-white">info@bhartinetworks.com</a>
+                    </li>
+                    <li class="text-white">
+                        <i class="fas fa-phone"></i>
+                        0522 4646187
+                    </li>
+                </ul>
+                <div class="top-right">
+                    <ul class="header-menu">
+                        <li>
+                            <a href="EmployeeRegistration.html" class="text-white">
+                                Employee Registration
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://webmail.bhartinetworks.com/Mondo/lang/sys/login.aspx" class="text-white">
+                                Employee Login
+                            </a>
+                        </li>
+                        <li>
+                            <a href="vendor.html" class="text-white">
+                                Vendor Login
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Header Area Start -->
+    <header class="header-section-1">
+        <div id="header-sticky" class="header-1">
+            <div class="container-fluid">
+                <div class="mega-menu-wrapper">
+                    <div class="header-main">
+                        <div class="header-left">
+                            <div class="logo">
+                                <a href="/Home/Index" class="header-logo">
+                                    <img src="~/assets/img/logo/logo-white.png" alt="logo-img">
+                                </a>
+                            </div>
+                            <div class="mean__menu-wrapper">
+                                <div class="main-menu">
+                                    <nav id="mobile-menu">
+                                        <ul>
+                                            <li>
+                                                <a href="/Home/Index">Home</a>
+                                            </li>
+                                            <li>
+                                                <a href="#!">
+                                                    About Bharti Network
+                                                    <i class="fas fa-angle-down"></i>
+                                                </a>
+                                                <ul class="submenu">
+                                                    <li><a href="/Home/AboutUs">About Us</a></li>
+                                                    <li><a href="policies.html">Policies</a></li>
+                                                    <li>
+                                                        <a href="compliancesCertifications.html">
+                                                            Compliances and
+                                                            Certifications
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="has-dropdown">
+                                                <a href="#!">
+                                                    Services
+                                                    <i class="fas fa-angle-down"></i>
+                                                </a>
+                                                <ul class="submenu">
+                                                    <li class="has-dropdown">
+                                                        <a href="#!">
+                                                            Telecom
+                                                            <i class="fas fa-angle-down"></i>
+                                                        </a>
+                                                        <ul class="submenu">
+                                                            <li><a href="active.html">Active</a></li>
+                                                            <li><a href="passive.html">Passive</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="has-dropdown">
+                                                        <a href="metro.html">
+                                                            Metro
+                                                        </a>
+                                                    </li>
+                                                    <li><a href="ManpowerOutsourcing.html">Resource Management</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="Career.html">Career</a>
+                                            </li>
 
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-right d-flex justify-content-end align-items-center">
+                            <div class="contact-info">
+                                <div class="icon">
+                                    <img src="~/assets/img/call.png" alt="img">
+                                </div>
+                                <div class="content">
+                                    <p>Phone:</p>
+                                    <h6>
+                                        <a href="tel:0522 4646187">0522 4646187</a>
+                                    </h6>
+                                </div>
+                            </div>
+                            <div class="header-button">
+                                <a href="ContactUs.html" class="theme-btn">
+                                    <span>More Contacts</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="header__hamburger d-xl-none my-auto">
+                                <div class="sidebar__toggle">
+                                    <i class="far fa-bars"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <!-- Template Main JS File -->
+    @RenderBody()
+
+    <!--<< Footer Section Start >>-->
+    <footer class="footer-section footer-bg section-padding py-0">
+        <div class="container">
+            <div class="footer-widgets-wrapper">
+                <div class="row">
+                    <div class="col-xl-3 col-sm-6 col-md-6 col-lg-3 wow fadeInUp" data-wow-delay=".2s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                                <a href="/Home/Index">
+                                    <img src="~/assets/img/logo/footer-logo.png" alt="logo-img">
+                                </a>
+                            </div>
+                            <div class="footer-content">
+                                <p>
+                                    To provide Cost efficient Services for emerging Telecom Networks, carrying
+                                    innovative products to enable our customers to achieve excellence in their
+                                    performance
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 ps-lg-5 col-sm-6 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay=".4s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                                <h5>Quick Links</h5>
+                            </div>
+                            <ul class="list-items">
+                                <li>
+                                    <a href="PrivacyPolicy.html">
+                                        Privacy Policy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="TermsAndConditions.html">
+                                        Terms & Conditions
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="RefundAndCancellationPolicy.html">
+                                        Refund &amp; Cancellation Policy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="vendor.html">
+                                        Vendor
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 ps-lg-4 col-sm-6 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay=".6s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                                <h5>My account</h5>
+                            </div>
+                            <ul class="list-items">
+                                <li>
+                                    <a href="active.html">
+                                        Telecom
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="metro.html">
+                                        Metro
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ManpowerOutsourcing.html">
+                                        Manpower Outsourcing
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 ps-xl-5 col-sm-6 col-md-6 col-lg-4 wow fadeInUp" data-wow-delay=".9s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                                <h5>Social Links</h5>
+                            </div>
+                            <div class="footer-apps-items footer-content">
+                                <div class="social-icon d-flex align-items-center">
+                                    <a target="_blank"
+                                       href="https://x.com/Bbhartinetworks?t=PwiGiK3ysDEVWJzeMUarHw&s=08"
+                                       class="twitter" title="Twitter">
+                                        <img src="https://cdn-icons-png.flaticon.com/128/5969/5969020.png"
+                                             style="width:30px; height:30px;" />
+                                    </a>
+                                    <a target="_blank" href="https://www.facebook.com/bhartinetworks" target="_blank"
+                                       class="facebook" title="Facebook"><i class="fab fa-facebook"></i></a>
+                                    <a target="_blank"
+                                       href="https://www.instagram.com/bhartinetworks?igsh=MXJycTYwbnAzaXI3OA=="
+                                       class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                                    <a target="_blank" href="https://join.skype.com/invite/rnUsLHs66ZnJ"
+                                       class="google-plus" title="Skype"><i class="fab fa-skype"></i></a>
+                                    <a target="_blank" href="https://t.me/bhartinetworks" class="telegram"
+                                       title="Telegram"><i class="fab fa-telegram"></i></a>
+                                    <a href="https://www.linkedin.com/in/bharti-networks" target="_blank"
+                                       title="Linkedin"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-wrapper d-flex align-items-center justify-content-between">
+                    <p class="wow fadeInLeft color-2" data-wow-delay=".3s">
+                        Copyright © 2025 <a href="/Home/Index"> Bharti Networks.</a>. All Rights Reserved.
+                    </p>
+                    <ul class="footer-menu wow fadeInRight" data-wow-delay=".5s">
+                        <li>
+                            <a href="PrivacyPolicy.html">
+                                Privacy Policy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="TermsAndConditions.html">
+                                Terms & Conditions
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="#" id="scrollUp" class="scroll-icon">
+                <i class="far fa-arrow-up"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!--<< All JS Plugins >>-->
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="~/assets/js/jquery-3.7.1.min.js"></script>
+    <!--<< Viewport Js >>-->
+    <script src="~/assets/js/viewport.jquery.js"></script>
+    <!--<< Bootstrap Js >>-->
+    <script src="~/assets/js/bootstrap.bundle.min.js"></script>
+    <!--<< Nice Select Js >>-->
+    <script src="~/assets/js/jquery.nice-select.min.js"></script>
+    <!--<< Waypoints Js >>-->
+    <script src="~/assets/js/jquery.waypoints.js"></script>
+    <!--<< Counterup Js >>-->
+    <script src="~/assets/js/jquery.counterup.min.js"></script>
+    <!--<< Slick Js >>-->
+    <script src="~/assets/js/slick.min.js"></script>
+    <!--<< Swiper Js >>-->
+    <script src="~/assets/js/swiper-bundle.min.js"></script>
+    <!--<< Slick Animation Js >>-->
+    <script src="~/assets/js/slick-animation.min.js"></script>
+    <!--<< MeanMenu Js >>-->
+    <script src="~/assets/js/jquery.meanmenu.min.js"></script>
+    <!--<< Magnific Popup Js >>-->
+    <script src="~/assets/js/jquery.magnific-popup.min.js"></script>
+    <!--<< Wow Animation Js >>-->
+    <script src="~/assets/js/wow.min.js"></script>
+    <!--<< Circle Progress Js >>-->
+    <script src="~/assets/js/circle-progress.js"></script>
+    <!--<< Main.js >>-->
     <script src="~/assets/js/main.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            function after_form_submitted(data) {
-                if (data.result == 'success') {
-                    $('form#reused_form').hide();
-                    $('#success_message').show();
-                    $('#error_message').hide();
-                }
-                else {
-                    $('#error_message').append('<ul></ul>');
-
-                    jQuery.each(data.errors, function (key, val) {
-                        $('#error_message ul').append('<li>' + key + ':' + val + '</li>');
-                    });
-                    $('#success_message').hide();
-                    $('#error_message').show();
-
-                    //reverse the response on the button
-                    $('button[type="button"]', $form).each(function () {
-                        $btn = $(this);
-                        label = $btn.prop('orig_label');
-                        if (label) {
-                            $btn.prop('type', 'submit');
-                            $btn.text(label);
-                            $btn.prop('orig_label', '');
-                        }
-                    });
-
-                }//else
-            }
-
-            $('#reused_form').submit(function (e) {
-                e.preventDefault();
-
-                $form = $(this);
-                //show some response on the button
-                $('button[type="submit"]', $form).each(function () {
-                    $btn = $(this);
-                    $btn.prop('type', 'button');
-                    $btn.prop('orig_label', $btn.text());
-                    $btn.text('Sending ...');
-                });
-
-
-                $.ajax({
-                    type: "POST",
-                    url: 'handler.php',
-                    data: $form.serialize(),
-                    success: after_form_submitted,
-                    dataType: 'json'
-                });
-
-            });
-        });
-
-    </script>
-
 </body>
+
+
 </html>
