@@ -8,6 +8,7 @@ using System.Data;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
+using BhartiNetwork.Filter;
 
 namespace BhartiNetwork.Controllers
 {
@@ -77,7 +78,7 @@ namespace BhartiNetwork.Controllers
         }
         [HttpPost]
         [ActionName("Career")]
-        //[OnAction(ButtonName="")]
+        //[OnAction(ButtonName= "submit")]
         public ActionResult Career(Home model, HttpPostedFileBase postedFile)
         {
             try
@@ -93,7 +94,7 @@ namespace BhartiNetwork.Controllers
                 {
                     if (ds.Tables[0].Rows[0][0].ToString() == "1")
                     {
-                        TempData["Career"] = "Career save successfully";
+                        TempData["Career"] = "Career Details Saved Successfully";
                     }
                     else if (ds.Tables[0].Rows[0][0].ToString() == "0")
                     {
