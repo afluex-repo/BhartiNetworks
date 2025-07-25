@@ -479,3 +479,4 @@ E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
 E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
