@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Devendra2025\\BhartiNetworks\\",
+  "WorkspaceRootPath": "E:\\RISHI\\REPOSITORY\\BhartiNetworks\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|e:\\devendra2025\\bhartinetworks\\bhartinetwork\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|solutionrelative:bhartinetwork\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|e:\\rishi\\repository\\bhartinetworks\\bhartinetwork\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|solutionrelative:bhartinetwork\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|E:\\Devendra2025\\BhartiNetworks\\bhartinetwork\\views\\home\\infrastructure.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|solutionrelative:bhartinetwork\\views\\home\\infrastructure.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|e:\\rishi\\repository\\bhartinetworks\\bhartinetwork\\controllers\\adminbasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|solutionrelative:bhartinetwork\\controllers\\adminbasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|E:\\Devendra2025\\BhartiNetworks\\bhartinetwork\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|solutionrelative:bhartinetwork\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|e:\\rishi\\repository\\bhartinetworks\\bhartinetwork\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|solutionrelative:bhartinetwork\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|e:\\rishi\\repository\\bhartinetworks\\bhartinetwork\\views\\home\\career.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|solutionrelative:bhartinetwork\\views\\home\\career.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,52 +34,59 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:132:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Infrastructure.cshtml",
-              "DocumentMoniker": "E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Views\\Home\\Infrastructure.cshtml",
-              "RelativeDocumentMoniker": "BhartiNetwork\\Views\\Home\\Infrastructure.cshtml",
-              "ToolTip": "E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Views\\Home\\Infrastructure.cshtml",
-              "RelativeToolTip": "BhartiNetwork\\Views\\Home\\Infrastructure.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAIwD4AAAAWAQAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-30T06:25:07.328Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "BhartiNetwork\\Views\\Home\\Index.cshtml",
-              "ToolTip": "E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "BhartiNetwork\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAC8BAAAAAAAAAAAkwEgBAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-29T13:03:33.289Z",
+              "Title": "AdminBaseController.cs",
+              "DocumentMoniker": "E:\\RISHI\\REPOSITORY\\BhartiNetworks\\BhartiNetwork\\Controllers\\AdminBaseController.cs",
+              "RelativeDocumentMoniker": "BhartiNetwork\\Controllers\\AdminBaseController.cs",
+              "ToolTip": "E:\\RISHI\\REPOSITORY\\BhartiNetworks\\BhartiNetwork\\Controllers\\AdminBaseController.cs",
+              "RelativeToolTip": "BhartiNetwork\\Controllers\\AdminBaseController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T12:51:27.245Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "BhartiNetwork\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "BhartiNetwork\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAABoBAAAAAAAAAAAkwCEBAAAAAAAAAAAAAA==",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\RISHI\\REPOSITORY\\BhartiNetworks\\BhartiNetwork\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "BhartiNetwork\\Controllers\\HomeController.cs",
+              "ToolTip": "E:\\RISHI\\REPOSITORY\\BhartiNetworks\\BhartiNetwork\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "BhartiNetwork\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAA8wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T12:51:15.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "E:\\RISHI\\REPOSITORY\\BhartiNetworks\\BhartiNetwork\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "BhartiNetwork\\Controllers\\AdminController.cs",
+              "ToolTip": "E:\\RISHI\\REPOSITORY\\BhartiNetworks\\BhartiNetwork\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "BhartiNetwork\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAgwDIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T12:51:07.815Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Career.cshtml",
+              "DocumentMoniker": "E:\\RISHI\\REPOSITORY\\BhartiNetworks\\BhartiNetwork\\Views\\Home\\Career.cshtml",
+              "RelativeDocumentMoniker": "BhartiNetwork\\Views\\Home\\Career.cshtml",
+              "ToolTip": "E:\\RISHI\\REPOSITORY\\BhartiNetworks\\BhartiNetwork\\Views\\Home\\Career.cshtml",
+              "RelativeToolTip": "BhartiNetwork\\Views\\Home\\Career.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-29T12:03:37.926Z"
+              "WhenOpened": "2025-07-23T12:44:20.925Z",
+              "EditorCaption": ""
             }
           ]
         }
