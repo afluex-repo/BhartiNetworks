@@ -1,0 +1,87 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Devendra2025\\BhartiNetworks\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|E:\\Devendra2025\\BhartiNetworks\\bhartinetwork\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|solutionrelative:bhartinetwork\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|e:\\devendra2025\\bhartinetworks\\bhartinetwork\\views\\home\\infrastructure.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|solutionrelative:bhartinetwork\\views\\home\\infrastructure.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|E:\\Devendra2025\\BhartiNetworks\\bhartinetwork\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|solutionrelative:bhartinetwork\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Infrastructure.cshtml",
+              "DocumentMoniker": "E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Views\\Home\\Infrastructure.cshtml",
+              "RelativeDocumentMoniker": "BhartiNetwork\\Views\\Home\\Infrastructure.cshtml",
+              "ToolTip": "E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Views\\Home\\Infrastructure.cshtml",
+              "RelativeToolTip": "BhartiNetwork\\Views\\Home\\Infrastructure.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAIwD4AAAAWAQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-30T06:25:07.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "BhartiNetwork\\Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "BhartiNetwork\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAC8BAAAAAAAAAAAkwEEBAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-29T13:03:33.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BhartiNetwork\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BhartiNetwork\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABoBAAAAAAAAAAAkwCEBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-29T12:03:37.926Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
