@@ -1376,6 +1376,7 @@
     <Content Include="Views\Home\ContractualStaffing.cshtml" />
     <Content Include="Views\Home\GlobalRecruitment.cshtml" />
     <Content Include="Views\Home\ItStaffing.cshtml" />
+    <Content Include="Views\Home\Infrastructure.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

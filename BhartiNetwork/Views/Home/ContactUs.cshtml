@@ -3,259 +3,259 @@
     ViewBag.Title = "ContactUs";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@*@using (Html.BeginForm("ContactUs", "Home", FormMethod.Post))
-    {*@
-<!-- ======= Hero Section ======= -->
-<section id="hero-new" class="d-flex justify-cntent-center align-items-center herocontact">
-    <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+<div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('/assets/img/breadcrumb/conatctus.jpg');">
+    <div class="container">
+        <div class="page-heading">
+            <h1 class="wow fadeInUp" data-wow-delay=".3s">
+                Contact Us
+            </h1>
+            <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+                <li>
+                    <a href="index.html">
+                        Home Page
+                    </a>
+                </li>
+                <li>
+                    <i class="fal fa-minus"></i>
+                </li>
+                <li>
+                    Contact Us
 
-        <!-- Slide 1 -->
-        <div class="carousel-item active">
-            <div class="carousel-container">
-                <h2 class="animate__animated animate__fadeInDown text-uppercase text-white text-center mb-0 fs-md-4 fs-2 ">Contact Us</h2>
-            </div>
+                </li>
+            </ul>
         </div>
-
     </div>
-</section><!-- End Hero -->
+</div>
 
-<main id="main">
-    <!-- ============================================-->
-    <!-- <section> begin ============================-->
-    <section class="py-4 "></section><!-- <section> close ============================-->
-    <!-- ============================================-->
-    <!-- ============================================-->
-    <!-- <section> begin ============================-->
-    <!-- ======= Contact Section ======= -->
-    <section id="icon-boxes" class="icon-boxes">
-        <div class="container">
+<!--<< Service Section Start >>-->
+<section class="service-section fix section-padding section-bg-2">
+    <div class="left-shape">
+        <img src="/assets/img/service/left-shape.png" alt="shape-img">
+    </div>
+    <div class="right-shape">
+        <img src="/assets/img/service/right-shape.png" alt="shape-img">
+    </div>
+    <div class="line-shape-2">
+        <img src="/assets/img/service/line-shape-2.png" alt="shape-img">
+    </div>
+    <div class="container">
+        <div class="section-title text-center">
+            <span class="wow fadeInUp">Bharti Networks</span>
+            <h2 class="wow fadeInUp" data-wow-delay=".3s">
+                Find us there
+            </h2>
+        </div>
+        <div class="service-wrapper-2">
             <div class="row">
-                <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up">
-                    <div class="icon-box mb-4">
-                        <div class="icon"><i class="bi bi-geo-alt"></i></div>
-                        <h4 class="title"><a>India</a></h4>
-                        <p class="description">
-                            Bharti Networks<br />
-                            Corporate Office (Uttar Pradesh)<br />
-                            D-28 3rd floor Taif Tower,
-                            Vibhuti Khand, Gomti Nagar, Lucknow,
-                            Uttar Pradesh, India 226010 
-                             <br>
-                            Call : 0522 4646187
-                        </p>
+                <div class="col-lg-4 col-xl-4 col-md-6 mb-3 wow fadeInUp" data-wow-delay=".3s">
+                    <div class="service-box-items-2 h-100 shadow">
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="content">
+                            <h3>
+                                <a href="service-details.html">India</a>
+                            </h3>
+                            <p>
+                                Bharti Networks<br>
+                                Corporate Office (Uttar Pradesh)<br>
+                                D-28 3rd floor Taif Tower,
+                                Vibhuti Khand, Gomti Nagar, Lucknow,
+                                Uttar Pradesh, India 226010
+                                <br>
+                                Call : 0522 4646187
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon-box mb-4">
-                        <div class="icon"><i class="bi bi-geo-alt"></i></div>
-                        <h4 class="title"><a>India</a></h4>
-                        <p class="description">
-                            Bharti Networks<br />
-                            Corporate Office (Delhi NCR)<br />
-                            Office No -132, 1st floor Gaur City Centre Greater Noida West, Greater Noida, Uttar Pradesh, India
-                             201306<br />
-                            Call : 0120 419 6571
-                        </p>
+                <div class="col-lg-4 col-xl-4 col-md-6 mb-3 wow fadeInUp" data-wow-delay=".5s">
+                    <div class="service-box-items-2 activ shadow h-100">
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="content">
+                            <h3>
+                                <a href="service-details.html">India</a>
+                            </h3>
+                            <p>
+                                Bharti Networks<br>
+                                Corporate Office (Delhi NCR) <br>
+                                Office No : O-888, 8th Floor, Gaur City Centre Greater Noida West, Greater Noida, Uttar Pradesh, India
+                                201306<br>
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <!--div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon-box mb-4">
-                        <div class="icon"><i class="bi bi-geo-alt"></i></div>
-                        <h4 class="title"><a>USA</a></h4>
-                        <p class="description">
-                            Bharti Networks<br />
-                            444 Alaska Avenue Suite #BFK943
-                            Torrance, California- 90503
-                            USA <br>
-                            Call : +12058513414
-                        </p>
-                    </div>
-                <div-->
-                <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-                    <div class="icon-box mb-4">
-                        <div class="icon"><i class="bi bi-geo-alt"></i></div>
-                        <h4 class="title"><a>Nepal</a></h4>
-                        <p class="description">
-                            Bharti Networks<br />
-                            Office No.5<br />
-                            Anchalpur-9 In front of Varun Motors/Vidyut Office
-                            Siddharthanagar,Rupendehi
-                            Nepal<br />
-                            Call : +977 982-1945614
-                        </p>
+                <div class="col-lg-4 col-xl-4 col-md-6 mb-3 wow fadeInUp" data-wow-delay=".7s">
+                    <div class="service-box-items-2 h-100 shadow">
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="content">
+                            <h3>
+                                <a href="service-details.html">Nepal</a>
+                            </h3>
+                            <p>
+                                Bharti Networks<br>
+                                Office No.5<br>
+                                Anchalpur-9 In front of Varun Motors/Vidyut Office
+                                Siddharthanagar,Rupendehi
+                                Nepal<br>
+                                Call : +977 982-1945614
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon-box mb-4">
-                        <div class="icon"><i class="bi bi-geo-alt"></i></div>
-                        <h4 class="title"><a>UAE</a></h4>
-                        <p class="description">
-                            Bharti Networks<br />
-                            Flat No : 103,
-                            Al Baraka Building
-                            Al Satwa, Dubai, UAE<br />
-                            Call : +971-48243144
-                        </p>
+                <div class="col-lg-4 col-xl-4 col-md-6 mb-3 wow fadeInUp" data-wow-delay=".9s">
+                    <div class="service-box-items-2 h-100 shadow">
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="content">
+                            <h3>
+                                <a href="service-details.html">UAE</a>
+                            </h3>
+                            <p>
+                                Bharti Networks<br>
+                                Flat No : 103,
+                                Al Baraka Building
+                                Al Satwa, Dubai, UAE<br>
+                                Call : +971-48243144
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <section id="contact" class="contact bg-white pt-7">
-        <div class="container" data-aos="fade-up">
+    </div>
+</section>
 
-            <div class="section-title">
-                <h2>Contact Us</h2>
-            </div>
-
-            <div class="row mt-1 d-flex justify-content-end" data-aos="fade-right" data-aos-delay="100">
-
-                <div class="col-lg-5">
-                    <div class="info card shadow p-4 rounded border-0">
-                        @*<div class="address">
-                            <i class="bi bi-geo-alt"></i>
-                            <h4>Location:</h4>
-                            <p>
-                                <strong>India</strong><br />
-                                Corporate Office<br />
-                                D-54, 3rd Dloor Arjun Tower Near Ola Office<br>
-                                Vibhuti khand Lucknow, <br/>
-                                Uttar Pradesh 226010 <br />
-                                India <br>
-                                Call : +12058513414
-                            </p>
-                            <br />
-                            <p>
-                                <strong>USA</strong><br />
-                                Bharti Networks<br />
-                                444 Alaska Avenue Suite #BFK943<br>
-                                Torrance, California- 90503<br>
-                                USA <br>
-                                Call : +12058513414
-                            </p>
-                           <br />
-                            <p>
-                                <strong>Nepal</strong><br />
-                                Bharti Networks<br />
-                                Padsari Punam path. Omsatiya-2, Rupendehi,<br />
-                                Nepal<br />
-                                Call : +977 982-1945614
-
-                            </p><br />
-                            <p>
-                                <strong>UAE</strong><br />
-                                Bharti Networks<br />
-                                Flat No : 103<br />
-                                Al Baraka Building<br />
-                                Al Satwa, Dubai, UAE<br />
-                                Call : +971-48243144
-
-                            </p>
-                        </div>*@
-                        @*<div class="row">
-                            <div class="col-md-6">*@
-                        <div class="address">
-                            <i class="bi bi-geo-alt"></i>
-                            <h4>Office Address :</h4>
-                            <p>
-                                Bharti Networks<br />
-                                Corporate Office<br />
-                                D-28 3rd floor Taif Tower,
-                                <br />
-                                Vibhuti khand, Gomti Nagar Lucknow,<br />
-                                Uttar Pradesh 226010
-                                India
-                            </p>
-                            <!--  <p>
-             Bharti Networks<br />
-             444 Alaska Avenue Suite #BFK943<br>
-             Torrance, California- 90503<br>
-             USA <br>
-            Call : +12058513414</p> -->
-                        </div> <hr />
-                                <div class="email mt-2">
-                                    <a href="mailto: info@bhartinetworks.com">
-                                        <i class="bi bi-envelope"></i>
-                                        <h4>Email:</h4>
-                                        <p>info@bhartinetworks.com</p>
-                                    </a>
-                                </div> <hr />
-                            @*</div>
-                            <div class="col-md-6">*@
-                                <div class="phone mt-2">
-                                    <a href="tel: +0522 4646187">
-                                        <i class="bi bi-phone"></i>
-                                        <h4>Call Us:</h4>
-                                        <p>0522 4646187</p>
-                                    </a>
+<!--<< Contact Section Start >>-->
+<section class="contact-main-area fix section-padding">
+    <div class="container">
+        <div class="contact-main-wrapper">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="contact-content shadow p-5">
+                        <div class="section-title mb-2">
+                            <span class="wow fadeInUp invisible">Get In Touch</span>
+                            <h2 class="wow fadeInUp" data-wow-delay=".3s">Contact Us</h2>
+                        </div>
+                        <p class="mt-4 mt-md-0 wow fadeInUp" data-wow-delay=".4s">
+                            Whether you have a question about our services, need support, or just want to connect — we’re only a message or call away. Our dedicated team at Bharti Networks is ready to assist you with your queries.
+                        </p>
+                        <div class="row g-4 mt-3">
+                            <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="info-items">
+                                    <div class="icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h5>Office Address :</h5>
+                                        <p>
+                                            Bharti Networks
+                                            Corporate Office
+                                            D-28 3rd floor Taif Tower,
+                                            Vibhuti khand, Gomti Nagar Lucknow,
+                                            Uttar Pradesh 226010 India
+                                        </p>
+                                    </div>
                                 </div>
-                            @*</div>
-                        </div>*@
-                      
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
-                    <div class="card shadow p-4 rounded border-0">
-                    @*<form action="forms/contact.php" method="post" role="form" class="php-email-form">*@
-
-                    @using (Html.BeginForm("ContactUs", "Home", FormMethod.Post))
-                    {
-                        <div class="row">
-                            <p style="color:red;">
-                                @TempData["Contact"]
-                            </p>
-
-                            <div class="col-md-6 form-group">
-                                @*<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>*@
-
-                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Your Name", @onkeypress = "return onlyAlphabets();" })
-
                             </div>
-                            <div class="col-md-6 form-group mt-3 mt-md-0">
-                                @*<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>*@
-
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Your Email" })
+                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
+                                <div class="info-items">
+                                    <div class="icon">
+                                        <i class="far fa-phone"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h5>Phone</h5>
+                                        <a href="tel:+0522 4646187">0522 4646187 </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".7s">
+                                <div class="info-items">
+                                    <div class="icon">
+                                        <i class="fal fa-envelope"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h5>Email</h5>
+                                        <a href="mailto:info@bhartinetworks.com"
+                                           class="link">info@bhartinetworks.com</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                            <div class="form-group mt-3">
-                                @*<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>*@
-                                @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", @placeholder = " Subject" })
-                            </div>
-                            <div class="form-group mt-3">
-                                @*<textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>*@
-                                @Html.TextAreaFor(m => m.Address, new { @class = "form-control", @placeholder = " Message" })
-                            </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="container">
-                                <div class="text-center"><button class="btn-success sss" type="submit" onclick="return validateform();">Send Message</button></div>
-                            </div>
-                            @*</form>*@
-                    }
                     </div>
                 </div>
+                <div class="col-lg-6">
+                    <div class="contact-form-items shadow">
+                        <!-- <div class="contact-title">
+                                <h3 class="wow fadeInUp" data-wow-delay=".3s">Fill Up The Form</h3>
+                                <p class="wow fadeInUp" data-wow-delay=".5s">Your email address will not be published. Required fields are marked *</p>
+                            </div> -->
+                        <form>
+                            @using (Html.BeginForm("ContactUs", "Home", FormMethod.Post, new { @autocomplete = "off" }))
+                            {  <p style="color:red;">
+                                @TempData["Contact"]
+                            </p>
+                            <div class="row g-4">
+                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
+                                    <div class="form-clt">
+                                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Your Full Name", @onkeypress = "return onlyAlphabets();" })
+                                        <div class="icon">
+                                            <i class="fal fa-user"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".5s">
+                                    <div class="form-clt">
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Enter Your Email" })
+                                        <div class="icon">
+                                            <i class="fal fa-envelope"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
+                                    <div class="form-clt">
+                                        @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", @placeholder = "Subject" })
+                                        <div class="icon">
+                                            <i class="fal fa-pencil"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".7s">
+                                    <div class="form-clt">
+                                        @Html.TextAreaFor(m => m.Address, new { @class = "form-control", @placeholder = "Your Address" })
+                                        <div class="icon">
+                                            <i class="fal fa-edit"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="col-lg-6 wow fadeInUp" data-wow-delay=".8s">
+                                        <button type="submit" class="theme-btn" id="ContactUs" name="ContactUs" onclick="return validateform()">
+                                            <span><i class="fal fa-paper-plane"></i>Send Message</span>
+                                        </button>
+                                    </div>*@
+                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".8s">
+                                    <input type="submit"
+                                           class="theme-btn"
+                                           id="ContactUs"
+                                           name="ContactUs"
+                                           value="Send Message"
+                                           onclick="return validateform()" />
+                                </div>
 
+                            </div>
+                            }
+                        </form>
+                    </div>
+                </div>
             </div>
-
         </div>
-    </section><!-- End Contact Section -->
-    <!-- <section> close ============================-->
-    <!-- ============================================-->
+    </div>
+</section>
 
-
-</main><!-- ===============================================-->
-<!-------==========Whatsapp==================---------->
-<a href="https://api.whatsapp.com/send?phone=919839418222" class="float" target="_blank">
-    <i class="bi bi-whatsapp my-float"></i>
-</a>
-<!-------==========Whatsapp==================---------->
-}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     function validateform() {
