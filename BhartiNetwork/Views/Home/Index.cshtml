@@ -7,375 +7,459 @@
 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {
 
-  <!--Carousel Wrapper-->
-    <div id="video-carousel-example2" class="carousel slide carousel-fade" data-ride="carousel">
-        <!--Slides-->
-        <div class="carousel-inner" role="listbox">
-            <!-- First slide -->
-            <div class="carousel-item active">
-                <!--Mask color-->`
-                <div class="view">
-                    <!--Video source-->
-                    <video class="video-fluid" autoplay loop muted width="100%" height="600" style="margin-top: -25px;  object-fit: cover;">
-                        <source src="../assets/img/5g.mp4" type="video/mp4" width="100%" />
-                    </video>
-                    <div class="mask rgba-indigo-light"></div>
-                </div>
+    <style>
+        .header-section-1 {
+            background: transparent !important;
+            position: absolute;
+            width: 100%;
+        }
 
-                <!--Caption-->
-                <div class="carousel-caption" style="bottom: 22.25rem">
-                    <div class="animated fadeInDown">
-                        <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Bharti Networks</span></h2>
-                    </div>
-                </div>
-                <!--Caption-->
-            </div>
-            <!-- /.First slide -->
-            <!-- /.Third slide -->
+        .header-1 .header-main .main-menu ul li a {
+            color: #fff;
+        }
+
+        .header-1.sticky {
+            background: rgba(5, 87, 158, 0.9);
+        }
+    </style>
+    <!--<< Hero Section Start >>-->
+    <section class="hero-section hero-1">
+        <div class="array-button">
+            <button class="array-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="array-next"><i class="fas fa-chevron-right"></i></button>
         </div>
-        <!--/.Slides-->
+        <div class="swiper hero-slider">
+            <div class="swiper-wrapper">
 
-    </div>
-    <!--Carousel Wrapper-->
-
-    <main id="main">
-
-        <!-- ======= Icon Boxes Section ======= -->
-        <!-- <section id="icon-boxes" class="icon-boxes">
-          <div class="container">
-
-            <div class="row">
-              <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up">
-                <div class="icon-box">
-                  <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                  <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                  <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="hero-image bg-cover" style="background-image: url('/assets/img/hero/hero-1.jpg');"></div>
+                    <div class="container">
+                        <div class="row justify-content-between align-items-center">
+                            <div class="col-xl-8">
+                                <div class="hero-content">
+                                    <h6 data-animation="fadeInUp" data-delay="1.3s">
+                                        Bharti Network
+                                    </h6>
+                                    <h1 class="text-white" data-animation="fadeInUp" data-delay="1.5s">
+                                        India's Most Reliable <br> Connectivity Partner
+                                    </h1>
+                                    <h2 data-animation="fadeInUp" data-delay="1.7s"></h2>
+                                    <p data-animation="fadeInUp" data-delay="1.7s">
+                                        Seamless coverage. Nationwide
+                                        presence.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="frame-shape">
+                                    <img src="~/assets/img/hero/frame-shape.png" alt="shape-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
 
-              <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
-                <div class="icon-box">
-                  <div class="icon"><i class="bx bx-file"></i></div>
-                  <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                  <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="hero-image bg-cover" style="background-image: url('/assets/img/hero/hero-2.jpg');"></div>
+                    <div class="container">
+                        <div class="row justify-content-between align-items-center">
+                            <div class="col-xl-8">
+                                <div class="hero-content">
+                                    <h6 data-animation="fadeInUp" data-delay="1.3s">
+                                        Digital India Ready
+                                    </h6>
+                                    <h1 class="text-white" data-animation="fadeInUp" data-delay="1.5s">
+                                        Empowering Lives <br> Through Connectivity
+                                    </h1>
+                                    <h2 data-animation="fadeInUp" data-delay="1.7s"></h2>
+                                    <p data-animation="fadeInUp" data-delay="1.7s">
+                                        From homes to businesses — always
+                                        connected.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="frame-shape">
+                                    <img src="~/assets/img/hero/frame-shape.png" alt="shape-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
 
-              <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon-box">
-                  <div class="icon"><i class="bx bx-tachometer"></i></div>
-                  <h4 class="title"><a href="">Magni Dolores</a></h4>
-                  <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="hero-image bg-cover" style="background-image: url('/assets/img/hero/hero-3.jpg');"></div>
+                    <div class="container">
+                        <div class="row justify-content-between align-items-center">
+                            <div class="col-xl-8">
+                                <div class="hero-content">
+                                    <h6 data-animation="fadeInUp" data-delay="1.3s">
+                                        Ready for Tomorrow
+                                    </h6>
+                                    <h1 class="text-white" data-animation="fadeInUp" data-delay="1.5s">
+                                        Powering India’s <br> Digital Future
+                                    </h1>
+                                    <h2 data-animation="fadeInUp" data-delay="1.7s"></h2>
+                                    <p data-animation="fadeInUp" data-delay="1.7s">
+                                        Smart. Secure. Scalable network
+                                        solutions.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="frame-shape">
+                                    <img src="/assets/img/hero/frame-shape.png" alt="shape-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-
-              <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon-box">
-                  <div class="icon"><i class="bx bx-layer"></i></div>
-                  <h4 class="title"><a href="">Nemo Enim</a></h4>
-                  <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-                </div>
-              </div>
 
             </div>
-
-          </div>
-        </section> -->
-        <!-- End Icon Boxes Section -->
-        <!-- ============================================-->
-        <!-- <section> begin ============================-->
-        <section class="py-4 "></section><!-- <section> close ============================-->
-        <!-- ============================================-->
-        <!-- ======= About Us Section ======= -->
-        <section id="about" class="about">
-            <div class="container" data-aos="fade-up">
-				<div class="row align-items-center">
-						<div class="col-lg-5 col-md-12">
-							<div class="about_img">
-                                <img src="~/assets/img/aboutImg.png" class="img-fluid" />
-							</div>
-						</div>
-						<div class="col-lg-7 col-md-12">
-							<div class="aboutContent">
-								<h2><span>Bharti</span> Networks</h2>
-							<p>
-								We offer end to end wireless telecom network planning, optimization, and performance management solutions to 30+ Tier 1 & 2 telecom operators and OEMs across the globe.
-
-								We excel in 5G NR, LTE-A, and legacy technologies RF Planning, Optimization, QoSBenchmarking, In-building Solutions, and Manpower Deployment. We have expanded our service portfolio for active and passive telecom infra Managed services, performance management through our In-house network analytics platform-Gladiator. We also offer services for Site Acquisition, Installation of Telecom Equipment, and Construction of BTS sites.
-
-								We aim to provide our customers with the most efficient and cost-effective services.Due to our liaison with operators, equipment suppliers, and contractors,we understand the intricacies of the Telecom business better.
-							</p>
-							
-							<a class="cta-btn align-middle" href="/Home/AboutUs">More About Us</a>
-							</div>
-						</div>
-				</div>
-            </div>
-        </section>
-            <!-- End About Us Section -->
-        <!-- ======= Clients Section ======= -->
-        <section id="clients" class="clients" style="background-color: #0000000d;">
-            <div class="container" data-aos="zoom-in">
-                <div class="section-title">
-                    <h2>Our Clients</h2>
-                </div>
-               <div class="row justify-content-center">
-                   <div class="col-md-12">
-                       <div class="clients-slider swiper">
-                           <div class="swiper-wrapper align-items-center">
-                               @if (Model != null)
-                               {
-                                   if (Model.lstClient != null)
-                                   {
-                                       int i = 1;
-                                       foreach (var item in Model.lstClient)
-                                       {
-                                           <div class="swiper-slide"><img style="width:300px; display:block; margin:auto;" src="@item.Image" class="img-fluid" alt="ncr"></div>
-                                           i++;
-                                       }
-                                   }
-                               }
-                           </div>
-                           <!-- If we need navigation buttons -->
-                           <div class="swiper-button-prev"></div>
-                           <div class="swiper-button-next"></div>
-                       </div>
-                   </div>
-               </div>
-            </div>
-        </section><!-- End Clients Section -->
-        <!-- ======= Services Section ======= -->
-        <section id="services" class="services">
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-title">
-                    <h2>Services</h2>
-                    <p>Our wide network architecture capabilities enable businesses to evolve in the rapidly changing world of cellular technology. We are proud to be partnered with different businesses worldwide, transforming networks and building new possibilities together. We deliver unique innovations that help businesses overcome the challenges standing in the way of great customer experience.</p>
-                </div>
-
+        </div>
+    </section>
+    <!--<< About Section Start >>-->
+    <section class="about-section fix section-padding">
+        <div class="container">
+            <div class="about-wrapper">
                 <div class="row">
-                    <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon-box">
-                            <i class="bi bi-card-checklist"></i>
-                            <h4><a href="/Home/Telecom">Telecom</a></h4>
-                            <p>Today’s Network Planning requires great strategies and planning. In Network planning it is also important to make provision for future innovative technology. We offer services for 2G,3G, LTE, 5G NR Wi-Fi, and indoor densification planning.</p>
+                    <div class="col-lg-6">
+                        <div class="about-image-items">
+                            <div class="border-shape">
+                                <img src="/assets/img/about/border-shape.png" alt="shape-img">
+                            </div>
+                            <div class="about-image bg-cover wow fadeInLeft" data-wow-delay=".3s"
+                                 style="background-image: url('/assets/img/about/about.jpg');">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
-                        <div class="icon-box">
-                            <i class="bi bi-bar-chart"></i>
-                            <h4><a href="/Home/ManpowerOutsourcing">Resource Management</a></h4>
-                            <p>@*Bharti Networks Services, over the years has assimilated Technical knowhow and expertise which has enabled it to create Intellectual Capital which is being constantly replenished by its Training Department.*@</p>
-                            <ol class="content" style="margin-left:55px">
-                                <li>
-                                    <a class="text-dark" href="/home/PermanentStaffing">
-                                        Permanent Staffing
-                                      </a>
-                                  </li>
-                                <li>
-                                    <a class="text-dark" href="/home/ContractualStaffing">
-                                        Contractual Staffing
-                                        </a>
-                                    </li>
-                                <li>
-                                    <a class="text-dark" href="/home/GlobalRecruitment">
-                                        Global Recruitment And Assignment Support
-                                        </a>
-                                  </li>
-                                <li>
-                                    <a class="text-dark" href="/home/ItStaffing">
-                                        IT Staffing
-                                        </a>
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon-box">
-                            <i class="bi bi-card-checklist"></i>
-                            <h4><a href="/Home/Telecom">Metro</a></h4>
-                            <p>
-                                Building Condition surveys are becoming increasingly important and standardized in approach but are a high risk service with the potential for legal consequences.
+                    <div class="col-lg-6 mt-5 mt-lg-0">
+                        <div class="about-content">
+                            <div class="section-title">
+                                <span class="wow fadeInUp">About Bharti Networks </span>
+                                <h2 class="wow fadeInUp" data-wow-delay=".3s">
+                                    Bharti Networks
+                                </h2>
+                            </div>
+                            <p class=" mt-4 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
+                                We offer end to end wireless telecom network planning, optimization, and performance
+                                management solutions to 30+ Tier 1 & 2 telecom operators and OEMs across the globe. We
+                                excel in 5G NR, LTE-A, and legacy technologies RF Planning, Optimization,
+                                QoSBenchmarking, In-building Solutions, and Manpower Deployment. We have expanded our
+                                service portfolio for active and passive telecom infra Managed services, performance
+                                management through our In-house network analytics platform-Gladiator. We also offer
+                                services for Site Acquisition, Installation of Telecom Equipment, and Construction of
+                                BTS sites. We aim to provide our customers with the most efficient and cost-effective
+                                services.Due to our liaison with operators, equipment suppliers, and contractors,we
+                                understand the intricacies of the Telecom business better.
                             </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </section><!-- End Services Section -->
-        <!-- ======= Cta Section ======= -->
-        <section id="cta" class="cta">
-            <div class="container">
-
-                <div class="row" data-aos="zoom-in">
-                    <div class="col-lg-9 text-center text-lg-start">
-                        @*<h3>Call To Action</h3>*@
-                        <p> Leading provider of telecom services & solutions for wireless networks with in-house network analytics software & global presence strong multi-vendor & multi-technologies experience in network planning, optimization & end-to-end network managed services</p>
-                    </div>
-                    <div class="col-lg-3 cta-btn-container text-center">
-                        <a class="cta-btn align-middle" href="/Home/Career">Let's Start Here</a>
-                    </div>
-                </div>
-
-            </div>
-        </section><!-- End Cta Section -->
-        <!-- ======= Map Section ======= -->
-        <!--section id="about" class="about">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="box-im text-center" data-dsn-grid=" ">
-                            <img src="../assets/img/bharti-map.png" width="100%">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section-->
-
-
-        <!-- ======= Map Section ======= -->
-        <!-- ======= Contact Section ======= -->
-        <section id="contact" class="contact">
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-title">
-                    <h2>Contact Us</h2>
-                </div>
-
-                <div class="row mt-1 d-flex justify-content-end" data-aos="fade-right" data-aos-delay="100">
-
-                    <div class="col-lg-5">
-                        <div class="info card shadow p-4 rounded border-0">
-                            <div class="address">
-                                <i class="bi bi-geo-alt"></i>
-                                <h4>Office Address :</h4>
-                                <p>Bharti Networks<br />
-                                    Corporate Office<br />
-                                    D-28 3rd floor Taif Tower,
-                                <br/>
-                                    Vibhuti khand, Gomti Nagar Lucknow,<br/>
-                                    Uttar Pradesh 226010 
-                                    India </p>
-                               <!--  <p>
-                                    Bharti Networks<br />
-                                    444 Alaska Avenue Suite #BFK943<br>
-                                    Torrance, California- 90503<br>
-                                    USA <br>
-                                   Call : +12058513414</p> -->
-                            </div> <hr />
-
-                            <div class="email mt-2">
-                                <a href="mailto: info@bhartinetworks.com">
-                                    <i class="bi bi-envelope"></i>
-                                    <h4>Mail Address :</h4>
-                                    <p>info@bhartinetworks.com</p>
-                                </a>
-                            </div><hr />
-
-                            <div class="phone mt-2">
-                                <a href="tel:0522 4646187">
-                                    <i class="bi bi-phone"></i>
-                                    <h4>Phone Number :</h4>
-                                    <p>0522 4646187</p>
-                                </a>
+                            <ul class="about-list wow fadeInUp" data-wow-delay=".7s">
+                                <li>
+                                    <i class="far fa-check me-2"></i>
+                                    Professional Team Member
+                                </li>
+                                <li>
+                                    <i class="far fa-check me-2"></i>
+                                    Awards Winning Internet Solutions Company
+                                </li>
+                                <li>
+                                    <i class="far fa-check me-2"></i>
+                                    Dedicated Tech Services
+                                </li>
+                            </ul>
+                            <div class="about-author">
+                                <div class="about-button wow fadeInUp" data-wow-delay=".8s">
+                                    <a href="about.html" class="theme-btn">
+                                        <span>
+                                            Explore more about
+                                            <i class="fas fa-chevron-right"></i>
+                                        </span>
+                                    </a>
+                                </div>
                             </div>
-
                         </div>
-
                     </div>
-
-                    <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
-                        @*@using (Html.BeginForm("ContactUs", "Home", FormMethod.Post))
-                        {
-                            <div class="row">
-                                <p style="color:red;">
-                                    @TempData["Contact"]
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--<< Service Section Start >>-->
+    <section class="service-section fix py-5" style="background-color: #e8e8ef;">
+        <div class="container">
+            <div class="section-title text-center">
+                <span class="wow fadeInUp">Services</span>
+                <h2 class="wow fadeInUp" data-wow-delay=".3s">Services</h2>
+                <p>
+                    Our wide network architecture capabilities enable businesses to evolve in the rapidly changing world
+                    of cellular technology. We are proud to be partnered with different businesses worldwide,
+                    transforming networks and building new possibilities together. We deliver unique innovations that
+                    help businesses overcome the challenges standing in the way of great customer experience.
+                </p>
+            </div>
+            <div class="row">
+                <!-- Telecom -->
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-4 wow fadeInUp" data-wow-delay=".3s">
+                    <a href="active.html" class="text-decoration-none text-dark">
+                        <div class="service-box-items shadow h-100">
+                            <div class="icon">
+                                <i class="flaticon-signal"></i>
+                            </div>
+                            <div class="content">
+                                <h3>Telecom</h3>
+                                <p>
+                                    Today’s Network Planning requires great strategies and planning. In Network planning it
+                                    is also important to make provision for future innovative technology. We offer services
+                                    for 2G, 3G, LTE, 5G NR, Wi-Fi, and indoor densification planning.
                                 </p>
+                                <span class="arrow-icon">
+                                    <i class="fas fa-chevron-right"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
 
-                                <div class="col-md-6 form-group">
-                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Your Name", @onkeypress = "return onlyAlphabets();" })
+                <!-- Resource Management -->
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-4 wow fadeInUp" data-wow-delay=".5s">
+                    <a href="ManpowerOutsourcing.html" class="text-decoration-none text-dark">
+                        <div class="service-box-items shadow h-100">
+                            <div class="icon">
+                                <i class="flaticon-satellite-dish"></i>
+                            </div>
+                            <div class="content">
+                                <h3>Resource Management</h3>
+                                <ol class="ps-3">
+                                    <li>Permanent Staffing</li>
+                                    <li>Contractual Staffing</li>
+                                    <li>Global Recruitment And Assignment Support</li>
+                                    <li>IT Staffing</li>
+                                </ol>
+                                <span class="arrow-icon">
+                                    <i class="fas fa-chevron-right"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
 
-                                </div>
-                                <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Your Email" })
-                                </div>
+                <!-- Metro -->
+                <div class="col-xl-4 col-lg-4 col-md-6 mb-4 wow fadeInUp" data-wow-delay=".7s">
+                    <a href="metro.html" class="text-decoration-none text-dark">
+                        <div class="service-box-items shadow h-100">
+                            <div class="icon">
+                                <i class="flaticon-server"></i>
                             </div>
-                            <div class="form-group mt-3">
-                                @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", @placeholder = " Subject" })
+                            <div class="content">
+                                <h3>Metro</h3>
+                                <p>
+                                    Building Condition surveys are becoming increasingly important and standardized in
+                                    approach but are a high-risk service with the potential for legal consequences.
+                                </p>
+                                <span class="arrow-icon">
+                                    <i class="fas fa-chevron-right"></i>
+                                </span>
                             </div>
-                            <div class="form-group mt-3">
-                                @Html.TextAreaFor(m => m.Address, new { @class = "form-control", @placeholder = " Message" })
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--<< Brand Section Start >>-->
+    <section class="brand-section fix section-padding py-5">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2 class="wow fadeInUp" data-wow-delay=".3s"
+                    style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                    Our Clients
+                </h2>
+            </div>
+            <div class="brand-wrapper">
+                <div class="brand-carousel-active">
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/1.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/2.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/3.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/4.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/5.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/6.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/7.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/8.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/9.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/10.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/11.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/12.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/13.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/14.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <div class="brand-image shadow">
+                        <img src="~/assets/img/brand/15.jpg" class="w-100" alt="brand-img">
+                    </div>
+                    <!-- <div class="brand-image shadow">
+                        <img src="assets/img/brand/16.jpg" class="w-100" alt="brand-img">
+                    </div>   -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--<< Cta Parallax Section Start >>-->
+    <div class="cta-parallax-section bg-cover" style="background-image: url('/assets/img/banner/cta-show.jpg');">
+        <div class="container">
+            <div class="cta-parallax-wrapper text-center">
+                <p class="text-white">
+                    Leading provider of telecom services & solutions for wireless networks with in-house network
+                    analytics software & global presence strong multi-vendor & multi-technologies experience in network
+                    planning, optimization & end-to-end network managed services
+                </p>
+                <div class="button-items">
+                    <a href="ContactUs.html" class="theme-btn wow fadeInUp" data-wow-delay=".5s">
+                        <span>
+                            Let's Start Here <i class="fas fa-chevron-right"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<< Contact Section Start >>-->
+    <section class="contact-main-area fix section-padding">
+        <div class="container">
+            <div class="contact-main-wrapper">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="contact-content shadow p-5">
+                            <div class="section-title mb-2">
+                                <span class="wow fadeInUp invisible">Get In Touch</span>
+                                <h2 class="wow fadeInUp" data-wow-delay=".3s">Contact Us</h2>
                             </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="container">
-                                <div class="text-center"><button class="btn-success sss" type="submit" onclick="return validateform();">Send Message</button></div>
-                            </div>
-                        }*@
-
-                        <div class="card shadow p-4 rounded border-0">
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                                <div class="row">
-                                    <div class="col-md-6 form-group">
-                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                            <p class="mt-4 mt-md-0 wow fadeInUp" data-wow-delay=".4s">
+                                Whether you have a question about our services, need support, or just want to connect — we’re only a message or call away. Our dedicated team at Bharti Networks is ready to assist you with your queries.
+                            </p>
+                            <div class="row g-4 mt-3">
+                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
+                                    <div class="info-items">
+                                        <div class="icon">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h5>Office Address :</h5>
+                                            <p>
+                                                Bharti Networks
+                                                Corporate Office
+                                                D-28 3rd floor Taif Tower,
+                                                Vibhuti khand, Gomti Nagar Lucknow,
+                                                Uttar Pradesh 226010 India
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                </div>
+                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
+                                    <div class="info-items">
+                                        <div class="icon">
+                                            <i class="far fa-phone"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h5>Phone</h5>
+                                            <a href="tel:+0522 4646187">0522 4646187 </a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group mt-3">
-                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".7s">
+                                    <div class="info-items">
+                                        <div class="icon">
+                                            <i class="fal fa-envelope"></i>
+                                        </div>
+                                        <div class="content">
+                                            <h5>Email</h5>
+                                            <a href="mailto:info@bhartinetworks.com"
+                                               class="link">info@bhartinetworks.com</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group mt-3">
-                                    <textarea class="form-control" name="message" rows="3" placeholder="Message" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="contact-form-items shadow">
+                            <!-- <div class="contact-title">
+                                <h3 class="wow fadeInUp" data-wow-delay=".3s">Fill Up The Form</h3>
+                                <p class="wow fadeInUp" data-wow-delay=".5s">Your email address will not be published. Required fields are marked *</p>
+                            </div> -->
+                            <form>
+                                <div class="row g-4">
+                                    <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
+                                        <div class="form-clt">
+                                            <input type="text" name="name" id="name" placeholder="Your Name*">
+                                            <div class="icon">
+                                                <i class="fal fa-user"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 wow fadeInUp" data-wow-delay=".5s">
+                                        <div class="form-clt">
+                                            <input type="text" name="email" id="email" placeholder="Email Address*">
+                                            <div class="icon">
+                                                <i class="fal fa-envelope"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
+                                        <div class="form-clt">
+                                            <input type="text" name="name" id="name" placeholder="Subject*">
+                                            <div class="icon">
+                                                <i class="fal fa-pencil"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 wow fadeInUp" data-wow-delay=".7s">
+                                        <div class="form-clt">
+                                            <textarea name="message" id="message"
+                                                      placeholder="Enter Your Messege here"></textarea>
+                                            <div class="icon">
+                                                <i class="fal fa-edit"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 wow fadeInUp" data-wow-delay=".8s">
+                                        <button type="submit" class="theme-btn">
+                                            <span><i class="fal fa-paper-plane"></i>Send Message</span>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="my-3">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your message has been sent. Thank you!</div>
-                                </div>
-                                <div class="text-center"><button type="submit">Send Message</button></div>
                             </form>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-        </section><!-- End Contact Section -->
-        <div class="modal" tabindex="-1" id="myModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-               <img style="width:100%" src="../assets/img/bhartinetworks.jpg" class="img-responsive" />
-              </div>
-            </div>
-          </div>
         </div>
-    </main><!-- End #main -->
-
-  <!-------==========Whatsapp==================---------->
-    <a href="https://api.whatsapp.com/send?phone=919839418222" title="Bharti" class="float" target="_blank">
-        <i class="bi bi-whatsapp my-float"></i>
-    </a>
-
-
-    <!-------==========Whatsapp==================---------->
-
+    </section>
 }
-
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<!-- BS JavaScript -->
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<!-- Have fun using Bootstrap JS -->
-<script type="text/javascript">
-$(window).load(function() {
-    $('#myModal').modal('hide');
-});
-</script>

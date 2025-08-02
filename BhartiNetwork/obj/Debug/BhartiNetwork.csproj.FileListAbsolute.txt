@@ -372,57 +372,164 @@ F:\Ashwani Afluex\repo\Done\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 F:\Ashwani Afluex\repo\Done\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
 F:\Ashwani Afluex\repo\Done\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 F:\Ashwani Afluex\repo\Done\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\ApplicationInsights.config
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\csc.exe
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CSharp.Core.targets
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.VisualBasic.Core.targets
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\System.Collections.Immutable.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\System.Reflection.Metadata.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\vbc.exe
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\VBCSCompiler.exe
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\VBCSCompiler.exe.config
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\BhartiNetwork.dll.config
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\BhartiNetwork.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\BhartiNetwork.pdb
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.Agent.Intercept.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.DependencyCollector.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.PerfCounterCollector.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.ServerTelemetryChannel.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.Web.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.WindowsServer.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.ApplicationInsights.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.Web.Infrastructure.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Newtonsoft.Json.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Net.Http.Formatting.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Helpers.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Mvc.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Razor.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Deployment.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Razor.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.DependencyCollector.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.ServerTelemetryChannel.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.Web.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.WindowsServer.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.ApplicationInsights.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Razor.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Deployment.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Razor.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Helpers.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Mvc.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Newtonsoft.Json.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Net.Http.Formatting.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\ApplicationInsights.config
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\roslyn\csc.exe
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\roslyn\System.Collections.Immutable.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\roslyn\System.Reflection.Metadata.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\roslyn\vbc.exe
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\roslyn\VBCSCompiler.exe
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\roslyn\VBCSCompiler.exe.config
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\BhartiNetwork.dll.config
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\BhartiNetwork.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\BhartiNetwork.pdb
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.Agent.Intercept.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.DependencyCollector.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.Web.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.WindowsServer.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.ApplicationInsights.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.Web.Infrastructure.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Newtonsoft.Json.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Net.Http.Formatting.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Helpers.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Mvc.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Razor.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Deployment.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Razor.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.DependencyCollector.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.Web.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.WindowsServer.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.ApplicationInsights.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Razor.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Deployment.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Razor.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Helpers.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Mvc.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\Newtonsoft.Json.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Net.Http.Formatting.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
+F:\Sarfraz Ahmad\repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\ApplicationInsights.config
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\roslyn\csc.exe
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\roslyn\System.Collections.Immutable.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\roslyn\System.Reflection.Metadata.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\roslyn\vbc.exe
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\roslyn\VBCSCompiler.exe
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\roslyn\VBCSCompiler.exe.config
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\BhartiNetwork.dll.config
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\BhartiNetwork.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\BhartiNetwork.pdb
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.DependencyCollector.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.Web.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.WindowsServer.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.ApplicationInsights.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.Web.Infrastructure.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Newtonsoft.Json.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Net.Http.Formatting.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Helpers.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Mvc.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Razor.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Deployment.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Razor.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.DependencyCollector.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.Web.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.WindowsServer.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.ApplicationInsights.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Razor.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Deployment.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Razor.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Helpers.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Mvc.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\Newtonsoft.Json.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Net.Http.Formatting.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\ApplicationInsights.config
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\roslyn\csc.exe
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\roslyn\System.Collections.Immutable.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\roslyn\System.Reflection.Metadata.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\roslyn\vbc.exe
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\roslyn\VBCSCompiler.exe
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\roslyn\VBCSCompiler.exe.config
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\BhartiNetwork.dll.config
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\BhartiNetwork.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\BhartiNetwork.pdb
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.Agent.Intercept.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.DependencyCollector.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.Web.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.WindowsServer.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.ApplicationInsights.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.Web.Infrastructure.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Newtonsoft.Json.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Net.Http.Formatting.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Helpers.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Mvc.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Razor.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Deployment.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Razor.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.DependencyCollector.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.Web.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.AI.WindowsServer.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.ApplicationInsights.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Razor.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Deployment.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Webpages.Razor.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Helpers.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Mvc.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\Newtonsoft.Json.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Net.Http.Formatting.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
+E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache

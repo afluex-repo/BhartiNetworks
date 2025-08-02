@@ -687,18 +687,39 @@ namespace BhartiNetwork.Models
         //==============================================================================================================================================================
 
        public DataTable dtTable { get; set; }
-       
+       public DataTable dtCareer { get; set; }
+       public DataTable dtEmployee { get; set; }
+
         public DataSet DeleteMultipleContact()
         {
             SqlParameter[] para =
                             {
-                                   new SqlParameter("@UpdatedBy",AddedBy),
-                                   new SqlParameter("@ContactId",ContactId)
+                                   new SqlParameter("@DeletedBy",AddedBy),
+                                   new SqlParameter("@dtContact",dtTable)
                             };
             DataSet ds = Connection.ExecuteQuery("DeleteMultipleContact", para);
             return ds;
         }
-
+        public DataSet DeleteMultipleCareer()
+        {
+            SqlParameter[] para =
+                            {
+                                   new SqlParameter("@DeletedBy",AddedBy),
+                                   new SqlParameter("@dtCareer",dtCareer)
+                            };
+            DataSet ds = Connection.ExecuteQuery("DeleteMultipleCareer", para);
+            return ds;
+        }
+        public DataSet DeleteMultipleEmployee()
+        {
+            SqlParameter[] para =
+                            {
+                                   new SqlParameter("@DeletedBy",AddedBy),
+                                   new SqlParameter("@dtEmployee",dtEmployee)
+                            };
+            DataSet ds = Connection.ExecuteQuery("DeleteMultipleEmployee", para);
+            return ds;
+        }
 
 
 
