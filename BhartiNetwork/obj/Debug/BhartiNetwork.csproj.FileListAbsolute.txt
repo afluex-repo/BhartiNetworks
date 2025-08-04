@@ -532,7 +532,6 @@ E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
 E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
-E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\ApplicationInsights.config
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\csc.exe
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
