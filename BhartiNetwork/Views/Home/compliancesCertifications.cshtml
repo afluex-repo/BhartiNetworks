@@ -3,6 +3,18 @@
     ViewBag.Title = "compliancesCertifications";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+ <style> 
+  img.no-save {
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: none; 
+  }
+  * {
+    -webkit-touch-callout: none; 
+  }
+</style>
+
 @using (Html.BeginForm("compliancesCertifications", "Home", FormMethod.Post))
 {
     <div class="breadcrumb-wrapper section-padding bg-cover"
@@ -12,7 +24,7 @@
                 <h1 class="wow fadeInUp" data-wow-delay=".3s">Compliances and Certifications</h1>
                 <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
                     <li>
-                        <a href="index.html">
+                        <a href="/Home/Index">
                             Home
                         </a>
                     </li>
@@ -104,6 +116,7 @@
         </div>
     </section>
 }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $(document).ready(function() {
         $('.portfolio-lightbox').magnificPopup({
