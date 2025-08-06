@@ -1,0 +1,229 @@
+﻿@model BhartiNetwork.Models.Home
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="modinatheme">
+    <meta name="description" content="Internet Provider and Broadband TV HTML Template">
+    <!-- ======== Page title ============ -->
+    <title>Bharti Networks</title>
+    <!--<< Favcion >>-->
+    <link rel="shortcut icon" href="/assets/img/favicon.png">
+    <!--<< Bootstrap min.css >>-->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <!--<< Font Awesome.css >>-->
+    <link rel="stylesheet" href="/assets/css/font-awesome.css">
+    <!--<< Animate.css >>-->
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <!--<< Magnific Popup.css >>-->
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <!--<< MeanMenu.css >>-->
+    <link rel="stylesheet" href="/assets/css/meanmenu.css">
+    <!--<< Slick.css >>-->
+    <link rel="stylesheet" href="/assets/css/slick.css">
+    <!--<< Swiper.css >>-->
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+    <!--<< Nice Select.css >>-->
+    <link rel="stylesheet" href="/assets/css/nice-select.css">
+    <!--<< Main.css >>-->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!--<< Style.css >>-->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--<< Service Section Start >>-->
+    <section class="service-section fix section-bg-2">
+        <div class="left-shape">
+            <img src="/assets/img/service/left-shape.png" alt="shape-img">
+        </div>
+        <div class="right-shape">
+            <img src="/assets/img/service/right-shape.png" alt="shape-img">
+        </div>
+        <div class="line-shape-2">
+            <img src="/assets/img/service/line-shape-2.png" alt="shape-img">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center vh-100 align-items-center">
+                <div class="col-lg-6 col-md-8 col-sm-10 p-4 shadow card"
+                     style="border: 2px dotted #f58634; border-radius: 25px;">
+                    <div class="text-center mb-4">
+                        <img src="/assets/img/logo-dark.png" alt="Logo" width="250">
+                    </div>
+
+                    @using (Html.BeginForm("vendor", "Home", FormMethod.Post))
+                    {
+                        <div class="mb-3">
+                            <label for="LoginId" class="form-label">User Id <span class="text-danger">*</span></label>
+                            @Html.TextBoxFor(m => m.LoginId, new { @class = "form-control", @placeholder = "User Id" })
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Password" class="form-label">Password <span class="text-danger">*</span></label>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                        </div>
+
+                        <div class="mb-3 d-none" id="form-messages">
+                            <div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. Thank you!</div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button type="submit" class="btn btn-primary" onclick="return validateform();">Login</button>
+                            <a href="/Home/newuser" class="btn btn-link text-dark">New User</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--<< All JS Plugins >>-->
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="/assets/js/jquery-3.7.1.min.js"></script>
+    <!--<< Viewport Js >>-->
+    <script src="/assets/js/viewport.jquery.js"></script>
+    <!--<< Bootstrap Js >>-->
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <!--<< Nice Select Js >>-->
+    <script src="/assets/js/jquery.nice-select.min.js"></script>
+    <!--<< Waypoints Js >>-->
+    <script src="/assets/js/jquery.waypoints.js"></script>
+    <!--<< Counterup Js >>-->
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <!--<< Slick Js >>-->
+    <script src="/assets/js/slick.min.js"></script>
+    <!--<< Swiper Js >>-->
+    <script src="/assets/js/swiper-bundle.min.js"></script>
+    <!--<< Slick Animation Js >>-->
+    <script src="/assets/js/slick-animation.min.js"></script>
+    <!--<< MeanMenu Js >>-->
+    <script src="/assets/js/jquery.meanmenu.min.js"></script>
+    <!--<< Magnific Popup Js >>-->
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <!--<< Wow Animation Js >>-->
+    <script src="/assets/js/wow.min.js"></script>
+    <!--<< Circle Progress Js >>-->
+    <script src="/assets/js/circle-progress.js"></script>
+    <!--<< Main.js >>-->
+    <script src="/assets/js/main.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            function after_form_submitted(data) {
+                if (data.result == 'success') {
+                    $('form#reused_form').hide();
+                    $('#success_message').show();
+                    $('#error_message').hide();
+                }
+                else {
+                    $('#error_message').append('<ul></ul>');
+
+                    jQuery.each(data.errors, function (key, val) {
+                        $('#error_message ul').append('<li>' + key + ':' + val + '</li>');
+                    });
+                    $('#success_message').hide();
+                    $('#error_message').show();
+
+                    //reverse the response on the button
+                    $('button[type="button"]', $form).each(function () {
+                        $btn = $(this);
+                        label = $btn.prop('orig_label');
+                        if (label) {
+                            $btn.prop('type', 'submit');
+                            $btn.text(label);
+                            $btn.prop('orig_label', '');
+                        }
+                    });
+
+                }//else
+            }
+
+            $('#reused_form').submit(function (e) {
+                e.preventDefault();
+
+                $form = $(this);
+                //show some response on the button
+                $('button[type="submit"]', $form).each(function () {
+                    $btn = $(this);
+                    $btn.prop('type', 'button');
+                    $btn.prop('orig_label', $btn.text());
+                    $btn.text('Sending ...');
+                });
+
+
+                $.ajax({
+                    type: "POST",
+                    url: 'handler.php',
+                    data: $form.serialize(),
+                    success: after_form_submitted,
+                    dataType: 'json'
+                });
+
+            });
+        });
+
+    </script>
+    <script>
+        function validateform() {
+
+            $(".errortext").removeClass("errortext");
+            if ($('#LoginId').val() == '') {
+                $("#LoginId").addClass('errortext');
+                $('#LoginId').focus();
+                return false;
+            }
+            if ($('#Password').val() == '') {
+                $("#Password").addClass('errortext');
+                $('#Password').focus();
+                return false;
+            }
+        }
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode != 46 && charCode > 31
+              && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+        function onlyAlphabets(e, t) {
+            try {
+                if (window.event) {
+                    var charCode = window.event.keyCode;
+                }
+                else if (e) {
+                    var charCode = e.which;
+                }
+                else { return true; }
+                if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode == 32))
+                    return true;
+                else
+                    return false;
+            }
+            catch (err) {
+                alert(err.Description);
+            }
+        }
+
+    </script>
+
+    <style>
+        .errortext {
+            border: 1px solid red !important;
+            background-color: #fff0f0 !important;
+        }
+    </style>
+</body>
+
+
+</html>
+

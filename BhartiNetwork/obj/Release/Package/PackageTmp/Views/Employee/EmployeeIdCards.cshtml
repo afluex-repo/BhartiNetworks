@@ -1,0 +1,545 @@
+﻿@model BhartiNetwork.Models.Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>EmployeeId</title>
+    <style>
+        /*Profile Card 3*/
+        .profile-card-3 {
+            font-family: 'Open Sans', Arial, sans-serif;
+            position: relative;
+            float: left;
+            overflow: hidden;
+            width: 300px;
+            height: 430px;
+            border: none;
+            border-radius: 5px;
+        }
+
+            .profile-card-3 .background-block {
+                float: left;
+                width: 100%;
+                height: 180px;
+                overflow: hidden;
+            }
+
+                .profile-card-3 .background-block .background {
+                    width: 100%;
+                    vertical-align: top;
+                    opacity: 0.9;
+                    -webkit-filter: blur(0.5px);
+                    filter: blur(0.5px);
+                    -webkit-transform: scale(1.8);
+                    transform: scale(2.8);
+                }
+
+            .profile-card-3 .card-content {
+                width: 100%;
+                padding: 0px 30px;
+                color: #232323;
+                float: left;
+                background: #f7d8bf;
+                height: 50%;
+                border-radius: 0 0 5px 5px;
+                position: relative;
+                z-index: 9999;
+            }
+
+                .profile-card-3 .card-content::before {
+                    content: '';
+                    background: #f7d8bf;
+                    width: 120%;
+                    height: 100%;
+                    left: 11px;
+                    bottom: 51px;
+                    position: absolute;
+                    z-index: -1;
+                    transform: rotate(-13deg);
+                }
+
+            .profile-card-3 .profile {
+                border-radius: 50%;
+                position: absolute;
+                bottom: 60%;
+                left: 50%;
+                max-width: 100px;
+                opacity: 1;
+                box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+                border: 2px solid rgba(255, 255, 255, 1);
+                -webkit-transform: translate(-50%, 0%);
+                transform: translate(-50%, 0%);
+                z-index: 99999;
+            }
+
+            .profile-card-3 h2 {
+                margin: 0 0 5px;
+                font-weight: 600;
+                font-size: 25px;
+            }
+
+                .profile-card-3 h2 small {
+                    display: block;
+                    font-size: 15px;
+                    margin-top: 10px;
+                }
+
+            .profile-card-3 i {
+                display: inline-block;
+                font-size: 16px;
+                color: #232323;
+                text-align: center;
+                border: 1px solid #232323;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 50%;
+                margin: 0 5px;
+            }
+
+            .profile-card-3 .icon-block {
+                float: left;
+                width: 100%;
+                margin-top: 15px;
+            }
+
+                .profile-card-3 .icon-block a {
+                    text-decoration: none;
+                }
+
+            .profile-card-3 i:hover {
+                background-color: #232323;
+                color: #fff;
+                text-decoration: none;
+            }
+
+        .card-content ul li.id_ul {
+            list-style-type: none;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .id_ul {
+            list-style-type: none;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .text-orange {
+            color: #f58846;
+        }
+
+
+
+
+        @@media print {
+            #printPageButton {
+                display: none;
+            }
+        }
+    </style>
+
+    <style>
+        body {
+            background-color: #d7d6d3;
+            font-family: 'verdana';
+        }
+
+        .id-card-holder {
+            width: 284px;
+            padding: 4px;
+            margin: 0 auto;
+            background-color: #1f1f1f;
+            border-radius: 5px;
+            position: relative;
+        }
+
+            .id-card-holder:after {
+                content: '';
+                /*width: 7px;*/
+                display: block;
+                background-color: #0a0a0a;
+                height: 100px;
+                position: absolute;
+                top: 105px;
+                border-radius: 0 5px 5px 0;
+            }
+
+            .id-card-holder:before {
+                content: '';
+                /*width: 7px;*/
+                display: block;
+                background-color: #0a0a0a;
+                height: 100px;
+                position: absolute;
+                top: 105px;
+                left: 281px;
+                border-radius: 5px 0 0 5px;
+            }
+
+        .id-card {
+            background-color: #e5abab;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 1.5px 0px #b9b9b9;
+        }
+
+            .id-card img {
+                margin: 0 auto;
+            }
+
+        .header img {
+            width: 100px;
+            margin-top: 15px;
+        }
+
+        .photo img {
+            width: 80px;
+            margin-top: 15px;
+            border-radius: 50%;
+            box-shadow: 3px 3px 20px rgb(0 0 0 / 50%);
+            border: 2px solid rgba(255, 255, 255, 1);
+        }
+
+        h2 {
+            font-size: 15px;
+            margin: 5px 0;
+        }
+
+        h3 {
+            font-size: 12px;
+            margin: 2.5px 0;
+            font-weight: 300;
+        }
+
+        .qr-code img {
+            width: 50px;
+        }
+
+        p {
+            font-size: 5px;
+            margin: 2px;
+        }
+
+        /*.id-card-hook {*/
+            /*background-color: #000;*/
+            /*width: 70px;*/
+            /*margin: 0 auto;
+            height: 15px;
+            border-radius: 5px 5px 0 0;
+        }*/
+
+            /*.id-card-hook:after {
+                content: '';
+                background-color: #d7d6d3;
+                width: 47px;
+                height: 6px;
+                display: block;
+                margin: 0px auto;
+                position: relative;
+                top: 6px;
+                border-radius: 4px;
+            }*/
+
+        /*.id-card-tag-strip {*/
+        /*width: 45px;
+            height: 40px;*/
+        /*background-color: #0950ef;*/
+        /*margin: 0 auto;
+            border-radius: 5px;
+            position: relative;*/
+        /*top: 9px;*/
+        /*z-index: 1;
+            border: 1px solid #0041ad;*/
+        /*}*/
+
+        /*.id-card-tag-strip:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: #c1c1c1;
+            position: relative;
+            top: 10px;
+        }*/
+
+        /*.id-card-tag {*/
+            /*width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;*/
+            /*border-top: 100px solid #0958db;*/
+            /*margin: -10px auto -30px auto;*/
+        /*}*/
+
+            .id-card-tag:after {
+                content: '';
+                display: block;
+                width: 0;
+                height: 0;
+                border-left: 50px solid transparent;
+                border-right: 50px solid transparent;
+                border-top: 100px solid #d7d6d3;
+                margin: -10px auto -30px auto;
+                position: relative;
+                top: -130px;
+                left: -50px;
+            }
+
+        @@media print {
+            body {
+                background-color: #d7d6d3;
+                font-family: 'verdana';
+            }
+
+            .id-card-holder {
+                width: 284px;
+                padding: 4px;
+                margin: 0 auto;
+                background-color: #1f1f1f;
+                border-radius: 5px;
+                position: relative;
+            }
+
+                .id-card-holder:after {
+                    content: '';
+                    /*width: 7px;*/
+                    display: block;
+                    background-color: #0a0a0a;
+                    height: 100px;
+                    position: absolute;
+                    top: 105px;
+                    border-radius: 0 5px 5px 0;
+                }
+
+                .id-card-holder:before {
+                    content: '';
+                    /*width: 7px;*/
+                    display: block;
+                    background-color: #0a0a0a;
+                    height: 100px;
+                    position: absolute;
+                    top: 105px;
+                    left: 281px;
+                    border-radius: 5px 0 0 5px;
+                }
+
+            .id-card {
+                background-color: #e5abab;
+                padding: 10px;
+                border-radius: 10px;
+                text-align: center;
+                box-shadow: 0 0 1.5px 0px #b9b9b9;
+            }
+
+                .id-card img {
+                    margin: 0 auto;
+                }
+
+            .header img {
+                width: 100px;
+                margin-top: 15px;
+            }
+
+            .photo img {
+                width: 80px;
+                margin-top: 15px;
+                border-radius: 50%;
+                box-shadow: 3px 3px 20px rgb(0 0 0 / 50%);
+                border: 2px solid rgba(255, 255, 255, 1);
+            }
+
+            h2 {
+                font-size: 15px;
+                margin: 5px 0;
+            }
+
+            h3 {
+                font-size: 12px;
+                margin: 2.5px 0;
+                font-weight: 300;
+            }
+
+            .qr-code img {
+                width: 50px;
+            }
+
+            p {
+                font-size: 5px;
+                margin: 2px;
+            }
+
+            /*.id-card-hook {
+                background-color: #000;
+                width: 70px;
+                margin: 0 auto;
+                height: 15px;
+                border-radius: 5px 5px 0 0;
+            }*/
+
+                .id-card-hook:after {
+                    content: '';
+                    background-color: #d7d6d3;
+                    width: 47px;
+                    height: 6px;
+                    display: block;
+                    margin: 0px auto;
+                    position: relative;
+                    top: 6px;
+                    border-radius: 4px;
+                }
+
+            /*.id-card-tag-strip {
+                width: 45px;
+                height: 40px;
+                background-color: #0950ef;
+                margin: 0 auto;
+                border-radius: 5px;
+                position: relative;
+                top: 9px;
+                z-index: 1;
+                border: 1px solid #0041ad;
+            }*/
+
+                /*.id-card-tag-strip:after {
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: #c1c1c1;
+                    position: relative;
+                    top: 10px;
+                }*/
+
+            /*.id-card-tag {
+                width: 0;
+                height: 0;
+                border-left: 100px solid transparent;
+                border-right: 100px solid transparent;
+                border-top: 100px solid #0958db;
+                margin: -10px auto -30px auto;
+            }*/
+
+                .id-card-tag:after {
+                    content: '';
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    border-left: 50px solid transparent;
+                    border-right: 50px solid transparent;
+                    border-top: 100px solid #d7d6d3;
+                    margin: -10px auto -30px auto;
+                    position: relative;
+                    top: -130px;
+                    left: -50px;
+                }
+        }
+    </style>
+
+
+
+    <style type="text/css">
+        .details {
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        strong.strong-id1 {
+            margin-right: 50px;
+        }
+
+        strong.strong-id2 {
+            margin-right: 5px;
+        }
+
+        strong.strong-id3 {
+            margin-right: 5px;
+        }
+
+        strong.strong-id4 {
+            margin-right: 11px;
+        }
+
+        strong.strong-id5 {
+            margin-right: 23px;
+        }
+
+        strong.strong-id6 {
+            margin-right: 52px;
+        }
+
+        .company_name {
+            color: #0098da;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="id-card-tag"></div>
+    <div class="id-card-tag-strip"></div>
+    <div class="id-card-hook"></div>
+    <div class="id-card-holder">
+        <div class="id-card">
+            <div class="header">
+                <img src="~/assets/img/logo.png">
+                <i class="fa fa-print" style="font-size:24px;float:right" id="printpagebutton" onclick="printpage()"></i>
+            </div>
+            <div class="photo profile-thumb-block">
+                <img src="@ViewBag.Image" alt="profile-image" class="profile" />
+            </div>
+            <h2 style="font-size: 20px;">@ViewBag.Name</h2>
+            <p style="font-size: 13px;margin-bottom:12px;">@ViewBag.Designation</p>
+            @*<small>@ViewBag.Designation</small>*@
+           
+            <div class="details">
+                <h3><strong class="strong-id1">ID No </strong>:  @ViewBag.LoginId</h3>
+                <h3><strong class="strong-id2">Blood Group </strong>:  @ViewBag.BloodGroup</h3>
+                <h3><strong class="strong-id2">Date Of Birth</strong>:  @ViewBag.DOB</h3>
+                <h3><strong class="strong-id3">Joining Date </strong>:  @ViewBag.ApproveDeclineDate</h3>
+                <h3><strong class="strong-id4">Expire Date </strong>:  @ViewBag.ExpiaryDate</h3>
+                <h3><strong class="strong-id5">Mobile No </strong>:  @ViewBag.Mobile</h3>
+                <h3><strong class="strong-id6" style="margin-right:3px;">Email </strong>: <span style="font-size:11px;">@ViewBag.Email</span></h3>
+            </div>
+            <h3><a class="company_name">www.bhartinetworks.com</a></h3>
+
+            @*<h3><strong>ID No </strong>: @ViewBag.LoginId</h3>
+            <h3><strong>Blood Group </strong>: @ViewBag.BloodGroup</h3>
+            <h3><strong>Joining Date </strong>: @ViewBag.ApproveDeclineDate</h3>
+            <h3><strong>Expire Date </strong>: @ViewBag.ExpiaryDate</h3>
+            <h3><strong>Mobile No </strong>: @ViewBag.Mobile</h3>
+            <h3><strong>Email </strong>: @ViewBag.Email</h3>
+
+            <h3><a>www.bhartinetworks.com</a></h3>*@
+
+            @*<hr>*@
+            @*<p><strong>"PENGG"</strong>HOUSE,4th Floor, TC 11/729(4), Division Office Road <p>
+                <p>Near PMG Junction, Thiruvananthapuram Kerala, India <strong>695033</strong></p>
+                <p>Ph: 9446062493 | E-ail: info@onetikk.info</p>*@
+
+        </div>
+    </div>
+    <script>
+        function printpage() {
+            //Get the print button and put it into a variable
+            var printButton = document.getElementById("printpagebutton");
+            //Set the print button visibility to 'hidden'
+            printButton.style.visibility = 'hidden';
+            //Print the page content
+            window.print()
+            printButton.style.visibility = 'visible';
+        }
+    </script>
+</body>
+</html>
