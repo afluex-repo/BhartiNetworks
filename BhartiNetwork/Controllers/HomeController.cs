@@ -10,6 +10,7 @@ using System.Net;
 using System.Net.Mail;
 using BhartiNetwork.Filter;
 
+
 namespace BhartiNetwork.Controllers
 {
     public class HomeController : Controller
@@ -34,6 +35,45 @@ namespace BhartiNetwork.Controllers
             }
             return View(model);
         }
+
+
+        [HttpPost]
+        [ActionName("Index")]
+        [OnAction(ButtonName = "ContactUs")]
+        public ActionResult IndexAction(Home model)
+        {
+            try
+            {
+                model.AddedBy = "1";
+                DataSet ds = model.SaveContact();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Contact"] = "Contact Saved successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Contact"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Contact"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Contact"] = ex.Message;
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+
+
+
+
         public ActionResult AboutUs()
         {
             Home model = new Home();
@@ -118,8 +158,11 @@ namespace BhartiNetwork.Controllers
         {
             return View();
         }
+
+
         [HttpPost]
         [ActionName("ContactUs")]
+        [OnAction(ButtonName = "ContactUs")]
         public ActionResult ContactUs(Home model)
         {
             try
@@ -130,7 +173,7 @@ namespace BhartiNetwork.Controllers
                 {
                     if (ds.Tables[0].Rows[0][0].ToString() == "1")
                     {
-                        TempData["Contact"] = "Contact save successfully";
+                        TempData["Contact"] = "Contact Saved successfully";
                     }
                     else if (ds.Tables[0].Rows[0][0].ToString() == "0")
                     {
