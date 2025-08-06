@@ -11451,3 +11451,15 @@ width: 200px;
     margin: 13px 0px;
     border-bottom: 1px dotted;
 }
+
+  .header-section-1 {
+            background: rgba(5, 87, 158, 0.9)!important;  
+        }
+
+        .header-1 .header-main .main-menu ul li a {
+            color: #fff;
+        }
+
+        .header-1.sticky {
+            background: rgba(5, 87, 158, 0.9);
+        }
