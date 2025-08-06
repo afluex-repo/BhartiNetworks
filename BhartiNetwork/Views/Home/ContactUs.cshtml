@@ -194,7 +194,7 @@
                                 <h3 class="wow fadeInUp" data-wow-delay=".3s">Fill Up The Form</h3>
                                 <p class="wow fadeInUp" data-wow-delay=".5s">Your email address will not be published. Required fields are marked *</p>
                             </div> -->
-                        <form>
+                      
                             @using (Html.BeginForm("ContactUs", "Home", FormMethod.Post, new { @autocomplete = "off" }))
                             {  <p style="color:red;">
                                 @TempData["Contact"]
@@ -248,7 +248,7 @@
 
                             </div>
                             }
-                        </form>
+                      
                     </div>
                 </div>
             </div>
