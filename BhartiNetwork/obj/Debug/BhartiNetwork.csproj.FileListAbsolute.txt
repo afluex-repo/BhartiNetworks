@@ -583,7 +583,5 @@ E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Newtonsoft.Json.xml
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Net.Http.Formatting.xml
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
-E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
