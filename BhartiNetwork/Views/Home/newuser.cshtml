@@ -7,19 +7,30 @@
 
 @using (Html.BeginForm("newuser", "Home", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data"}))
 {
-     <!-- ======= Hero Section ======= -->
-    <section id="hero-new" class="d-flex justify-cntent-center align-items-center herocareer">
-        <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+    
 
-            <!-- Slide 1 -->
-            <div class="carousel-item active">
-                <div class="carousel-container">
-                    <h2 class="animate__animated animate__fadeInDown text-uppercase text-white text-center mb-0 fs-md-4 fs-2 ">Vendor</h2>
-                </div>
+
+  <div class="breadcrumb-wrapper section-padding bg-cover"
+         style="background-image: url('/assets/img/breadcrumb/VendorRegistration.jpg');">
+         <div class="container">
+            <div class="page-heading">
+               <h1 class="wow fadeInUp" data-wow-delay=".3s">Vendor</h1>
+               <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+                  <li>
+                     <a href="/home/index">
+                     Home Page
+                     </a>
+                  </li>
+                  <li>
+                     <i class="fal fa-minus"></i>
+                  </li>
+                  <li>
+                     Vendor
+                  </li>
+               </ul>
             </div>
-
-        </div>
-    </section><!-- End Hero -->
+         </div>
+      </div>
 
   <!-- ============================================-->
       <!-- <section> begin ============================-->
@@ -41,7 +52,7 @@
                 </div>
 
                 <div class="row mt-1 d-flex justify-content-center" data-aos="fade-right" data-aos-delay="100">
-                    <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100" style="border: 2px solid #f58634; border-radius: 25px; padding: 40px;">
+                    <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100" style="border: 2px dotted #f58634; border-radius: 25px; padding: 40px;">
 
                         @*<form action="forms/contact.php" method="post" role="form" class="php-email-form">*@
                         <div class="row">

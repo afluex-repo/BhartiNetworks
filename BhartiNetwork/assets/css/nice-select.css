@@ -2,7 +2,7 @@
   -webkit-tap-highlight-color: transparent;
   background-color: transparent;
   border-radius: 5px;
-  border: solid 1px #3f3877;
+  border: solid 1px #dee2e6;
   box-sizing: border-box;
   clear: both;
   cursor: pointer;
@@ -11,7 +11,7 @@
   font-size: 18px;
   font-weight: normal;
   outline: none;
- padding: 14px 35px 14px 15px;
+ padding:3px 35px 4px 15px;
   position: relative;
   text-align: left !important;
   -webkit-transition: all 0.2s ease-in-out;
@@ -121,13 +121,13 @@
     outline: none;
     z-index: 9999999;
     padding: 0px 10px;
-    border: 1px solid #121254;
+    border: 1px solid #ddd;
     text-align: left;
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
    }
     .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
-      background-color: #101046; }
+      background-color: #1e67a8; }
     .nice-select .option.selected {
       font-weight: bold; }
     .nice-select .option.disabled {
