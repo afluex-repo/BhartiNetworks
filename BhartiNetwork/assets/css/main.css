@@ -5468,6 +5468,8 @@ input.main-search-input::placeholder {
 
 .nice-select .current {
   margin-right: 12px;
+  overflow: hidden;
+    display: block;
 }
 
 .nice-select:after {
