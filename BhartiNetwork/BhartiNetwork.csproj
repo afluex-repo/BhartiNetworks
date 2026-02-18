@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BhartiNetwork</RootNamespace>
     <AssemblyName>BhartiNetwork</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -24,6 +24,10 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+<<<<<<< HEAD
+=======
+    <TargetFrameworkProfile />
+>>>>>>> main
     <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -77,6 +81,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -84,16 +89,14 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -913,6 +916,7 @@
     <Content Include="assets\css\swiper-bundle.min.css" />
     <Content Include="assets\fonts\flaticona9e1.html" />
     <Content Include="assets\img\about-bg.png" />
+<<<<<<< HEAD
     <Content Include="assets\img\aboutImg.png" />
     <Content Include="assets\img\about\about-2.jpg" />
     <Content Include="assets\img\about\about-3.jpg" />
@@ -937,6 +941,10 @@
     <Content Include="assets\img\banner\cta-show.jpg" />
     <Content Include="assets\img\banner\cta-tv.png" />
     <Content Include="assets\img\banner\cta-video.jpg" />
+=======
+    <Content Include="assets\img\Active.jpg" />
+    <Content Include="assets\img\apple-touch-icon.png" />
+>>>>>>> main
     <Content Include="assets\img\benchmark.jpg" />
     <Content Include="assets\img\bharti-map.PNG" />
     <Content Include="assets\img\bheader-02.png" />
@@ -1290,6 +1298,7 @@
     <Content Include="main-assets\webfonts\fa-solid-900.woff" />
     <Content Include="main-assets\webfonts\fa-solid-900.woff2" />
     <Content Include="main-assets\webfonts\fa-solid-900d41d.eot" />
+<<<<<<< HEAD
     <Content Include="assets\fonts\fa-brands-400.woff" />
     <Content Include="assets\fonts\fa-brands-400.woff2" />
     <Content Include="assets\fonts\fa-brands-400d41d.eot" />
@@ -1311,6 +1320,17 @@
     <Content Include="assets\img\certificate2.pdf" />
     <Content Include="assets\img\certificate3.pdf" />
     <Content Include="assets\img\certificate4.pdf" />
+=======
+    <Content Include="assets\img\slider-1.webp" />
+    <Content Include="assets\img\slider-2.webp" />
+    <Content Include="assets\img\resource-bg.webp" />
+    <Content Include="assets\img\Active.webp" />
+    <Content Include="assets\img\Cell-Site-Surveys.webp" />
+    <Content Include="assets\img\Commitment.webp" />
+    <Content Include="assets\img\delivering-excellence.webp" />
+    <Content Include="assets\img\Manage.webp" />
+    <Content Include="assets\img\IoT.webp" />
+>>>>>>> main
     <None Include="Properties\PublishProfiles\Bharteee.pubxml" />
     <None Include="Properties\PublishProfiles\BhartiNetwork.pubxml" />
     <None Include="Properties\PublishProfiles\BhartiNetwork_1.pubxml" />
