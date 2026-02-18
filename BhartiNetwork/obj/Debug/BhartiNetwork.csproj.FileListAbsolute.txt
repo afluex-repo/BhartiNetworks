@@ -585,3 +585,6 @@ E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
+E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csproj.AssemblyReference.cache
+E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csproj.CoreCompileInputs.cache
+E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNe.B427F8D8.Up2Date
