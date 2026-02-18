@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Devendra2025\\BhartiNetworks\\",
+  "WorkspaceRootPath": "E:\\Tanishq\\Repository\\BhartiNetworks\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Models\\Connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BhartiNetwork\\Models\\Connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|e:\\tanishq\\repository\\bhartinetworks\\bhartinetwork\\views\\home\\compliancescertifications.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|solutionrelative:bhartinetwork\\views\\home\\compliancescertifications.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|e:\\tanishq\\repository\\bhartinetworks\\bhartinetwork\\views\\home\\vendor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3B2D5A3A-065F-4CE1-8C76-EA4E22ECDB18}|BhartiNetwork\\BhartiNetwork.csproj|solutionrelative:bhartinetwork\\views\\home\\vendor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,50 +18,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:132:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Connection.cs",
-              "DocumentMoniker": "E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Models\\Connection.cs",
-              "RelativeDocumentMoniker": "BhartiNetwork\\Models\\Connection.cs",
-              "ToolTip": "E:\\Devendra2025\\BhartiNetworks\\BhartiNetwork\\Models\\Connection.cs",
-              "RelativeToolTip": "BhartiNetwork\\Models\\Connection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-18T08:13:38.016Z",
+              "Title": "compliancesCertifications.cshtml",
+              "DocumentMoniker": "E:\\Tanishq\\Repository\\BhartiNetworks\\BhartiNetwork\\Views\\Home\\compliancesCertifications.cshtml",
+              "RelativeDocumentMoniker": "BhartiNetwork\\Views\\Home\\compliancesCertifications.cshtml",
+              "ToolTip": "E:\\Tanishq\\Repository\\BhartiNetworks\\BhartiNetwork\\Views\\Home\\compliancesCertifications.cshtml",
+              "RelativeToolTip": "BhartiNetwork\\Views\\Home\\compliancesCertifications.cshtml",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAABMAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-08T06:33:53.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "vendor.cshtml",
+              "DocumentMoniker": "E:\\Tanishq\\Repository\\BhartiNetworks\\BhartiNetwork\\Views\\Home\\vendor.cshtml",
+              "RelativeDocumentMoniker": "BhartiNetwork\\Views\\Home\\vendor.cshtml",
+              "ToolTip": "E:\\Tanishq\\Repository\\BhartiNetworks\\BhartiNetwork\\Views\\Home\\vendor.cshtml",
+              "RelativeToolTip": "BhartiNetwork\\Views\\Home\\vendor.cshtml",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAAAGYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-06T10:49:57.044Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 64,
+          "DockedWidth": 1563,
           "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

@@ -532,10 +532,6 @@ E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
 E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
-<<<<<<< HEAD
-=======
-E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
->>>>>>> main
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\ApplicationInsights.config
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\csc.exe
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -587,14 +583,7 @@ E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\Newtonsoft.Json.xml
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Net.Http.Formatting.xml
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
-<<<<<<< HEAD
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csproj.AssemblyReference.cache
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csproj.CoreCompileInputs.cache
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNe.B427F8D8.Up2Date
-=======
+E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
->>>>>>> main

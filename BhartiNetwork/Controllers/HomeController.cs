@@ -644,9 +644,6 @@ namespace BhartiNetwork.Controllers
         {
             return View();
         }
-        public ActionResult Infrastructure()
-        {
-            return View();
-        }
+        
     }
 }
