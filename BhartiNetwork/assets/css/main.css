@@ -5468,6 +5468,8 @@ input.main-search-input::placeholder {
 
 .nice-select .current {
   margin-right: 12px;
+  overflow: hidden;
+    display: block;
 }
 
 .nice-select:after {
@@ -5484,6 +5486,8 @@ input.main-search-input::placeholder {
   width: 100%;
   text-transform: capitalize;
   color: var(--text);
+height: 200px;
+    overflow: scroll;
 }
 
 .nice-select .option.selected.focus {
@@ -5500,6 +5504,7 @@ input.main-search-input::placeholder {
 
 .nice-select .option:hover {
   background: transparent;
+color:#fff;
 }
 
 .head-color {
