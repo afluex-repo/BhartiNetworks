@@ -70,7 +70,6 @@
                         </div>
                     </div>
                 </div>
-                <<<<<<< HEAD
                 <div class="col-lg-4 col-xl-4 col-md-6 mb-3 wow fadeInUp" data-wow-delay=".5s">
                     <div class="service-box-items-2 activ shadow h-100">
                         <div class="icon">
@@ -87,62 +86,50 @@
                                 201306<br>
                             </p>
                         </div>
-                        =======
-                        <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                            <div class="icon-box mb-4">
-                                <div class="icon"><i class="bi bi-geo-alt"></i></div>
-                                <h4 class="title"><a>India</a></h4>
-                                <p class="description">
-                                    Bharti Networks<br />
-                                    Corporate Office (Delhi NCR) <br />
-                                    Office No:- O-888, 8th Floor, Gaur City Centre Greater Noida West, Greater Noida, Uttar Pradesh, India
-                                    201306<br />
-                                </p>
-                                >>>>>>> main
-                            </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-4 col-md-6 mb-3 wow fadeInUp" data-wow-delay=".7s">
+                    <div class="service-box-items-2 h-100 shadow">
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <div class="col-lg-4 col-xl-4 col-md-6 mb-3 wow fadeInUp" data-wow-delay=".7s">
-                            <div class="service-box-items-2 h-100 shadow">
-                                <div class="icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="content">
-                                    <h3>
-                                        <a href="service-details.html">Nepal</a>
-                                    </h3>
-                                    <p>
-                                        Bharti Networks<br>
-                                        Office No.5<br>
-                                        Anchalpur-9 In front of Varun Motors/Vidyut Office
-                                        Siddharthanagar,Rupendehi
-                                        Nepal<br>
-                                        Call : +977 982-1945614
-                                    </p>
-                                </div>
-                            </div>
+                        <div class="content">
+                            <h3>
+                                <a href="service-details.html">Nepal</a>
+                            </h3>
+                            <p>
+                                Bharti Networks<br>
+                                Office No.5<br>
+                                Anchalpur-9 In front of Varun Motors/Vidyut Office
+                                Siddharthanagar,Rupendehi
+                                Nepal<br>
+                                Call : +977 982-1945614
+                            </p>
                         </div>
-                        <div class="col-lg-4 col-xl-4 col-md-6 mb-3 wow fadeInUp" data-wow-delay=".9s">
-                            <div class="service-box-items-2 h-100 shadow">
-                                <div class="icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="content">
-                                    <h3>
-                                        <a href="service-details.html">UAE</a>
-                                    </h3>
-                                    <p>
-                                        Bharti Networks<br>
-                                        Flat No : 103,
-                                        Al Baraka Building
-                                        Al Satwa, Dubai, UAE<br>
-                                        Call : +971-48243144
-                                    </p>
-                                </div>
-                            </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-4 col-md-6 mb-3 wow fadeInUp" data-wow-delay=".9s">
+                    <div class="service-box-items-2 h-100 shadow">
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="content">
+                            <h3>
+                                <a href="service-details.html">UAE</a>
+                            </h3>
+                            <p>
+                                Bharti Networks<br>
+                                Flat No : 103,
+                                Al Baraka Building
+                                Al Satwa, Dubai, UAE<br>
+                                Call : +971-48243144
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 </section>
 
 <!--<< Contact Section Start >>-->
@@ -210,7 +197,7 @@
                                 <p class="wow fadeInUp" data-wow-delay=".5s">Your email address will not be published. Required fields are marked *</p>
                             </div> -->
 
-                        @using (Html.BeginForm("RealityContactUs", "Home", FormMethod.Post, new { @autocomplete = "off" }))
+                        @using (Html.BeginForm("ContactUs", "Home", FormMethod.Post, new { @autocomplete = "off" }))
                         {  <p style="color:red;">
                             @TempData["Contact"]
                         </p>
@@ -255,8 +242,8 @@
                                 <div class="col-lg-6 wow fadeInUp" data-wow-delay=".8s">
                                     <input type="submit"
                                            class="theme-btn"
-                                           id="btnContactUs"
-                                           name="btnContactUs"
+                                           id="ContactUs"
+                                           name="ContactUs"
                                            value="Send Message"
                                            onclick="return validateform()" />
                                 </div>

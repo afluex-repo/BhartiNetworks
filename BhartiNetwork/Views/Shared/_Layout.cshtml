@@ -41,7 +41,7 @@
                     B
                 </span>
                 <span data-text-preloader="H" class="letters-loading">
-                    H
+                    H 
                 </span>
                 <span data-text-preloader="A" class="letters-loading">
                     A
@@ -264,12 +264,7 @@
                                             <li>
                                                 <a href="/Home/Career">Career</a>
                                             </li>
-                                             <li>
-                                                <a href="/Home/Residential">Residential</a>
-                                            </li>
-                                        <li>
-                                                <a href="/Home/Commercial">Commercial</a>
-                                            </li>
+                                             
                                         </ul>
                                     </nav>
                                 </div>
@@ -438,49 +433,50 @@
         </div>
     </footer>
 
-
   <!-- Website Selection Modal -->
-  <!--<div class="modal fade"
+  <!-- Website Selection Modal -->
+  <div class="modal fade"
        id="websiteSelectModal"
        data-bs-backdrop="static"
        data-bs-keyboard="false"
        tabindex="-1"
        aria-hidden="true">
 
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content rounded-4 border-0 shadow-lg">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
+      <div class="modal-content border-0 shadow-lg rounded-4">
 
         <div class="modal-body text-center p-4 p-md-5">
 
-          <h4 class="fw-bold mb-4">Select Your Website</h4>
+          <h4 class="fw-bold mb-4 mb-md-5">Select Your Website</h4>
 
           <div class="row g-4 justify-content-center">
 
-           
+            <!-- Bharti Networks -->
             <div class="col-12 col-md-6">
-              <div class="p-4 border rounded-4 h-100 d-flex flex-column align-items-center justify-content-center website-box"
-                   onclick="window.location.href='https://www.bhartinetworks.com/'"
-                   style="cursor:pointer; transition:0.3s;">
+              <div class="border rounded-4 shadow-sm p-4 h-100 d-flex flex-column justify-content-center align-items-center text-center"
+                   role="button"
+                   onclick="selectWebsite('/Home/Index')">
 
-                <img src="https://www.bhartinetworks.com/assets/img/logo/logo-white.png"
+                <img src="/assets/img/BhartiNetworklogoPopup.png"
                      class="img-fluid mb-3"
-                     style="max-height:120px; object-fit:contain;"/>
+                     style="max-height:100px; object-fit:contain;" />
 
-                  <h6 class="fw-semibold mb-0">Bharti Networks</h6>
-                </div>
+                <h6 class="fw-semibold mb-0">Bharti Networks</h6>
+              </div>
             </div>
- 
+
+            <!-- Bharti Reality -->
             <div class="col-12 col-md-6">
-              <div class="p-4 border rounded-4 h-100 d-flex flex-column align-items-center justify-content-center website-box"
-                   onclick="window.location.href='https://modinatheme.com/html/visaland-html/'"
-                   style="cursor:pointer; transition:0.3s;">
+              <div class="border rounded-4 shadow-sm p-4 h-100 d-flex flex-column justify-content-center align-items-center text-center"
+                   role="button"
+                   onclick="selectWebsite('/Home/BhartiDetails')">
 
-                <img src="https://modinatheme.com/html/visaland-html/assets/img/logo/logo.svg"
+                <img src="/assets/img/BhartiRealitylogo.png"
                      class="img-fluid mb-3"
-                     style="max-height:120px; object-fit:contain;"/>
+                     style="max-height:100px; object-fit:contain;" />
 
-                  <h6 class="fw-semibold mb-0">Bharti Reality</h6>
-                </div>
+                <h6 class="fw-semibold mb-0">Bharti Reality</h6>
+              </div>
             </div>
 
           </div>
@@ -488,24 +484,39 @@
         </div>
       </div>
     </div>
-  </div> 
-  -->
-  <!-- Auto Open Script -->
+  </div>
+
+
+  <!-- Script -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-    var myModal = new bootstrap.Modal(document.getElementById('websiteSelectModal'));
-    myModal.show();
-    });
-  </script>
 
+    if (!localStorage.getItem("websiteSelected")) {
+    var myModal = new bootstrap.Modal(
+    document.getElementById('websiteSelectModal')
+    );
+    myModal.show();
+    }
+
+    });
+
+    function selectWebsite(url) {
+    localStorage.setItem("websiteSelected", "true");
+    window.location.href = url;
+    }
+  </script>
   <style>
+    .website-box {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+
     .website-box:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     background: #f8f9fa;
     }
   </style>
-  
     <!--<< All JS Plugins >>-->
     <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="~/assets/js/jquery-3.7.1.min.js"></script>
