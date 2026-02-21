@@ -644,6 +644,17 @@ namespace BhartiNetwork.Controllers
         {
             return View();
         }
-        
+        public ActionResult BhartiDetails()
+        {
+            return View();
+        }
+        public ActionResult Residential()
+        {
+            return View();
+        }
+        public ActionResult Commercial()
+        {
+            return View();
+        }
     }
 }
