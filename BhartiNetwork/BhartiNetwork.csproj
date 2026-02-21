@@ -1423,6 +1423,9 @@
     <Content Include="Views\Home\BhartiDetails.cshtml" />
     <Content Include="Views\Home\Residential.cshtml" />
     <Content Include="Views\Home\Commercial.cshtml" />
+    <Content Include="Views\Shared\_RealityLayout.cshtml" />
+    <Content Include="Views\Home\RealityContactUs.cshtml" />
+    <Content Include="Views\Home\RealityCareer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

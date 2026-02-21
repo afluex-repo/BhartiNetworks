@@ -656,5 +656,88 @@ namespace BhartiNetwork.Controllers
         {
             return View();
         }
+
+        public ActionResult RealityContactUs()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [ActionName("RealityContactUs")]
+        [OnAction(ButtonName = "btnContactUs")]
+        public ActionResult RealityContactUs(Home model)
+        {
+            try
+            {
+                model.AddedBy = "1";
+                DataSet ds = model.SaveContact();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Contact"] = "Contact Saved successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Contact"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Contact"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Contact"] = ex.Message;
+            }
+            return RedirectToAction("RealityContactUs", "Home");
+        }
+
+        public ActionResult RealityCareer()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ActionName("RealityCareer")]
+        public ActionResult RealityCareer(Home model, HttpPostedFileBase postedFile)
+        {
+            try
+            {
+                if (postedFile != null)
+                {
+                    model.Image = "../FileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
+                    postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
+                }
+                model.AddedBy = "1";
+                DataSet ds = model.SaveCareer();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["Career"] = "Career Details Saved Successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["Career"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["Career"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                TempData["Career"] = ex.Message;
+            }
+            return RedirectToAction("RealityCareer", "Home");
+
+        }
+
+
     }
 }
