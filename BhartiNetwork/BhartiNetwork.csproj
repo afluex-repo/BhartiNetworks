@@ -1309,6 +1309,7 @@
     <Content Include="assets\img\certificate2.pdf" />
     <Content Include="assets\img\certificate3.pdf" />
     <Content Include="assets\img\certificate4.pdf" />
+    <Content Include="assets\img\feature\featured1.webp" />
     <None Include="Properties\PublishProfiles\Bharteee.pubxml" />
     <None Include="Properties\PublishProfiles\BhartiNetwork.pubxml" />
     <None Include="Properties\PublishProfiles\BhartiNetwork_1.pubxml" />
@@ -1419,6 +1420,9 @@
     <Content Include="Views\Home\GlobalRecruitment.cshtml" />
     <Content Include="Views\Home\ItStaffing.cshtml" />
     <Content Include="Views\Home\Infrastructure.cshtml" />
+    <Content Include="Views\Home\BhartiDetails.cshtml" />
+    <Content Include="Views\Home\Residential.cshtml" />
+    <Content Include="Views\Home\Commercial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
