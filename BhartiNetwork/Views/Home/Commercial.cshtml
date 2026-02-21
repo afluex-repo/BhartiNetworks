@@ -1,0 +1,240 @@
+﻿@model BhartiNetwork.Models.Home
+@{
+ViewBag.Title = "Commercial";
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+ 
+
+<style>
+.property-card {
+  transition: 0.3s ease;
+overflow:hidden;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Ribbon */
+.ribbon {
+  position: absolute;
+  top: 15px;
+  left: -35px;
+  background: #1e3a8a;
+  color: #fff;
+  padding: 5px 40px;
+  font-size: 12px;
+  transform: rotate(-45deg);
+  font-weight: 600;
+}
+
+/* Mobile image adjustment */
+@@media (max-width: 576px) {
+  .card-img-top {
+    height: 200px !important;
+  }
+}
+</style>
+<div class="breadcrumb-wrapper section-padding bg-cover"
+   style="background-image: url('/assets/img/breadcrumb/Passive.jpg');">
+  <div class="container">
+    <div class="page-heading">
+      <h1 class="wow fadeInUp" data-wow-delay=".3s">Commercial</h1>
+      <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+        <li>
+          <a href="/Home/index">
+            Home
+          </a>
+        </li>
+        <li>
+          <i class="fal fa-minus"></i>
+        </li>
+        <li>
+          Commercial
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+ 
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- CARD 1 -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card property-card h-100 border-0 shadow">
+
+          <div class="position-relative">
+            <img src="../assets/img/service/commercial1.jpg"
+                 class="card-img-top"
+                 style="height:230px; object-fit:cover;">
+
+            <div class="ribbon">FOR SALE</div>
+          </div>
+
+          <div class="card-body d-flex flex-column">
+
+            <p class="text-muted small mb-1">
+              <i class="fas fa-location me-1 text-warning"></i>
+           Ansal API, Lucknow 
+            </p>
+
+            <h6 class="fw-bold">Summit Twin Tower</h6>
+
+            <p class="small text-muted mb-2">
+            RERA Number: UPRERAPRJ962033
+            </p>
+
+            <div class="d-flex justify-content-between small text-muted mb-3">
+              <span>Retail, Office, Commercial</span>
+              <span>1119</span>
+            </div>
+
+            <div class="mt-auto d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-warning">₹ 1.5Cr*</span>
+              <a href="#!" class="text-decoration-none small">
+                View Details →
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <!-- CARD 2 -->
+       <div class="col-12 col-md-6 col-lg-3">
+        <div class="card property-card h-100 border-0 shadow">
+
+          <div class="position-relative">
+            <img src="../assets/img/service/commercial2.jpg"
+                 class="card-img-top"
+                 style="height:230px; object-fit:cover;">
+            <div class="ribbon">FOR SALE</div>
+          </div>
+
+          <div class="card-body d-flex flex-column">
+
+            <p class="text-muted small mb-1">
+              <i class="fas fa-location me-1 text-warning"></i>
+            Amar Shaheed Path, Lucknow
+            </p>
+
+            <h6 class="fw-bold">Shalimar Business District</h6>
+
+            <p class="small text-muted mb-2">
+            RERA Number: UPRERAPRJ143786
+            </p>
+
+            <div class="d-flex justify-content-between small text-muted mb-3">
+              <span>Retail, Office, Commercial
+</span>
+              <span>1000</span>
+            </div>
+
+            <div class="mt-auto d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-warning">₹ On Request</span>
+              <a href="#" class="text-decoration-none small">
+                View Details →
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <!-- CARD 3 -->
+       <div class="col-12 col-md-6 col-lg-3">
+        <div class="card property-card h-100 border-0 shadow">
+
+          <div class="position-relative">
+            <img src="../assets/img/service/commercial3.jpg"
+                 class="card-img-top"
+                 style="height:230px; object-fit:cover;">
+            <div class="ribbon">FOR SALE</div>
+          </div>
+
+          <div class="card-body d-flex flex-column">
+
+            <p class="text-muted small mb-1">
+              <i class="fas fa-location me-1 text-warning"></i>
+           Vibhuti Khand, Gomti Nagar, Lucknow
+            </p>
+
+            <h6 class="fw-bold">Shalimar Iridium
+</h6>
+
+            <p class="small text-muted mb-2">
+            RERA Number: UPRERAPRJ17421
+
+            </p>
+
+            <div class="d-flex justify-content-between small text-muted mb-3">
+              <span>Retail, Office, Commercial</span>
+              <span>582</span>
+            </div>
+
+            <div class="mt-auto d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-warning">₹ On Request</span>
+              <a href="#!" class="text-decoration-none small">
+                View Details →
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+         
+ <!-- CARD 4 --> 
+       <div class="col-12 col-md-6 col-lg-3">
+        <div class="card property-card h-100 border-0 shadow">
+
+          <div class="position-relative">
+            <img src="../assets/img/service/commercial4.jpg"
+                 class="card-img-top"
+                 style="height:230px; object-fit:cover;">
+            <div class="ribbon">FOR SALE</div>
+          </div>
+
+          <div class="card-body d-flex flex-column">
+
+            <p class="text-muted small mb-1">
+              <i class="fas fa-location me-1 text-warning"></i>
+             Vibhuti Khand, Gomti Nagar, Lucknow
+
+            </p>
+
+            <h6 class="fw-bold">DLF MyPad
+</h6>
+
+            <p class="small text-muted mb-2">
+      RERA Number: UPRERAPRJ4882
+
+            </p>
+
+            <div class="d-flex justify-content-between small text-muted mb-3">
+              <span>Retail, Office, Commercial
+</span>
+              <span>315 - 630
+</span>
+            </div>
+
+            <div class="mt-auto d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-warning">₹ 75 Lacs*</span>
+              <a href="#!" class="text-decoration-none small">
+                View Details →
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

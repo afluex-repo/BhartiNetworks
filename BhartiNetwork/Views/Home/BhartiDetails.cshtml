@@ -1,0 +1,594 @@
+﻿@model BhartiNetwork.Models.Home
+@{
+ViewBag.Title = "BhartiDetails";
+Layout = "~/Views/Shared/_RealityLayout.cshtml";
+}
+<style>
+   .PopularOverlay {
+   position: absolute;
+   inset: 0;
+   background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+   }
+
+#video-breadcrumb-section {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+/* Video */
+#video-breadcrumb-section .bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Dark Overlay */
+#video-breadcrumb-section .video-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Content Center */
+#video-breadcrumb-section .content-wrapper {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive */
+@@media (max-width: 768px) {
+    #video-breadcrumb-section {
+        height: 300px;
+    }
+}
+
+
+      
+</style>
+
+<div id="video-breadcrumb-section">
+
+   <!-- Background Video -->
+   <video autoplay muted loop playsinline class="bg-video">
+      <source src="../assets/img/videoplayback.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+   </video>
+
+   <!-- Overlay -->
+   <div class="video-overlay"></div>
+
+   <!-- Content -->
+   <div class="content-wrapper text-center text-white visually-hidden">
+      <h1 class="wow fadeInUp" data-wow-delay=".3s">Passive</h1>
+
+      <ul class="breadcrumb-items list-inline wow fadeInUp" data-wow-delay=".5s">
+         <li class="list-inline-item">
+            <a href="/Home/index" class="text-white text-decoration-none">
+               Home
+            </a>
+         </li>
+         <li class="list-inline-item">
+            <i class="fal fa-minus"></i>
+         </li>
+         <li class="list-inline-item">
+            Passive
+         </li>
+      </ul>
+   </div>
+
+</div>
+
+
+
+<section class="feature-icon-box-area">
+   <div class="container">
+      <div class="feature-icon-box-wrapper p-3 bg-transparent">
+         <div class="row g-4">
+
+            <!-- Apartments -->
+            <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+               <div class="icon-box-items flex-column shadow p-3 h-100 bg-light">
+                  <div class="icon border shadow">
+                     <i class="fas fa-building"></i>
+                  </div>
+                  <div class="content">
+                     <h3>Apartments/Flat</h3>
+                     <p>
+                        Luxury to ultra-premium apartments in Lucknow. Experience higher than average levels of comfort, quality and convenience with extra amenities.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Commercial -->
+            <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+               <div class="icon-box-items flex-column shadow p-3 h-100 bg-light">
+                      <div class="icon border shadow">
+                     <i class="fas fa-briefcase"></i>
+                  </div>
+                  <div class="content">
+                     <h3>Commercial</h3>
+                     <p>
+                        Commercial real estate in Lucknow include: office space, industrial, and retail. Get complete details of property specifications from Abode Realty.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Plots -->
+            <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+               <div class="icon-box-items flex-column shadow p-3 h-100 bg-light">
+                     <div class="icon border shadow">
+					   <i class="fa fa-sitemap" aria-hidden="true"></i>
+					  </div>
+                  <div class="content">
+                     <h3>Plots</h3>
+                     <p>
+                        Residential and commercial plots for sale in Lucknow with small to large plot size and well connectivity from highways and roads.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Lease -->
+              <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+               <div class="icon-box-items flex-column shadow p-3 h-100 bg-light">
+                  <div class="icon border shadow">
+                     <i class="fas fa-file-signature"></i>
+                  </div>
+                  <div class="content">
+                     <h3>Lease</h3>
+                     <p>
+                        Residential and commercial leasing options in Lucknow with flexible agreements and strong road connectivity.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</section>
+<!--<< About Section Start >>-->
+<section class="about-section fix section-padding">
+   <div class="container">
+      <div class="about-wrapper">
+         <div class="row">
+            <div class="col-lg-6">
+               <div class="about-image-items">
+                  <div class="border-shape">
+                     <img src="/assets/img/about/border-shape.png" alt="shape-img">
+                  </div>
+                  <div class="about-image bg-cover wow fadeInLeft" data-wow-delay=".3s"
+                     style="background-image: url('/assets/img/about/about.jpg');">
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6 mt-5 mt-lg-0">
+               <div class="about-content">
+                  <div class="section-title">
+                     <h2 class="wow fadeInUp" data-wow-delay=".3s">
+                        We will help you in every way possible to locate your next residence.
+                     </h2>
+                  </div>
+                  <p class="mt-4 mt-md-0 wow fadeInUp" data-wow-delay=".5s">
+                     Mr. Amit Rastogi has been a steadfast pillar of strength, playing a crucial role in laying the foundation of Abode. As a business graduate from Bangalore University with over 22 years of experience in the real estate industry, he brings a wealth of extensive experience in the industry and is well-equipped to lead Adobe Realty to success. His exceptional leadership and commitment to excellence have propelled Abode to surpass its competitors and achieve success.
+                  </p>
+                  <div class="about-author">
+                     <div class="about-button wow fadeInUp" data-wow-delay=".8s">
+                        <a href="/Home/ContactUs" class="theme-btn">
+                        <span>
+                        Contact Us
+                        <i class="fas fa-chevron-right"></i>
+                        </span>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="py-5" style="background:#1e67a8;">
+   <div class="container-fluid">
+      <div class="row text-center text-white">
+         <!-- 1 -->
+         <div class="col-lg-3 col-md-6 border-end">
+            <div class="py-4">
+               <i class="fa fa-crown fs-2 mb-3 text-warning"></i>
+               <h5 class="mb-0 text-white">22+ Years of Experience</h5>
+            </div>
+         </div>
+         <!-- 2 -->
+         <div class="col-lg-3 col-md-6 border-end">
+            <div class="py-4">
+               <i class="fa fa-users fs-2 mb-3 text-warning"></i>
+               <h5 class="mb-0 text-white">500+ Satisfied Clients</h5>
+            </div>
+         </div>
+         <!-- 3 -->
+         <div class="col-lg-3 col-md-6 border-end">
+            <div class="py-4">
+               <i class="fa fa-map-marker fs-2 mb-3 text-warning"></i>
+               <h5 class="mb-0 text-white">8+ Locations Covered</h5>
+            </div>
+         </div>
+         <!-- 4 -->
+         <div class="col-lg-3 col-md-6">
+            <div class="py-4">
+               <i class="fa fa-star fs-2 mb-3 text-warning"></i>
+               <h5 class="mb-0 text-white">18+ Awards</h5>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="py-5 bg-light">
+   <div class="container">
+      <div class="section-title text-center">
+         <h2 class="text-capitalize text-decoration-none">Featured Properties For Sale</h2>
+         <p class="fw-bold">Look no further than the highlighted, magnificent home for your next stay. The surrounding area is charming, sophisticated, and visually stunning.
+         </p>
+      </div>
+      <div class="row g-4">
+         <!-- LEFT BIG PROPERTY -->
+         <div class="col-12 col-lg-7">
+            <div class="card h-100 shadow border-0">
+               <img src="../assets/img/feature/featured1.jpg"
+                  class="card-img-top img-fluid"
+                  style="height:350px; object-fit:cover;">
+               <div class="card-body">
+                  <h5 class="fw-bold">
+                     Shalimar Sky Garden – Luxury 3/4 BHK Apartments
+                  </h5>
+                  <p class="text-muted">
+                     Shalimar Sky Garden is a highly sought-after residential project and offers luxurious flats in Lucknow.This luxury residential project offers luxury apartments like 3 BHK and 4 BHK luxury flats at the heart of Vibhuti Khand, Gomti Nagar. Designed for people who wish to have that perfect fusion of luxury and contemporary lifestyle, these luxury residential projects redefine sophisticated living.
+                  </p>
+                  <div class="d-flex flex-wrap gap-3 small text-muted mb-3">
+                     <span>3/4 BHK</span>
+                     <span>2300 sqft</span>
+                     <span>2 Baths</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                     <h6 class="text-warning fw-bold mb-0">
+                        ₹ 2.42 – 3.44 Cr*
+                     </h6>
+                     <a href="#" class="btn btn-outline-dark btn-sm">
+                     View Details
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- RIGHT SIDE SMALL PROPERTIES -->
+         <div class="col-12 col-lg-5">
+            <div class="row g-4">
+               <!-- Card 1 -->
+               <div class="col-12">
+                  <div class="card shadow border-0">
+                     <div class="row g-0">
+                        <div class="col-12 col-md-5">
+                           <img src="../assets/img/feature/featured2.jpg"
+                              class="img-fluid h-100 w-100"
+                              style="object-fit:cover;">
+                        </div>
+                        <div class="col-12 col-md-7">
+                           <div class="card-body">
+                              <h6 class="fw-bold">Orange Castle</h6>
+                              <p class="small text-muted mb-1">RERA Number: <a href="#!">UPRERAPRJ748790/01/2025</a></p>
+                              <p class="small text-muted mb-1">3 BHK • 1860 sqft</p>
+                              <p class="text-warning fw-semibold mb-2">₹ 1.7 Cr*</p>
+                              <a href="#" class="btn btn-link p-0 small">
+                              View Details
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- Card 2 -->
+               <div class="col-12">
+                  <div class="card shadow border-0">
+                     <div class="row g-0">
+                        <div class="col-12 col-md-5">
+                           <img src="../assets/img/feature/featured3.jpg"
+                              class="img-fluid h-100 w-100"
+                              style="object-fit:cover;">
+                        </div>
+                        <div class="col-12 col-md-7">
+                           <div class="card-body">
+                              <h6 class="fw-bold">Eldeco Hanging Gardens</h6>
+                              <p class="small text-muted mb-1">RERA Number: <a href="#!">UPRERAPRJ748790/01/2025</a></p>
+                              <p class="small text-muted mb-1">3 BHK • 1914 sqft</p>
+                              <p class="text-warning fw-semibold mb-2">₹ 1.35 Cr*</p>
+                              <a href="#" class="btn btn-link p-0 small">
+                              View Details
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- Card 3 -->
+               <div class="col-12">
+                  <div class="card shadow border-0">
+                     <div class="row g-0">
+                        <div class="col-12 col-md-5">
+                           <img src="../assets/img/feature/featured4.jpg"
+                              class="img-fluid h-100 w-100"
+                              style="object-fit:cover;">
+                        </div>
+                        <div class="col-12 col-md-7">
+                           <div class="card-body">
+                              <h6 class="fw-bold">Rishita Mulberry Heights</h6>
+                              <p class="small text-muted mb-1">RERA Number: <a href="#!">UPRERAPRJ748790/01/2025</a></p>
+                              <p class="small text-muted mb-1">2/3 BHK</p>
+                              <p class="text-warning fw-semibold mb-2">₹ 1.10 Cr*</p>
+                              <a href="#" class="btn btn-link p-0 small">
+                              View Details
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+
+<section class="py-5" style="background-color: #e8e8ef;">
+   <div class="container">
+      <div class="section-title text-center">
+         <h2 class="text-capitalize text-decoration-none">Popular Neighborhoods</h2>
+         <p class="text-muted">
+            I assist my customers in identifying their fundamental goals for buying or selling
+            property, and I attentively handle the process from beginning to end.
+         </p>
+      </div>
+      <div class="row g-4 align-items-center">
+         <!-- Left Column -->
+         <div class="col-lg-4">
+            <div class="row g-4">
+               <!-- Ayodhya -->
+               <div class="col-12">
+                  <div class="position-relative overflow-hidden rounded-4">
+                     <img src="../assets/img/feature/popular1.jpg"
+                        class="img-fluid w-100" style="height:220px; object-fit:cover;">
+                     <div class="PopularOverlay"></div>
+                     <div class="position-absolute bottom-0 start-0 text-white p-3">
+                        <i class="fa-solid fa-location-dot text-warning me-2"></i>
+                        <strong>Ayodhya</strong>
+                     </div>
+                  </div>
+               </div>
+               <!-- Prayagraj -->
+               <div class="col-12">
+                  <div class="position-relative overflow-hidden rounded-4">
+                     <img src="../assets/img/feature/popular2.jpg"
+                        class="img-fluid w-100" style="height:220px; object-fit:cover;">
+                     <div class="PopularOverlay"></div>
+                     <div class="position-absolute bottom-0 start-0 text-white p-3">
+                        <i class="fa-solid fa-location-dot text-warning me-2"></i>
+                        <strong>Prayagraj</strong><br>
+                        <small>SOON</small>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Center Big Image -->
+         <div class="col-lg-4">
+            <div class="position-relative overflow-hidden rounded-4 h-100">
+               <img src="../assets/img/feature/popular3.jpg"
+                  class="img-fluid w-100"
+                  style="object-fit:cover;">
+               <div class="PopularOverlay"></div>
+               <div class="position-absolute bottom-0 start-0 text-white p-4">
+                  <i class="fa-solid fa-location-dot text-warning me-2"></i>
+                  <h5 class="mb-0 fw-bold text-white">Lucknow</h5>
+               </div>
+            </div>
+         </div>
+         <!-- Right Column -->
+         <div class="col-lg-4">
+            <div class="row g-4">
+               <!-- Varanasi -->
+               <div class="col-12">
+                  <div class="position-relative overflow-hidden rounded-4">
+                     <img src="../assets/img/feature/popular4.jpg"
+                        class="img-fluid w-100" style="height:220px; object-fit:cover;">
+                     <div class="PopularOverlay"></div>
+                     <div class="position-absolute bottom-0 start-0 text-white p-3">
+                        <i class="fa-solid fa-location-dot text-warning me-2"></i>
+                        <strong>Varanasi</strong><br>
+                        <small>SOON</small>
+                     </div>
+                  </div>
+               </div>
+               <!-- Delhi -->
+               <div class="col-12">
+                  <div class="position-relative overflow-hidden rounded-4">
+                     <img src="../assets/img/feature/popular5.jpg"
+                        class="img-fluid w-100" style="height:220px; object-fit:cover;">
+                     <div class="PopularOverlay"></div>
+                     <div class="position-absolute bottom-0 start-0 text-white p-3">
+                        <i class="fa-solid fa-location-dot text-warning me-2"></i>
+                        <strong>Delhi/NCR</strong><br>
+                        <small>SOON</small>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="py-5 bg-light">
+   <div class="container">
+      <div class="section-title text-center">
+         <p class="fw-bold">How It Works</p>
+         <h2 class="text-capitalize text-decoration-none">Simple steps to find your perfect property</h2>
+      </div>
+      <div class="row g-4">
+         <!-- Step 1 -->
+         <div class="col-12 col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm text-center p-4 h-100">
+               <div class="mb-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width:65px;height:65px;">
+                     1
+                  </div>
+               </div>
+               <h5 class="fw-semibold">Search Property</h5>
+               <p class="text-muted small">
+                  Browse apartments, houses, and plots based on your location, budget, and needs.
+               </p>
+            </div>
+         </div>
+         <!-- Step 2 -->
+         <div class="col-12 col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm text-center p-4 h-100">
+               <div class="mb-3">
+                  <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width:65px;height:65px;">
+                     2
+                  </div>
+               </div>
+               <h5 class="fw-semibold">Schedule Visit</h5>
+               <p class="text-muted small">
+                  Book a site visit or virtual tour to explore the property with our agents.
+               </p>
+            </div>
+         </div>
+         <!-- Step 3 -->
+         <div class="col-12 col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm text-center p-4 h-100">
+               <div class="mb-3">
+                  <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width:65px;height:65px;">
+                     3
+                  </div>
+               </div>
+               <h5 class="fw-semibold">Finalize Deal</h5>
+               <p class="text-muted small">
+                  Negotiate price, check documents, and finalize the deal securely.
+               </p>
+            </div>
+         </div>
+         <!-- Step 4 -->
+         <div class="col-12 col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm text-center p-4 h-100">
+               <div class="mb-3">
+                  <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width:65px;height:65px;">
+                     4
+                  </div>
+               </div>
+               <h5 class="fw-semibold">Get Your Property</h5>
+               <p class="text-muted small">
+                  Complete paperwork and move into your new home or investment property.
+               </p>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="py-5" style="background-color: #e8e8ef;">
+   <div class="container aos-init aos-animate" data-aos="fade-up">
+      <div class="row content">
+         <div class="col-md-12 col-lg-12 col-12">
+            <div class="section-title text-center">
+               <h2 class="text-capitalize text-decoration-none">Testimonials</h2>
+            </div>
+         </div>
+         <div class="col-lg-4 col-md-6 mb-4">
+            <a href="#!">
+               <div class="card shadow rounded hvr-float-shadow">
+                  <img src="../assets/img/clients/user1.jpg" class="card-img-top" alt="business">
+                  <div class="card-body text-center">
+                     <h5 class="card-title text-dark">Brilliant Service</h5>
+                     <p>
+                        I know dear Amit since the FIRST day of his this successful journey and have seen him grow to today's success. Since I am witness to his intelligence and sincere hard work I can vouch for his honesty and dedication towards his profession which certainly has a very bright future.
+                     </p>
+                  </div>
+                  <div class="card-footer d-flex justify-content-between align-items-center flex-wrap">
+                     <div>
+                        <h6 class="mb-0">Ramesh Thapar</h6>
+                     </div>
+                     <div class="text-warning">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                     </div>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class="col-lg-4 col-md-6 mb-4">
+            <a href="#!">
+               <div class="card shadow rounded hvr-float-shadow">
+                  <img src="../assets/img/clients/user2.jpg" class="card-img-top" alt="business">
+                  <div class="card-body text-center">
+                     <h5 class="card-title text-dark">Brilliant Service</h5>
+                     <p>
+                        I've had the privilege of knowing dear Amit since the inception of his remarkable journey, and it's been awe-inspiring to witness his evolution into the success story he is today. From day one, it was evident that his intelligence and unwavering dedication were unparalleled.
+                     </p>
+                  </div>
+                  <div class="card-footer d-flex justify-content-between align-items-center flex-wrap">
+                     <div>
+                        <h6 class="mb-0">Rajesh Singh</h6>
+                     </div>
+                     <div class="text-warning">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                     </div>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class="col-lg-4 col-md-6 mb-4">
+            <a href="#!">
+               <div class="card shadow rounded hvr-float-shadow">
+                  <img src="../assets/img/clients/user3.jpg" class="card-img-top" alt="business">
+                  <div class="card-body text-center">
+                     <h5 class="card-title text-dark">Very Skilled Agent</h5>
+                     <p> 
+                        I am pleased to congratulate Mr Amit Rastogi for his new venture Abode Realty. Amit has worked with me in a real estate firm and I can vouch for his sincerity and honesty. I wish him good luck for his future.
+                     </p>
+                  </div>
+                  <div class="card-footer d-flex justify-content-between align-items-center flex-wrap">
+                     <div>
+                        <h6 class="mb-0">C.G.Shekhar</h6>
+                     </div>
+                     <div class="text-warning">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                     </div>
+                  </div>
+               </div>
+            </a>
+         </div>
+      </div>
+   </div>
+</section>
