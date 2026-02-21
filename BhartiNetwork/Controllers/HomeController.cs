@@ -97,6 +97,10 @@ namespace BhartiNetwork.Controllers
         {
             return View();
         }
+        public ActionResult Infrastructure()
+        {
+            return View();
+        }
         public ActionResult ManpowerOutsourcing()
         {
             return View();
@@ -640,9 +644,6 @@ namespace BhartiNetwork.Controllers
         {
             return View();
         }
-        public ActionResult Infrastructure()
-        {
-            return View();
-        }
+        
     }
 }
