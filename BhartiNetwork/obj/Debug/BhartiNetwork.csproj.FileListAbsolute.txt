@@ -532,18 +532,18 @@ E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
 E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 E:\RISHI\REPOSITORY\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
+E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\System.Reflection.Metadata.dll
+E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\VBCSCompiler.exe
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\ApplicationInsights.config
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\csc.exe
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.dll
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.CSharp.Core.targets
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\Microsoft.VisualBasic.Core.targets
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\System.Collections.Immutable.dll
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\System.Reflection.Metadata.dll
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\vbc.exe
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\VBCSCompiler.exe
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\roslyn\VBCSCompiler.exe.config
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\BhartiNetwork.dll.config
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\BhartiNetwork.dll
@@ -585,4 +585,3 @@ E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.xml
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
-E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
