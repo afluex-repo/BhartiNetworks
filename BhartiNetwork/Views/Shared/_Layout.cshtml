@@ -27,6 +27,7 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
    
      <title> @ViewBag.Title </title>
+   
 </head>
 
 <body>
@@ -56,7 +57,7 @@
                     I
                 </span>
             </div>
-            <p class="text-center">Networks</p>
+           <!--<p class="text-center">Networks</p>-->
         </div>
         <div class="loader">
             <div class="row">
@@ -432,8 +433,9 @@
             </a>
         </div>
     </footer>
-
-  <!-- Website Selection Modal -->
+  
+ 
+  
   <!-- Website Selection Modal -->
   <div class="modal fade"
        id="websiteSelectModal"
@@ -453,7 +455,7 @@
 
             <!-- Bharti Networks -->
             <div class="col-12 col-md-6">
-              <div class="border rounded-4 shadow-sm p-4 h-100 d-flex flex-column justify-content-center align-items-center text-center"
+              <div class="border rounded-4 website-card-custom shadow-sm p-4 h-100 d-flex flex-column justify-content-center align-items-center text-center"
                    role="button"
                    onclick="selectWebsite('/Home/Index')">
 
@@ -467,7 +469,7 @@
 
             <!-- Bharti Reality -->
             <div class="col-12 col-md-6">
-              <div class="border rounded-4 shadow-sm p-4 h-100 d-flex flex-column justify-content-center align-items-center text-center"
+              <div class="border rounded-4 website-card-custom shadow-sm p-4 h-100 d-flex flex-column justify-content-center align-items-center text-center"
                    role="button"
                    onclick="selectWebsite('/Home/BhartiDetails')">
 
@@ -475,7 +477,7 @@
                      class="img-fluid mb-3"
                      style="max-height:100px; object-fit:contain;" />
 
-                <h6 class="fw-semibold mb-0">Bharti Reality</h6>
+                <h6 class="fw-semibold mb-0">Bharti Realty</h6>
               </div>
             </div>
 
@@ -505,18 +507,7 @@
     window.location.href = url;
     }
   </script>
-  <style>
-    .website-box {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    }
-
-    .website-box:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    background: #f8f9fa;
-    }
-  </style>
+ 
     <!--<< All JS Plugins >>-->
     <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="~/assets/js/jquery-3.7.1.min.js"></script>
