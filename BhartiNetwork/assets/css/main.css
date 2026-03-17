@@ -1,4 +1,4 @@
-/*
+﻿/*
 Theme Name: Netband
 Author: Modina Theme
 Author URI: https://themeforest.net/user/modinatheme/
@@ -11468,3 +11468,31 @@ width: 200px;
         .header-1.sticky {
             background: rgba(5, 87, 158, 0.9);
         }
+
+
+    /* open modal window*/
+          #websiteSelectModal.show{
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* 🔹 Card animation */
+#websiteSelectModal .website-card-custom {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* 🔹 Hover effect */
+#websiteSelectModal .website-card-custom:hover {
+    transform: translateY(-12px) scale(1.04);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* 🔹 Image zoom */
+#websiteSelectModal .website-card-custom img {
+    transition: transform 0.3s ease;
+}
+
+#websiteSelectModal .website-card-custom:hover img {
+    transform: scale(1.06);
+}
