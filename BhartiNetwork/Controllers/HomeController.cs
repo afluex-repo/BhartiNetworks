@@ -738,6 +738,54 @@ namespace BhartiNetwork.Controllers
 
         }
 
+        public ActionResult RealityEmployeeRegistration()
+        {
+           
+            return View();
+        }
+        [HttpPost]
+        [ActionName("RealityEmployeeRegistration")]
+        public ActionResult RRegistraion(Home model, HttpPostedFileBase postedFile)
+        {
+            try
+            {
+                if (postedFile != null)
+                {
+                    model.Image = "../EmployeeFileUpload/" + Guid.NewGuid() + Path.GetExtension(postedFile.FileName);
+                    postedFile.SaveAs(Path.Combine(Server.MapPath(model.Image)));
+                }
+                Random rnd = new Random();
+                string Pass = rnd.Next(111111, 999999).ToString();
+                model.Password = Pass;
+                model.DOB = string.IsNullOrEmpty(model.DOB) ? null : Comman.ConvertToSystemDate(model.DOB, "dd/MM/yyyy");
+                model.Mobile = model.CountryCode + model.Mobile;
+                DataSet ds = model.EmpRegistration();
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    if (ds.Tables[0].Rows[0][0].ToString() == "1")
+                    {
+                        TempData["EmpRegistration"] = "Registration save successfully";
+                    }
+                    else if (ds.Tables[0].Rows[0][0].ToString() == "0")
+                    {
+                        TempData["EmpRegistration"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                    }
+                }
+                else
+                {
+                    TempData["EmpRegistration"] = ds.Tables[0].Rows[0]["ErrorMessage"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["EmpRegistration"] = ex.Message;
+            }
+            return RedirectToAction("RealityEmployeeRegistration", "Home");
+        }
+
+
+
+
 
     }
 }

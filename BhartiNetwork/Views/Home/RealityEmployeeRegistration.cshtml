@@ -1,10 +1,11 @@
 ﻿@model BhartiNetwork.Models.Home
 
 @{
-    ViewBag.Title = "EmployeeRegistration";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "RealityEmployeeRegistration";
+    Layout = "~/Views/Shared/_RealityLayout.cshtml";
 }
-@using (Html.BeginForm("EmployeeRegistration", "Home", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
+
+@using (Html.BeginForm("RealityEmployeeRegistration", "Home", FormMethod.Post, new { @id = "signupForm", enctype = "multipart/form-data" }))
 {
     <div class="breadcrumb-wrapper section-padding bg-cover"
          style="background-image: url('/assets/img/breadcrumb/EmployeeRegistration.jpg');">
@@ -315,11 +316,11 @@
     </section>
 }
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="~/vendor/jquery/jquery.min.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
-    <script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="~/vendor/jquery/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+<script>
         $('#DOB').datepicker({
             dateFormat: 'dd/mm/yy',
             changeYear: true,
@@ -412,11 +413,15 @@
         }
 
 
-    </script>
+</script>
 
-    <style>
-        .errortext {
-            border: 1px solid red !important;
-            background-color: #fff0f0 !important;
-        }
-    </style>
+<style>
+    .errortext {
+        border: 1px solid red !important;
+        background-color: #fff0f0 !important;
+    }
+</style>
+
+
+
+
