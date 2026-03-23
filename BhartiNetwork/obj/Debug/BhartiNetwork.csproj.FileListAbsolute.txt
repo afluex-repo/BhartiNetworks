@@ -586,4 +586,3 @@ E:\Devendra2025\BhartiNetworks\BhartiNetwork\bin\System.Web.Http.WebHost.xml
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.dll
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.pdb
 E:\Devendra2025\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
-E:\Tanishq\Repository\BhartiNetworks\BhartiNetwork\obj\Debug\BhartiNetwork.csprojResolveAssemblyReference.cache
